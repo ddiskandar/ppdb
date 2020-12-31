@@ -15,6 +15,10 @@ class CreateSchoolsTable extends Migration
     {
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
+            $table->string('npsn');
+            $table->string('name');
+            $table->text('address');
+            $table->integer('last_student');
             $table->timestamps();
         });
     }

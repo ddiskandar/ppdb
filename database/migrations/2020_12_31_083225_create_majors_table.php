@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMayorsTable extends Migration
+class CreateMajorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateMayorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('mayors', function (Blueprint $table) {
+        Schema::create('majors', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('last_student');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateMayorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mayors');
+        Schema::dropIfExists('majors');
     }
 }
