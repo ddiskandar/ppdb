@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MasterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::middleware(['role:admin'])->group(function () {
 
-        Route::get('/master', function () {
-            return view('admin.master');
-        })->name('master');
+        Route::get('/master', [MasterController::class, 'index'])->name('master');
         
     });
 
