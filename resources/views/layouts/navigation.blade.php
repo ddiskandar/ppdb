@@ -41,7 +41,7 @@
             <div class="hidden lg:flex lg:items-center lg:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="flex items-center text-sm font-medium text-gray-400 transition duration-150 ease-in-out hover:text-gray-300 hover:border-gray-300 focus:outline-none focus:text-gray-400 focus:border-gray-300">
+                        <button class="flex items-center text-base font-medium text-gray-400 transition duration-150 ease-in-out hover:text-gray-300 hover:border-gray-300 focus:outline-none focus:text-gray-400 focus:border-gray-300">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">
@@ -125,6 +125,10 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('master')">
+                    {{ __('Setting') }}
+                </x-responsive-nav-link>
+
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
