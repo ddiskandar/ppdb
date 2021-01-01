@@ -18,7 +18,23 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/master', function () {
+    return view('admin.master');
+})->middleware(['auth'])->name('master');
+
+Route::get('/pendaftaran', function () {
+    return view('admin.pendaftaran');
+})->middleware(['auth'])->name('pendaftaran');
+
+Route::get('/pembayaran', function () {
+    return view('admin.pembayaran');
+})->middleware(['auth'])->name('pembayaran');
+
+Route::get('/seleksi', function () {
+    return view('admin.seleksi');
+})->middleware(['auth'])->name('seleksi');
 
 require __DIR__.'/auth.php';
