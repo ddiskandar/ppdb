@@ -55,6 +55,9 @@
                             </table>
                         </div>
                     </div>
+
+                    {{ $schools->links() }}
+
                 </div>
             </div>
         </div>

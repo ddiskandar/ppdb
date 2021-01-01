@@ -4,9 +4,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\School;
+use Livewire\WithPagination;
 
 class MasterSchool extends Component
 {
+    use WithPagination;
+
     public $name;
     public $npsn;
     public $address;
@@ -46,7 +49,7 @@ class MasterSchool extends Component
     public function render()
     {
         return view('livewire.master-school', [
-            'schools' => School::all()
+            'schools' => School::paginate(7)
         ]);
     }
 }
