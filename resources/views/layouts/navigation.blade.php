@@ -14,13 +14,14 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                        {{ __('Home') }}
-                    </x-nav-link>
+                    
+                    
+                    @hasrole('super-admin|admin|committee|interviewer')
 
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    
 
                     <x-nav-link :href="route('master')" :active="request()->routeIs('master')">
                         {{ __('Data Master') }}
@@ -37,6 +38,14 @@
                     <x-nav-link :href="route('seleksi')" :active="request()->routeIs('seleksi')">
                         {{ __('Seleksi') }}
                     </x-nav-link>
+
+                    @else
+
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ __('Home') }}
+                    </x-nav-link>
+
+                    @endhasrole
 
                 </div>
             </div>

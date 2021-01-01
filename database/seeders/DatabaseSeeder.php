@@ -15,9 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             MajorSeeder::class,
-            SchoolSeeder::class
+            SchoolSeeder::class,
+            PermissionsSeeder::class
         ]);
         
-        \App\Models\User::factory(10)->create();
+        $users = \App\Models\User::factory(10)->create();
     }
 }

@@ -17,28 +17,43 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('siswa.home');
-})->middleware(['auth'])->name('home');
+Route::middleware(['auth'])->group(function(){
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth'])->name('dashboard');
+    Route::middleware(['role:admin'])->group(function () {
 
-Route::get('/master', function () {
-    return view('admin.master');
-})->middleware(['auth'])->name('master');
+        Route::get('/master', function () {
+            return view('admin.master');
+        })->name('master');
+        
+    });
 
-Route::get('/pendaftaran', function () {
-    return view('admin.pendaftaran');
-})->middleware(['auth'])->name('pendaftaran');
+    Route::middleware(['role:committee|admin'])->group(function () {
 
-Route::get('/pembayaran', function () {
-    return view('admin.pembayaran');
-})->middleware(['auth'])->name('pembayaran');
+        Route::get('/pendaftaran', function () {
+            return view('admin.pendaftaran');
+        })->name('pendaftaran');
 
-Route::get('/seleksi', function () {
-    return view('admin.seleksi');
-})->middleware(['auth'])->name('seleksi');
+        Route::get('/pembayaran', function () {
+            return view('admin.pembayaran');
+        })->name('pembayaran');
+    });
+
+    Route::middleware(['role:interviewer|committee|admin'])->group(function () {
+
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('dashboard');
+
+        Route::get('/seleksi', function () {
+            return view('admin.seleksi');
+        })->name('seleksi');
+
+    });
+
+    Route::get('/home', function () {
+        return view('siswa.home');
+    })->name('home');
+
+});
 
 require __DIR__.'/auth.php';
