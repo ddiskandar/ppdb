@@ -14,6 +14,10 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                        {{ __('Home') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
@@ -42,7 +46,11 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="flex items-center text-base font-medium text-gray-400 transition duration-150 ease-in-out hover:text-gray-300 hover:border-gray-300 focus:outline-none focus:text-gray-400 focus:border-gray-300">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16.154" height="16.154"><path data-name="Path 34" d="M2.286 12.964a11.8 11.8 0 0111.583 0M10.6 6.393a2.526 2.526 0 11-2.526-2.526A2.526 2.526 0 0110.6 6.393zm5.051 1.684A7.577 7.577 0 118.077.5a7.577 7.577 0 017.577 7.577z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            
+                            <div class="ml-2">{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">
                                 <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">

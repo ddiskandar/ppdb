@@ -26,7 +26,7 @@
                 <div>
                     Periode aktif
                 </div>
-                <div class="font-semibold">
+                <div class="font-bold">
                     Gelombang 1, 01 Januari 2020 - 30 Februari 2020
                 </div>
             </div>
@@ -34,7 +34,7 @@
     </header>
 
     <div class="py-4">
-        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white">
                 <div class="flex items-center px-10 py-6 bg-red-200">
                     <div>
@@ -54,7 +54,7 @@
     </div>
 
     <div class="py-4">
-        <div class="grid gap-6 mx-auto max-w-7xl sm:px-6 lg:px-8 sm:grid-cols-2 md:grid-cols-4 ">
+        <div class="grid gap-6 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 sm:grid-cols-2 md:grid-cols-4 ">
             <x-admin-dashboard-card :value="234">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 27.862 27.955">
                     <path id="Path_2" data-name="Path 2" d="M15.931,4.945a5.747,5.747,0,1,1,0,7.6m4.31,16.313H3V27.426a8.621,8.621,0,0,1,17.242,0Zm0,0h8.621V27.426a8.621,8.621,0,0,0-12.931-7.467M17.368,8.747A5.747,5.747,0,1,1,11.621,3,5.747,5.747,0,0,1,17.368,8.747Z" transform="translate(-2 -1.908)" fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
