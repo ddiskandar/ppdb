@@ -74,7 +74,7 @@
                     </div>
                     <div class="mt-5 md:mt-0 md:col-span-2">
                         <!-- This example requires Tailwind CSS v2.0+ -->
-                        <livewire:master-schools />
+                        <livewire:master-school />
                     </div>
                 </div>
             </div>
