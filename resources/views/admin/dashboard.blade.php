@@ -83,11 +83,131 @@
         </div>
     </div>
 
-    <div class="py-12">
+    <div class="py-6">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
+            <div class="grid grid-cols-12 gap-6">
+                <div class="col-span-7">
+                    <div class="flex flex-col">
+                        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                                    <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Nama Sekolah
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Alamat Sekolah
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            2020
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            2021
+                                        </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                MTS YASTI 2 Kadudampit
+                                            </td>
+                                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                Cimahigirang
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                51
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                46
+                                            </td>
+                                        </tr>
+
+                                            <!-- More rows... -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-span-5">
+                    <div class="flex flex-col">
+                        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                                    <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Pilihan Kompetensi Keahlian
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            2020
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            2021
+                                        </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                                Multimedia
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                51
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                46
+                                            </td>
+                                        </tr>
+
+                                            <!-- More rows... -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                                    <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Jenis Kelamin
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            2020
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            2021
+                                        </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="bg-white divide-y divide-gray-200">
+                                        <tr>
+                                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                                Laki-laki
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                51
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                46
+                                            </td>
+                                        </tr>
+
+                                            <!-- More rows... -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

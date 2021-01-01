@@ -54,6 +54,10 @@ Route::middleware(['auth'])->group(function(){
         return view('siswa.home');
     })->name('home');
 
+    Route::get('/profile', function () {
+        return view('profile');
+    })->name('profile');
+
 });
 
 require __DIR__.'/auth.php';
