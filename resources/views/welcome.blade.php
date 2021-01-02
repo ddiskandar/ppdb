@@ -16,21 +16,21 @@
                 </div>
                 
                 <div class="col-span-5 ">
-                <form method="POST" action="{{ route('login') }}">
-                @csrf
-                    <div class="p-12 space-y-3 bg-white rounded-md shadow-2xl">
+                    <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                        <div class="p-12 space-y-3 bg-white rounded-md shadow-2xl">
 
-                    <input type="text" name="email" id="email" placeholder="Nomor registrasi"
-                        class="block w-full py-3 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <input type="password" name="password" id="password" placeholder="Kata Sandi"
-                        class="block w-full py-3 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <button type="submit" class="w-full py-3 text-center text-white bg-green-600 rounded-lg">LOGIN</button>
+                        <input type="text" name="email" id="email" placeholder="Nomor registrasi"
+                            class="block w-full py-3 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <input type="password" name="password" id="password" placeholder="Kata Sandi"
+                            class="block w-full py-3 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <button type="submit" class="w-full py-3 text-center text-white bg-green-600 rounded-lg">LOGIN</button>
 
-                    <div class="pt-6 mt-12 text-sm text-center border-t border-gray-200">Belum punya akun? <a href="/register" class="font-bold">Daftar Sekarang</a></div>
+                        <div class="pt-6 mt-12 text-sm text-center border-t border-gray-200">Belum punya akun? <a href="/register" class="font-bold">Daftar Sekarang</a></div>
 
-                    </div>
+                        </div>
 
-                </form>
+                    </form>
 
                 </div>
             </div>
