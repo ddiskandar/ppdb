@@ -9,13 +9,19 @@
                 <div class="lg:col-span-7">
                     <div class="h-full px-4 text-center lg:flex-col lg:text-left lg:justify-center sm:px-0 lg:flex">
                         <div>
-                            <h2 class="text-xl font-semibold lg:text-2xl">PPDB ONLINE</h2>
-                            <h1 class="mb-4 text-2xl font-bold text-green-700 lg:text-4xl">SMK Plus Al-Farhan</h1>
+                            <h2 class="text-xl font-semibold lg:text-2xl">
+                                {{ __('PPDB ONLINE') }}
+                            </h2>
+                            <h1 class="mb-4 text-2xl font-bold text-green-700 lg:text-4xl">
+                                {{ __('SMK Plus Al-Farhan') }}
+                            </h1>
                             <p class="mb-10 text-sm lg:text-base">
-                            Untuk calon pendaftar tahun ajaran 2021/2022 bisa mendaftar melalui website ini atau langsung datang ke tempat pendaftaran
+                                {{ __('Untuk calon pendaftar tahun ajaran 2021/2022 bisa mendaftar melalui website ini atau langsung datang ke tempat pendaftaran') }}
                             </p>
                             <div @click="open = ! open" class="items-center hidden font-bold cursor-pointer lg:flex">
-                                <div class="tracking-widest">DAFTAR SEKARANG</div>
+                                <div class="tracking-widest">
+                                    {{ __('DAFTAR SEKARANG') }}
+                                </div>
                                 <svg class="ml-4" xmlns="http://www.w3.org/2000/svg" width="16.153" height="13.514" viewBox="0 0 16.153 13.514">
                                 <path id="Path_59" data-name="Path 59" d="M11.4,5l5.343,5.343m0,0L11.4,15.686m5.343-5.343H3" transform="translate(-2 -3.586)" fill="none" stroke="#313b4b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                                 </svg>
@@ -31,9 +37,11 @@
 
                             <div class="lg:hidden">
                                 <h2 id="slide-over-heading" class="text-lg font-bold text-gray-900">
-                                Login
+                                    {{ __('Login') }}
                                 </h2>
-                                <p class="mt-2 text-sm">Silahkan login menggunakan password yang sudah dimiliki masing-masing</p>
+                                <p class="mt-2 text-sm">
+                                    {{ __('Silahkan login menggunakan password yang sudah dimiliki masing-masing') }}
+                                </p>
                             </div>
 
                             <x-input id="email" class="block w-full mt-3 placeholder-gray-400" type="text" name="email" :value="old('email')" placeholder="Nomor registrasi" required autofocus />
@@ -46,7 +54,7 @@
                         </form>
 
                         <div class="pt-6 mt-6 text-sm border-t border-gray-200 lg:text-center">
-                            Belum punya akun? 
+                            {{ __('Belum punya akun? ') }}
                             <a href="#" @click="open = ! open" class="font-bold">Daftar Sekarang</a>
                         </div>
 
