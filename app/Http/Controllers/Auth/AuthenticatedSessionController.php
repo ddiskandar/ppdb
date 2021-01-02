@@ -33,9 +33,9 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         if ( ! Auth::user()->roles->pluck('name')->first() == 'student') {
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         }
-        return redirect()->route('dashboard');
+        return redirect()->route('home');
         
         // return redirect(RouteServiceProvider::HOME);
     }
