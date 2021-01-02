@@ -4,18 +4,13 @@
         <div class="px-4 pt-6 pb-2 mx-auto lg:flex lg:items-center lg:justify-between max-w-7xl sm:px-6 lg:px-8">
             <div class="flex lg:block">
                 <div class="flex items-center text-xs">
-                    PPDB 2020
+                    {{ __('PPDB 2020') }}
                     <span class="mx-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="4.961" height="8.922" viewBox="0 0 4.961 8.922">
                             <path id="Path_108" data-name="Path 108" d="M9,5l3.754,3.754L9,12.508" transform="translate(-8.293 -4.293)" fill="none" stroke="#737a87" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
                         </svg>
                     </span>
-                    PESERTA
-                    <span class="mx-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="4.961" height="8.922" viewBox="0 0 4.961 8.922">
-                            <path id="Path_108" data-name="Path 108" d="M9,5l3.754,3.754L9,12.508" transform="translate(-8.293 -4.293)" fill="none" stroke="#737a87" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                        </svg>
-                    </span>
+                    {{ __('PESERTA') }}
                 </div>
                 <h2 class="font-semibold leading-tight text-gray-800 lg:text-xl">
                     {{ __('Dashboard') }}
@@ -36,7 +31,7 @@
                     </div>
                     <div class="sm:col-span-8 lg:col-span-5">
                         <dl>
-                            <dt class="text-gray-400">Nama Lengkap Sesuai Ijazah</dt>
+                            <dt class="text-gray-400">{{ __('Nama Lengkap Sesuai Ijazah') }}</dt>
                             <dd class="flex items-center text-3xl font-bold text-gray-900">
                                 {{ Auth::user()->name }}
                                 <span class="ml-4 text-sm font-semibold text-green-500">
@@ -47,29 +42,49 @@
                                     </svg>
                             </dd>
 
-                            <dt class="text-gray-400">NISN</dt>
+                            <dt class="text-gray-400">{{ __('Nomor Induk Siswa Nasional') }}</dt>
                             <dd class="flex items-center text-xl font-bold text-gray-900">
-                            95236587965
+                                @if ( $nisn = Auth::user()->student->nisn )
+                                    {{ $nisn }}
+                                @else
+                                    {{ __('-') }}
+                                @endif
                             </dd>
 
-                            <dt class="text-gray-400">Asal Sekolah</dt>
+                            <dt class="text-gray-400">{{ __('Asal Sekolah') }}</dt>
                             <dd class="flex items-center text-xl font-bold text-gray-900">
-                            {{ Auth::user()->student->school->name }}
+                                @if ( $school = Auth::user()->student->school->name )
+                                    {{ $school }}
+                                @else
+                                    {{ __('-') }}
+                                @endif
                             </dd>
                             
-                            <dt class="text-gray-400">Alamat Rumah</dt>
+                            <dt class="text-gray-400">{{ __('Alamat Rumah') }}</dt>
                             <dd class="flex items-center text-xl font-bold text-gray-900 uppercase">
-                            Legok Nyenang Rt. 04/06 Ds. Muaradua Kec. Kadudampit Kab. Sukabumi 43153
+                                @if ( $address = Auth::user()->student->address )
+                                    {{ $address }}
+                                @else
+                                    {{ __('-') }}
+                                @endif
                             </dd>
                             
-                            <dt class="text-gray-400">Email</dt>
+                            <dt class="text-gray-400">{{ __('Email') }}</dt>
                             <dd class="flex items-center text-xl font-bold text-gray-900">
-                            d3215k@gmail.com
+                                @if ( $email = Auth::user()->email )
+                                    {{ $email }}
+                                @else
+                                    {{ __('-') }}
+                                @endif
                             </dd>
                             
-                            <dt class="text-gray-400">Nomor WA</dt>
+                            <dt class="text-gray-400">{{ __('Nomor WA') }}</dt>
                             <dd class="flex items-center text-xl font-bold text-gray-900">
-                            0856 2402 8960
+                                @if ( $phone = Auth::user()->student->phone )
+                                    {{ $phone }}
+                                @else
+                                    {{ __('-') }}
+                                @endif
                             </dd>
                             
                         </dl>
@@ -80,7 +95,8 @@
                                 <div class="text-gray-400">Nomor Registrasi Pendaftaran</div>
                                 <div class="mt-2 text-4xl font-bold text-white">{{ Auth::user()->username }}</div>
                             </div>
-                            <a href="#" class="flex items-center w-full px-10 py-4 mt-4 bg-white border border-gray-200">
+                            <p class="mt-2 text-xs ">* Catat dan simpan nomor registrasi pendaftaran ini karena akan selalu digunakan untuk login dan keperluan lainnya selama PPDB.</p>
+                            <a href="#" class="flex items-center w-full px-10 py-4 mt-8 bg-white border border-gray-200">
                                 <div class="mr-4">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="38.813" height="38.813" viewBox="0 0 38.813 38.813">
                                     <path id="Path_58" data-name="Path 58" d="M31.632,31.632h4.09a4.09,4.09,0,0,0,4.09-4.09V19.361a4.09,4.09,0,0,0-4.09-4.09H7.09A4.09,4.09,0,0,0,3,19.361v8.181a4.09,4.09,0,0,0,4.09,4.09h4.09m4.09,8.181H27.542a4.09,4.09,0,0,0,4.09-4.09V27.542a4.09,4.09,0,0,0-4.09-4.09H15.271a4.09,4.09,0,0,0-4.09,4.09v8.181A4.09,4.09,0,0,0,15.271,39.813ZM31.632,15.271V7.09A4.09,4.09,0,0,0,27.542,3H15.271a4.09,4.09,0,0,0-4.09,4.09v8.181Z" transform="translate(-2 -2)" fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
