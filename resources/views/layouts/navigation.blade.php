@@ -16,23 +16,10 @@
                 <div class="hidden space-x-8 lg:-my-px lg:ml-10 lg:flex">
                     
                     
-                    @hasrole('super-admin|admin|committee|interviewer')
+                    @role('super-admin|admin|committee|interviewer')
 
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
-                    </x-nav-link>
-                    
-
-                    <x-nav-link :href="route('master')" :active="request()->routeIs('master')">
-                        {{ __('Data Master') }}
-                    </x-nav-link>
-
-                    <x-nav-link :href="route('pendaftaran')" :active="request()->routeIs('pendaftaran')">
-                        {{ __('Pendaftaran') }}
-                    </x-nav-link>
-                    
-                    <x-nav-link :href="route('pembayaran')" :active="request()->routeIs('pembayaran')">
-                        {{ __('Pembayaran') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('seleksi')" :active="request()->routeIs('seleksi')">
@@ -45,7 +32,27 @@
                         {{ __('Home') }}
                     </x-nav-link>
 
-                    @endhasrole
+                    @endrole
+
+                    @role('committee|admin')
+
+                    <x-nav-link :href="route('pendaftaran')" :active="request()->routeIs('pendaftaran')">
+                        {{ __('Pendaftaran') }}
+                    </x-nav-link>
+                    
+                    <x-nav-link :href="route('pembayaran')" :active="request()->routeIs('pembayaran')">
+                        {{ __('Pembayaran') }}
+                    </x-nav-link>
+
+                    @endrole
+
+                    @role('admin')
+
+                    <x-nav-link :href="route('master')" :active="request()->routeIs('master')">
+                        {{ __('Data Master') }}
+                    </x-nav-link>
+
+                    @endrole
 
                 </div>
             </div>

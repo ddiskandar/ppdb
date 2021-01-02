@@ -60,5 +60,13 @@ class PermissionsSeeder extends Seeder
             'password' => Hash::make('majuterus'),
         ]);
         $user->assignRole($role2);
+
+        $user = \App\Models\User::factory()->create([
+            'username' => 'hm',
+            'name' => 'Helmina',
+            'email' => 'hm@smkplusalfarhan.sch.id',
+            'password' => Hash::make('majuterus'),
+        ]);
+        $user->assignRole($role3);
     }
 }
