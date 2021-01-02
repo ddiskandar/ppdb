@@ -14,6 +14,9 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <style>
+            [x-cloak] { display: none; }
+        </style>
 
 
         <!-- Scripts -->

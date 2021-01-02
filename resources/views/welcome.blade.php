@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-<div x-data="{ open: true }">
+<div x-data="{ open: false }">
 
     <div class="py-6 lg:py-32">
         <div class="px-6 mx-auto max-w-7xl lg:px-8">
@@ -31,40 +31,9 @@
                 </div>
 
                 <div class="mt-8 lg:mt-0 lg:col-span-5">
-                    <div class="p-8 bg-white rounded-md shadow-2xl lg:px-12 lg:py-10">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
+                    
+                    @livewire('login-card')
 
-                            <div class="lg:hidden">
-                                <h2 id="slide-over-heading" class="text-lg font-bold text-gray-900">
-                                    {{ __('Selamat Datang') }}
-                                </h2>
-                                <p class="mt-2 text-sm">
-                                    {{ __('Silahkan login menggunakan password yang sudah anda miliki') }}
-                                </p>
-                            </div>
-
-                            <x-input id="username" class="block w-full mt-3 placeholder-gray-400" type="text" name="username" :value="old('username')" placeholder="Nomor registrasi" required autofocus />
-
-                            <x-input id="password" class="block w-full mt-3 placeholder-gray-400" type="password" name="password" :value="old('password')" placeholder="Kata sandi" required autofocus />
-
-                            <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-                            <x-button class="w-full py-3 mt-4 bg-green-600 hover:bg-green-500">
-                                {{ __('LOGIN') }}
-                            </x-button>
-                        </form>
-
-                        <div class="pt-6 mt-6 text-sm border-t border-gray-200 lg:text-center">
-                            {{ __('Belum punya akun? ') }}
-                            <a href="#" @click="open = ! open" class="font-bold"> Daftar Sekarang</a>
-                        </div>
-
-                    </div>
                 </div>
 
             </div>
@@ -72,7 +41,7 @@
         </div>
     </div>
 
-    <div x-show="open" class="fixed inset-0 overflow-hidden">
+    <div x-show="open" x-cloak class="fixed inset-0 overflow-hidden">
         <div class="absolute inset-0 overflow-hidden">
             <div class="absolute inset-0 transition-opacity bg-gray-500 bg-opacity-75" aria-hidden="true"
                 x-show="open"

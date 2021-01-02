@@ -16,7 +16,7 @@ use App\Http\Controllers\MasterController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('guest');
 
 Route::middleware(['auth'])->group(function(){
 
