@@ -19,8 +19,8 @@
                                 {{ __('Untuk calon pendaftar tahun ajaran 2021/2022 bisa mendaftar melalui website ini atau langsung datang ke tempat pendaftaran') }}
                             </p>
                             <div @click="open = ! open" class="items-center hidden font-bold cursor-pointer lg:flex">
-                                <div class="tracking-widest">
-                                    {{ __('DAFTAR SEKARANG') }}
+                                <div class="tracking-widest uppercase">
+                                    {{ __('Daftar Sekarang') }}
                                 </div>
                                 <svg class="ml-4" xmlns="http://www.w3.org/2000/svg" width="16.153" height="13.514" viewBox="0 0 16.153 13.514">
                                 <path id="Path_59" data-name="Path 59" d="M11.4,5l5.343,5.343m0,0L11.4,15.686m5.343-5.343H3" transform="translate(-2 -3.586)" fill="none" stroke="#313b4b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
@@ -37,10 +37,10 @@
 
                             <div class="lg:hidden">
                                 <h2 id="slide-over-heading" class="text-lg font-bold text-gray-900">
-                                    {{ __('Login') }}
+                                    {{ __('Selamat Datang') }}
                                 </h2>
                                 <p class="mt-2 text-sm">
-                                    {{ __('Silahkan login menggunakan password yang sudah dimiliki masing-masing') }}
+                                    {{ __('Silahkan login menggunakan password yang sudah anda miliki') }}
                                 </p>
                             </div>
 
@@ -55,7 +55,7 @@
 
                         <div class="pt-6 mt-6 text-sm border-t border-gray-200 lg:text-center">
                             {{ __('Belum punya akun? ') }}
-                            <a href="#" @click="open = ! open" class="font-bold">Daftar Sekarang</a>
+                            <a href="#" @click="open = ! open" class="font-bold"> Daftar Sekarang</a>
                         </div>
 
                     </div>
