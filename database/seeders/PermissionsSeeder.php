@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
+use Illuminate\Support\Facades\Hash;
 
 class PermissionsSeeder extends Seeder
 {
@@ -44,15 +45,20 @@ class PermissionsSeeder extends Seeder
         
 
         $user = \App\Models\User::factory()->create([
+            'username' => 'dd',
             'name' => 'Dede Iskandar',
-            'email' => 'superadmin@example.com',
-        ]);
-        $user->assignRole($role5);
+            'email' => 'dd@smkplusalfarhan.sch.id',
+            'password' => Hash::make('majuterus'),
 
-        $user = \App\Models\User::factory()->create([
-            'name' => 'Irpan Syauri',
-            'email' => 'admin@example.com',
         ]);
         $user->assignRole($role4);
+
+        $user = \App\Models\User::factory()->create([
+            'username' => 'is',
+            'name' => 'Irpan Syauri',
+            'email' => 'is@smkplusalfarhan.sch.id',
+            'password' => Hash::make('majuterus'),
+        ]);
+        $user->assignRole($role2);
     }
 }

@@ -34,56 +34,60 @@
                             <dt class="text-gray-400">{{ __('Nama Lengkap Sesuai Ijazah') }}</dt>
                             <dd class="flex items-center text-3xl font-bold text-gray-900">
                                 {{ Auth::user()->name }}
-                                <span class="ml-4 text-sm font-semibold text-green-500">
-                                Sudah diverifikasi
-                                </span>
-                                <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                                    <path id="Path_56" data-name="Path 56" d="M6.267,3.455a3.066,3.066,0,0,0,1.745-.723,3.066,3.066,0,0,1,3.976,0,3.066,3.066,0,0,0,1.745.723,3.066,3.066,0,0,1,2.812,2.812,3.062,3.062,0,0,0,.723,1.745,3.066,3.066,0,0,1,0,3.976,3.066,3.066,0,0,0-.723,1.745,3.066,3.066,0,0,1-2.812,2.812,3.066,3.066,0,0,0-1.745.723,3.066,3.066,0,0,1-3.976,0,3.066,3.066,0,0,0-1.745-.723,3.066,3.066,0,0,1-2.812-2.812,3.066,3.066,0,0,0-.723-1.745,3.066,3.066,0,0,1,0-3.976,3.066,3.066,0,0,0,.723-1.745A3.066,3.066,0,0,1,6.267,3.455Zm7.44,5.252a1,1,0,1,0-1.414-1.414L9,10.586,7.707,9.293a1,1,0,1,0-1.414,1.414l2,2a1,1,0,0,0,1.414,0l4-4Z" transform="translate(-2 -2)" fill="#059669" fill-rule="evenodd"/>
-                                    </svg>
+
+                                @if ( Auth::user()->student->name_verified )
+                                    <span class="ml-4 text-sm font-semibold text-green-500">
+                                        {{ __('Sudah diverifikasi') }}
+                                    </span>
+                                    <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                        <path id="Path_56" data-name="Path 56" d="M6.267,3.455a3.066,3.066,0,0,0,1.745-.723,3.066,3.066,0,0,1,3.976,0,3.066,3.066,0,0,0,1.745.723,3.066,3.066,0,0,1,2.812,2.812,3.062,3.062,0,0,0,.723,1.745,3.066,3.066,0,0,1,0,3.976,3.066,3.066,0,0,0-.723,1.745,3.066,3.066,0,0,1-2.812,2.812,3.066,3.066,0,0,0-1.745.723,3.066,3.066,0,0,1-3.976,0,3.066,3.066,0,0,0-1.745-.723,3.066,3.066,0,0,1-2.812-2.812,3.066,3.066,0,0,0-.723-1.745,3.066,3.066,0,0,1,0-3.976,3.066,3.066,0,0,0,.723-1.745A3.066,3.066,0,0,1,6.267,3.455Zm7.44,5.252a1,1,0,1,0-1.414-1.414L9,10.586,7.707,9.293a1,1,0,1,0-1.414,1.414l2,2a1,1,0,0,0,1.414,0l4-4Z" transform="translate(-2 -2)" fill="#059669" fill-rule="evenodd"/>
+                                        </svg>
+                                @endif
+
                             </dd>
 
-                            <dt class="text-gray-400">{{ __('Nomor Induk Siswa Nasional') }}</dt>
+                            <dt class="mt-2 text-gray-400">{{ __('Nomor Induk Siswa Nasional') }}</dt>
                             <dd class="flex items-center text-xl font-bold text-gray-900">
                                 @if ( $nisn = Auth::user()->student->nisn )
                                     {{ $nisn }}
                                 @else
-                                    {{ __('-') }}
+                                    <p class="mt-2 text-sm text-red-700 uppercase">{{ __('Belum ada data') }}</p>
                                 @endif
                             </dd>
 
-                            <dt class="text-gray-400">{{ __('Asal Sekolah') }}</dt>
+                            <dt class="mt-2 text-gray-400">{{ __('Asal Sekolah') }}</dt>
                             <dd class="flex items-center text-xl font-bold text-gray-900">
                                 @if ( $school = Auth::user()->student->school->name )
                                     {{ $school }}
                                 @else
-                                    {{ __('-') }}
+                                    <p class="mt-2 text-sm text-red-700 uppercase">{{ __('Belum ada data') }}</p>
                                 @endif
                             </dd>
                             
-                            <dt class="text-gray-400">{{ __('Alamat Rumah') }}</dt>
+                            <dt class="mt-2 text-gray-400">{{ __('Alamat Rumah') }}</dt>
                             <dd class="flex items-center text-xl font-bold text-gray-900 uppercase">
                                 @if ( $address = Auth::user()->student->address )
                                     {{ $address }}
                                 @else
-                                    {{ __('-') }}
+                                    <p class="mt-2 text-sm text-red-700 uppercase">{{ __('Belum ada data') }}</p>
                                 @endif
                             </dd>
                             
-                            <dt class="text-gray-400">{{ __('Email') }}</dt>
+                            <dt class="mt-2 text-gray-400">{{ __('Email') }}</dt>
                             <dd class="flex items-center text-xl font-bold text-gray-900">
                                 @if ( $email = Auth::user()->email )
                                     {{ $email }}
                                 @else
-                                    {{ __('-') }}
+                                    <p class="mt-2 text-sm text-red-700 uppercase">{{ __('Belum ada data') }}</p>
                                 @endif
                             </dd>
                             
-                            <dt class="text-gray-400">{{ __('Nomor WA') }}</dt>
+                            <dt class="mt-2 text-gray-400">{{ __('Nomor WA') }}</dt>
                             <dd class="flex items-center text-xl font-bold text-gray-900">
                                 @if ( $phone = Auth::user()->student->phone )
                                     {{ $phone }}
                                 @else
-                                    {{ __('-') }}
+                                    <p class="mt-2 text-sm text-red-700 uppercase">{{ __('Belum ada data') }}</p>
                                 @endif
                             </dd>
                             
@@ -109,7 +113,7 @@
                                 </div>
                             </a>
 
-                            <p class="mt-2 text-sm text-red-700">Kartu peserta dapat diunduh setelah semua alur pendaftaran selesai</p>
+                            <p class="mt-2 text-sm text-red-700">{{ __('Kartu peserta dapat diunduh setelah semua alur pendaftaran selesai') }}</p>
 
                         </div>
                     </div>

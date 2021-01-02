@@ -295,13 +295,6 @@ class SchoolSeeder extends Seeder
         ]);
 
         DB::table('schools')->insert([
-            'npsn' => '20202378',
-            'name' => 'SMP NEGERI 2 PABUARAN',
-            'address' => 'Pabuaran',
-            'last_student' => 1,
-        ]);
-
-        DB::table('schools')->insert([
             'npsn' => '69962072',
             'name' => 'SMPN 6 CISOLOK SATU ATAP',
             'address' => 'Cisolok',

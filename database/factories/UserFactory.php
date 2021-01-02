@@ -23,7 +23,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'username' => '2122' . $this->faker->unique()->numberBetween($min = 1000, $max = 9999),
+            'username' => '2122.01.' . $this->faker->unique()->numberBetween($min = 1000, $max = 9999),
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),
