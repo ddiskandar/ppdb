@@ -37,8 +37,8 @@ class RegisteredUserController extends Controller
         $request->validate([
             'school_id' => 'required',
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|confirmed|min:8',
+            // 'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|confirmed|min:6',
         ]);
 
         $user = User::factory()->create([

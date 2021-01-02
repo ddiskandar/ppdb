@@ -51,7 +51,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/home', function () {
         return view('siswa.home');
-    })->name('home');
+    })->name('home')->middleware(['role:student']);
 
     Route::get('/profile', function () {
         return view('profile');
