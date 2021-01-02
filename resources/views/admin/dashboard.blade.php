@@ -85,8 +85,8 @@
 
     <div class="py-6">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="grid grid-cols-12 gap-6">
-                <div class="col-span-7">
+            <div class="grid md:grid-cols-12 md:gap-6">
+                <div class="md:col-span-7">
                     <div class="flex flex-col">
                         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -109,22 +109,23 @@
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
-                                        <tr>
-                                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                                MTS YASTI 2 Kadudampit
-                                            </td>
-                                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                                Cimahigirang
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                51
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                46
-                                            </td>
-                                        </tr>
+                                        @foreach ($schools as $school )
+                                            <tr>
+                                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                    {{ $school->name }}
+                                                </td>
+                                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                    {{ $school->address }}
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    {{ $school->last_student}}
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    {{ $school->students->count() }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
 
-                                            <!-- More rows... -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -133,7 +134,7 @@
                     </div>
                 </div>
                 
-                <div class="col-span-5">
+                <div class="md:col-span-5">
                     <div class="flex flex-col">
                         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -153,19 +154,20 @@
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
-                                        <tr>
-                                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                                Multimedia
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                51
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                46
-                                            </td>
-                                        </tr>
+                                        @foreach ($majors as $major)
+                                            <tr>
+                                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                                    {{ $major->name }}
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    {{ $major->last_student }}
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    0{{-- {{ $major->students->count() }} --}}
+                                                </td>
+                                            </tr>
+                                        @endforeach
 
-                                            <!-- More rows... -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -193,10 +195,21 @@
                                                 Laki-laki
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
+                                                175
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                0
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+                                                Perempuan
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
                                                 51
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
-                                                46
+                                                0
                                             </td>
                                         </tr>
 

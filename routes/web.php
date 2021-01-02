@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MasterController;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,9 +40,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::middleware(['role:interviewer|committee|admin'])->group(function () {
 
-        Route::get('/dashboard', function () {
-            return view('admin.dashboard');
-        })->name('dashboard');
+        Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
 
         Route::get('/seleksi', function () {
             return view('admin.seleksi');
