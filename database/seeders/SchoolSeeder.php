@@ -15,6 +15,13 @@ class SchoolSeeder extends Seeder
     public function run()
     {
         DB::table('schools')->insert([
+            'npsn' => '0',
+            'name' => '- LAINNYA (TIDAK ADA DI DAFTAR)',
+            'address' => 'Sukabumi',
+            'last_student' => 0,
+        ]);
+        
+        DB::table('schools')->insert([
             'npsn' => '20277844',
             'name' => 'MTS YASTI 2 KADUDAMPIT',
             'address' => 'Sukabumi',

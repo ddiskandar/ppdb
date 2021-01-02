@@ -37,7 +37,8 @@
                     <div class="sm:col-span-8 lg:col-span-5">
                         <dl>
                             <dt class="text-gray-400">Nama Lengkap Sesuai Ijazah</dt>
-                            <dd class="flex items-center text-3xl font-bold text-gray-900">Dede Iskandar
+                            <dd class="flex items-center text-3xl font-bold text-gray-900">
+                                {{ Auth::user()->name }}
                                 <span class="ml-4 text-sm font-semibold text-green-500">
                                 Sudah diverifikasi
                                 </span>
@@ -53,7 +54,7 @@
 
                             <dt class="text-gray-400">Asal Sekolah</dt>
                             <dd class="flex items-center text-xl font-bold text-gray-900">
-                            MTS YASTI 2 Kadudampit
+                            {{ Auth::user()->student->school->name }}
                             </dd>
                             
                             <dt class="text-gray-400">Alamat Rumah</dt>
@@ -77,7 +78,7 @@
                         <div>
                             <div class="w-full px-12 py-8 bg-gray-900 rounded-lg">
                                 <div class="text-gray-400">Nomor Registrasi Pendaftaran</div>
-                                <div class="mt-2 text-4xl font-bold text-white">2021.01.0100</div>
+                                <div class="mt-2 text-4xl font-bold text-white">{{ Auth::user()->username }}</div>
                             </div>
                             <a href="#" class="flex items-center w-full px-10 py-4 mt-4 bg-white border border-gray-200">
                                 <div class="mr-4">

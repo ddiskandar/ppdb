@@ -27,6 +27,19 @@
                 <x-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required />
             </div>
 
+            <!-- Asal Sekolah -->
+            <div class="mt-4">
+                <x-label for="school_id" :value="__('Asal Sekolah')" />
+
+                <select id="school_id" name="school_id" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+                    <option value=''>{{ __('Pilih salah satu') }}</option>
+                    @foreach ($schools as $school )
+                        <option value={{ $school->id }}>{{ $school->name }}</option>
+                    @endforeach
+                </select>
+
+            </div>
+
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />
