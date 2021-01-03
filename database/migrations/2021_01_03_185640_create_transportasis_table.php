@@ -15,7 +15,7 @@ class CreateTransportasisTable extends Migration
     {
         Schema::create('transportasis', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
         });
     }
 

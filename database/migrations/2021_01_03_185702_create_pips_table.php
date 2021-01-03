@@ -15,7 +15,7 @@ class CreatePipsTable extends Migration
     {
         Schema::create('pips', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
         });
     }
 

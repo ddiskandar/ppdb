@@ -15,7 +15,7 @@ class CreateAgamasTable extends Migration
     {
         Schema::create('agamas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
         });
     }
 
