@@ -17,15 +17,18 @@ class PeriodeSeeder extends Seeder
         DB::table('periodes')->insert([
             'name' => '01',
             'desc' => '01 Januari - 28 Februari 2020',
+            'ref_payment_amount' => 150000,
             'active' => true
         ]);
         DB::table('periodes')->insert([
             'name' => '02',
-            'desc' => '01 Januari - 28 Februari 2020',
+            'desc' => '01 Maret - 31 April 2020',
+            'ref_payment_amount' => 150000,
         ]);
         DB::table('periodes')->insert([
             'name' => '03',
-            'desc' => '01 Januari - 28 Februari 2020',
+            'desc' => '01 Mei - 31 Juni 2020',
+            'ref_payment_amount' => 150000,
         ]);
     }
 }

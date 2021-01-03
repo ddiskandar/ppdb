@@ -17,6 +17,7 @@ class CreatePeriodesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('desc');
+            $table->integer('ref_payment_amount');
             $table->boolean('active')->default(false);
             $table->timestamps();
         });
