@@ -15,7 +15,7 @@ class CreateTinggalsTable extends Migration
     {
         Schema::create('tinggals', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name');
         });
     }
 

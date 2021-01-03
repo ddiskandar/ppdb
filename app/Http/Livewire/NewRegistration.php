@@ -9,8 +9,10 @@ class NewRegistration extends Component
 {
     public function render()
     {
+        $schools = School::orderBy('name')->get();
+
         return view('livewire.new-registration', [
-            'schools' => School::orderBy('name')->get()
+            'schools' => $schools->except(1),
         ]);
     }
 }

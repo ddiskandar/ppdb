@@ -38,7 +38,7 @@ class CreateStudentsTable extends Migration
             $table->tinyInteger('lintang')->nullable();
             $table->tinyInteger('bujur')->nullable();
             $table->foreignId('tinggal_id')->default(1);
-            $table->foreignId('transportasi_id')->default(1);
+            $table->foreignId('transportasi_id')->default(99);
             $table->string('kks', 16)->nullable();
             $table->string('pkh', 16)->nullable();
             $table->string('kip', 16)->nullable();
@@ -79,7 +79,7 @@ class CreateStudentsTable extends Migration
             $table->text('desc_keluarga')->nullable();
             $table->text('desc_student')->nullable();
             $table->text('catatan')->nullable();
-            $table->foreignId('pip_id')->default(1);
+            $table->foreignId('pip_id')->default(99);
 
             $table->string('nomor_ujian', 24)->nullable();
             $table->string('nomor_ijazah', 24)->nullable();
