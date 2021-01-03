@@ -16,28 +16,36 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('school_id')->nullable();
+            $table->foreignId('school_id')->default(1);
             $table->boolean('school_verified')->default(false);
             $table->boolean('name_verified')->default(false);
-            $table->char('nik', 16)->nullable();
             $table->string('panggilan', 20)->nullable();
             $table->char('jk', 1)->nullable();
+            $table->char('nisn', 10)->nullable();
+            $table->char('nik', 16)->nullable();
             $table->string('birthplace', 50)->nullable();
             $table->date('birthdate')->nullable();
-            $table->char('nisn', 10)->nullable();
-            $table->string('agama', 16)->nullable();
-            $table->string('suku', 16)->nullable();
-            $table->tinyInteger('anak_ke')->nullable();
-            $table->tinyInteger('saudara')->nullable();
-            $table->string('phone', 16)->nullable();
+            $table->string('akta', 16)->nullable();
+            $table->foreignId('agama_id')->default(1);
             $table->string('address')->nullable();
             $table->string('rt', 3)->nullable();
             $table->string('rw', 3)->nullable();
             $table->string('desa', 24)->nullable();
             $table->string('kecamatan', 24)->nullable();
-            $table->string('city', 24)->nullable();
-            $table->string('province', 24)->nullable();
-            $table->string('zip', 6)->nullable();
+            $table->string('kab', 24)->nullable();
+            $table->string('prov', 24)->nullable();
+            $table->string('kode_pos', 6)->nullable();
+            $table->tinyInteger('lintang')->nullable();
+            $table->tinyInteger('bujur')->nullable();
+            $table->foreignId('tinggal_id')->default(1);
+            $table->foreignId('transportasi_id')->default(1);
+            $table->string('kks', 16)->nullable();
+            $table->string('pkh', 16)->nullable();
+            $table->string('kip', 16)->nullable();
+            $table->tinyInteger('anak_ke')->nullable();
+            $table->tinyInteger('saudara')->nullable();
+            $table->string('phone', 16)->nullable();
+
             $table->char('ayah_nik', 16)->nullable();
             $table->string('ayah_nama')->nullable();
             $table->char('ayah_lahir', 4)->nullable();
@@ -57,9 +65,25 @@ class CreateStudentsTable extends Migration
             $table->string('wali_pekerjaan')->nullable();
             $table->string('wali_penghasilan')->nullable();
             $table->string('phone_ortu', 16)->nullable();
-            $table->string('kks', 16)->nullable();
-            $table->string('pkh', 16)->nullable();
-            $table->string('kip', 16)->nullable();
+
+            $table->tinyInteger('tinggi')->nullable();
+            $table->tinyInteger('berat')->nullable();
+            $table->tinyInteger('jarak')->nullable();
+            $table->tinyInteger('waktu')->nullable();
+
+            $table->string('pdu', 3)->nullable();
+            $table->string('olahraga', 3)->nullable();
+            $table->string('jas', 3)->nullable();
+            
+            $table->text('prestasi')->nullable();
+            $table->text('desc_keluarga')->nullable();
+            $table->text('desc_student')->nullable();
+            $table->text('catatan')->nullable();
+            $table->foreignId('pip_id')->default(1);
+
+            $table->string('nomor_ujian', 24)->nullable();
+            $table->string('nomor_ijazah', 24)->nullable();
+
             $table->timestamps();
         });
     }
