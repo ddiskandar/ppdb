@@ -8,6 +8,10 @@ use App\Models\Major;
 use App\Models\Payment;
 use App\Models\Ppdb;
 use App\Models\School;
+use App\Models\Agama;
+use App\Models\Pip;
+use App\Models\Tinggal;
+use App\Models\Transportasi;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -46,6 +50,26 @@ class Student extends Model
     public function major()
     {
         return $this->hasOneThrough(Major::class, Ppdb::class);
+    }
+
+    public function agama()
+    {
+        return $this->belongsTo(Agama::class);
+    }
+
+    public function pip()
+    {
+        return $this->belongsTo(Pip::class);
+    }
+
+    public function tinggal()
+    {
+        return $this->belongsTo(Tinggal::class);
+    }
+
+    public function transportasi()
+    {
+        return $this->belongsTo(Transportasi::class);
     }
 
 }
