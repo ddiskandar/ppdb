@@ -140,7 +140,7 @@
                         </p>
                     </div>
                     </div>
-                    <div class="px-4 mt-5 md:px-0 md:mt-0 md:col-span-2">
+                    <div class="px-4 mt-5 sm:px-0 md:mt-0 md:col-span-2">
                         <div class="flex items-center px-10 py-6 bg-red-200">
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 mr-4" viewBox="0 0 49.5 49.5">
@@ -243,32 +243,96 @@
                         </p>
                     </div>
                     </div>
-                    <div class="mt-5 md:mt-0 md:col-span-2">
-                        <div class="grid gap-6 sm:grid-cols-2">
-                            <a href="#" class="flex items-center w-full p-10 mt-4 bg-white border border-gray-200">
-                                <div class="mr-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="38.813" height="38.813" viewBox="0 0 38.813 38.813">
-                                    <path id="Path_58" data-name="Path 58" d="M31.632,31.632h4.09a4.09,4.09,0,0,0,4.09-4.09V19.361a4.09,4.09,0,0,0-4.09-4.09H7.09A4.09,4.09,0,0,0,3,19.361v8.181a4.09,4.09,0,0,0,4.09,4.09h4.09m4.09,8.181H27.542a4.09,4.09,0,0,0,4.09-4.09V27.542a4.09,4.09,0,0,0-4.09-4.09H15.271a4.09,4.09,0,0,0-4.09,4.09v8.181A4.09,4.09,0,0,0,15.271,39.813ZM31.632,15.271V7.09A4.09,4.09,0,0,0,27.542,3H15.271a4.09,4.09,0,0,0-4.09,4.09v8.181Z" transform="translate(-2 -2)" fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                    </svg>
+                    <div class="px-4 mt-5 sm:px-0 md:mt-0 md:col-span-2">
+                        <div class="grid gap-6 lg:grid-cols-2">
 
-                                </div>
-                                <div class="flex-1">
-                                    <div class="mt-2 text-2xl font-bold text-gray-900">Cetak Kartu</div>
-                                    <div class="text-sm text-gray-400">Nomor Registrasi Pendaftaran</div>
-                                </div>
-                            </a>
-                            <a href="#" class="flex items-center w-full p-10 mt-4 bg-white border border-gray-200">
-                                <div class="mr-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="38.813" height="38.813" viewBox="0 0 38.813 38.813">
-                                    <path id="Path_58" data-name="Path 58" d="M31.632,31.632h4.09a4.09,4.09,0,0,0,4.09-4.09V19.361a4.09,4.09,0,0,0-4.09-4.09H7.09A4.09,4.09,0,0,0,3,19.361v8.181a4.09,4.09,0,0,0,4.09,4.09h4.09m4.09,8.181H27.542a4.09,4.09,0,0,0,4.09-4.09V27.542a4.09,4.09,0,0,0-4.09-4.09H15.271a4.09,4.09,0,0,0-4.09,4.09v8.181A4.09,4.09,0,0,0,15.271,39.813ZM31.632,15.271V7.09A4.09,4.09,0,0,0,27.542,3H15.271a4.09,4.09,0,0,0-4.09,4.09v8.181Z" transform="translate(-2 -2)" fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                    </svg>
+                            <x-alur-card type="completed">
 
-                                </div>
-                                <div class="flex-1">
-                                    <div class="mt-2 text-2xl font-bold text-gray-900">Cetak Kartu</div>
-                                    <div class="text-sm text-gray-400">Nomor Registrasi Pendaftaran</div>
-                                </div>
-                            </a>
+                                <x-slot name="title">
+                                    Gelombang
+                                </x-slot>
+
+                                <x-slot name="description">
+                                    Pilih jalur pendaftaran
+                                </x-slot>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-9"><path data-name="Path 53" d="M1 2.889A1.889 1.889 0 012.889 1h30.22A1.889 1.889 0 0135 2.889v4.884a1.888 1.888 0 01-.553 1.335L22.329 21.223a1.889 1.889 0 00-.553 1.335v4.884L14.221 35V22.558a1.889 1.889 0 00-.553-1.335L1.553 9.108A1.889 1.889 0 011 7.773z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+                                
+                            </x-alur-card>
+
+                            <x-alur-card type="uncompleted">
+
+                                <x-slot name="title">
+                                    Data Identitas
+                                </x-slot>
+
+                                <x-slot name="description">
+                                    Isi data profil diri
+                                </x-slot>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-11"><path data-name="Path 54" d="M16.094 7.469H5.313A4.312 4.312 0 001 11.781v19.407A4.312 4.312 0 005.313 35.5H35.5a4.313 4.313 0 004.313-4.312V11.781A4.313 4.313 0 0035.5 7.469H24.719m-8.625 0V5.313a4.313 4.313 0 018.625 0v2.156m-8.625 0a4.313 4.313 0 008.625 0m-10.782 17.25a4.313 4.313 0 10-4.313-4.312 4.312 4.312 0 004.313 4.312zm0 0a6.477 6.477 0 016.1 4.313m-6.1-4.312a6.471 6.471 0 00-6.1 4.313M26.875 18.25h6.469m-6.469 8.625h4.313" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+                                
+                            </x-alur-card>
+
+                            <x-alur-card type="completed">
+
+                                <x-slot name="title">
+                                    Pilih Jurusan
+                                </x-slot>
+
+                                <x-slot name="description">
+                                    Tentukan jurusan kalian
+                                </x-slot>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40.407" height="38.273"><path data-name="Path 55" d="M30.872 28.738v4.267a4.267 4.267 0 01-4.272 4.268H5.267A4.267 4.267 0 011 33.006V18.07a4.267 4.267 0 014.267-4.27h4.267m6.4-8.535H13.8a4.267 4.267 0 00-4.267 4.267v14.939a4.267 4.267 0 004.267 4.267h21.339a4.267 4.267 0 004.267-4.267V9.535a4.267 4.267 0 00-4.267-4.267h-2.133M30.872 13.8l-6.4 6.4m0 0l-6.4-6.4m6.4 6.4V1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+                                
+                            </x-alur-card>
+
+                            <x-alur-card type="uncompleted">
+
+                                <x-slot name="title">
+                                    Unggah Berkas
+                                </x-slot>
+
+                                <x-slot name="description">
+                                    Ijazah, Akta, Kartu keluarga
+                                </x-slot>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35.381" height="37.964"><path data-name="Path 52" d="M23.321 8.992L10.163 22.15a4 4 0 105.651 5.65l12.814-13.158a7.991 7.991 0 10-11.3-11.3L4.511 16.5a11.989 11.989 0 0016.954 16.952l12.5-12.473" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+                                
+                            </x-alur-card>
+
+                            <x-alur-card type="uncompleted">
+
+                                <x-slot name="title">
+                                    Bayar Pendaftaran
+                                </x-slot>
+
+                                <x-slot name="description">
+                                    Membayar biaya pendaftaran
+                                </x-slot>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="33.889"><path data-name="Path 51" d="M28.333 1v4.556m0 9.111v4.556m0 9.111v4.556M5.556 1A4.556 4.556 0 001 5.556v6.833A4.556 4.556 0 111 21.5v6.833a4.556 4.556 0 004.556 4.556h31.888A4.556 4.556 0 0042 28.333V21.5a4.556 4.556 0 110-9.111V5.556A4.556 4.556 0 0037.444 1z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+                                
+                            </x-alur-card>
+
+                            <x-alur-card type="completed">
+
+                                <x-slot name="title">
+                                    Gabung Grup WA
+                                </x-slot>
+
+                                <x-slot name="description">
+                                    Untuk info PPDB lainnya
+                                </x-slot>
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="39.842" height="39.842" viewBox="0 0 39.842 39.842">
+                                <path id="Path_116" data-name="Path 116" d="M32.433,12.409h4.2a4.2,4.2,0,0,1,4.2,4.2V29.228a4.2,4.2,0,0,1-4.2,4.2h-4.2v8.409l-8.409-8.409H15.614A4.192,4.192,0,0,1,12.641,32.2m0,0,7.177-7.177h8.409a4.2,4.2,0,0,0,4.2-4.2V8.2a4.2,4.2,0,0,0-4.2-4.2H7.2A4.2,4.2,0,0,0,3,8.2V20.819a4.2,4.2,0,0,0,4.2,4.2h4.2v8.409Z" transform="translate(-2 -3)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                </svg>
+
+                                
+                            </x-alur-card>
+
                         </div>
                     </div>
                 </div>

@@ -9,10 +9,10 @@
                 <div class="lg:col-span-7">
                     <div class="h-full px-4 text-center lg:flex-col lg:text-left lg:justify-center sm:px-0 lg:flex">
                         <div>
-                            <h2 class="text-xl font-semibold lg:text-2xl">
+                            <h2 class="text-xl font-bold lg:text-2xl">
                                 {{ __('PPDB ONLINE') }}
                             </h2>
-                            <h1 class="mb-4 text-2xl font-bold text-green-700 lg:text-4xl">
+                            <h1 class="mb-4 text-2xl font-extrabold text-green-700 lg:text-4xl">
                                 {{ __('SMK Plus Al-Farhan') }}
                             </h1>
                             <p class="mb-10 text-sm lg:text-base">
