@@ -1,6 +1,6 @@
 <div>
 
-    <div class="py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="pt-12 pb-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
@@ -43,13 +43,13 @@
 
     <div class="pb-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="mt-10">
+            <div class="mt-4">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                         <div class="px-4 sm:px-0">
-                            <h3 class="text-lg font-medium leading-6 text-gray-900">Contact Us</h3>
+                            <h3 class="text-lg font-medium leading-6 text-gray-900">Data Peserta Didik</h3>
                             <p class="mt-1 text-sm text-gray-600">
-                            Untuk informasi dan yang lainnya.
+                                Siapkan dokumen untuk mengisi
                             </p>
                         </div>
                     </div>
@@ -59,33 +59,116 @@
                             <div class="overflow-hidden shadow sm:rounded-md">
                                 <div class="px-4 py-5 bg-white sm:p-6">
                                     <div class="grid grid-cols-6 gap-6">
+                                        <div class="col-span-6 sm:col-span-4">
+                                            <label for="name" class="block text-sm font-medium text-gray-700">name</label>
+                                            <input wire:model.lazy="name" type="text" name="name" id="name" autocomplete="name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('name') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
                                         <div class="col-span-6 sm:col-span-3">
-                                            <label for="nik" class="block text-sm font-medium text-gray-700">NIK</label>
-                                            <input wire:model.lazy="nik" type="text" name="nik" id="nik" autocomplete="nik" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
-                                            @error('nik') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                            <label for="panggilan" class="block text-sm font-medium text-gray-700">panggilan</label>
+                                            <input wire:model.lazy="panggilan" type="text" name="panggilan" id="panggilan" autocomplete="panggilan" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('panggilan') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
                                         </div>
 
-                                        <div class="col-span-6 sm:col-span-4">
+                                        <div class="col-span-6 sm:col-span-1">
+                                            <label for="jk" class="block text-sm font-medium text-gray-700">jk</label>
+                                            <input wire:model.lazy="jk" type="text" name="jk" id="jk" autocomplete="jk" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('jk') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
+
+                                        <div class="col-span-6 sm:col-span-2">
                                             <label for="nisn" class="block text-sm font-medium text-gray-700">NISN</label>
-                                            <input wire:model.lazy="nisn" type="text" name="nisn" id="nisn" autocomplete="nisn" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            <input wire:model.lazy="nisn" type="text" name="nisn" id="nisn" autocomplete="nisn" maxlength="8" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
                                             @error('nisn') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
                                         </div>
 
+                                        <div class="col-span-6 sm:col-span-2">
+                                            <label for="nik" class="block text-sm font-medium text-gray-700">NIK</label>
+                                            <input wire:model.lazy="nik" type="text" name="nik" id="nik" autocomplete="nik" maxlength="16" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('nik') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
+
+                                        <div class="col-span-6 sm:col-span-2">
+                                            <label for="akta" class="block text-sm font-medium text-gray-700">akta</label>
+                                            <input wire:model.lazy="akta" type="text" name="akta" id="akta" autocomplete="akta" maxlength="16" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('akta') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
+
                                         <div class="col-span-6 sm:col-span-3">
+                                            <label for="birthplace" class="block text-sm font-medium text-gray-700">birthplace</label>
+                                            <input wire:model.lazy="birthplace" type="text" name="birthplace" id="birthplace" autocomplete="birthplace" maxlength="16" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('birthplace') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
+
+                                        <div class="col-span-6 sm:col-span-2">
+                                            <label for="birthdate" class="block text-sm font-medium text-gray-700">birthdate</label>
+                                            <input wire:model.lazy="birthdate" type="date" name="birthdate" id="birthdate" placeholder="dd-mm-yyyy" autocomplete="birthdate" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('birthdate') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
+
+                                        <div class="col-span-6 sm:col-span-2">
                                             <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
-                                            <input wire:model.lazy="phone" type="text" name="phone" id="phone" autocomplete="family-name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            <input wire:model.lazy="phone" type="text" name="phone" id="phone" autocomplete="family-name" maxlength="13" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
                                             @error('phone') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
                                         </div>
 
-                                        <div class="col-span-6">
-                                            <label for="address" class="block text-sm font-medium text-gray-700">
-                                                Alamat
-                                            </label>
-                                            <div class="mt-1">
-                                                <textarea wire:model.lazy="address" id="address" name="address" rows="3" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"></textarea>
-                                                @error('address') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
-                                            </div>
+                                        <div class="col-span-6 sm:col-span-2">
+                                            <label for="agama_id" class="block text-sm font-medium text-gray-700">agama_id</label>
+                                            <input wire:model.lazy="agama_id" type="text" name="agama_id" id="agama_id" autocomplete="agama_id" maxlength="16" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('agama_id') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
                                         </div>
+
+                                        <div class="col-span-6 sm:col-span-4">
+                                            <label for="address" class="block text-sm font-medium text-gray-700">address</label>
+                                            <input wire:model.lazy="address" type="text" name="address" id="address" autocomplete="address" maxlength="16" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('address') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
+
+                                        <div class="col-span-6 sm:col-span-1">
+                                            <label for="rt" class="block text-sm font-medium text-gray-700">rt</label>
+                                            <input wire:model.lazy="rt" type="text" name="rt" id="rt" autocomplete="rt" maxlength="16" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('rt') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
+
+                                        <div class="col-span-6 sm:col-span-1">
+                                            <label for="rw" class="block text-sm font-medium text-gray-700">rw</label>
+                                            <input wire:model.lazy="rw" type="text" name="rw" id="rw" autocomplete="rw" maxlength="16" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('rw') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
+
+                                        <div class="col-span-6 sm:col-span-2">
+                                            <label for="desa" class="block text-sm font-medium text-gray-700">desa</label>
+                                            <input wire:model.lazy="desa" type="text" name="desa" id="desa" autocomplete="desa" maxlength="16" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('desa') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
+
+                                        <div class="col-span-6 sm:col-span-2">
+                                            <label for="kecamatan" class="block text-sm font-medium text-gray-700">kecamatan</label>
+                                            <input wire:model.lazy="kecamatan" type="text" name="kecamatan" id="kecamatan" autocomplete="kecamatan" maxlength="16" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('kecamatan') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
+
+                                        <div class="col-span-6 sm:col-span-2">
+                                            <label for="kab" class="block text-sm font-medium text-gray-700">kab</label>
+                                            <input wire:model.lazy="kab" type="text" name="kab" id="kab" autocomplete="kab" maxlength="16" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('kab') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
+
+                                        <div class="col-span-6 sm:col-span-2">
+                                            <label for="prov" class="block text-sm font-medium text-gray-700">prov</label>
+                                            <input wire:model.lazy="prov" type="text" name="prov" id="prov" autocomplete="prov" maxlength="16" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('prov') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
+
+                                        <div class="col-span-6 sm:col-span-2">
+                                            <label for="kode_pos" class="block text-sm font-medium text-gray-700">kode_pos</label>
+                                            <input wire:model.lazy="kode_pos" type="text" name="kode_pos" id="kode_pos" autocomplete="kode_pos" maxlength="16" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                            @error('kode_pos') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                        </div>
+
+                                        
+
+                                        
 
                                     </div>
                                 </div>
