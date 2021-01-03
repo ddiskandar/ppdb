@@ -128,7 +128,7 @@
         </div>
     </div>
 
-    <div class="py-12">
+    <div class="pt-6 pb-24">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div>
                 <div class="md:grid md:grid-cols-3 md:gap-6">

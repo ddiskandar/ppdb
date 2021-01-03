@@ -1,7 +1,7 @@
 @props([
     'type' => 'uncompleted',
     'colors' => [
-        'completed' => ' text-white bg-green-500',
+        'completed' => ' text-white bg-green-500 border-none',
         'uncompleted' => ' text-gray-400 bg-white border-gray-200 hover:border-green-400',
     ],
     'href' => '#',
