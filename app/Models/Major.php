@@ -14,4 +14,9 @@ class Major extends Model
     {
         return $this->hasMany(Student::class);
     }
+
+    public function ppdb()
+    {  
+        return $this->hasOne(Ppdb::class);
+    }
 }

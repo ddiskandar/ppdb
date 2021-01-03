@@ -43,4 +43,9 @@ class Student extends Model
         return $this->hasMany(Document::class);
     }
 
+    public function major()
+    {
+        return $this->hasOneThrough(Major::class, Ppdb::class);
+    }
+
 }
