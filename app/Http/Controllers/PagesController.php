@@ -33,4 +33,13 @@ class PagesController extends Controller
         ]);
     }
 
+    public function home()
+    {
+        $periode = Periode::where('active', true)->first();
+
+        return view('siswa.home', [
+            'periode' => $periode,
+        ]);
+    }
+
 }
