@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MasterController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\StudentsController;
 
@@ -24,7 +23,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::middleware(['role:admin'])->group(function () {
 
-        Route::get('/master', [MasterController::class, 'index'])->name('master');
+        Route::get('/master', [PagesController::class, 'master'])->name('master');
         
     });
 

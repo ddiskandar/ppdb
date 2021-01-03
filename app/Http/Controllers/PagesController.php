@@ -26,4 +26,11 @@ class PagesController extends Controller
         ]);
     }
 
+    public function master()
+    {
+        return view('admin.master', [
+            'majors' => Major::all(),
+        ]);
+    }
+
 }
