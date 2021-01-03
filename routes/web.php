@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MasterController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\StudentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,9 +49,7 @@ Route::middleware(['auth'])->group(function(){
 
     });
 
-    Route::get('/home', function () {
-        return view('siswa.home');
-    })->name('home')->middleware(['role:student']);
+    Route::get('/home', [StudentsController::class, 'home'])->name('home')->middleware(['role:student']);
 
     Route::get('/profile', function () {
         return view('profile');

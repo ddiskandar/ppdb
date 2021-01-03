@@ -27,7 +27,7 @@
                     Periode aktif
                 </div>
                 <div class="font-bold">
-                    Gelombang 1, 01 Januari 2020 - 30 Februari 2020
+                    Gelombang {{ $periode->name . ', ' . $periode->desc }}
                 </div>
             </div>
         </div>
@@ -118,7 +118,7 @@
                                                     {{ $school->address }}
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                    {{ $school->last_student}}
+                                                    {{ $school->last_students }}
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     {{ $school->students->count() }}
@@ -160,7 +160,7 @@
                                                     {{ $major->name }}
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                    {{ $major->last_student }}
+                                                    {{ $major->last_students }}
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     0{{-- {{ $major->students->count() }} --}}

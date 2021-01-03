@@ -174,54 +174,54 @@
                     </div>
                     <div class="mt-5 md:mt-0 md:col-span-2">
                         <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="flex flex-col">
-  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-    <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-      <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
-        <table class="min-w-full divide-y divide-gray-200">
-          <thead class="bg-gray-50">
-            <tr>
-              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                Name
-              </th>
-              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                Title
-              </th>
-              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                Role
-              </th>
-            </tr>
-          </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
-              <td class="px-6 py-4 whitespace-nowrap">
-                <div class="">
-                  <div class="">
-                    <div class="text-sm font-medium text-gray-900">
-                      Jane Cooper
-                    </div>
-                    <div class="text-sm text-gray-500">
-                      jane.cooper@example.com
-                    </div>
-                  </div>
-                </div>
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap">
-                <div class="text-sm text-gray-900">Regional Paradigm Technician</div>
-                <div class="text-sm text-gray-500">Optimization</div>
-              </td>
-              <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                Admin
-              </td>
-            </tr>
+                        <div class="flex flex-col">
+                        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                            <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+                                <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        Jalur
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        Pendaftaran
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                        Status
+                                    </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="">
+                                        <div class="">
+                                            <div class="text-sm font-medium text-gray-900">
+                                                Gelombang {{ $periode->name }}
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap">
+                                        <div class="text-sm text-gray-900">{{ $periode->desc }}</div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                        @if ($periode->active)
+                                            Active
+                                        @else
+                                            Nonaktif
+                                        @endif
+                                    </td>
+                                    </tr>
 
-            <!-- More rows... -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
+                                    <!-- More rows... -->
+                                </tbody>
+                                </table>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
 
                     </div>
                 </div>
