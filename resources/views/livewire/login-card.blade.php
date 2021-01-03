@@ -11,7 +11,7 @@
             </p>
         </div>
 
-        <x-input id="username" class="block w-full mt-3 placeholder-gray-400" type="text" name="username" :value="old('username')" placeholder="Nomor registrasi, misal : 2122xxxx" required autofocus />
+        <x-input id="username" class="block w-full mt-3 placeholder-gray-400" type="text" name="username" :value="old('username')" placeholder="Nomor registrasi, misal : 2122.0x.xxxx" required autofocus />
 
         <x-input id="password" class="block w-full mt-3 placeholder-gray-400" type="password" name="password" :value="old('password')" placeholder="Kata sandi" required autofocus />
 
