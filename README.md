@@ -2,8 +2,8 @@
  aplikasi PPDB
 
 # Progres Fitur
-- [ ] Pendaftar dapat melakukan pendaftaran secara mandiri
-- [ ] Pendaftar login menggunakan nomor registrasi dan password
+- [x] Pendaftar dapat melakukan pendaftaran secara mandiri
+- [x] Pendaftar login menggunakan nomor registrasi dan password
 - [ ] Panitia dapat membuat akun pendaftaran
 - [ ] Pendaftar dapat mengunduh formulir pendaftaran dengan format PDF yang sudah terisi data setelah semua alur pendaftaran selesai
 - [ ] Pendaftar dapat mengisi profil identitasnya masing-masing
