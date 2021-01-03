@@ -26,7 +26,7 @@
                 <div class="grid gap-8 sm:grid-cols-12">
                     <div class="sm:col-span-4 lg:col-span-3">
                         <div class="overflow-hidden bg-white shadow-2xl rounded-2xl">
-                            <img class="object-cover object-center w-full h-96" src="/images/student1.jpg" alt="">
+                            <img class="object-cover object-center w-full h-96" src="/storage/{{ Auth::user()->student->documents->where('type', 'photo')->first()->path }}" alt="">
                         </div>
                     </div>
                     <div class="sm:col-span-8 lg:col-span-5">
@@ -222,6 +222,10 @@
                             </x-alur-card>
 
                             <x-alur-card type="uncompleted">
+
+                                <x-slot name="action">
+                                    identitas
+                                </x-slot>
 
                                 <x-slot name="title">
                                     Data Identitas

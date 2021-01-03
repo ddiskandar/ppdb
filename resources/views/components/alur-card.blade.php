@@ -4,11 +4,11 @@
         'completed' => ' text-white bg-green-500 border-none',
         'uncompleted' => ' text-gray-400 bg-white border-gray-200 hover:border-green-400',
     ],
-    'href' => '#',
+    'action' => '#',
 ])
 
 <div {{ $attributes->merge(['class' => "{$colors[$type]} relative w-full transition ease-in-out border-2 "]) }}>
-    <a href="{{ $href }}">
+    <a href="{{ $action }}">
     <div class="flex items-center h-full px-10 py-8 ">
         {{ $slot }}
 
