@@ -10,6 +10,7 @@ class Ppdb extends Model
     use HasFactory;
 
     protected $table = 'ppdb';
+    protected $guarded = [];
 
     public function student()
     {

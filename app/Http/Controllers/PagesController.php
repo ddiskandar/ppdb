@@ -27,9 +27,7 @@ class PagesController extends Controller
 
     public function home()
     {
-        return view('siswa.home', [
-            'periode' => Periode::where('active', true)->first(),
-        ]);
+        return view('siswa.home');
     }
 
 }

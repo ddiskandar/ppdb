@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use Illuminate\Http\Request;
+
+use App\Models\Ppdb;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +52,19 @@ Route::middleware(['auth'])->group(function(){
     });
 
     Route::get('/home', [PagesController::class, 'home'])->name('home')->middleware(['role:student']);
+
+    Route::post('/jalur', function(Request $request){
+        $student = auth()->user()->student;
+
+        Ppdb::create([
+            'student_id' => $student->id,
+            'major_id' => 1,
+            'payment_amount' => 150000,
+        ]);
+
+        return redirect()->route('home');
+    });
+
 
     Route::get('/profile', function () {
         return view('profile');
