@@ -16,7 +16,9 @@ class CreatePpdbTable extends Migration
         Schema::create('ppdb', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id');
+            $table->foreignId('majors_id');
             $table->integer('payment_amount');
+            $table->boolean('pass')->default(false);
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class CreateMajorsTable extends Migration
         Schema::create('majors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('last_student');
+            $table->integer('last_students');
             $table->timestamps();
         });
     }

@@ -17,15 +17,15 @@ class MajorSeeder extends Seeder
     {
         DB::table('majors')->insert([
             'name' => 'Multimedia',
-            'last_student' => 127,
+            'last_students' => 127,
         ]);
         DB::table('majors')->insert([
             'name' => 'Bisnis Daring dan Pemasaran',
-            'last_student' => 66,
+            'last_students' => 66,
         ]);
         DB::table('majors')->insert([
             'name' => 'Agribisnis Pengolahan Hasil Pertanian',
-            'last_student' => 39,
+            'last_students' => 39,
         ]);
     }
 }

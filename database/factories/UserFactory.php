@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use App\Models\Periode;
 
 class UserFactory extends Factory
 {
@@ -22,8 +23,10 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $periode = Periode::where('active', true)->first()->name;
+
         return [
-            'username' => '2122.01.' . $this->faker->unique()->numberBetween($min = 1000, $max = 9999),
+            'username' => '2122.'. $periode.'.' . $this->faker->unique()->numberBetween($min = 1000, $max = 9999),
             'name' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'email_verified_at' => now(),

@@ -18,7 +18,7 @@ class CreateSchoolsTable extends Migration
             $table->string('npsn');
             $table->string('name');
             $table->text('address');
-            $table->integer('last_student');
+            $table->integer('last_students');
             $table->timestamps();
         });
     }
