@@ -19,13 +19,13 @@
             <div class="">
             <div class="">
                 <div class="text-sm font-bold text-gray-900">
-                    Gelombang {{ $periode->name }}
+                    Gelombang {{ $periode_name }}
                 </div>
             </div>
             </div>
         </td>
         <td class="px-6 py-4 whitespace-nowrap">
-            <div class="text-sm text-gray-900">{{ $periode->desc }}</div>
+            <div class="text-sm text-gray-900">{{ $periode_desc }}</div>
         </td>
         <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
             @if ( Auth::user()->student->ppdb )
@@ -35,17 +35,13 @@
             @endif
         </td>
         </tr>
-
-        <!-- More rows... -->
     </tbody>
     </table>
 
     @if ( ! Auth::user()->student->ppdb )
         <div class="py-6 text-center">
-            {{ $periode_id }}
             <form wire:submit.prevent="submitForm" action="/jalur" method="post">
             @csrf
-            <input type="hidden" wire:mode="periode_id" name="periode_id" value="{{ $periode->id }}">
             
             <button type="submit" class="px-12 py-3 text-white bg-red-500 rounded-md">
                 {{ __('Gabung')}}
@@ -54,6 +50,4 @@
             
         </div>
     @endif
-
-    
 </div>
