@@ -15,10 +15,10 @@ class CreateSchoolsTable extends Migration
     {
         Schema::create('schools', function (Blueprint $table) {
             $table->id();
-            $table->string('npsn');
+            $table->char('npsn', 8);
             $table->string('name');
-            $table->text('address');
-            $table->integer('last_students');
+            $table->string('address');
+            $table->tinyInteger('last_students');
             $table->timestamps();
         });
     }

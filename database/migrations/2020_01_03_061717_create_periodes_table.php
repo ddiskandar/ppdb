@@ -15,7 +15,7 @@ class CreatePeriodesTable extends Migration
     {
         Schema::create('periodes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name', 16);
             $table->string('desc');
             $table->integer('ref_payment_amount');
             $table->boolean('active')->default(false);
