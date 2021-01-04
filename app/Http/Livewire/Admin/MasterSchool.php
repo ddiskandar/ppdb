@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\School;
@@ -35,7 +35,6 @@ class MasterSchool extends Component
         School::create($validatedData);
 
         $this->resetForm();
-
     }
 
     private function resetForm()
@@ -48,7 +47,7 @@ class MasterSchool extends Component
 
     public function render()
     {
-        return view('livewire.master-school', [
+        return view('livewire.admin.master-school', [
             'schools' => School::paginate(7)
         ]);
     }

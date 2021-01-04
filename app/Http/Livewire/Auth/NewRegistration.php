@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Auth;
 
 use Livewire\Component;
 use App\Models\School;
@@ -11,7 +11,7 @@ class NewRegistration extends Component
     {
         $schools = School::orderBy('name')->get();
 
-        return view('livewire.new-registration', [
+        return view('livewire.auth.new-registration', [
             'schools' => $schools->except(1),
         ]);
     }

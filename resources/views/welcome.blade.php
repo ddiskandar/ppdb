@@ -32,7 +32,7 @@
 
                 <div class="mt-8 lg:mt-0 lg:col-span-5">
                     
-                    @livewire('login-card')
+                    @livewire('auth.login-card')
 
                 </div>
 
@@ -83,7 +83,7 @@
                 </button>
                 </div>
 
-                @livewire('new-registration')
+                @livewire('auth.new-registration')
 
             </div>
             </section>

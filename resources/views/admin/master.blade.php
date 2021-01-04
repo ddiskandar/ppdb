@@ -61,6 +61,6 @@
         </div>
     </div>
 
-    @livewire('master-school')
+    @livewire('admin.master-school')
     
 </x-app-layout>

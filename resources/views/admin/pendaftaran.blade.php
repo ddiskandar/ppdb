@@ -1,5 +1,5 @@
 <x-app-layout>
 
-    <livewire:pendaftaran />
+    @livewire('admin.pendaftaran')
 
 </x-app-layout>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Student;
 
 use Livewire\Component;
 use App\Models\Periode;
@@ -41,6 +41,6 @@ class DaftarPpdb extends Component
 
     public function render()
     {
-        return view('livewire.daftar-ppdb');
+        return view('livewire.student.daftar-ppdb');
     }
 }
