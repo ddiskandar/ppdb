@@ -72,6 +72,7 @@ class Identitas extends Component
     public $berat;
     public $jarak;
     public $waktu;
+    public $prestasi;
 
     public $nomor_ujian;
     public $nomor_ijazah;
@@ -136,6 +137,7 @@ class Identitas extends Component
         $this->berat = $student->berat;
         $this->jarak = $student->jarak;
         $this->waktu = $student->waktu;
+        $this->prestasi = $student->prestasi;
 
         $this->nomor_ujian = $student->nomor_ujian;
         $this->nomor_ijazah = $student->nomor_ijazah;
@@ -197,6 +199,7 @@ class Identitas extends Component
         'berat' => '',
         'jarak' => '',
         'waktu' => '',
+        'prestasi' => '',
 
         'nomor_ujian' => '',
         'nomor_ijazah' => '',
