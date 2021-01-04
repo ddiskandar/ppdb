@@ -105,7 +105,7 @@
                             <p class="mt-2 text-xs ">* Catat dan simpan nomor registrasi pendaftaran ini karena akan selalu digunakan untuk login dan keperluan lainnya selama PPDB.</p>
 
                             <div class="py-6">
-                                <x-action-card type="completed"
+                                <x-action-card 
                                     title="Cetak Kartu"
                                     description="Nomor registrasi pendaftaran"
                                 >
@@ -200,7 +200,15 @@
                     <div class="px-4 mt-5 sm:px-0 md:mt-0 md:col-span-2">
                         <div class="grid gap-6 lg:grid-cols-2">
 
-                            <x-action-card type="completed"
+                            @php
+                                $completed = Auth::user()->student->is_data_completed() ? "true" : "false";
+                                
+                            @endphp
+
+                            {{-- {{ ddd($completed) }} --}}
+
+                            <x-action-card 
+                                completed="{{ $completed }}"
                                 title="Gelombang"
                                 description="Pilih Jalur Pendaftaran"
                             >

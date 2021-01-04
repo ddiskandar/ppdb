@@ -72,4 +72,16 @@ class Student extends Model
         return $this->belongsTo(Transportasi::class);
     }
 
+    public function is_data_completed()
+    {
+        if ( ! isset(
+            $this->panggilan, 
+            $this->nisn,
+        )) 
+        {
+            return false;
+        }
+        return true;
+    }
+
 }
