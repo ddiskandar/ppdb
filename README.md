@@ -6,9 +6,9 @@
 - [x] Pendaftar login menggunakan nomor registrasi dan password
 - [ ] Panitia dapat membuat akun pendaftaran
 - [ ] Pendaftar dapat mengunduh formulir pendaftaran dengan format PDF yang sudah terisi data setelah semua alur pendaftaran selesai
-- [ ] Pendaftar dapat mengisi profil identitasnya masing-masing
+- [x] Pendaftar dapat mengisi profil identitasnya masing-masing
 - [ ] Pendaftar dapat melihat informasi atau pengumuman
-- [ ] Pendaftar dapat melakukan gabung pada jalur gelombang yang sedang aktif
+- [x] Pendaftar dapat melakukan gabung pada jalur gelombang yang sedang aktif
 - [ ] Pendaftar dapat melihat status alur pendaftaran
 - [ ] Pendaftar dapat memilih jurusan yang diminatinya sebanyak dua pilihan
 - [ ] Pendaftar dapat menggunggah berkas pendaftara yaitu Akta Kelahiran, Kartu Keluarga, ..
