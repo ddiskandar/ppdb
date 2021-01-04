@@ -46,7 +46,7 @@ class User extends Authenticatable
 
     public function getPhotoAttribute($value)
     {
-        return asset($value ?: '/images/student1.jpg');
+        return asset($value ?: '/images/default-photo.png');
     }
 
     public function student()
