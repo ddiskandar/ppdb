@@ -122,15 +122,12 @@
                 </div>
             </div>
 
-            <div class="hidden sm:block" aria-hidden="true">
-            <div class="pt-8">
-                <div class="border-t border-gray-200"></div>
-            </div>
-            </div>
+            <x-section-border/>
+            
         </div>
     </div>
 
-    <div class="pt-6 pb-24">
+    <div class="pb-24">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div>
                 <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -158,11 +155,8 @@
                 </div>
             </div>
 
-            <div class="hidden sm:block" aria-hidden="true">
-            <div class="py-5">
-                <div class="border-t border-gray-200"></div>
-            </div>
-            </div>
+            <x-section-border/>
+
 
             <div class="mt-10 sm:mt-0">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -190,11 +184,8 @@
                 </div>
             </div>
 
-            <div class="hidden sm:block" aria-hidden="true">
-            <div class="py-5">
-                <div class="border-t border-gray-200"></div>
-            </div>
-            </div>
+            <x-section-border/>
+
 
             <div class="mt-10 sm:mt-0">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
