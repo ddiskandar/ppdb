@@ -27,7 +27,7 @@ class PagesController extends Controller
 
     public function home()
     {
-        return view('siswa.home');
+        return view('student.home');
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Student;
 
 use App\Models\Document;
 use Livewire\Component;
@@ -9,7 +9,7 @@ use Livewire\WithFileUploads;
 use App\Models\Student;
 use App\Models\User;
 
-class DataIdentitas extends Component
+class Identitas extends Component
 {
     use WithFileUploads;
 
@@ -72,7 +72,7 @@ class DataIdentitas extends Component
     public $berat;
     public $jarak;
     public $waktu;
-    
+
     public $nomor_ujian;
     public $nomor_ijazah;
 
@@ -212,12 +212,12 @@ class DataIdentitas extends Component
         $student = auth()->user()->student;
 
         Student::where('id', $student->id)
-                ->update($validatedData);
-        
-        User::where('id', auth()->user()->id )
-                ->update([
-                    'name' => $this->name,
-                ]);
+            ->update($validatedData);
+
+        User::where('id', auth()->user()->id)
+            ->update([
+                'name' => $this->name,
+            ]);
 
         $this->successMessage = 'Data berhasil diperbaharui!';
     }
@@ -226,7 +226,6 @@ class DataIdentitas extends Component
     {
         $this->validate();
         $this->successMessage = '';
-
     }
 
     public function updatedPhoto()
@@ -249,6 +248,6 @@ class DataIdentitas extends Component
 
     public function render()
     {
-        return view('livewire.data-identitas');
+        return view('livewire.student.identitas');
     }
 }

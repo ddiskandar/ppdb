@@ -54,7 +54,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/home', [PagesController::class, 'home'])->name('home')->middleware(['role:student']);
     
     Route::get('/identitas', function(){
-        return view('siswa.identitas');
+        return view('student.identitas');
     });
 
     Route::post('/jalur', function(Request $request){
