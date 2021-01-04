@@ -35,8 +35,8 @@ class CreateStudentsTable extends Migration
             $table->string('kab', 24)->nullable();
             $table->string('prov', 24)->nullable();
             $table->string('kode_pos', 6)->nullable();
-            $table->tinyInteger('lintang')->nullable();
-            $table->tinyInteger('bujur')->nullable();
+            $table->string('lintang', 24)->nullable();
+            $table->string('bujur', 24)->nullable();
             $table->foreignId('tinggal_id')->default(1);
             $table->foreignId('transportasi_id')->default(99);
             $table->string('kks', 16)->nullable();
