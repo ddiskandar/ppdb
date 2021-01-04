@@ -5,6 +5,7 @@ use App\Http\Controllers\PagesController;
 use Illuminate\Http\Request;
 
 use App\Http\Livewire\Student\Identitas;
+use App\Http\Livewire\Student\Biodata;
 
 use App\Models\Ppdb;
 
@@ -55,7 +56,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/home', [PagesController::class, 'home'])->name('home')->middleware(['role:student']);
     
-    Route::get('/identitas', Identitas::class);
+    Route::get('/biodata', Biodata::class);
 
     Route::post('/jalur', function(Request $request){
         $student = auth()->user()->student;

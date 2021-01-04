@@ -9,7 +9,7 @@ use Livewire\WithFileUploads;
 use App\Models\Student;
 use App\Models\User;
 
-class Identitas extends Component
+class Biodata extends Component
 {
     use WithFileUploads;
 
@@ -249,6 +249,6 @@ class Identitas extends Component
 
     public function render()
     {
-        return view('livewire.student.identitas');
+        return view('livewire.student.biodata');
     }
 }

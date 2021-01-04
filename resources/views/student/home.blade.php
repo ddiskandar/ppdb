@@ -216,8 +216,8 @@
                             </x-action-card>
 
                             <x-action-card
-                                action="identitas"
-                                title="Data Identitas"
+                                action="biodata"
+                                title="Biodata"
                                 description="Isi data profil diri"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-11"><path data-name="Path 54" d="M16.094 7.469H5.313A4.312 4.312 0 001 11.781v19.407A4.312 4.312 0 005.313 35.5H35.5a4.313 4.313 0 004.313-4.312V11.781A4.313 4.313 0 0035.5 7.469H24.719m-8.625 0V5.313a4.313 4.313 0 018.625 0v2.156m-8.625 0a4.313 4.313 0 008.625 0m-10.782 17.25a4.313 4.313 0 10-4.313-4.312 4.312 4.312 0 004.313 4.312zm0 0a6.477 6.477 0 016.1 4.313m-6.1-4.312a6.471 6.471 0 00-6.1 4.313M26.875 18.25h6.469m-6.469 8.625h4.313" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
