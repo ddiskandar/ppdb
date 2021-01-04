@@ -28,11 +28,7 @@
                         <div class="overflow-hidden bg-white shadow-2xl rounded-2xl">
                             <img alt="photo"
                                 class="object-cover object-center w-full h-96" 
-                                @if ( $photo = Auth::user()->student->documents )
-                                    src="/storage/{{ $photo->whereNotNull('type', 'photo')->first()->path }}"
-                                @else
-                                    src="/images/student1.jpg"
-                                @endif
+                                src="{{ Auth::user()->photo }}"
                             >
                         </div>
                     </div>

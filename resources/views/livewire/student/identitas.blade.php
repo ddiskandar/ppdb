@@ -16,8 +16,11 @@
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                 <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
                     <div class="mt-2 w">
-                        <div class="inline-block w-48 h-32 overflow-hidden @if ( ! $photo ) border-2 border-gray-200 border-dashed @endif rounded-md">
-                            <img class="bg-cover" src="/storage/{{ $photo }}">
+                        <div class="inline-block w-48 h-56 overflow-hidden rounded-md">
+                            <img class="bg-center"
+                                src="{{ Auth::user()->photo }}"
+                                alt="{{ Auth::user()->username }} photo"
+                                >
                         </div>
                         
                         <div class="mt-4">
@@ -60,10 +63,11 @@
                                 <div class="px-4 py-5 bg-white sm:p-6">
                                     <div class="grid grid-cols-6 gap-6">
                                         <div class="col-span-6 sm:col-span-4">
-                                            <label for="name" class="block text-sm font-medium text-gray-700">name</label>
-                                            <input wire:model.lazy="name" type="text" name="name" id="name" autocomplete="name" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">
-                                            @error('name') <div class="mt-2 text-sm text-red-600">{{ $message }}</div> @enderror
+                                            <x-label for="name" value="{{ __('Nama Lengkap') }}" />
+                                            <x-input wire:model.lazy="name" id="name" type="text" class="block w-full mt-1"/>
+                                            <x-input-error for="name" class="mt-2" />
                                         </div>
+
                                         <div class="col-span-6 sm:col-span-3">
                                             <label for="panggilan" class="block text-sm font-medium text-gray-700">panggilan</label>
                                             <input wire:model.lazy="panggilan" type="text" name="panggilan" id="panggilan" autocomplete="panggilan" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm">

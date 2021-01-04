@@ -80,8 +80,6 @@ class Identitas extends Component
     {
         $student = auth()->user()->student;
 
-        $this->photo = $student->documents->where('type', 'photo')->first()->path;
-
         $this->name = auth()->user()->name;
         $this->panggilan = $student->panggilan;
         $this->jk = $student->jk;
