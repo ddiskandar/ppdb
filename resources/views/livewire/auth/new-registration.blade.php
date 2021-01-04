@@ -22,16 +22,23 @@
 
         <!-- Email Address -->
         <div class="mt-4">
-            <x-label for="email" :value="__('Email')" />
+            <x-label for="nisn" :value="__('NISN')" />
 
-            <x-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required />
+            <x-input id="nisn" class="block w-full mt-1" type="text" name="nisn" :value="old('nisn')" />
+        </div>
+
+        <!-- Email Address -->
+        <div class="mt-4">
+            <x-label for="phone" :value="__('Nomor HP/Whatsapp')" />
+
+            <x-input id="phone" class="block w-full mt-1" type="text" name="phone" :value="old('phone')" />
         </div>
 
         <!-- Asal Sekolah -->
         <div class="mt-4">
             <x-label for="school_id" :value="__('Asal Sekolah')" />
 
-            <select id="school_id" name="school_id" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+            <select id="school_id" name="school_id" class="block w-full mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 " required>
                 <option value=''>{{ __('Pilih salah satu') }}</option>
                 @foreach ($schools as $school )
                     <option value={{ $school->id }}>{{ $school->name }}</option>
@@ -40,9 +47,16 @@
 
         </div>
 
+        <!-- Email Address -->
+        <div class="mt-4">
+            <x-label for="ibu_nama" :value="__('Nama Ibu Kandung')" />
+
+            <x-input id="ibu_nama" class="block w-full mt-1" type="text" name="ibu_nama" :value="old('ibu_nama')" required />
+        </div>
+
         <!-- Password -->
         <div class="mt-4">
-            <x-label for="password" :value="__('Password')" />
+            <x-label for="password" :value="__('Password ( digunakan untuk login aplikasi )')" />
 
             <x-input id="password" class="block w-full mt-1"
                             type="password"

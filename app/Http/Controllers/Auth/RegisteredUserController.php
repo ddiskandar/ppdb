@@ -43,7 +43,7 @@ class RegisteredUserController extends Controller
 
         $user = User::factory()->create([
             'name' => $request->name,
-            'email' => $request->email,
+            // 'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
@@ -53,7 +53,10 @@ class RegisteredUserController extends Controller
 
         Student::create([
             'user_id' => $user->id,
-            'school_id' => $request->school_id
+            'school_id' => $request->school_id,
+            'ibu_nama' => $request->ibu_nama,
+            'nisn' => $request->nisn,
+            'phone' => $request->phone,
         ]);
 
         $user->assignRole('student');

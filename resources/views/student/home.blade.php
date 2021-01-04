@@ -76,10 +76,10 @@
                                 @endif
                             </dd>
                             
-                            <dt class="mt-2 text-gray-400">{{ __('Email') }}</dt>
+                            <dt class="mt-2 text-gray-400">{{ __('Nama Ibu Kandung') }}</dt>
                             <dd class="flex items-center text-xl font-bold text-gray-900">
-                                @if ( $email = Auth::user()->email )
-                                    {{ $email }}
+                                @if ( $ibu = Auth::user()->student->ibu_nama )
+                                    {{ $ibu }}
                                 @else
                                     <p class="mt-2 text-sm text-red-700 uppercase">{{ __('Belum ada data') }}</p>
                                 @endif
