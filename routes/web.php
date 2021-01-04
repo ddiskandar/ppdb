@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use Illuminate\Http\Request;
 
+use App\Http\Livewire\Student\Identitas;
+
 use App\Models\Ppdb;
 
 
@@ -53,9 +55,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/home', [PagesController::class, 'home'])->name('home')->middleware(['role:student']);
     
-    Route::get('/identitas', function(){
-        return view('student.identitas');
-    });
+    Route::get('/identitas', Identitas::class);
 
     Route::post('/jalur', function(Request $request){
         $student = auth()->user()->student;

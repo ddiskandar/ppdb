@@ -43,7 +43,7 @@
             <form wire:submit.prevent="submitForm" action="/jalur" method="post">
             @csrf
             
-            <button type="submit" class="px-12 py-3 text-white bg-red-500 rounded-md">
+            <button type="submit" class="px-12 py-3 text-white bg-red-500 rounded-md hover:bg-red-600">
                 {{ __('Gabung')}}
             </button>
             </form>
