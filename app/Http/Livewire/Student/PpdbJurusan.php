@@ -3,30 +3,32 @@
 namespace App\Http\Livewire\Student;
 
 use App\Models\Major;
-use App\Models\User;
+use App\Models\Ppdb;
 use Livewire\Component;
 
 class PpdbJurusan extends Component
 {
     public $successMessage;
-    public $major_id;
+    public $pilihan_satu;
+    public $pilihan_dua;
 
     public function mount()
     {
         $student = auth()->user()->student;
 
-        $this->major_id = $student->ppdb->major_id;
+        $this->pilihan_satu = $student->ppdb->pilihan_satu;
+        $this->pilihan_dua = $student->ppdb->pilihan_dua;
     }
 
     public function submitForm()
     {
-        User::where('id', auth()->user()->id)
+        Ppdb::where('id', auth()->user()->student->id)
             ->update([
-                'name' => $this->name,
+                'pilihan_satu' => $this->pilihan_satu,
+                'pilihan_dua' => $this->pilihan_dua,
             ]);
 
         $this->successMessage = 'Data berhasil diperbaharui!';
-
     }
 
 
