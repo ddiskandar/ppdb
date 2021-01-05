@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Student;
 
-use App\Models\Document;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -208,7 +207,7 @@ class Biodata extends Component
         'nomor_ijazah' => '',
     ];
 
-    public function updateIdentitas()
+    public function updateBiodata()
     {
 
         $validatedData = $this->validate();
@@ -223,7 +222,7 @@ class Biodata extends Component
         User::where('id', auth()->user()->id)
             ->update([
                 'name' => $this->name,
-                'photo' => $this->photo ? $this->photo->store('photos', 'public') : $imageToShow ,
+                'photo' => $this->photo ? $this->photo->store('photos', 'public') : $imageToShow,
             ]);
 
         $this->successMessage = 'Data berhasil diperbaharui!';
