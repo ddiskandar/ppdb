@@ -77,10 +77,10 @@ class Student extends Model
         if ( ! isset(
             $this->panggilan, 
             $this->nisn,
-        )) 
-        {
+        )) {
             return false;
         }
+        
         return true;
     }
 

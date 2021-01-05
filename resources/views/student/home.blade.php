@@ -206,15 +206,8 @@
                     <div class="px-4 mt-5 sm:px-0 md:mt-0 md:col-span-2">
                         <div class="grid gap-6 lg:grid-cols-2">
 
-                            @php
-                                $completed = Auth::user()->student->is_data_completed() ? "true" : "false";
-                                
-                            @endphp
-
-                            {{-- {{ ddd($completed) }} --}}
-
                             <x-action-card 
-                                completed="{{ $completed }}"
+                                completed="{{ ( Auth::user()->student->ppdb ) ? 'true' : 'false' }}"
                                 title="Gelombang"
                                 description="Pilih Jalur Pendaftaran"
                             >
@@ -222,6 +215,7 @@
                             </x-action-card>
 
                             <x-action-card
+                                completed="{{ ( Auth::user()->student->is_data_completed() ) ? 'true' : 'false' }}"
                                 action="biodata"
                                 title="Biodata"
                                 description="Isi data profil diri"
