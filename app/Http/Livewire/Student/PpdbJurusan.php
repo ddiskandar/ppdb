@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Student;
 
 use App\Models\Major;
+use App\Models\User;
 use Livewire\Component;
 
 class PpdbJurusan extends Component
@@ -22,7 +23,6 @@ class PpdbJurusan extends Component
         User::where('id', auth()->user()->id)
             ->update([
                 'name' => $this->name,
-                'photo' => $this->photo ? $this->photo->store('photos', 'public') : $imageToShow,
             ]);
 
         $this->successMessage = 'Data berhasil diperbaharui!';

@@ -15,9 +15,13 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->string('type', 16);
             $table->foreignId('student_id');
-            $table->string('path');
+            $table->string('ijazah')->nullable();
+            $table->string('akta')->nullable();
+            $table->string('kk')->nullable();
+            $table->string('kip')->nullable();
+            $table->string('kks')->nullable();
+            $table->string('pkh')->nullable();
             $table->timestamps();
         });
     }

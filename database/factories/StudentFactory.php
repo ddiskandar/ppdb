@@ -22,8 +22,10 @@ class StudentFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => $this->user->id,
-            'school_id' => $this->faker->numberBetween($min = 1, $max = 40)
+            'user_id' => function () {
+                // return factory(\App\Models\User::class)->create()->id;
+            },
+            'school_id' => 1,
         ];
     }
 }
