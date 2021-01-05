@@ -96,6 +96,11 @@
 
         </div>
 
+        <div class="py-6 mt-6 text-sm border-t border-gray-200">
+            <p>{{ __('Lupa Nomor Registrasi atau Password? ') }}</p>
+            {!! __('<strong>Hubungi Panitia</strong> ') !!}
+        </div>
+
         {{-- <a class="text-sm text-gray-600 underline hover:text-gray-900" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a> --}}
