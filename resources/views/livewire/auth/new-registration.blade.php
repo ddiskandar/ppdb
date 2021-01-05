@@ -20,6 +20,19 @@
             <x-input id="name" class="block w-full mt-1" type="text" name="name" :value="old('name')" required autofocus />
         </div>
 
+         <!-- Jenis Kelamin -->
+        <div class="mt-4">
+            <x-label for="jk" :value="__('Jenis Kelamin')" />
+
+            <x-select wire:model.defer="jk" id="jk" name="jk" autocomplete="jk" class="block w-full px-3 mt-1">
+                <option>{{ __('Pilih salah-satu') }}</option>
+                <option value="L">{{ __('Laki-laki') }}</option>
+                <option value="P">{{ __('Perempuan') }}</option>
+            </x-select>
+        </div>
+
+        
+
         <!-- Email Address -->
         <div class="mt-4">
             <x-label for="nisn" :value="__('NISN')" />

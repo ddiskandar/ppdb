@@ -2,13 +2,13 @@
 
 <div x-data="{ open: false }">
 
-    <div class="py-6 lg:py-32">
+    <div class="py-6 lg:py-24">
         <div class="px-6 mx-auto max-w-7xl lg:px-8">
             <div class="mt-10 sm:mt-0">
             <div class="lg:grid lg:grid-cols-12 lg:gap-12">
                 <div class="lg:col-span-7">
                     <div class="h-full px-4 text-center lg:flex-col lg:text-left lg:justify-center sm:px-0 lg:flex">
-                        <div>
+                        <div class="lg:w-5/6">
                             <h2 class="text-xl font-bold lg:text-2xl">
                                 {{ __('PPDB ONLINE') }}
                             </h2>
@@ -16,7 +16,7 @@
                                 {{ __('SMK Plus Al-Farhan') }}
                             </h1>
                             <p class="mb-10 text-sm lg:text-base">
-                                {{ __('Untuk calon pendaftar tahun ajaran 2021/2022 bisa mendaftar melalui website ini atau langsung datang ke tempat pendaftaran') }}
+                                {{ __('Untuk calon pendaftar tahun ajaran 2021/2022 bisa mendaftar melalui portal website ini atau langsung datang ke tempat pendaftaran') }}
                             </p>
                             <div @click="open = ! open" class="items-center hidden font-bold cursor-pointer lg:flex">
                                 <div class="tracking-widest uppercase">

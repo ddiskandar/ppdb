@@ -2,18 +2,18 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <div class="lg:hidden">
-            <h2 id="slide-over-heading" class="text-lg font-bold text-gray-900">
-                {{ __('Selamat Datang') }}
+        <div class="mb-6">
+            <h2 id="slide-over-heading" class="text-xl font-bold text-gray-900">
+                {{ __('Selamat Datang di Portal PPDB') }}
             </h2>
             <p class="mt-2 text-sm">
-                {{ __('Silahkan login menggunakan nomor registrasi dan password yang sudah anda miliki') }}
+                {!! __('Masukkan kombinasi <strong>Nomor Registrasi</strong> dan <strong>Password</strong> yang telah terdaftar untuk masuk ke portal PPDB.') !!}
             </p>
         </div>
 
         <x-input id="username" class="block w-full mt-3 placeholder-gray-400" type="text" name="username" :value="old('username')" placeholder="Nomor registrasi, misal : 2122.0x.xxxx" required autofocus />
 
-        <x-input id="password" class="block w-full mt-3 placeholder-gray-400" type="password" name="password" :value="old('password')" placeholder="Kata sandi" required autofocus />
+        <x-input id="password" class="block w-full mt-3 placeholder-gray-400" type="password" name="password" :value="old('password')" placeholder="Password" required autofocus />
 
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -26,7 +26,7 @@
         </x-button>
     </form>
 
-    <div class="pt-6 mt-6 text-sm border-t border-gray-200 lg:text-center">
+    <div class="pt-6 mt-6 text-sm border-t border-gray-200">
         {{ __('Belum punya akun? ') }}
         <a href="#" @click="open = ! open" class="font-bold"> Daftar Sekarang</a>
     </div>
