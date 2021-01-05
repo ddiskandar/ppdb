@@ -224,6 +224,8 @@
                             </x-action-card>
 
                             <x-action-card
+                                completed="{{ ( Auth::user()->student->ppdb->major_id ) ? 'true' : 'false' }}"
+                                action="jurusan"
                                 title="Pilih Jurusan"
                                 description="Tentukan jurusan kalian"
                             >
