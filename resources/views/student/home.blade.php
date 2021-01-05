@@ -30,7 +30,7 @@
                                 class="object-cover object-center w-full h-96" 
                                 
                                 @if( $user_photo = Auth::user()->photo )
-                                    src="{{ $user_photo }}"
+                                    src="/storage/{{ $user_photo }}"
                                 @else 
                                     src="/images/default-photo.png"
                                 @endif
