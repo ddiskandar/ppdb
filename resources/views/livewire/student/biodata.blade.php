@@ -76,9 +76,18 @@
                             <x-input-error for="phone" class="mt-2" />
                         </div>
 
-                        <div class="col-span-6 sm:col-span-2">
+                        <div class="col-span-6 sm:col-span-3">
                             <x-label for="agama_id" value="{{ __('Agama') }}" />
-                            <x-input wire:model.defer="agama_id" id="agama_id" type="text" class="block w-full mt-1"/>
+
+                            <x-select wire:model.defer="agama_id" id="agama_id" name="agama_id" autocomplete="agama_id" class="block w-full px-3 mt-1">
+                                @foreach ($agamas as $agama)
+                                    <option value="{{ $agama->id }}" 
+                                        {{ ($agama->id == $agama_id) ? 'selected':'' }}
+                                        >{{ $agama->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
+                            
                             <x-input-error for="agama_id" class="mt-2" />
                         </div>
 

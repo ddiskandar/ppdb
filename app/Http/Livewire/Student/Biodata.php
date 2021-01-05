@@ -8,6 +8,7 @@ use Livewire\WithFileUploads;
 
 use App\Models\Student;
 use App\Models\User;
+use App\Models\Agama;
 
 class Biodata extends Component
 {
@@ -249,6 +250,9 @@ class Biodata extends Component
 
     public function render()
     {
-        return view('livewire.student.biodata');
+        return view('livewire.student.biodata', [
+            'agamas' => Agama::all()
+        ]);
+
     }
 }

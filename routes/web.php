@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use Illuminate\Http\Request;
 
-use App\Http\Livewire\Student\Identitas;
 use App\Http\Livewire\Student\Biodata;
 
 use App\Models\Ppdb;
