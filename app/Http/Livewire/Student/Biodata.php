@@ -15,6 +15,7 @@ class Biodata extends Component
     use WithFileUploads;
 
     public $successMessage;
+    
     public $photo;
 
     public $name;
@@ -83,6 +84,7 @@ class Biodata extends Component
         $student = auth()->user()->student;
 
         $this->name = auth()->user()->name;
+
         $this->panggilan = $student->panggilan;
         $this->jk = $student->jk;
         $this->nisn = $student->nisn;
@@ -215,19 +217,16 @@ class Biodata extends Component
 
         Student::where('id', $student->id)
             ->update($validatedData);
+        
+        $imageToShow = $student->photo ?? null;
 
         User::where('id', auth()->user()->id)
             ->update([
                 'name' => $this->name,
+                'photo' => $this->photo ? $this->photo->store('photos', 'public') : $imageToShow ,
             ]);
 
         $this->successMessage = 'Data berhasil diperbaharui!';
-    }
-
-    public function updated()
-    {
-        $this->validate();
-        $this->successMessage = '';
     }
 
     public function updatedPhoto()
@@ -235,17 +234,6 @@ class Biodata extends Component
         $this->validate([
             'photo' => 'image|max:1024', // 1MB Max
         ]);
-
-        $uploaded = $this->photo->store('photo', 'public');
-
-        $student = auth()->user()->student;
-
-        Document::upsert([
-            'id' => $student->documents->where('type', 'photo')->first()->id,
-            'type' => 'photo',
-            'path' => $uploaded,
-            'student_id' => $student->id,
-        ], ['id', 'student_id', 'type'], ['path']);
     }
 
     public function render()

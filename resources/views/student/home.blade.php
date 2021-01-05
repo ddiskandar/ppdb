@@ -28,7 +28,13 @@
                         <div class="overflow-hidden bg-white shadow-2xl rounded-2xl">
                             <img alt="photo"
                                 class="object-cover object-center w-full h-96" 
-                                src="{{ Auth::user()->photo }}"
+                                
+                                @if( $user_photo = Auth::user()->photo )
+                                    src="{{ $user_photo }}"
+                                @else 
+                                    src="/images/default-photo.png"
+                                @endif
+                                
                             >
                         </div>
                     </div>

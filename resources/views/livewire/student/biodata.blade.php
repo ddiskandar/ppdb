@@ -1,4 +1,76 @@
 <div>
+
+<div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <x-action-section>
+
+            <x-slot name="title">
+                {{ __('Pas Photo')}}
+            </x-slot>
+
+            <x-slot name="description">
+                {{ __('Mengenakan seragam asal sekolah')}}
+            </x-slot>
+
+            <x-slot name="content">
+
+                <x-form successMessage="{{ $successMessage }}"
+                    submit="updateIdentitas"
+                >
+                    <x-slot name="form">
+
+                        <div class="col-span-3 sm:col-span-2">
+                            <div class="relative block overflow-hidden bg-white shadow-xl rounded-xl">
+                                <img alt="photo"
+                                    class="object-cover w-full h-72 " 
+                                    
+                                    @if($photo)
+                                        src="{{ $photo->temporaryUrl() }}"
+                                    @elseif( $user_photo = Auth::user()->photo )
+                                        src="/storage/{{ $user_photo }}"
+                                    @else 
+                                        src="/images/default-photo.png"
+                                    @endif
+                                    
+                                >
+
+                                <div 
+                                    wire:loading
+                                    wire:target="photo" 
+                                    class="absolute top-4 left-4 "
+                                    >
+                                    <svg 
+                                        class="w-5 h-5 -ml-1 text-gray-600 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                </div>
+
+                            </div>
+                            
+                            <div class="mt-6">
+                                <input wire:model.defer="photo" id="photo" type="file" class=""/>
+                                <x-input-error for="photo" class="mt-2" />
+                            </div>
+
+                            
+                            
+                        </div>
+
+                    </x-slot>
+                    <x-slot name="actions">
+                        <x-button-submit 
+                            target="updateIdentitas"
+                            class="py-2 bg-green-600 hover:bg-green-700 focus:ring-green-500">
+                            {{ __('Simpan') }}
+                        </x-button-submit>
+                    </x-slot>
+                </x-form>
+
+            </x-slot>
+            
+        </x-action-section>
+    </div> {{-- end of  --}}
+    
     <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <x-action-section>
 
