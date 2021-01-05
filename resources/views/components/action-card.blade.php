@@ -15,7 +15,7 @@
         <div class="flex items-center h-full px-5 py-6 sm:py-8 sm:px-10 ">
             {{ $slot }}
             <div class="flex-1 ml-4">
-                <div class="text-xl xl:text-2xl font-extrabold {{ $completed === 'false' ? "text-gray-900" : "" }} ">
+                <div class="text-xl xl:text-2xl font-extrabold {{ ($completed === 'false') ? 'text-gray-900' : '' }} ">
                     {{ $title }}
                 </div>
                 <div class="text-sm">
