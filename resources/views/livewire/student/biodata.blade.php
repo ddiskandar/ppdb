@@ -18,7 +18,13 @@
                 >
                     <x-slot name="form">
 
-                        <div class="col-span-3 sm:col-span-2">
+                        <div class="col-span-3 sm:col-span-2"
+                            x-data="{ isUploading: false, progress: 0 }"
+                            x-on:livewire-upload-start="isUploading = true"
+                            x-on:livewire-upload-finish="isUploading = false"
+                            x-on:livewire-upload-error="isUploading = false"
+                            x-on:livewire-upload-progress="progress = $event.detail.progress"
+                        >
                             <div class="relative block overflow-hidden bg-white shadow-xl rounded-xl">
                                 <img alt="photo"
                                     class="object-cover w-full h-72 " 
@@ -33,17 +39,25 @@
                                     
                                 >
 
-                                <div 
+                                <!-- Progress Bar -->
+                                <div class="absolute top-4 left-4"
+                                        x-show="isUploading"
+                                        x-cloak
+                                    >
+                                    <progress max="100" x-bind:value="progress"></progress>
+                                </div>
+
+                                {{-- <div 
                                     wire:loading
                                     wire:target="photo" 
                                     class="absolute top-4 left-4 "
                                     >
                                     <svg 
-                                        class="w-5 h-5 -ml-1 text-gray-600 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        class="w-5 h-5 -ml-1 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                     </svg>
-                                </div>
+                                </div> --}}
 
                             </div>
                             

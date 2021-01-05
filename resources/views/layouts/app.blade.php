@@ -19,6 +19,22 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
+        <style>
+            progress {
+                border-radius: 7px;
+            }
+
+            progress::-webkit-progress-bar {
+                background-color: lightgrey;
+                border-radius: 7px;
+            }
+
+            progress::-webkit-progress-value {
+                background-color: green;
+                border-radius: 7px;
+            }
+        </style>
+
 
     </head>
     <body class="font-sans antialiased">
