@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">
-                            <x-label for="pilihan_dua" value="{{ __('Pilihan Jurusan Pertama') }}" />
+                            <x-label for="pilihan_dua" value="{{ __('Pilihan Jurusan Kedua') }}" />
 
                             <x-select wire:model.defer="pilihan_dua" id="pilihan_dua" name="pilihan_dua" autocomplete="pilihan_dua" class="block w-full px-3 mt-1">
                                 @foreach ($majors as $major)
