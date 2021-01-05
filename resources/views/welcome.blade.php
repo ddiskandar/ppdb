@@ -3,9 +3,9 @@
 <div x-data="{ open: false }">
 
     <div class="py-6 lg:py-24">
-        <div class="px-6 mx-auto max-w-7xl lg:px-8">
+        <div class="px-6 mx-auto max-w-7xl lg:px-24">
             <div class="mt-10 sm:mt-0">
-            <div class="lg:grid lg:grid-cols-12 lg:gap-12">
+            <div class="lg:grid lg:grid-cols-12">
                 <div class="lg:col-span-7">
                     <div class="h-full px-4 text-center lg:flex-col lg:text-left lg:justify-center sm:px-0 lg:flex">
                         <div class="lg:w-5/6">
