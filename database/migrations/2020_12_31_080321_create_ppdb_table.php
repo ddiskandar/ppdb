@@ -19,9 +19,8 @@ class CreatePpdbTable extends Migration
             $table->foreignId('periode_id');
             $table->foreignId('pilihan_satu')->nullable();
             $table->foreignId('pilihan_dua')->nullable();
+            $table->foreignId('pilihan_lulus')->nullable();
             $table->integer('payment_amount');
-            $table->boolean('pilihan_satu_pass')->default(false);
-            $table->boolean('pilihan_dua_pass')->default(false);
             $table->timestamps();
         });
     }

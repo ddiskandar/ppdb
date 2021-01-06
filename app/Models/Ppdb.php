@@ -20,6 +20,11 @@ class Ppdb extends Model
         return $this->belongsTo(Student::class);
     }
 
+    public function jurusan()
+    {
+        return $this->belongsTo(Jurusan::class);
+    }
+
     public function pilihan_satu()
     {
         return $this->hasOne(Jurusan::class, 'pilihan_satu');
@@ -28,5 +33,10 @@ class Ppdb extends Model
     public function pilihan_dua()
     {
         return $this->hasOne(Jurusan::class, 'pilihan_dua');
+    }
+
+    public function pilihan_lulus()
+    {
+        return $this->hasOne(Jurusan::class, 'pilihan_lulus');
     }
 }
