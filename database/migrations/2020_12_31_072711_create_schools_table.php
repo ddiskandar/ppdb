@@ -19,7 +19,6 @@ class CreateSchoolsTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->tinyInteger('last_students');
-            $table->timestamps();
         });
     }
 

@@ -16,12 +16,22 @@ class CreateDocumentsTable extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id');
-            $table->string('ijazah')->nullable();
             $table->string('akta')->nullable();
-            $table->string('kk')->nullable();
-            $table->string('kip')->nullable();
+            $table->string('kartu_keluarga')->nullable();
+            $table->string('skl')->nullable();
+            $table->string('ijazah')->nullable();
+            $table->string('nomor_ujian', 24)->nullable();
+            $table->string('nomor_ijazah', 24)->nullable();
             $table->string('kks')->nullable();
+            $table->string('no_kks', 16)->nullable();
+            $table->string('kip')->nullable();
+            $table->string('no_kip', 16)->nullable();
+            $table->string('kis')->nullable();
+            $table->string('no_kis', 16)->nullable();
             $table->string('pkh')->nullable();
+            $table->string('no_pkh', 16)->nullable();
+
+
             $table->timestamps();
         });
     }

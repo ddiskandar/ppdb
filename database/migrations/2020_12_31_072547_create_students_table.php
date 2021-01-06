@@ -40,32 +40,9 @@ class CreateStudentsTable extends Migration
             $table->string('bujur', 24)->nullable();
             $table->foreignId('tinggal_id')->default(1);
             $table->foreignId('transportasi_id')->default(99);
-            $table->string('kks', 16)->nullable();
-            $table->string('pkh', 16)->nullable();
-            $table->string('kip', 16)->nullable();
             $table->tinyInteger('anak_ke')->nullable();
             $table->tinyInteger('saudara')->nullable();
             $table->string('phone', 16)->nullable();
-
-            $table->char('ayah_nik', 16)->nullable();
-            $table->string('ayah_nama')->nullable();
-            $table->char('ayah_lahir', 4)->nullable();
-            $table->string('ayah_pendidikan', 16)->nullable();
-            $table->string('ayah_pekerjaan')->nullable();
-            $table->string('ayah_penghasilan')->nullable();
-            $table->char('ibu_nik', 16)->nullable();
-            $table->string('ibu_nama')->nullable();
-            $table->char('ibu_lahir', 4)->nullable();
-            $table->string('ibu_pendidikan', 16)->nullable();
-            $table->string('ibu_pekerjaan')->nullable();
-            $table->string('ibu_penghasilan')->nullable();
-            $table->char('wali_nik', 16)->nullable();
-            $table->string('wali_nama')->nullable();
-            $table->char('wali_lahir', 4)->nullable();
-            $table->string('wali_pendidikan', 16)->nullable();
-            $table->string('wali_pekerjaan')->nullable();
-            $table->string('wali_penghasilan')->nullable();
-            $table->string('phone_ortu', 16)->nullable();
 
             $table->tinyInteger('tinggi')->nullable();
             $table->tinyInteger('berat')->nullable();
@@ -81,9 +58,6 @@ class CreateStudentsTable extends Migration
             $table->text('desc_student')->nullable();
             $table->text('catatan')->nullable();
             $table->foreignId('pip_id')->default(99);
-
-            $table->string('nomor_ujian', 24)->nullable();
-            $table->string('nomor_ijazah', 24)->nullable();
 
             $table->timestamps();
         });

@@ -12,6 +12,7 @@ use App\Models\Agama;
 use App\Models\Pip;
 use App\Models\Tinggal;
 use App\Models\Transportasi;
+use App\Models\Ortu;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -35,6 +36,11 @@ class Student extends Model
     public function ppdb()
     {
         return $this->hasOne(Ppdb::class);
+    }
+
+    public function ortu()
+    {
+        return $this->hasOne(Ortu::class);
     }
 
     public function payments()

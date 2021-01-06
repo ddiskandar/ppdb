@@ -17,7 +17,6 @@ class CreateMajorsTable extends Migration
             $table->id();
             $table->string('name');
             $table->tinyInteger('last_students');
-            $table->timestamps();
         });
     }
 

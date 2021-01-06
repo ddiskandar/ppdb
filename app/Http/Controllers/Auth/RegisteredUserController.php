@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Student;
+use App\Models\Ortu;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -51,13 +52,19 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        Student::create([
+        $student = Student::create([
             'user_id' => $user->id,
             'school_id' => $request->school_id,
-            'ibu_nama' => $request->ibu_nama,
+            'jk' => $request->jk,
             'nisn' => $request->nisn,
             'phone' => $request->phone,
         ]);
+
+        Ortu::create([
+            'student_id' => $student->id,
+            'ibu_nama' => $request->ibu_nama,
+        ]);
+
 
         $user->assignRole('student');
 
