@@ -233,6 +233,7 @@
                             </x-action-card>
 
                             <x-action-card
+                                action="document"
                                 title="Unggah Berkas"
                                 description="Ijazah, Akta, Kartu keluarga"
                             >

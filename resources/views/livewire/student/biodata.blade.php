@@ -265,66 +265,6 @@
         </x-action-section>
     </div>
 
-    {{-- Data Periodik --}}
-
-    <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <x-action-section>
-
-            <x-slot name="title">
-                {{ __('Data Periodik')}}
-            </x-slot>
-
-            <x-slot name="description">
-                {{ __('Tinggi badan, berat badan, jarak')}}
-            </x-slot>
-
-            <x-slot name="content">
-
-                <x-form successMessage="{{ $successMessage }}"
-                    submit="updateBiodata"
-                >
-                    <x-slot name="form">
-
-                        <div class="col-span-6 sm:col-span-3">
-                            <x-label for="tinggi" value="{{ __('Tinggi Badan (cm)') }}" />
-                            <x-input wire:model.defer="tinggi" id="tinggi" type="text" class="block w-full mt-1"/>
-                            <x-input-error for="tinggi" class="mt-2" />
-                        </div>
-
-                        <div class="col-span-6 sm:col-span-3">
-                            <x-label for="berat" value="{{ __('Berat Badan (Kg)') }}" />
-                            <x-input wire:model.defer="berat" id="berat" type="text" class="block w-full mt-1"/>
-                            <x-input-error for="berat" class="mt-2" />
-                        </div>
-
-                        <div class="col-span-6 sm:col-span-3">
-                            <x-label for="jarak" value="{{ __('Jarak tempat tinggal ke sekolah (Km)') }}" />
-                            <x-input wire:model.defer="jarak" id="jarak" type="text" class="block w-full mt-1"/>
-                            <x-input-error for="jarak" class="mt-2" />
-                        </div>
-
-                        <div class="col-span-6 sm:col-span-3">
-                            <x-label for="waktu" value="{{ __('Waktu tempuh ke sekolah (menit)') }}" />
-                            <x-input wire:model.defer="waktu" id="waktu" type="text" class="block w-full mt-1"/>
-                            <x-input-error for="waktu" class="mt-2" />
-                        </div>
-                        
-
-                    </x-slot>
-                    <x-slot name="actions">
-                        <x-button-submit 
-                            target="updateBiodata"
-                            class="py-2 bg-green-600 hover:bg-green-700 focus:ring-green-500">
-                            {{ __('Simpan') }}
-                        </x-button-submit>
-                    </x-slot>
-                </x-form>
-
-            </x-slot>
-            
-        </x-action-section>
-    </div> {{-- end of  --}}
-
     <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <x-action-section>
 
@@ -363,59 +303,6 @@
             
         </x-action-section>
     </div> {{-- end of  --}}
-
-    {{-- Kesejahteraan --}}
-
-    <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <x-action-section>
-
-            <x-slot name="title">
-                {{ __('Kesejahteraan')}}
-            </x-slot>
-
-            <x-slot name="description">
-                {{ __('Pastikan untuk mengunggah foto kartu di menu Unggah Dokumen')}}
-            </x-slot>
-
-            <x-slot name="content">
-
-                <x-form successMessage="{{ $successMessage }}"
-                    submit="updateBiodata"
-                >
-                    <x-slot name="form">
-
-                        <div class="col-span-6 sm:col-span-3">
-                            <x-label for="kks" value="{{ __('Nomor Kartu KKS') }}" />
-                            <x-input wire:model.defer="kks" id="kks" type="text" class="block w-full mt-1"/>
-                            <x-input-error for="kks" class="mt-2" />
-                        </div>
-                        <div class="col-span-6 sm:col-span-3">
-                            <x-label for="pkh" value="{{ __('Nomor Kartu PKH') }}" />
-                            <x-input wire:model.defer="pkh" id="pkh" type="text" class="block w-full mt-1"/>
-                            <x-input-error for="pkh" class="mt-2" />
-                        </div>
-                        <div class="col-span-6 sm:col-span-3">
-                            <x-label for="kip" value="{{ __('Nomor Kartu PIP') }}" />
-                            <x-input wire:model.defer="kip" id="kip" type="text" class="block w-full mt-1"/>
-                            <x-input-error for="kip" class="mt-2" />
-                        </div>
-                        
-
-                    </x-slot>
-                    <x-slot name="actions">
-                        <x-button-submit 
-                            target="updateBiodata"
-                            class="py-2 bg-green-600 hover:bg-green-700 focus:ring-green-500">
-                            {{ __('Simpan') }}
-                        </x-button-submit>
-                    </x-slot>
-                </x-form>
-
-            </x-slot>
-            
-        </x-action-section>
-    </div> {{-- end of kesejahteraan --}}
-
 
     {{-- Orang tua --}}
 
@@ -554,6 +441,66 @@
             
         </x-action-section>
     </div>
+
+    {{-- Data Periodik --}}
+
+    <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <x-action-section>
+
+            <x-slot name="title">
+                {{ __('Data Periodik')}}
+            </x-slot>
+
+            <x-slot name="description">
+                {{ __('Tinggi badan, berat badan, jarak')}}
+            </x-slot>
+
+            <x-slot name="content">
+
+                <x-form successMessage="{{ $successMessage }}"
+                    submit="updateBiodata"
+                >
+                    <x-slot name="form">
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-label for="tinggi" value="{{ __('Tinggi Badan (cm)') }}" />
+                            <x-input wire:model.defer="tinggi" id="tinggi" type="text" class="block w-full mt-1"/>
+                            <x-input-error for="tinggi" class="mt-2" />
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-label for="berat" value="{{ __('Berat Badan (Kg)') }}" />
+                            <x-input wire:model.defer="berat" id="berat" type="text" class="block w-full mt-1"/>
+                            <x-input-error for="berat" class="mt-2" />
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-label for="jarak" value="{{ __('Jarak tempat tinggal ke sekolah (Km)') }}" />
+                            <x-input wire:model.defer="jarak" id="jarak" type="text" class="block w-full mt-1"/>
+                            <x-input-error for="jarak" class="mt-2" />
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-label for="waktu" value="{{ __('Waktu tempuh ke sekolah (menit)') }}" />
+                            <x-input wire:model.defer="waktu" id="waktu" type="text" class="block w-full mt-1"/>
+                            <x-input-error for="waktu" class="mt-2" />
+                        </div>
+                        
+
+                    </x-slot>
+                    <x-slot name="actions">
+                        <x-button-submit 
+                            target="updateBiodata"
+                            class="py-2 bg-green-600 hover:bg-green-700 focus:ring-green-500">
+                            {{ __('Simpan') }}
+                        </x-button-submit>
+                    </x-slot>
+                </x-form>
+
+            </x-slot>
+            
+        </x-action-section>
+    </div> {{-- end of  --}}
 
     <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <x-action-section>
