@@ -207,15 +207,16 @@
                         <div class="grid gap-6 lg:grid-cols-2">
 
                             <x-action-card 
-                                completed="{{ ( Auth::user()->student->ppdb ) ? 'true' : 'false' }}"
+                                completed="{!! ( $gabung = Auth::user()->student->ppdb ) ? 'true' : 'false' !!}"
                                 title="Gelombang"
                                 description="Pilih Jalur Pendaftaran"
                             >
+
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-9"><path data-name="Path 53" d="M1 2.889A1.889 1.889 0 012.889 1h30.22A1.889 1.889 0 0135 2.889v4.884a1.888 1.888 0 01-.553 1.335L22.329 21.223a1.889 1.889 0 00-.553 1.335v4.884L14.221 35V22.558a1.889 1.889 0 00-.553-1.335L1.553 9.108A1.889 1.889 0 011 7.773z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
                             </x-action-card>
 
                             <x-action-card
-                                completed="{{ ( Auth::user()->student->is_data_completed() ) ? 'true' : 'false' }}"
+                                completed="{!! ( Auth::user()->student->is_data_completed() ) ? 'true' : 'false' !!}"
                                 action="biodata"
                                 title="Biodata"
                                 description="Isi data profil diri"
@@ -224,7 +225,7 @@
                             </x-action-card>
 
                             <x-action-card
-                                {{-- completed="{{ ( Auth::user()->student->ppdb->major_id ) ? 'true' : 'false' }}" --}}
+                                completed="{!! ( isset(Auth::user()->student->ppdb->pilihan_satu) ) ? 'true' : 'false' !!}"
                                 action="jurusan"
                                 title="Pilih Jurusan"
                                 description="Tentukan jurusan kalian"

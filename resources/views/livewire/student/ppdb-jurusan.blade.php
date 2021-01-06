@@ -21,6 +21,9 @@
                             <x-label for="pilihan_satu" value="{{ __('Pilihan Jurusan Pertama') }}" />
 
                             <x-select wire:model.defer="pilihan_satu" id="pilihan_satu" name="pilihan_satu" autocomplete="pilihan_satu" class="block w-full px-3 mt-1">
+                                @empty($pilihan_satu)
+                                    <option>{{ __('-- Pilih salah satu') }}</option>
+                                @endempty
                                 @foreach ($jurusans as $jurusan)
                                     <option value="{{ $jurusan->id }}" 
                                         {{ ($jurusan->id == $pilihan_satu) ? 'selected':'' }}
@@ -36,6 +39,9 @@
                             <x-label for="pilihan_dua" value="{{ __('Pilihan Jurusan Kedua') }}" />
 
                             <x-select wire:model.defer="pilihan_dua" id="pilihan_dua" name="pilihan_dua" autocomplete="pilihan_dua" class="block w-full px-3 mt-1">
+                                @empty($pilihan_dua)
+                                    <option>{{ __('-- Pilih salah satu') }}</option>
+                                @endempty
                                 @foreach ($jurusans as $jurusan)
                                     <option value="{{ $jurusan->id }}" 
                                         {{ ($jurusan->id == $pilihan_dua) ? 'selected':'' }}
