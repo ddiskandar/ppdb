@@ -86,8 +86,8 @@
 
             <x-slot name="content">
 
-                <x-form successMessage="{{ $successMessage }}"
-                    submit="updateBiodata"
+                <x-form successMessage="{{ $successMessagePribadi }}"
+                    submit="submitPribadi"
                 >
                     <x-slot name="form">
                         <div class="col-span-6 sm:col-span-4">
@@ -104,7 +104,14 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="jk" value="{{ __('Jenis Kelamin') }}"  content="required" />
-                            <x-input wire:model.defer="jk" id="jk" type="text" class="block w-full mt-1"/>
+                            <x-select wire:model.defer="jk" id="jk" name="jk" autocomplete="jk" class="block w-full px-3 mt-1">
+                                <option value="L" 
+                                    {{ ($jk === "L") ? 'selected':'' }} >{{ __('Laki-laki') }}
+                                </option>
+                                <option value="P" 
+                                    {{ ($jk === "P") ? 'selected':'' }} >{{ __('Perempuan') }}
+                                </option>
+                            </x-select>
                             <x-input-error for="jk" class="mt-2" />
                         </div>
 
@@ -222,13 +229,27 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="tinggal_id" value="{{ __('Tempat tinggal') }}" content="required" />
-                            <x-input wire:model.defer="tinggal_id" id="tinggal_id" type="text" class="block w-full mt-1"/>
+                            <x-select wire:model.defer="tinggal_id" id="tinggal_id" name="tinggal_id" autocomplete="tinggal_id" class="block w-full px-3 mt-1">
+                                @foreach ($tinggals as $tinggal)
+                                    <option value="{{ $tinggal->id }}" 
+                                        {{ ($tinggal->id == $tinggal_id) ? 'selected':'' }}
+                                        >{{ $tinggal->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
                             <x-input-error for="tinggal_id" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="transportasi_id" value="{{ __('Moda Transportasi') }}" content="required" />
-                            <x-input wire:model.defer="transportasi_id" id="transportasi_id" type="text" class="block w-full mt-1"/>
+                            <x-select wire:model.defer="transportasi_id" id="transportasi_id" name="transportasi_id" autocomplete="transportasi_id" class="block w-full px-3 mt-1">
+                                @foreach ($transportasis as $transportasi)
+                                    <option value="{{ $transportasi->id }}" 
+                                        {{ ($transportasi->id == $transportasi_id) ? 'selected':'' }}
+                                        >{{ $transportasi->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
                             <x-input-error for="transportasi_id" class="mt-2" />
                         </div>
 
@@ -253,7 +274,7 @@
                     </x-slot>
                     <x-slot name="actions">
                         <x-button-submit 
-                            target="updateBiodata"
+                            target="submitPribadi"
                             class="py-2 bg-green-600 hover:bg-green-700 focus:ring-green-500">
                             {{ __('Simpan') }}
                         </x-button-submit>
@@ -278,21 +299,28 @@
 
             <x-slot name="content">
 
-                <x-form successMessage="{{ $successMessage }}"
-                    submit="updateBiodata"
+                <x-form successMessage="{{ $successMessageSchool }}"
+                    submit="submitSchool"
                 >
                     <x-slot name="form">
 
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="tinggi" value="{{ __('Sekolah Asal') }}" />
-                            <x-input wire:model.defer="tinggi" id="tinggi" type="text" class="block w-full mt-1"/>
-                            <x-input-error for="tinggi" class="mt-2" />
+                            <x-label for="school_id" value="{{ __('Sekolah Asal') }}" />
+                            <x-select wire:model.defer="school_id" id="school_id" name="school_id" autocomplete="school_id" class="block w-full px-3 mt-1">
+                                @foreach ($schools as $school)
+                                    <option value="{{ $school->id }}" 
+                                        {{ ($school->id == $school_id) ? 'selected':'' }}
+                                        >{{ $school->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
+                            <x-input-error for="school_id" class="mt-2" />
                         </div>
 
                     </x-slot>
                     <x-slot name="actions">
                         <x-button-submit 
-                            target="updateBiodata"
+                            target="submitSchool"
                             class="py-2 bg-green-600 hover:bg-green-700 focus:ring-green-500">
                             {{ __('Simpan') }}
                         </x-button-submit>
@@ -319,8 +347,8 @@
 
             <x-slot name="content">
 
-                <x-form successMessage="{{ $successMessage }}"
-                    submit="updateBiodata"
+                <x-form successMessage="{{ $successMessageKeluarga }}"
+                    submit="submitKeluarga"
                 >
                     <x-slot name="form">
 
@@ -430,7 +458,7 @@
                     </x-slot>
                     <x-slot name="actions">
                         <x-button-submit 
-                            target="updateBiodata"
+                            target="submitKeluarga"
                             class="py-2 bg-green-600 hover:bg-green-700 focus:ring-green-500">
                             {{ __('Simpan') }}
                         </x-button-submit>
@@ -457,8 +485,8 @@
 
             <x-slot name="content">
 
-                <x-form successMessage="{{ $successMessage }}"
-                    submit="updateBiodata"
+                <x-form successMessage="{{ $successMessagePeriodik }}"
+                    submit="submitPeriodik"
                 >
                     <x-slot name="form">
 
@@ -490,7 +518,7 @@
                     </x-slot>
                     <x-slot name="actions">
                         <x-button-submit 
-                            target="updateBiodata"
+                            target="submitPeriodik"
                             class="py-2 bg-green-600 hover:bg-green-700 focus:ring-green-500">
                             {{ __('Simpan') }}
                         </x-button-submit>
@@ -506,17 +534,17 @@
         <x-action-section>
 
             <x-slot name="title">
-                {{ __('Data Rincian PPDB')}}
+                {{ __('Data Rincian')}}
             </x-slot>
 
             <x-slot name="description">
-                {{ __('detail kondisi')}}
+                {{ __('Prestasi, PIP dan ukuran seragam')}}
             </x-slot>
 
             <x-slot name="content">
 
-                <x-form successMessage="{{ $successMessage }}"
-                    submit="updateBiodata"
+                <x-form successMessage="{{ $successMessageRincian }}"
+                    submit="submitRincian"
                 >
                     <x-slot name="form">
 
@@ -537,7 +565,7 @@
                             <x-input-error for="olahraga" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="jas" value="{{ __('Ukuran seragam jas al-mamater') }}" />
+                            <x-label for="jas" value="{{ __('Ukuran eragam Jas Almamater') }}" />
                             <x-input wire:model.defer="jas" id="jas" type="text" class="block w-full mt-1"/>
                             <x-input-error for="jas" class="mt-2" />
                         </div>
@@ -547,7 +575,7 @@
                     </x-slot>
                     <x-slot name="actions">
                         <x-button-submit 
-                            target="updateBiodata"
+                            target="submitRincian"
                             class="py-2 bg-green-600 hover:bg-green-700 focus:ring-green-500">
                             {{ __('Simpan') }}
                         </x-button-submit>

@@ -44,7 +44,7 @@ class CreateStudentsTable extends Migration
             $table->tinyInteger('saudara')->nullable();
             $table->string('phone', 16)->nullable();
 
-            $table->tinyInteger('tinggi')->nullable();
+            $table->Integer('tinggi')->nullable();
             $table->tinyInteger('berat')->nullable();
             $table->tinyInteger('jarak')->nullable();
             $table->tinyInteger('waktu')->nullable();
