@@ -243,13 +243,14 @@ class Biodata extends Component
 
     public function submitPhoto()
     {
-
+        $user = auth()->user();
         $imageToShow = $this->student->photo ?? null;
+        $imageName = $user->username . '-' . $user->name . '.' . $this->photo->extension();
 
-        User::where('id', auth()->user()->id)
+        User::where('id', $user->id)
             ->update([
                 'name' => $this->name,
-                'photo' => $this->photo ? $this->photo->store('photos', 'public') : $imageToShow,
+                'photo' => $this->photo ? $this->photo->storeAs('photo', $imageName, 'public') : $imageToShow,
             ]);
 
         $this->successMessagePhoto = 'Foto berhasil diperbaharui!';
