@@ -316,7 +316,7 @@ class Biodata extends Component
 
         ]);
 
-        Ortu::where('id', $this->student->id)
+        Ortu::where('student_id', $this->student->id)
             ->update([
                 'phone_ortu' => $this->phone_ortu,
 
