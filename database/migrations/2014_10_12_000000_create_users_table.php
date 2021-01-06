@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->text('photo')->nullable();
+            $table->boolean('join_wa')->default(false);
             $table->timestamps();
         });
     }

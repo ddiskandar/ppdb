@@ -18,8 +18,8 @@ class CreatePeriodesTable extends Migration
             $table->string('name', 16);
             $table->string('desc');
             $table->integer('ref_payment_amount');
+            $table->string('link_wa')->nullable();
             $table->boolean('active')->default(false);
-            $table->timestamps();
         });
     }
 
