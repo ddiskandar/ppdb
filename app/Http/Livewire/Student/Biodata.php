@@ -12,6 +12,9 @@ use App\Models\School;
 use App\Models\Tinggal;
 use App\Models\Transportasi;
 use App\Models\Ortu;
+use App\Models\Pekerjaan;
+use App\Models\Pendidikan;
+use App\Models\Penghasilan;
 
 class Biodata extends Component
 {
@@ -387,6 +390,9 @@ class Biodata extends Component
             'tinggals' => Tinggal::all(),
             'transportasis' => Transportasi::all(),
             'schools' => School::orderBy('name')->get()->except(1),
+            'pendidikans' => Pendidikan::all(),
+            'pekerjaans' => Pekerjaan::all(),
+            'penghasilans' => Penghasilan::all(),
         ]);
 
     }

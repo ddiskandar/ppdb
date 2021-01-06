@@ -376,17 +376,38 @@
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="ayah_pendidikan" value="{{ __('Pendidikan Terakhir Ayah') }}" />
-                            <x-input wire:model.defer="ayah_pendidikan" id="ayah_pendidikan" type="text" class="block w-full mt-1"/>
+                            <x-select wire:model.defer="ayah_pendidikan" id="ayah_pendidikan" name="ayah_pendidikan" autocomplete="ayah_pendidikan" class="block w-full px-3 mt-1">
+                                @foreach ($pendidikans as $pendidikan)
+                                    <option value="{{ $pendidikan->id }}" 
+                                        {{ ($pendidikan->id == $ayah_pendidikan) ? 'selected':'' }}
+                                        >{{ $pendidikan->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
                             <x-input-error for="ayah_pendidikan" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="pekerjaan" value="{{ __('Pekerjaan Ayah') }}" />
-                            <x-input wire:model.defer="pekerjaan" id="pekerjaan" type="text" class="block w-full mt-1"/>
+                            <x-select wire:model.defer="ayah_pekerjaan" id="ayah_pekerjaan" name="ayah_pekerjaan" autocomplete="ayah_pekerjaan" class="block w-full px-3 mt-1">
+                                @foreach ($pekerjaans as $pekerjaan)
+                                    <option value="{{ $pekerjaan->id }}" 
+                                        {{ ($pekerjaan->id == $ayah_pekerjaan) ? 'selected':'' }}
+                                        >{{ $pekerjaan->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
                             <x-input-error for="pekerjaan" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="ayah_penghasilan" value="{{ __('Penghasilan Ayah') }}" />
-                            <x-input wire:model.defer="ayah_penghasilan" id="ayah_penghasilan" type="text" class="block w-full mt-1"/>
+                            <x-select wire:model.defer="ayah_penghasilan" id="ayah_penghasilan" name="ayah_penghasilan" autocomplete="ayah_penghasilan" class="block w-full px-3 mt-1">
+                                @foreach ($penghasilans as $penghasilan)
+                                    <option value="{{ $penghasilan->id }}" 
+                                        {{ ($penghasilan->id == $ayah_penghasilan) ? 'selected':'' }}
+                                        >{{ $penghasilan->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
                             <x-input-error for="ayah_penghasilan" class="mt-2" />
                         </div>
 
@@ -408,20 +429,40 @@
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="ibu_pendidikan" value="{{ __('Pendidikan Terakhir ibu') }}" />
-                            <x-input wire:model.defer="ibu_pendidikan" id="ibu_pendidikan" type="text" class="block w-full mt-1"/>
+                            <x-select wire:model.defer="ibu_pendidikan" id="ibu_pendidikan" name="ibu_pendidikan" autocomplete="ibu_pendidikan" class="block w-full px-3 mt-1">
+                                @foreach ($pendidikans as $pendidikan)
+                                    <option value="{{ $pendidikan->id }}" 
+                                        {{ ($pendidikan->id == $ibu_pendidikan) ? 'selected':'' }}
+                                        >{{ $pendidikan->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
                             <x-input-error for="ibu_pendidikan" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="pekerjaan" value="{{ __('Pekerjaan ibu') }}" />
-                            <x-input wire:model.defer="pekerjaan" id="pekerjaan" type="text" class="block w-full mt-1"/>
+                            <x-select wire:model.defer="ibu_pekerjaan" id="ibu_pekerjaan" name="ibu_pekerjaan" autocomplete="ibu_pekerjaan" class="block w-full px-3 mt-1">
+                                @foreach ($pekerjaans as $pekerjaan)
+                                    <option value="{{ $pekerjaan->id }}" 
+                                        {{ ($pekerjaan->id == $ibu_pekerjaan) ? 'selected':'' }}
+                                        >{{ $pekerjaan->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
                             <x-input-error for="pekerjaan" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="ibu_penghasilan" value="{{ __('Penghasilan ibu') }}" />
-                            <x-input wire:model.defer="ibu_penghasilan" id="ibu_penghasilan" type="text" class="block w-full mt-1"/>
+                            <x-select wire:model.defer="ibu_penghasilan" id="ibu_penghasilan" name="ibu_penghasilan" autocomplete="ibu_penghasilan" class="block w-full px-3 mt-1">
+                                @foreach ($penghasilans as $penghasilan)
+                                    <option value="{{ $penghasilan->id }}" 
+                                        {{ ($penghasilan->id == $ibu_penghasilan) ? 'selected':'' }}
+                                        >{{ $penghasilan->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
                             <x-input-error for="ibu_penghasilan" class="mt-2" />
                         </div>
-
 
                         <div class="col-span-6 sm:col-span-4">
                             <x-label for="wali_nama" value="{{ __('Nama wali') }}" />
@@ -441,17 +482,38 @@
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="wali_pendidikan" value="{{ __('Pendidikan Terakhir wali') }}" />
-                            <x-input wire:model.defer="wali_pendidikan" id="wali_pendidikan" type="text" class="block w-full mt-1"/>
+                            <x-select wire:model.defer="wali_pendidikan" id="wali_pendidikan" name="wali_pendidikan" autocomplete="wali_pendidikan" class="block w-full px-3 mt-1">
+                                @foreach ($pendidikans as $pendidikan)
+                                    <option value="{{ $pendidikan->id }}" 
+                                        {{ ($pendidikan->id == $wali_pendidikan) ? 'selected':'' }}
+                                        >{{ $pendidikan->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
                             <x-input-error for="wali_pendidikan" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="pekerjaan" value="{{ __('Pekerjaan wali') }}" />
-                            <x-input wire:model.defer="pekerjaan" id="pekerjaan" type="text" class="block w-full mt-1"/>
+                            <x-select wire:model.defer="wali_pekerjaan" id="wali_pekerjaan" name="wali_pekerjaan" autocomplete="wali_pekerjaan" class="block w-full px-3 mt-1">
+                                @foreach ($pekerjaans as $pekerjaan)
+                                    <option value="{{ $pekerjaan->id }}" 
+                                        {{ ($pekerjaan->id == $wali_pekerjaan) ? 'selected':'' }}
+                                        >{{ $pekerjaan->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
                             <x-input-error for="pekerjaan" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="wali_penghasilan" value="{{ __('Penghasilan wali') }}" />
-                            <x-input wire:model.defer="wali_penghasilan" id="wali_penghasilan" type="text" class="block w-full mt-1"/>
+                            <x-select wire:model.defer="wali_penghasilan" id="wali_penghasilan" name="wali_penghasilan" autocomplete="wali_penghasilan" class="block w-full px-3 mt-1">
+                                @foreach ($penghasilans as $penghasilan)
+                                    <option value="{{ $penghasilan->id }}" 
+                                        {{ ($penghasilan->id == $wali_penghasilan) ? 'selected':'' }}
+                                        >{{ $penghasilan->name }}
+                                    </option>
+                                @endforeach
+                            </x-select>
                             <x-input-error for="wali_penghasilan" class="mt-2" />
                         </div>
 
