@@ -31,13 +31,13 @@
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
 
-                                    @foreach ($majors as $mayor)
+                                    @foreach ($jurusans as $jurusan)
                                     <tr>
                                         <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                            {{ $mayor->name }}
+                                            {{ $jurusan->name }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            {{ $mayor->last_student }}
+                                            {{ $jurusan->last_student }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             0

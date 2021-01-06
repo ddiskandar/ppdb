@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Student;
 
-class Major extends Model
+class Jurusan extends Model
 {
     use HasFactory;
     

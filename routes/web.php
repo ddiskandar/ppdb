@@ -66,7 +66,7 @@ Route::middleware(['auth'])->group(function(){
 
         Ppdb::create([
             'student_id' => $student->id,
-            'major_id' => 1,
+            // 'major_id' => 1,
             'payment_amount' => 150000,
         ]);
 

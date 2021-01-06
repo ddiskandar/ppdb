@@ -154,16 +154,16 @@
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
-                                        @foreach ($majors as $major)
+                                        @foreach ($jurusans as $jurusan)
                                             <tr>
                                                 <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
-                                                    {{ $major->name }}
+                                                    {{ $jurusan->name }}
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                    {{ $major->last_students }}
+                                                    {{ $jurusan->last_students }}
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
-                                                    0{{-- {{ $major->students->count() }} --}}
+                                                    0{{-- {{ $jurusan->students->count() }} --}}
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -34,7 +34,6 @@ class DaftarPpdb extends Component
         Ppdb::create([
             'periode_id' => $this->periode_id,
             'student_id' => $this->student_id,
-            'major_id' => 1,
             'payment_amount' => $this->ref_payment_amount,
         ]);
     }

@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             AgamaSeeder::class,
             PipSeeder::class,
             TransportasiSeeder::class,
-            MajorSeeder::class,
+            JurusanSeeder::class,
             SchoolSeeder::class,
             TinggalSeeder::class,
             PermissionsSeeder::class,

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Student;
 
-use App\Models\Major;
+use App\Models\Jurusan;
 use App\Models\Ppdb;
 use Livewire\Component;
 
@@ -36,7 +36,7 @@ class PpdbJurusan extends Component
     public function render()
     {
         return view('livewire.student.ppdb-jurusan', [
-            'majors' => Major::all()
+            'jurusans' => Jurusan::all()
         ]);
     }
 }

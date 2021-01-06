@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Document;
-use App\Models\Major;
+use App\Models\Jurusan;
 use App\Models\Payment;
 use App\Models\Ppdb;
 use App\Models\School;
@@ -53,9 +53,9 @@ class Student extends Model
         return $this->hasMany(Document::class);
     }
 
-    public function major()
+    public function jurusan()
     {
-        return $this->hasOneThrough(Major::class, Ppdb::class);
+        return $this->hasOneThrough(Jurusan::class, Ppdb::class);
     }
 
     public function agama()
