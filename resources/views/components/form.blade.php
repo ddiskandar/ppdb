@@ -16,7 +16,7 @@
                 </div>
                 <div class="px-4 py-3 text-right bg-gray-50 sm:px-6">
                     @if ($successMessage)
-                            <span class="mr-4 text-sm">Data berhasil diperbaharui!</span>
+                            <span class="mr-4 text-sm">{{ $successMessage }}</span>
                         @endif
                     {{ $actions }}
                 </div>

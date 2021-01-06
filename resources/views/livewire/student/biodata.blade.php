@@ -13,8 +13,8 @@
 
             <x-slot name="content">
 
-                <x-form successMessage="{{ $successMessage }}"
-                    submit="updateBiodata"
+                <x-form successMessage="{{ $successMessagePhoto }}"
+                    submit="submitPhoto"
                 >
                     <x-slot name="form">
 
@@ -61,7 +61,7 @@
                     </x-slot>
                     <x-slot name="actions">
                         <x-button-submit 
-                            target="updateBiodata"
+                            target="submitPhoto"
                             class="py-2 bg-green-600 hover:bg-green-700 focus:ring-green-500">
                             {{ __('Simpan') }}
                         </x-button-submit>
@@ -77,11 +77,11 @@
         <x-action-section>
 
             <x-slot name="title">
-                {{ __('Data Peserta Didik')}}
+                {{ __('Data Pribadi')}}
             </x-slot>
 
             <x-slot name="description">
-                {{ __('Siapkan dokumen untuk mengisi')}}
+                {{ __('Pastikan data sesuai dengan dokumen')}}
             </x-slot>
 
             <x-slot name="content">
@@ -91,67 +91,61 @@
                 >
                     <x-slot name="form">
                         <div class="col-span-6 sm:col-span-4">
-                            <x-label for="name" value="{{ __('Nama Lengkap') }}" />
-                            <x-input wire:model.defer="name" id="name" type="text" class="block w-full mt-1"/>
+                            <x-label for="name" value="{{ __('Nama Lengkap') }}" content="required"  />
+                            <x-input wire:model.defer="name" id="name" type="text" class="block w-full mt-1" />
                             <x-input-error for="name" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="panggilan" value="{{ __('Panggilan') }}" />
+                            <x-label for="panggilan" value="{{ __('Panggilan') }}"  content="required" />
                             <x-input wire:model.defer="panggilan" id="panggilan" type="text" class="block w-full mt-1"/>
                             <x-input-error for="panggilan" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="jk" value="{{ __('Jenis Kelamin') }}" />
+                            <x-label for="jk" value="{{ __('Jenis Kelamin') }}"  content="required" />
                             <x-input wire:model.defer="jk" id="jk" type="text" class="block w-full mt-1"/>
                             <x-input-error for="jk" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="nisn" value="{{ __('NISN') }}" />
+                            <x-label for="nisn" value="{{ __('NISN') }}" content="required" />
                             <x-input wire:model.defer="nisn" id="nisn" type="text" class="block w-full mt-1"/>
                             <x-input-error for="nisn" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="kk" value="{{ __('Nomor Kartu Keluarga') }}" />
-                            <x-input wire:model.defer="kk" id="kk" type="text" class="block w-full mt-1"/>
-                            <x-input-error for="kk" class="mt-2" />
-                        </div>
-
-                        <div class="col-span-6 sm:col-span-3">
-                            <x-label for="nik" value="{{ __('Nomor Induk Kependudukan') }}" />
+                            <x-label for="nik" value="{{ __('NIK') }}" content="required" />
                             <x-input wire:model.defer="nik" id="nik" type="text" class="block w-full mt-1"/>
                             <x-input-error for="nik" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="akta" value="{{ __('Nomor Reg Akta Kelahiran') }}" />
-                            <x-input wire:model.defer="akta" id="akta" type="text" class="block w-full mt-1"/>
-                            <x-input-error for="akta" class="mt-2" />
+                            <x-label for="kk" value="{{ __('No KK') }}" content="required" />
+                            <x-input wire:model.defer="kk" id="kk" type="text" class="block w-full mt-1"/>
+                            <x-input-error for="kk" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="birthplace" value="{{ __('Tempat Lahir') }}" />
+                            <x-label for="birthplace" value="{{ __('Tempat Lahir') }}"  content="required" />
                             <x-input wire:model.defer="birthplace" id="birthplace" type="text" class="block w-full mt-1"/>
                             <x-input-error for="birthplace" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="birthdate" value="{{ __('Tanggal Lahir') }}" />
+                            <x-label for="birthdate" value="{{ __('Tanggal Lahir') }}"  content="required" />
                             <x-input wire:model.defer="birthdate" id="birthdate" type="date" class="block w-full mt-1"/>
                             <x-input-error for="birthdate" class="mt-2" />
                         </div>
 
-                        <div class="col-span-6 sm:col-span-2">
-                            <x-label for="phone" value="{{ __('Handphone') }}" />
-                            <x-input wire:model.defer="phone" id="phone" type="text" class="block w-full mt-1"/>
-                            <x-input-error for="phone" class="mt-2" />
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-label for="akta" value="{{ __('Nomor Reg Akta Kelahiran') }}" content="required" />
+                            <x-input wire:model.defer="akta" id="akta" type="text" class="block w-full mt-1"/>
+                            <x-input-error for="akta" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="agama_id" value="{{ __('Agama') }}" />
+                            <x-label for="agama_id" value="{{ __('Agama') }}"  content="required" />
 
                             <x-select wire:model.defer="agama_id" id="agama_id" name="agama_id" autocomplete="agama_id" class="block w-full px-3 mt-1">
                                 @foreach ($agamas as $agama)
@@ -165,62 +159,51 @@
                             <x-input-error for="agama_id" class="mt-2" />
                         </div>
 
-                        <div class="col-span-6 sm:col-span-1">
-                            <x-label for="anak_ke" value="{{ __('Anak ke') }}" />
-                            <x-input wire:model.defer="anak_ke" id="anak_ke" type="text" class="block w-full mt-1"/>
-                            <x-input-error for="anak_ke" class="mt-2" />
-                        </div>
-
-                        <div class="col-span-6 sm:col-span-1">
-                            <x-label for="saudara" value="{{ __('Jumlah Saudara') }}" />
-                            <x-input wire:model.defer="saudara" id="saudara" type="text" class="block w-full mt-1"/>
-                            <x-input-error for="saudara" class="mt-2" />
-                        </div>
 
                         <div class="col-span-6 sm:col-span-4">
-                            <x-label for="address" value="{{ __('Alamat Kampung / Jalan') }}" />
+                            <x-label for="address" value="{{ __('Alamat Kampung / Jalan') }}"  content="required" />
                             <x-input wire:model.defer="address" id="address" type="text" class="block w-full mt-1"/>
                             <x-input-error for="address" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-1">
-                            <x-label for="rt" value="{{ __('RT') }}" />
+                            <x-label for="rt" value="{{ __('RT') }}"  content="required" />
                             <x-input wire:model.defer="rt" id="rt" type="text" class="block w-full mt-1"/>
                             <x-input-error for="rt" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-1">
-                            <x-label for="rw" value="{{ __('RW') }}" />
+                            <x-label for="rw" value="{{ __('RW') }}" content="required" />
                             <x-input wire:model.defer="rw" id="rw" type="text" class="block w-full mt-1"/>
                             <x-input-error for="rw" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
-                            <x-label for="desa" value="{{ __('Desa') }}" />
+                            <x-label for="desa" value="{{ __('Desa/Kelurahan') }}" content="required" />
                             <x-input wire:model.defer="desa" id="desa" type="text" class="block w-full mt-1"/>
                             <x-input-error for="desa" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
-                            <x-label for="kecamatan" value="{{ __('Kecamatan') }}" />
+                            <x-label for="kecamatan" value="{{ __('Kecamatan') }}" content="required" />
                             <x-input wire:model.defer="kecamatan" id="kecamatan" type="text" class="block w-full mt-1"/>
                             <x-input-error for="kecamatan" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
-                            <x-label for="kab" value="{{ __('Kabupaten') }}" />
+                            <x-label for="kab" value="{{ __('Kabupaten') }}" content="required" />
                             <x-input wire:model.defer="kab" id="kab" type="text" class="block w-full mt-1"/>
                             <x-input-error for="kab" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
-                            <x-label for="prov" value="{{ __('Provinsi') }}" />
+                            <x-label for="prov" value="{{ __('Provinsi') }}" content="required" />
                             <x-input wire:model.defer="prov" id="prov" type="text" class="block w-full mt-1"/>
                             <x-input-error for="prov" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
-                            <x-label for="kode_pos" value="{{ __('Kode Pos') }}" />
+                            <x-label for="kode_pos" value="{{ __('Kode Pos') }}"/>
                             <x-input wire:model.defer="kode_pos" id="kode_pos" type="text" class="block w-full mt-1"/>
                             <x-input-error for="kode_pos" class="mt-2" />
                         </div>
@@ -238,16 +221,35 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="tinggal_id" value="{{ __('Tempat tinggal') }}" />
+                            <x-label for="tinggal_id" value="{{ __('Tempat tinggal') }}" content="required" />
                             <x-input wire:model.defer="tinggal_id" id="tinggal_id" type="text" class="block w-full mt-1"/>
                             <x-input-error for="tinggal_id" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="transportasi_id" value="{{ __('Moda Transportasi') }}" />
+                            <x-label for="transportasi_id" value="{{ __('Moda Transportasi') }}" content="required" />
                             <x-input wire:model.defer="transportasi_id" id="transportasi_id" type="text" class="block w-full mt-1"/>
                             <x-input-error for="transportasi_id" class="mt-2" />
                         </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-label for="anak_ke" value="{{ __('Anak ke-berapa (berdasarkan KK)') }}"  content="required" />
+                            <x-input wire:model.defer="anak_ke" id="anak_ke" type="text" class="block w-full mt-1"/>
+                            <x-input-error for="anak_ke" class="mt-2" />
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-label for="saudara" value="{{ __('Jumlah Saudara') }}"  content="required" />
+                            <x-input wire:model.defer="saudara" id="saudara" type="text" class="block w-full mt-1"/>
+                            <x-input-error for="saudara" class="mt-2" />
+                        </div>
+                        
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-label for="phone" value="{{ __('Nomor HP / Whatsapp') }}"  content="required" />
+                            <x-input wire:model.defer="phone" id="phone" type="text" class="block w-full mt-1"/>
+                            <x-input-error for="phone" class="mt-2" />
+                        </div>
+                        
                     </x-slot>
                     <x-slot name="actions">
                         <x-button-submit 
@@ -323,17 +325,15 @@
         </x-action-section>
     </div> {{-- end of  --}}
 
-    {{-- Kesejahteraan --}}
-
     <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <x-action-section>
 
             <x-slot name="title">
-                {{ __('Kesejahteraan')}}
+                {{ __('Data Sekolah Asal')}}
             </x-slot>
 
             <x-slot name="description">
-                {{ __('kondisi kesejahteraan')}}
+                {{ __('NPSN, nama sekolah dan alamat')}}
             </x-slot>
 
             <x-slot name="content">
@@ -344,17 +344,58 @@
                     <x-slot name="form">
 
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="kks" value="{{ __('Nomor KKS') }}" />
+                            <x-label for="tinggi" value="{{ __('Sekolah Asal') }}" />
+                            <x-input wire:model.defer="tinggi" id="tinggi" type="text" class="block w-full mt-1"/>
+                            <x-input-error for="tinggi" class="mt-2" />
+                        </div>
+
+                    </x-slot>
+                    <x-slot name="actions">
+                        <x-button-submit 
+                            target="updateBiodata"
+                            class="py-2 bg-green-600 hover:bg-green-700 focus:ring-green-500">
+                            {{ __('Simpan') }}
+                        </x-button-submit>
+                    </x-slot>
+                </x-form>
+
+            </x-slot>
+            
+        </x-action-section>
+    </div> {{-- end of  --}}
+
+    {{-- Kesejahteraan --}}
+
+    <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <x-action-section>
+
+            <x-slot name="title">
+                {{ __('Kesejahteraan')}}
+            </x-slot>
+
+            <x-slot name="description">
+                {{ __('Pastikan untuk mengunggah foto kartu di menu Unggah Dokumen')}}
+            </x-slot>
+
+            <x-slot name="content">
+
+                <x-form successMessage="{{ $successMessage }}"
+                    submit="updateBiodata"
+                >
+                    <x-slot name="form">
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-label for="kks" value="{{ __('Nomor Kartu KKS') }}" />
                             <x-input wire:model.defer="kks" id="kks" type="text" class="block w-full mt-1"/>
                             <x-input-error for="kks" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="pkh" value="{{ __('Nomor PKH') }}" />
+                            <x-label for="pkh" value="{{ __('Nomor Kartu PKH') }}" />
                             <x-input wire:model.defer="pkh" id="pkh" type="text" class="block w-full mt-1"/>
                             <x-input-error for="pkh" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="kip" value="{{ __('Nomor KIP') }}" />
+                            <x-label for="kip" value="{{ __('Nomor Kartu PIP') }}" />
                             <x-input wire:model.defer="kip" id="kip" type="text" class="block w-full mt-1"/>
                             <x-input-error for="kip" class="mt-2" />
                         </div>
@@ -382,11 +423,11 @@
         <x-action-section>
 
             <x-slot name="title">
-                {{ __('Keluarga')}}
+                {{ __('Data Keluarga')}}
             </x-slot>
 
             <x-slot name="description">
-                {{ __('kondisi keluarga')}}
+                {{ __('Data Ayah kandung dan Ibu kandung atau Wali')}}
             </x-slot>
 
             <x-slot name="content">
@@ -395,6 +436,12 @@
                     submit="updateBiodata"
                 >
                     <x-slot name="form">
+
+                        <div class="col-span-6 sm:col-span-4">
+                            <x-label for="phone_ortu" value="{{ __('Nomor HP Orang tua/Wali') }}" />
+                            <x-input wire:model.defer="phone_ortu" id="phone_ortu" type="text" class="block w-full mt-1"/>
+                            <x-input-error for="phone_ortu" class="mt-2" />
+                        </div>
 
                         <div class="col-span-6 sm:col-span-4">
                             <x-label for="ayah_nama" value="{{ __('Nama Ayah') }}" />
@@ -531,6 +578,7 @@
                             <x-textarea wire:model.defer="prestasi" id="prestasi" rows="5" class="block w-full mt-1"></x-textarea>
                             <x-input-error for="prestasi" class="mt-2" />
                         </div>
+                        
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="pdu" value="{{ __('Ukuran seragam PDU') }}" />
                             <x-input wire:model.defer="pdu" id="pdu" type="text" class="block w-full mt-1"/>

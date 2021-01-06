@@ -14,6 +14,9 @@ class Biodata extends Component
     use WithFileUploads;
 
     public $successMessage;
+    public $successMessagePhoto;
+
+    public $student;
     
     public $photo;
 
@@ -80,69 +83,69 @@ class Biodata extends Component
 
     public function mount()
     {
-        $student = auth()->user()->student;
+        $this->student = auth()->user()->student;
 
         $this->name = auth()->user()->name;
 
-        $this->panggilan = $student->panggilan;
-        $this->jk = $student->jk;
-        $this->nisn = $student->nisn;
-        $this->nik = $student->nik;
-        $this->birthplace = $student->birthplace;
-        $this->birthdate = $student->birthdate;
-        $this->akta = $student->akta;
-        $this->agama_id = $student->agama_id;
-        $this->address = $student->address;
-        $this->rt = $student->rt;
-        $this->rw = $student->rw;
-        $this->desa = $student->desa;
-        $this->kecamatan = $student->kecamatan;
-        $this->kab = $student->kab;
-        $this->prov = $student->prov;
-        $this->kode_pos = $student->kode_pos;
-        $this->lintang = $student->lintang;
-        $this->bujur = $student->bujur;
-        $this->tinggal_id = $student->tinggal_id;
-        $this->transportasi_id = $student->transportasi_id;
-        $this->phone = $student->phone;
+        $this->panggilan = $this->student->panggilan;
+        $this->jk = $this->student->jk;
+        $this->nisn = $this->student->nisn;
+        $this->nik = $this->student->nik;
+        $this->birthplace = $this->student->birthplace;
+        $this->birthdate = $this->student->birthdate;
+        $this->akta = $this->student->akta;
+        $this->agama_id = $this->student->agama_id;
+        $this->address = $this->student->address;
+        $this->rt = $this->student->rt;
+        $this->rw = $this->student->rw;
+        $this->desa = $this->student->desa;
+        $this->kecamatan = $this->student->kecamatan;
+        $this->kab = $this->student->kab;
+        $this->prov = $this->student->prov;
+        $this->kode_pos = $this->student->kode_pos;
+        $this->lintang = $this->student->lintang;
+        $this->bujur = $this->student->bujur;
+        $this->tinggal_id = $this->student->tinggal_id;
+        $this->transportasi_id = $this->student->transportasi_id;
+        $this->phone = $this->student->phone;
 
-        $this->kks = $student->kks;
-        $this->pkh = $student->pkh;
-        $this->kip = $student->kip;
-        $this->anak_ke = $student->anak_ke;
-        $this->saudara = $student->saudara;
+        $this->kks = $this->student->kks;
+        $this->pkh = $this->student->pkh;
+        $this->kip = $this->student->kip;
+        $this->anak_ke = $this->student->anak_ke;
+        $this->saudara = $this->student->saudara;
 
-        $this->ayah_nik = $student->ayah_nik;
-        $this->ayah_nama = $student->ayah_nama;
-        $this->ayah_lahir = $student->ayah_lahir;
-        $this->ayah_pendidikan = $student->ayah_pendidikan;
-        $this->ayah_pekerjaan = $student->ayah_pekerjaan;
-        $this->ayah_penghasilan = $student->ayah_penghasilan;
+        $this->ayah_nik = $this->student->ayah_nik;
+        $this->ayah_nama = $this->student->ayah_nama;
+        $this->ayah_lahir = $this->student->ayah_lahir;
+        $this->ayah_pendidikan = $this->student->ayah_pendidikan;
+        $this->ayah_pekerjaan = $this->student->ayah_pekerjaan;
+        $this->ayah_penghasilan = $this->student->ayah_penghasilan;
 
-        $this->ibu_nik = $student->ibu_nik;
-        $this->ibu_nama = $student->ibu_nama;
-        $this->ibu_lahir = $student->ibu_lahir;
-        $this->ibu_pendidikan = $student->ibu_pendidikan;
-        $this->ibu_pekerjaan = $student->ibu_pekerjaan;
-        $this->ibu_penghasilan = $student->ibu_penghasilan;
+        $this->ibu_nik = $this->student->ibu_nik;
+        $this->ibu_nama = $this->student->ibu_nama;
+        $this->ibu_lahir = $this->student->ibu_lahir;
+        $this->ibu_pendidikan = $this->student->ibu_pendidikan;
+        $this->ibu_pekerjaan = $this->student->ibu_pekerjaan;
+        $this->ibu_penghasilan = $this->student->ibu_penghasilan;
 
-        $this->wali_nik = $student->wali_nik;
-        $this->wali_nama = $student->wali_nama;
-        $this->wali_lahir = $student->wali_lahir;
-        $this->wali_pendidikan = $student->wali_pendidikan;
-        $this->wali_pekerjaan = $student->wali_pekerjaan;
-        $this->wali_penghasilan = $student->wali_penghasilan;
+        $this->wali_nik = $this->student->wali_nik;
+        $this->wali_nama = $this->student->wali_nama;
+        $this->wali_lahir = $this->student->wali_lahir;
+        $this->wali_pendidikan = $this->student->wali_pendidikan;
+        $this->wali_pekerjaan = $this->student->wali_pekerjaan;
+        $this->wali_penghasilan = $this->student->wali_penghasilan;
 
-        $this->phone_ortu = $student->phone_ortu;
+        $this->phone_ortu = $this->student->phone_ortu;
 
-        $this->tinggi = $student->tinggi;
-        $this->berat = $student->berat;
-        $this->jarak = $student->jarak;
-        $this->waktu = $student->waktu;
-        $this->prestasi = $student->prestasi;
+        $this->tinggi = $this->student->tinggi;
+        $this->berat = $this->student->berat;
+        $this->jarak = $this->student->jarak;
+        $this->waktu = $this->student->waktu;
+        $this->prestasi = $this->student->prestasi;
 
-        $this->nomor_ujian = $student->nomor_ujian;
-        $this->nomor_ijazah = $student->nomor_ijazah;
+        $this->nomor_ujian = $this->student->nomor_ujian;
+        $this->nomor_ijazah = $this->student->nomor_ijazah;
     }
 
     protected $rules = [
@@ -212,12 +215,10 @@ class Biodata extends Component
 
         $validatedData = $this->validate();
 
-        $student = auth()->user()->student;
-
-        Student::where('id', $student->id)
+        Student::where('id', $this->student->id)
             ->update($validatedData);
         
-        $imageToShow = $student->photo ?? null;
+        $imageToShow = $this->student->photo ?? null;
 
         User::where('id', auth()->user()->id)
             ->update([
@@ -228,11 +229,27 @@ class Biodata extends Component
         $this->successMessage = 'Data berhasil diperbaharui!';
     }
 
+    
+
     public function updatedPhoto()
     {
         $this->validate([
             'photo' => 'image|max:1024', // 1MB Max
         ]);
+    }
+
+    public function submitPhoto()
+    {
+
+        $imageToShow = $this->student->photo ?? null;
+
+        User::where('id', auth()->user()->id)
+            ->update([
+                'name' => $this->name,
+                'photo' => $this->photo ? $this->photo->store('photos', 'public') : $imageToShow,
+            ]);
+
+        $this->successMessagePhoto = 'Foto berhasil diperbaharui!';
     }
 
     public function render()

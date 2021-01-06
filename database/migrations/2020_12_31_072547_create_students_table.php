@@ -23,6 +23,7 @@ class CreateStudentsTable extends Migration
             $table->char('jk', 1)->nullable();
             $table->char('nisn', 10)->nullable();
             $table->char('nik', 16)->nullable();
+            $table->char('kk', 16)->nullable();
             $table->string('birthplace', 50)->nullable();
             $table->date('birthdate')->nullable();
             $table->string('akta', 16)->nullable();
