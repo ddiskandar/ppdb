@@ -13,6 +13,11 @@ class PpdbJurusan extends Component
     public $pilihan_satu;
     public $pilihan_dua;
 
+    protected $rules = [
+        'pilihan_satu' => 'required',
+        'pilihan_dua' => 'required',
+    ];
+
     public function mount()
     {
         $student = auth()->user()->student;
@@ -23,6 +28,8 @@ class PpdbJurusan extends Component
 
     public function submitForm()
     {
+        $this->validate();
+
         Ppdb::where('student_id', auth()->user()->student->id)
             ->update([
                 'pilihan_satu' => $this->pilihan_satu,
