@@ -9,8 +9,8 @@
 - [x] Pendaftar dapat mengisi profil identitasnya masing-masing
 - [ ] Pendaftar dapat melihat informasi atau pengumuman
 - [x] Pendaftar dapat melakukan gabung pada jalur gelombang yang sedang aktif
-- [ ] Pendaftar dapat melihat status alur pendaftaran
-- [ ] Pendaftar dapat memilih jurusan yang diminatinya sebanyak dua pilihan
+- [x] Pendaftar dapat melihat status alur pendaftaran
+- [x] Pendaftar dapat memilih jurusan yang diminatinya sebanyak dua pilihan
 - [ ] Pendaftar dapat menggunggah berkas pendaftara yaitu Akta Kelahiran, Kartu Keluarga, ..
 - [ ] Pendaftar dapat mengkonfirmasi bayar pendaftaran
 - [ ] Pendaftar dapat informasi untuk gabung di grup WA
