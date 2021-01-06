@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Student;
 
+use App\Models\Jurusan;
 use Livewire\Component;
 use App\Models\Periode;
 use App\Models\Ppdb;
@@ -18,8 +19,6 @@ class DaftarPpdb extends Component
     {
         $periode = Periode::where('active', true)->first();
         $student = auth()->user()->student;
-
-        // ddd($periode);
 
         $this->student_id = $student->id;
         $this->periode_id = $periode->id;
@@ -40,6 +39,8 @@ class DaftarPpdb extends Component
 
     public function render()
     {
-        return view('livewire.student.daftar-ppdb');
+        return view('livewire.student.daftar-ppdb', [
+            'jurusans' => Jurusan::all(),
+        ]);
     }
 }

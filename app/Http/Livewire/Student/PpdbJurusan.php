@@ -9,6 +9,7 @@ use Livewire\Component;
 class PpdbJurusan extends Component
 {
     public $successMessage;
+    
     public $pilihan_satu;
     public $pilihan_dua;
 
@@ -22,7 +23,7 @@ class PpdbJurusan extends Component
 
     public function submitForm()
     {
-        Ppdb::where('id', auth()->user()->student->id)
+        Ppdb::where('student_id', auth()->user()->student->id)
             ->update([
                 'pilihan_satu' => $this->pilihan_satu,
                 'pilihan_dua' => $this->pilihan_dua,
