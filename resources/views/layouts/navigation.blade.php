@@ -144,7 +144,7 @@
 
                 <div class="ml-3">
                     <div class="text-base font-medium text-white">{{ Auth::user()->name }}</div>
-                    <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email }}</div>
+                    <div class="text-sm font-medium text-gray-500">{{ Auth::user()->username }}</div>
                 </div>
             </div>
 
