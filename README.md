@@ -8,7 +8,7 @@
 - [x] Pendaftar dapat melakukan gabung pada jalur gelombang yang sedang aktif
 - [x] Pendaftar dapat mengisi biodata masing-masing
 - [x] Pendaftar dapat memilih jurusan yang diminatinya sebanyak dua pilihan
-- [ ] Pendaftar dapat menggunggah berkas pendaftaran yaitu Akta Kelahiran, Kartu Keluarga, ..
+- [x] Pendaftar dapat menggunggah berkas pendaftaran yaitu Akta Kelahiran, Kartu Keluarga, ..
 - [ ] Pendaftar dapat mengkonfirmasi bayar pendaftaran
 - [ ] Pendaftar dapat informasi untuk gabung di grup WA
 - [ ] Pendaftar dapat melihat informasi atau pengumuman
