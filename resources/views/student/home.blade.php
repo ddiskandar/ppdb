@@ -234,6 +234,7 @@
                             </x-action-card>
 
                             <x-action-card
+                                completed="{!! ( isset(Auth::user()->student->document->kartu_keluarga) ) ? 'true' : 'false' !!}"
                                 action="berkas"
                                 title="Unggah Berkas"
                                 description="Ijazah, Akta, Kartu keluarga"
