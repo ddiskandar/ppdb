@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Student;
 
+use App\Models\Document;
 use App\Models\Jurusan;
 use Livewire\Component;
 use App\Models\Periode;
@@ -34,6 +35,9 @@ class DaftarPpdb extends Component
             'periode_id' => $this->periode_id,
             'student_id' => $this->student_id,
             'payment_amount' => $this->ref_payment_amount,
+        ]);
+        Document::create([
+            'student_id' => $this->student_id,
         ]);
     }
 

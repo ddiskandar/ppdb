@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Livewire\Student\Berkas;
 use Illuminate\Http\Request;
 
 use App\Http\Livewire\Student\Biodata;
-use App\Http\Livewire\Student\Document;
 use App\Http\Livewire\Student\PpdbJurusan;
 
 use App\Models\Ppdb;
@@ -58,7 +58,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/home', [PagesController::class, 'home'])->name('home')->middleware(['role:student']);
     
     Route::get('/biodata', Biodata::class);
-    Route::get('/document', Document::class);
+    Route::get('/berkas', Berkas::class);
     Route::get('/jurusan', PpdbJurusan::class);
 
     Route::post('/jalur', function(Request $request){

@@ -48,9 +48,9 @@ class Student extends Model
         return $this->hasMany(Payment::class);
     }
 
-    public function documents()
+    public function document()
     {
-        return $this->hasMany(Document::class);
+        return $this->hasOne(Document::class);
     }
 
     public function jurusan()

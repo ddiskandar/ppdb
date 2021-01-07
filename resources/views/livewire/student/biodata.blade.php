@@ -1,6 +1,6 @@
 <div>
 
-<div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <x-action-section>
 
             <x-slot name="title">
