@@ -243,6 +243,7 @@
                             </x-action-card>
 
                             <x-action-card
+                                action="pembayaran"
                                 title="Bayar Pendaftaran"
                                 description="Membayar biaya pendaftaran"
                             >

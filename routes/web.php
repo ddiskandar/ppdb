@@ -6,6 +6,7 @@ use App\Http\Livewire\Student\Berkas;
 use Illuminate\Http\Request;
 
 use App\Http\Livewire\Student\Biodata;
+use App\Http\Livewire\Student\Pembayaran;
 use App\Http\Livewire\Student\PpdbJurusan;
 
 use App\Models\Ppdb;
@@ -40,9 +41,7 @@ Route::middleware(['auth'])->group(function(){
             return view('admin.pendaftaran');
         })->name('pendaftaran');
 
-        Route::get('/pembayaran', function () {
-            return view('admin.pembayaran');
-        })->name('pembayaran');
+        
     });
 
     Route::middleware(['role:interviewer|committee|admin'])->group(function () {
@@ -60,6 +59,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/biodata', Biodata::class);
     Route::get('/berkas', Berkas::class);
     Route::get('/jurusan', PpdbJurusan::class);
+    Route::get('/pembayaran', Pembayaran::class)->name('pembayaran');
 
     Route::post('/jalur', function(Request $request){
         $student = auth()->user()->student;
