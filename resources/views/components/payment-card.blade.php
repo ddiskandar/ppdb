@@ -1,32 +1,40 @@
 @props([
-    'completed' => 'false',
+    'status' => 'pending',
     'colors' => [
-        'true' => 'text-white bg-green-500 hover:bg-green-600 border-none',
-        'false' => 'text-gray-400 bg-white border-gray-200 hover:border-green-400',
+        'pending' => 'text-yellow-500',
+        'approved' => 'text-green-600',
     ],
-    'title' => 'Title',
-    'description' => 'Description',
+    'amount' => '0',
+    'date' => 'DD/MM/YYY',
 ])
 
 <div>
-    <div {{ $attributes->merge(['class' => "{$colors[$completed]} relative w-full transition rounded-lg ease-in-out border-2 "]) }}>
+    <div {{ $attributes->merge(['class' => "{$colors[$status]} relative w-full bg-white transition rounded-lg ease-in-out shadow-md "]) }}>
         <div class="flex items-center h-full px-5 py-6">
             {{ $slot }}
             <div class="flex-1 ml-4">
-                <div>31/01/2021</div>
-                <div class="text-xl xl:text-2xl font-extrabold {{ ($completed === 'false') ? 'text-gray-900' : '' }} ">
-                    {{ $title }}
+                <div class="mb-4 text-xs font-bold ">
+                    @if ($status == 'pending')
+                        {{ __('MENUNGGU VERIFIKASI') }}
+                    @elseif($status == 'approved')
+                        {{ __('BERHASIL') }}
+                    @else
+                        {{ __('DITOLAK') }}
+                    @endif
+                    
                 </div>
-                <div class="mt-6 text-sm">
-                    {{ __('MENUNGGU VERIFIKASI') }}
+                <div class="text-3xl font-extrabold text-gray-900">
+                    Rp. {{ $amount }},-
                 </div>
+                <div class="text-gray-400">{{ $date }}</div>
+                
             </div>
         </div>
         <div class="absolute top-0 right-0 mt-3 mr-3 sm:mt-6 sm:mr-6">
-            @if ( ! $completed)
-                <svg xmlns="http://www.w3.org/2000/svg" width="20.896" height="20.896"><path data-name="Path 45" d="M7.3 10.448l2.1 2.1 4.2-4.2m6.3 2.1A9.448 9.448 0 1110.448 1a9.448 9.448 0 019.452 9.448z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+            @if( $status == 'pending')
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             @else
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path data-name="Path 61" d="M8 12l2-2m0 0l2-2m-2 2L8 8m2 2l2 2m7-2a9 9 0 11-9-9 9 9 0 019 9z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20.896" height="20.896"><path data-name="Path 45" d="M7.3 10.448l2.1 2.1 4.2-4.2m6.3 2.1A9.448 9.448 0 1110.448 1a9.448 9.448 0 019.452 9.448z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
             @endif
         </div>
     </div>

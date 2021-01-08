@@ -19,6 +19,8 @@ class CreatePaymentsTable extends Migration
             $table->string('attachment');
             $table->integer('amount');
             $table->boolean('verified_by')->nullable();
+            $table->boolean('status')->default(false);
+            $table->date('date');
             $table->timestamps();
         });
     }

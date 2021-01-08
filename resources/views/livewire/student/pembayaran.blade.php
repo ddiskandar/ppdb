@@ -42,11 +42,41 @@
                     </div>
                     <div class="px-4 mt-5 sm:px-0 md:mt-0 md:col-span-2">
                         <div class="grid gap-6 lg:grid-cols-2">
+                            @forelse ($payments as $payment)
 
-                            <x-payment-card 
-                                title="Rp. 200.425"
-                                description="Pilih Jalur Pendaftaran"
-                            />
+                                <div>
+                                    <div class="relative w-full transition ease-in-out bg-white rounded-lg shadow-md
+                                        {{ ($payment->status) ? 'text-green-600' : 'text-yellow-600' }}
+                                        ">
+                                        <div class="flex items-center h-full px-5 py-6">
+                                            <div class="flex-1 ml-4">
+                                                <div class="mb-4 text-xs font-bold ">
+                                                    @if ( ! $payment->status )
+                                                        {{ __('SEDANG DIVERIFIKASI') }}
+                                                    @else
+                                                        {{ __('BERHASIL') }}
+                                                    @endif
+                                                    
+                                                </div>
+                                                <div class="text-3xl font-extrabold text-gray-900">
+                                                    Rp. {{ $payment->amount }},-
+                                                </div>
+                                                <div class="text-gray-400">{{ $payment->date }}</div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="absolute top-0 right-0 mt-3 mr-3 sm:mt-6 sm:mr-6">
+                                            @if( ! $payment->status )
+                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                            @else
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20.896" height="20.896"><path data-name="Path 45" d="M7.3 10.448l2.1 2.1 4.2-4.2m6.3 2.1A9.448 9.448 0 1110.448 1a9.448 9.448 0 019.452 9.448z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            @empty
+                                kosong
+                            @endforelse
 
                         </div>
                     </div>
@@ -74,15 +104,15 @@
                     <x-slot name="form">
 
                         <div class="col-span-6 sm:col-span-4">
-                            <x-label for="no_kip" value="{{ __('Tanggal Pembayaran') }}"/>
-                            <x-input wire:model.defer="no_kip" id="no_kip" type="date" class="block w-full mt-1" />
-                            <x-input-error for="no_kip" class="mt-2" />
+                            <x-label for="date" value="{{ __('Tanggal Pembayaran') }}"/>
+                            <x-input wire:model.defer="date" id="date" type="date" class="block w-full mt-1" />
+                            <x-input-error for="date" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">
-                            <x-label for="no_kip" value="{{ __('Besar Pembayaran') }}"/>
-                            <x-input wire:model.defer="no_kip" id="no_kip" type="text" class="block w-full mt-1" />
-                            <x-input-error for="no_kip" class="mt-2" />
+                            <x-label for="amount" value="{{ __('Besar Pembayaran') }}"/>
+                            <x-input wire:model.defer="amount" id="amount" type="text" class="block w-full mt-1" />
+                            <x-input-error for="amount" class="mt-2" />
                         </div>
 
                         <div class="col-span-4"
@@ -96,21 +126,21 @@
                             
                             <div class="relative block overflow-hidden ">
                                 <div class="flex items-center pb-4">
-                                    <x-label for="kip" value="{{ __('Bukti Pembayaran') }}" class="mr-3"/>
+                                    <x-label for="attachment" value="{{ __('Bukti Pembayaran') }}" class="mr-3"/>
                                 </div>
 
                                 <img alt="payments"
                                     class="object-cover w-80 bg-white h-56 rounded-xl {!! ( ! auth()->user()->student->payments ) ? 'border-2 border-gray-300 border-dashed' : '' !!}" 
 
-                                    src="/images/default-image.jpg"
                                     
-                                    {{-- @if($payments)
-                                        src="{{ $payments->temporaryUrl() }}"
-                                    @elseif( $user_payments )
-                                        src="/storage/{{ $user_payments }}"
+                                    
+                                    @if($attachment)
+                                        src="{{ $attachment->temporaryUrl() }}"
+                                    @elseif( $user_attachment = Auth::user()->attachment )
+                                        src="/storage/{{ $user_attachment }}"
                                     @else 
                                         src="/images/default-image.jpg"
-                                    @endif --}}
+                                    @endif
                                     
                                 >
 
@@ -125,11 +155,9 @@
                             </div>
                             
                             <div class="mt-6">
-                                <input wire:model.defer="kip" id="kip" type="file" class=""/>
-                                <x-input-error for="kip" class="mt-2" />
+                                <input wire:model.defer="attachment" id="attachment" type="file" class=""/>
+                                <x-input-error for="attachment" class="mt-2" />
                             </div>
-
-                            
                             
                         </div>
 
