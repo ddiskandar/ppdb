@@ -15,11 +15,12 @@ class CreatePpdbTable extends Migration
     {
         Schema::create('ppdb', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id');
-            $table->foreignId('periode_id');
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
+            $table->foreignId('periode_id')->constrained();
             $table->foreignId('pilihan_satu')->nullable();
             $table->foreignId('pilihan_dua')->nullable();
             $table->foreignId('pilihan_lulus')->nullable();
+            $table->boolean('join_wa')->default(false);
             $table->integer('payment_amount');
             $table->timestamps();
         });

@@ -15,7 +15,7 @@ class CreateOrtusTable extends Migration
     {
         Schema::create('ortus', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id');
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
             $table->char('ayah_nik', 16)->nullable();
             $table->string('ayah_nama')->nullable();
             $table->char('ayah_lahir', 4)->nullable();

@@ -5,11 +5,10 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center flex-shrink-0">
-                    <a href="{{ route('dashboard') }}"
-                        class="text-lg font-bold"
+                    <span class="text-lg font-bold"
                     >
                         SMK Plus Al-Farhan
-                    </a>
+                    </span>
                 </div>
 
                 <!-- Navigation Links -->

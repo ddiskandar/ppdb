@@ -3,11 +3,11 @@
         <x-action-section>
 
             <x-slot name="title">
-                {{ __('Pas Photo')}}
+                {{ __('Pilihan Jurusan')}}
             </x-slot>
 
             <x-slot name="description">
-                {{ __('Mengenakan seragam asal sekolah')}}
+                {{ __('Tentukan pilihan jurusan pertama dan kedua')}}
             </x-slot>
 
             <x-slot name="content">
