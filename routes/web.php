@@ -24,9 +24,7 @@ use App\Models\Ppdb;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('guest');
+Route::view('/', 'welcome')->middleware('guest');
 
 Route::middleware(['auth'])->group(function(){
 
@@ -38,20 +36,14 @@ Route::middleware(['auth'])->group(function(){
 
     Route::middleware(['role:committee|admin'])->group(function () {
 
-        Route::get('/pendaftaran', function () {
-            return view('admin.pendaftaran');
-        })->name('pendaftaran');
-
-        
+        Route::view('/pendaftaran', 'admin.pendaftaran')->name('pendaftaran');
+       
     });
 
     Route::middleware(['role:interviewer|committee|admin'])->group(function () {
 
         Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
-
-        Route::get('/seleksi', function () {
-            return view('admin.seleksi');
-        })->name('seleksi');
+        Route::view('/seleksi',  'admin.seleksi')->name('seleksi');
 
     });
 
@@ -68,7 +60,6 @@ Route::middleware(['auth'])->group(function(){
 
         Ppdb::create([
             'student_id' => $student->id,
-            // 'major_id' => 1,
             'payment_amount' => 150000,
         ]);
 
