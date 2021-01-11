@@ -15,7 +15,7 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id')->constrained();
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
             $table->string('akta')->nullable();
             $table->string('kartu_keluarga')->nullable();
             $table->string('skl')->nullable();
@@ -30,8 +30,6 @@ class CreateDocumentsTable extends Migration
             $table->string('no_kis', 16)->nullable();
             $table->string('pkh')->nullable();
             $table->string('no_pkh', 16)->nullable();
-
-
             $table->timestamps();
         });
     }
