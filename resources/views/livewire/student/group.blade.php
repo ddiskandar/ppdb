@@ -3,11 +3,11 @@
         <x-action-section>
 
             <x-slot name="title">
-                {{ __('Pilihan Jurusan')}}
+                {{ __('Gabung Grup')}}
             </x-slot>
 
             <x-slot name="description">
-                {{ __('Tentukan pilihan jurusan pertama dan kedua')}}
+                {{ __('Segera bergabung dengan menggunakan link untuk Info PPDB lainnya')}}
             </x-slot>
 
             <x-slot name="content">
@@ -16,6 +16,14 @@
                     submit="submitForm"
                 >
                     <x-slot name="form">
+
+                        <div class="col-span-6 sm:col-span-4">
+                            <x-label for="" value="{{ __('Link Grup WA') }}" />
+                            <div class="">
+                                <a href="https://chat.whatsapp.com/GBq6KDPq1MBDYDSKGtr67O">https://chat.whatsapp.com/GBq6KDPq1MBDYDSKGtr67O</a>
+                            </div>
+                            
+                        </div>
 
                         <div class="col-span-6 sm:col-span-4">
                             <x-label for="pilihan_satu" value="{{ __('Sudah gabung group ?') }}" />

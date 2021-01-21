@@ -36,9 +36,6 @@ class DaftarPpdb extends Component
             'student_id' => $this->student_id,
             'payment_amount' => $this->ref_payment_amount,
         ]);
-        Document::create([
-            'student_id' => $this->student_id,
-        ]);
     }
 
     public function render()

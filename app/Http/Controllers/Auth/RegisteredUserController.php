@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Document;
 use App\Models\User;
 use App\Models\Student;
 use App\Models\Ortu;
@@ -65,6 +66,9 @@ class RegisteredUserController extends Controller
             'ibu_nama' => $request->ibu_nama,
         ]);
 
+        Document::create([
+            'student_id' => $student->id,
+        ]);
 
         $user->assignRole('student');
 

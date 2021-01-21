@@ -16,7 +16,7 @@
                         <div class="shadow sm:rounded-md sm:overflow-hidden">
                             <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
                                 <div class="grid grid-cols-6 gap-6">
-                                    Hello
+                                    Rp. 150.000
 
                                 </div>
                             </div>
@@ -41,9 +41,8 @@
                     </div>
                     </div>
                     <div class="px-4 mt-5 sm:px-0 md:mt-0 md:col-span-2">
-                        <div class="grid gap-6 lg:grid-cols-2">
-                            @forelse ($payments as $payment)
-
+                        @forelse ($payments as $payment)
+                            <div class="grid gap-6 lg:grid-cols-2">
                                 <div>
                                     <div class="relative w-full transition ease-in-out bg-white rounded-lg shadow-md
                                         {{ ($payment->status) ? 'text-green-600' : 'text-yellow-600' }}
@@ -74,11 +73,19 @@
                                         </div>
                                     </div>
                                 </div>
-                            @empty
-                                kosong
-                            @endforelse
-
                         </div>
+
+                        @empty
+                        
+                        <div class="shadow sm:rounded-md sm:overflow-hidden">
+                            <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
+                                   BELUM ADA DATA
+
+                            </div>
+                        </div>
+                                
+                        @endforelse
+
                     </div>
                 </div>
             </div>
