@@ -2,8 +2,6 @@
 
 namespace App\Http\Livewire\Admin;
 
-use Illuminate\Database\Eloquent\Builder;
-
 use App\Models\Student;
 use App\Models\School;
 use Livewire\Component;

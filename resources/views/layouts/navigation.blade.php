@@ -39,7 +39,7 @@
                         {{ __('Pendaftaran') }}
                     </x-nav-link>
                     
-                    <x-nav-link :href="route('pembayaran')" :active="request()->routeIs('pembayaran')">
+                    <x-nav-link :href="route('confirmation')" :active="request()->routeIs('confirmation')">
                         {{ __('Pembayaran') }}
                     </x-nav-link>
 

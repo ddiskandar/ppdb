@@ -9,6 +9,7 @@ use App\Http\Livewire\Student\Biodata;
 use App\Http\Livewire\Student\Group;
 use App\Http\Livewire\Student\Pembayaran;
 use App\Http\Livewire\Student\PpdbJurusan;
+use App\Http\Livewire\Admin\Confirmation;
 
 use App\Models\Ppdb;
 
@@ -44,6 +45,7 @@ Route::middleware(['auth'])->group(function(){
 
         Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
         Route::view('/seleksi',  'admin.seleksi')->name('seleksi');
+        Route::get('/confirmation', Confirmation::class)->name('confirmation');
 
     });
 
