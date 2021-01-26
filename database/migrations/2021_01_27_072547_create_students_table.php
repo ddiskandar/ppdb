@@ -15,7 +15,7 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->boolean('name_verified')->default(false);
             $table->string('panggilan', 20)->nullable();
             $table->char('jk', 1)->nullable();
@@ -25,7 +25,7 @@ class CreateStudentsTable extends Migration
             $table->string('birthplace', 50)->nullable();
             $table->date('birthdate')->nullable();
             $table->string('akta', 16)->nullable();
-            $table->foreignId('agama_id')->default(1);
+            $table->foreignId('agama_id')->default(1)->constrained();
             $table->string('address')->nullable();
             $table->string('rt', 3)->nullable();
             $table->string('rw', 3)->nullable();
@@ -36,18 +36,18 @@ class CreateStudentsTable extends Migration
             $table->string('kode_pos', 6)->nullable();
             $table->string('lintang', 24)->nullable();
             $table->string('bujur', 24)->nullable();
-            $table->foreignId('tinggal_id')->default(1);
-            $table->foreignId('transportasi_id')->default(1);
+            $table->foreignId('tinggal_id')->default(1)->constrained();
+            $table->foreignId('transportasi_id')->default(1)->constrained();
             $table->unsignedTinyInteger('anak_ke')->nullable();
             $table->unsignedTinyInteger('saudara')->nullable();
             $table->string('phone', 16)->nullable();
 
-            $table->foreignId('school_id')->default(1);
+            $table->foreignId('school_id')->default(1)->constrained();
             $table->string('school_temp')->nullable();
             $table->boolean('school_verified')->default(false);
 
-            $table->foreignId('hobby_id')->default(1);
-            $table->foreignId('cita_id')->default(1);
+            $table->foreignId('hobby_id')->default(1)->constrained('hobbies');
+            $table->foreignId('ideals_id')->default(1)->constrained('ideals');
 
             $table->unsignedTinyInteger('tinggi')->nullable();
             $table->unsignedTinyInteger('berat')->nullable();
@@ -64,7 +64,7 @@ class CreateStudentsTable extends Migration
             $table->text('desc_keluarga')->nullable();
             $table->text('desc_student')->nullable();
             $table->text('catatan')->nullable();
-            $table->foreignId('pip_id')->default(1);
+            $table->foreignId('pip_id')->default(1)->constrained();
 
             $table->timestamps();
         });
