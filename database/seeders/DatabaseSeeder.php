@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             PeriodeSeeder::class,
             AgamaSeeder::class,
             PipSeeder::class,
+            HobbySeeder::class,
+            IdealsSeeder::class,
             TransportasiSeeder::class,
             PekerjaanSeeder::class,
             PendidikanSeeder::class,
