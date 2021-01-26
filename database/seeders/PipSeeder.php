@@ -15,40 +15,16 @@ class PipSeeder extends Seeder
     public function run()
     {
         DB::table('pips')->insert([
-            'id' => 99,
-            'name' => 'Mampu / Tidak layak PIP',
-        ]);
-        DB::table('pips')->insert([
-            'id' => 1,
-            'name' => 'Daerah Konflik',
-        ]);
-        DB::table('pips')->insert([
-            'id' => 2,
-            'name' => 'Dampak Bencana Alam',
-        ]);
-        DB::table('pips')->insert([
-            'id' => 3,
-            'name' => 'Kelainan Fisik',
-        ]);
-        DB::table('pips')->insert([
-            'id' => 4,
-            'name' => 'Pernah Drop Out',
-        ]);
-        DB::table('pips')->insert([
-            'id' => 5,
-            'name' => 'Keluarga Pidana/Berada di LAPAS',
-        ]);
-        DB::table('pips')->insert([
-            'id' => 6,
-            'name' => 'Pemegang PKH/PKS/KKS',
-        ]);
-        DB::table('pips')->insert([
-            'id' => 7,
-            'name' => 'Siswa Miskin/Rentan Miskin',
-        ]);
-        DB::table('pips')->insert([
-            'id' => 8,
-            'name' => 'Yatim Piatu/Panti Asuhan/Panti Sosial',
+            ['name' => '(Belum diisi)'],
+            ['name' => 'Mampu / Tidak layak PIP'],
+            ['name' => 'Daerah Konflik'],
+            ['name' => 'Dampak Bencana Alam'],
+            ['name' => 'Kelainan Fisik'],
+            ['name' => 'Pernah Drop Out'],
+            ['name' => 'Keluarga Pidana/Berada di LAPAS'],
+            ['name' => 'Pemegang PKH/PKS/KKS'],
+            ['name' => 'Siswa Miskin/Rentan Miskin'],
+            ['name' => 'Yatim Piatu/Panti Asuhan/Panti Sosial'],
         ]);
     }
 }

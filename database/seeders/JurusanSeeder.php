@@ -16,16 +16,12 @@ class JurusanSeeder extends Seeder
     public function run()
     {
         DB::table('jurusans')->insert([
-            'name' => 'Multimedia',
-            'last_students' => 127,
-        ]);
-        DB::table('jurusans')->insert([
-            'name' => 'Bisnis Daring dan Pemasaran',
-            'last_students' => 66,
-        ]);
-        DB::table('jurusans')->insert([
-            'name' => 'Agribisnis Pengolahan Hasil Pertanian',
-            'last_students' => 39,
+            ['name' => 'Multimedia',
+            'last_students' => 127],
+            ['name' => 'Bisnis Daring dan Pemasaran',
+            'last_students' => 66],
+            ['name' => 'Agribisnis Pengolahan Hasil Pertanian',
+            'last_students' => 39],
         ]);
     }
 }

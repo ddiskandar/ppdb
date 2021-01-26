@@ -15,52 +15,19 @@ class TransportasiSeeder extends Seeder
     public function run()
     {
         DB::table('transportasis')->insert([
-            'id' => 99,
-            'name' => 'Lainnya',
-        ]);
-        DB::table('transportasis')->insert([
-            'id' => 1,
-            'name' => 'Jalan Kaki',
-        ]);
-        DB::table('transportasis')->insert([
-            'id' => 2,
-            'name' => 'Angkutan umum/bus/pete-pete',
-        ]);
-        DB::table('transportasis')->insert([
-            'id' => 3,
-            'name' => 'Mobil/bus antar jemput',
-        ]);
-        DB::table('transportasis')->insert([
-            'id' => 4,
-            'name' => 'Kereta api',
-        ]);
-        DB::table('transportasis')->insert([
-            'id' => 5,
-            'name' => 'Ojek',
-        ]);
-        DB::table('transportasis')->insert([
-            'id' => 6,
-            'name' => 'Andong/Bendi/Sado/Dokar/Delman/Beca',
-        ]);
-        DB::table('transportasis')->insert([
-            'id' => 7,
-            'name' => 'Perahu Penyebrangan/Rakit/Getek',
-        ]);
-        DB::table('transportasis')->insert([
-            'id' => 8,
-            'name' => 'Kuda',
-        ]);
-        DB::table('transportasis')->insert([
-            'id' => 9,
-            'name' => 'Sepeda',
-        ]);
-        DB::table('transportasis')->insert([
-            'id' => 10,
-            'name' => 'Sepeda motor',
-        ]);
-        DB::table('transportasis')->insert([
-            'id' => 11,
-            'name' => 'Mobil pribadi',
+            ['name' => '(Belum diisi)'],
+            ['name' => 'Jalan Kaki'],
+            ['name' => 'Angkutan umum/bus/pete-pete'],
+            ['name' => 'Mobil/bus antar jemput'],
+            ['name' => 'Kereta api'],
+            ['name' => 'Ojek'],
+            ['name' => 'Andong/Bendi/Sado/Dokar/Delman/Beca'],
+            ['name' => 'Perahu Penyebrangan/Rakit/Getek'],
+            ['name' => 'Kuda'],
+            ['name' => 'Sepeda'],
+            ['name' => 'Sepeda motor'],
+            ['name' => 'Mobil pribadi'],
+            ['name' => 'Lainnya'],
         ]);
     }
 }

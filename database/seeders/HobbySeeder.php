@@ -15,26 +15,13 @@ class HobbySeeder extends Seeder
     public function run()
     {
         DB::table('hobbies')->insert([
-            'id' => 1,
-            'name' => '(Belum diisi)',
-        ]);
-        DB::table('hobbies')->insert([
-            'name' => 'Olahraga',
-        ]);
-        DB::table('hobbies')->insert([
-            'name' => 'Kesenian',
-        ]);
-        DB::table('hobbies')->insert([
-            'name' => 'Membaca',
-        ]);
-        DB::table('hobbies')->insert([
-            'name' => 'Menulis',
-        ]);
-        DB::table('hobbies')->insert([
-            'name' => 'Traveling',
-        ]);
-        DB::table('hobbies')->insert([
-            'name' => 'Lainnya',
+            ['name' => '(Belum diisi)'],
+            ['name' => 'Olahraga'],
+            ['name' => 'Kesenian'],
+            ['name' => 'Membaca'],
+            ['name' => 'Menulis'],
+            ['name' => 'Traveling'],
+            ['name' => 'Lainnya'],
         ]);
         
     }

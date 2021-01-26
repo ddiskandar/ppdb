@@ -15,32 +15,14 @@ class TinggalSeeder extends Seeder
     public function run()
     {
         DB::table('tinggals')->insert([
-            'id' => 1,
-            'name' => 'Bersama Orang tua',
-        ]);
-        DB::table('tinggals')->insert([
-            'id' => 2,
-            'name' => 'Wali',
-        ]);
-        DB::table('tinggals')->insert([
-            'id' => 3,
-            'name' => 'Kos',
-        ]);
-        DB::table('tinggals')->insert([
-            'id' => 4,
-            'name' => 'Asrama',
-        ]);
-        DB::table('tinggals')->insert([
-            'id' => 5,
-            'name' => 'Panti Asuhan',
-        ]);
-        DB::table('tinggals')->insert([
-            'id' => 6,
-            'name' => 'Pesantren',
-        ]);
-        DB::table('tinggals')->insert([
-            'id' => 99,
-            'name' => 'Lainnya',
+            ['name' => '(Belum diisi)'],
+            ['name' => 'Bersama Orang tua'],
+            ['name' => 'Wali'],
+            ['name' => 'Kos'],
+            ['name' => 'Asrama'],
+            ['name' => 'Panti Asuhan'],
+            ['name' => 'Pesantren'],
+            ['name' => 'Lainnya'],
         ]);
     }
 }

@@ -37,7 +37,7 @@ class CreateStudentsTable extends Migration
             $table->string('lintang', 24)->nullable();
             $table->string('bujur', 24)->nullable();
             $table->foreignId('tinggal_id')->default(1);
-            $table->foreignId('transportasi_id')->default(99);
+            $table->foreignId('transportasi_id')->default(1);
             $table->unsignedTinyInteger('anak_ke')->nullable();
             $table->unsignedTinyInteger('saudara')->nullable();
             $table->string('phone', 16)->nullable();
@@ -45,7 +45,7 @@ class CreateStudentsTable extends Migration
             $table->foreignId('school_id')->default(1);
             $table->string('school_temp')->nullable();
             $table->boolean('school_verified')->default(false);
-            
+
             $table->foreignId('hobby_id')->default(1);
             $table->foreignId('cita_id')->default(1);
 
@@ -64,7 +64,7 @@ class CreateStudentsTable extends Migration
             $table->text('desc_keluarga')->nullable();
             $table->text('desc_student')->nullable();
             $table->text('catatan')->nullable();
-            $table->foreignId('pip_id')->default(99);
+            $table->foreignId('pip_id')->default(1);
 
             $table->timestamps();
         });

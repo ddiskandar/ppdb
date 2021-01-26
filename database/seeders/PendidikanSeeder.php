@@ -15,52 +15,18 @@ class PendidikanSeeder extends Seeder
     public function run()
     {
         DB::table('pendidikans')->insert([
-            'id' => 99,
-            'name' => 'Belum ada data',
-        ]);
-        DB::table('pendidikans')->insert([
-            'id' => 1,
-            'name' => 'Tidak Sekolah',
-        ]);
-        DB::table('pendidikans')->insert([
-            'id' => 2,
-            'name' => 'Putuh SD',
-        ]);
-        DB::table('pendidikans')->insert([
-            'id' => 3,
-            'name' => 'SD Sederajat',
-        ]);
-        DB::table('pendidikans')->insert([
-            'id' => 4,
-            'name' => 'SMP Sederajat',
-        ]);
-        DB::table('pendidikans')->insert([
-            'id' => 5,
-            'name' => 'SMA Sederajat',
-        ]);
-        DB::table('pendidikans')->insert([
-            'id' => 6,
-            'name' => 'D1',
-        ]);
-        DB::table('pendidikans')->insert([
-            'id' => 7,
-            'name' => 'D2',
-        ]);
-        DB::table('pendidikans')->insert([
-            'id' => 8,
-            'name' => 'D3',
-        ]);
-        DB::table('pendidikans')->insert([
-            'id' => 9,
-            'name' => 'D4/S1',
-        ]);
-        DB::table('pendidikans')->insert([
-            'id' => 10,
-            'name' => 'S2',
-        ]);
-        DB::table('pendidikans')->insert([
-            'id' => 11,
-            'name' => 'S3',
+            ['name' => '(Belum diisi)'],
+            ['name' => 'Tidak Sekolah'],
+            ['name' => 'Putuh SD'],
+            ['name' => 'SD Sederajat'],
+            ['name' => 'SMP Sederajat'],
+            ['name' => 'SMA Sederajat'],
+            ['name' => 'D1'],
+            ['name' => 'D2'],
+            ['name' => 'D3'],
+            ['name' => 'D4/S1'],
+            ['name' => 'S2'],
+            ['name' => 'S3'],
         ]);
     }
 }
