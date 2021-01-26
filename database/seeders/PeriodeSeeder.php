@@ -16,18 +16,21 @@ class PeriodeSeeder extends Seeder
     {
         DB::table('periodes')->insert([
             ['name' => '01',
-            'desc' => '01 Januari - 28 Februari 2020',
+            'desc' => 'Januari - 26 Maret 2020',
             'ref_payment_amount' => 150000,
+            'link_wa' => 'https://chat.whatsapp.com/GBq6KDPq1MBDYDSKGtr67O',
             'active' => true],
 
             ['name' => '02',
-            'desc' => '01 Maret - 31 April 2020',
+            'desc' => '30 Maret - 30 April 2020',
             'ref_payment_amount' => 150000,
+            'link_wa' => 'https://chat.whatsapp.com/GBq6KDPq1MBDYDSKGtr67O',
             'active' => false],
 
             ['name' => '03',
-            'desc' => '01 Mei - 31 Juni 2020',
+            'desc' => '01 Mei - Juni 2020',
             'ref_payment_amount' => 150000,
+            'link_wa' => 'https://chat.whatsapp.com/GBq6KDPq1MBDYDSKGtr67O',
             'active' => false],
         ]);
     }

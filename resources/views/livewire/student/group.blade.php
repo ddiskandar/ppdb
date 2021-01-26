@@ -26,11 +26,14 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">
-                            <x-label for="pilihan_satu" value="{{ __('Sudah gabung group ?') }}" />
+                            <x-label for="join_wa" value="{{ __('Sudah gabung group ?') }}" />
 
-                            <x-select wire:model.defer="pilihan_satu" id="pilihan_satu" name="pilihan_satu" autocomplete="pilihan_satu" class="block w-full px-3 mt-1">
-                                    <option>{{ __('Belum, saya belum gabung') }}</option>
-                                    <option>{{ __('Iya, Saya sudah gabung') }}</option>
+                            <x-select wire:model.defer="join_wa" id="join_wa" name="join_wa" autocomplete="join_wa" class="block w-full px-3 mt-1">
+                            
+                                <option value="0" 
+                                    {{ ($join_wa == false ) ? 'selected':'' }}>{{ __('Belum, saya belum gabung') }}</option>
+                                <option value="1" 
+                                    {{ ($join_wa == true ) ? 'selected':'' }}>{{ __('Iya, Saya sudah gabung') }}</option>
                                 
                             </x-select>
                             

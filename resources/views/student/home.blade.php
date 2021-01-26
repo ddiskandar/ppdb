@@ -135,7 +135,7 @@
 
     <div class="pb-24">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div>
+            {{-- <div>
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
@@ -159,9 +159,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <x-section-border/>
+            {{-- <x-section-border/> --}}
 
 
             <div class="mt-10 sm:mt-0">
@@ -206,6 +206,8 @@
                     <div class="px-4 mt-5 sm:px-0 md:mt-0 md:col-span-2">
                         <div class="grid gap-6 lg:grid-cols-2">
 
+                            @if ( isset(Auth::user()->student->ppdb) )
+
                             <x-action-card 
                                 completed="{!! ( $gabung = Auth::user()->student->ppdb ) ? 'true' : 'false' !!}"
                                 title="Gelombang"
@@ -233,6 +235,8 @@
                                 <path id="Path_116" data-name="Path 116" d="M32.433,12.409h4.2a4.2,4.2,0,0,1,4.2,4.2V29.228a4.2,4.2,0,0,1-4.2,4.2h-4.2v8.409l-8.409-8.409H15.614A4.192,4.192,0,0,1,12.641,32.2m0,0,7.177-7.177h8.409a4.2,4.2,0,0,0,4.2-4.2V8.2a4.2,4.2,0,0,0-4.2-4.2H7.2A4.2,4.2,0,0,0,3,8.2V20.819a4.2,4.2,0,0,0,4.2,4.2h4.2v8.409Z" transform="translate(-2 -3)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                                 </svg>
                             </x-action-card>
+
+                            @endif
 
                             <x-action-card
                                 completed="{!! ( Auth::user()->student->is_data_completed() ) ? 'true' : 'false' !!}"

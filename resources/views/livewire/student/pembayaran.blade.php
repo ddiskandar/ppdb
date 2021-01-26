@@ -1,6 +1,6 @@
 <div>
 
-    <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="mx-auto mt-10 max-w-7xl sm:px-6 lg:px-8">
         <x-action-section>
 
             <x-slot name="title">
@@ -8,99 +8,122 @@
             </x-slot>
 
             <x-slot name="description">
-                {{ __('Pastikan nominal sesuai dengan yang tertulis, agar proses verifikasi lebih cepat. Panitia akan memverifikasi pembayaran anda maksimal 1x24 jam.')}}
             </x-slot>
 
             <x-slot name="content">
-                <div class="mt-5 md:mt-0 md:col-span-2">
-                        <div class="shadow sm:rounded-md sm:overflow-hidden">
-                            <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
-                                <div class="grid grid-cols-6 gap-6">
-                                    Rp. 150.000
-
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-            </x-slot>
-            
-        </x-action-section>
-        
-    </div> {{-- end of  --}}
-    
-    <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="mt-10 sm:mt-0">
-                <div class="md:grid md:grid-cols-3 md:gap-6">
-                    <div class="md:col-span-1">
-                    <div class="px-4 sm:px-0">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">Riwayat pembayaran</h3>
-                        <p class="mt-1 text-sm text-gray-600">
-                            Daftar status konfirmasi pembayaran
-                        </p>
-                    </div>
-                    </div>
-                    <div class="px-4 mt-5 sm:px-0 md:mt-0 md:col-span-2">
-                        @forelse ($payments as $payment)
-                            <div class="grid gap-6 lg:grid-cols-2">
+                <div class="px-4 mt-5 sm:px-0 md:mt-0 md:col-span-2">
+                            <div class="grid gap-6">
                                 <div>
-                                    <div class="relative w-full transition ease-in-out bg-white rounded-lg shadow-md
-                                        {{ ($payment->status) ? 'text-green-600' : 'text-yellow-600' }}
-                                        ">
+                                    <div class="relative w-full transition ease-in-out bg-white rounded-lg shadow-md">
                                         <div class="flex items-center h-full px-5 py-6">
                                             <div class="flex-1 ml-4">
-                                                <div class="mb-4 text-xs font-bold ">
-                                                    @if ( ! $payment->status )
-                                                        {{ __('SEDANG DIVERIFIKASI') }}
-                                                    @else
-                                                        {{ __('BERHASIL') }}
-                                                    @endif
-                                                    
-                                                </div>
+                                                <div class="text-gray-400">Biaya pendaftaran sebesar :</div>
                                                 <div class="text-3xl font-extrabold text-gray-900">
-                                                    Rp. {{ $payment->amount }},-
+                                                    Rp. 150.021,-
                                                 </div>
-                                                <div class="text-gray-400">{{ $payment->date }}</div>
                                                 
                                             </div>
                                         </div>
-                                        <div class="absolute top-0 right-0 mt-3 mr-3 sm:mt-6 sm:mr-6">
-                                            @if( ! $payment->status )
-                                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                            @else
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20.896" height="20.896"><path data-name="Path 45" d="M7.3 10.448l2.1 2.1 4.2-4.2m6.3 2.1A9.448 9.448 0 1110.448 1a9.448 9.448 0 019.452 9.448z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-                                            @endif
-                                        </div>
                                     </div>
                                 </div>
-                        </div>
-
-                        @empty
-                        
-                        <div class="shadow sm:rounded-md sm:overflow-hidden">
-                            <div class="px-4 py-5 space-y-6 bg-white sm:p-6">
-                                   BELUM ADA DATA
-
                             </div>
+
+                            <div class="mt-6">
+                            <div class="text-sm">Untuk pembayaran dapat datang langsung ke sekretariat pendaftaran atau melakukan transfer ke nomor rekening : </div>
+                            <div class="w-64 px-4 py-3 mt-2 text-2xl font-bold bg-gray-50 ">1047100027 </div>
+                            <div class="mt-2 text-lg"><strong>BNI Syariah</strong> a/n <strong> SMK Plus Al-Farhan</strong></div>
+
                         </div>
-                                
-                        @endforelse
 
                     </div>
+                    
+            </x-slot>
+            
+        </x-action-section>
+
+        <x-section-border/>
+        
+    </div> {{-- end of  --}}
+    
+    <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="mt-10 sm:mt-0">
+            <div class="md:grid md:grid-cols-3 md:gap-6">
+                <div class="md:col-span-1">
+                    <div class="px-4 sm:px-0">
+                        <h3 class="text-lg font-medium leading-6 text-gray-900">Riwayat pembayaran</h3>
+                        <p class="mt-1 text-sm text-gray-600">
+                            {{ __('')}}
+                        </p>
+                    </div>
+                </div>
+                <div class="px-4 mt-5 sm:px-0 md:mt-0 md:col-span-2">
+                    @forelse ($payments as $payment)
+                        <div class="grid gap-6 lg:grid-cols-2">
+                            <div>
+                                <div class="relative w-full transition ease-in-out bg-white rounded-lg shadow-md
+                                    {{ ($payment->status) ? 'text-green-600' : 'text-yellow-600' }}
+                                    ">
+                                    <div class="flex items-center h-full px-5 py-6">
+                                        <div class="flex-1 ml-4">
+                                            <div class="mb-4 text-xs font-bold ">
+                                                @if ( ! $payment->status )
+                                                    {{ __('SEDANG DIVERIFIKASI') }}
+                                                @else
+                                                    {{ __('BERHASIL') }}
+                                                @endif
+                                                
+                                            </div>
+                                            <div class="text-3xl font-extrabold text-gray-900">
+                                                Rp. {{ $payment->amount }},-
+                                            </div>
+                                            <div class="text-gray-400">{{ $payment->date }}</div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="absolute top-0 right-0 mt-3 mr-3 sm:mt-6 sm:mr-6">
+                                        @if( ! $payment->status )
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                        @else
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20.896" height="20.896"><path data-name="Path 45" d="M7.3 10.448l2.1 2.1 4.2-4.2m6.3 2.1A9.448 9.448 0 1110.448 1a9.448 9.448 0 019.452 9.448z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+
+                        <div class="flex items-center px-10 py-6 bg-red-200">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 mr-4" viewBox="0 0 49.5 49.5">
+                                            <path id="Path_136" data-name="Path 136" d="M20.694,30.805,25.75,25.75m0,0,5.056-5.056M25.75,25.75l-5.056-5.056M25.75,25.75l5.056,5.056M48.5,25.75A22.75,22.75,0,1,1,25.75,3,22.75,22.75,0,0,1,48.5,25.75Z" transform="translate(-1 -1)" fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-xl font-bold text-red-600">Belum Membayar</h5>
+                                            <p>Silahkan melakukan pembayaran kemudian lakukan konfirmasi pada form di bawah</p>
+                                        </div>
+                                    </div>
+
+                    @endforelse
+
                 </div>
             </div>
+
+            <x-section-border/>
+            
+        </div>
         
     </div> {{-- end of  --}}
 
-    <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <x-action-section>
 
             <x-slot name="title">
-                {{ __('Konfirmasi pembayaran')}}
+                {{ __('Unggah bukti pembayaran')}}
             </x-slot>
 
             <x-slot name="description">
-                {{ __('')}}
+                {{ __('Pastikan nominal sesuai dengan yang tertulis, agar proses verifikasi lebih cepat. Panitia akan memverifikasi pembayaran anda maksimal 1x24 jam.')}}
             </x-slot>
 
             <x-slot name="content">
