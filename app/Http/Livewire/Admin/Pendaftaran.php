@@ -14,7 +14,7 @@ class Pendaftaran extends Component
     public function render()
     {
         return view('livewire.admin.pendaftaran', [
-            'students' => Student::with(['school', 'user'])->paginate(5)
+            'students' => Student::with(['school', 'user', 'document', 'payments'])->paginate(5)
         ]);
     }
 }

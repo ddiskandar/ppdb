@@ -17,10 +17,13 @@ class JurusanSeeder extends Seeder
     {
         DB::table('jurusans')->insert([
             ['name' => 'Multimedia',
+            'slug' => 'MM',
             'last_students' => 127],
             ['name' => 'Bisnis Daring dan Pemasaran',
+            'slug' => 'BDP',
             'last_students' => 66],
             ['name' => 'Agribisnis Pengolahan Hasil Pertanian',
+            'slug' => 'APHP',
             'last_students' => 39],
         ]);
     }

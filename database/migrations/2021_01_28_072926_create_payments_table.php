@@ -18,8 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->foreignId('student_id')->constrained();
             $table->string('attachment');
             $table->integer('amount');
-            $table->boolean('verified_by')->nullable();
-            $table->boolean('status')->default(false);
+            $table->boolean('verified_by')->nullable()->constrained();
             $table->date('date');
             $table->timestamps();
         });

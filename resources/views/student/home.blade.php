@@ -227,6 +227,7 @@
                             </x-action-card>
 
                             <x-action-card
+                                completed="{!! ( isset(Auth::user()->student->ppdb->join_wa) ) ? 'true' : 'false' !!}"
                                 action="group"
                                 title="Gabung Grup WA"
                                 description="Untuk info PPDB lainnya"
