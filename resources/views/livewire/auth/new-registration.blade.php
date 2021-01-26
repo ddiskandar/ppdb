@@ -24,8 +24,8 @@
         <div class="mt-4">
             <x-label for="jk" :value="__('Jenis Kelamin')" />
 
-            <x-select wire:model.defer="jk" id="jk" name="jk" autocomplete="jk" class="block w-full px-3 mt-1">
-                <option>{{ __('-- Pilih salah-satu') }}</option>
+            <x-select wire:model.defer="jk" id="jk" name="jk" autocomplete="jk" class="block w-full px-3 mt-1" required>
+                <option value="">{{ __('-- Pilih salah-satu') }}</option>
                 <option value="L">{{ __('Laki-laki') }}</option>
                 <option value="P">{{ __('Perempuan') }}</option>
             </x-select>
@@ -37,14 +37,14 @@
         <div class="mt-4">
             <x-label for="nisn" :value="__('NISN')" />
 
-            <x-input id="nisn" class="block w-full mt-1" type="text" name="nisn" :value="old('nisn')" />
+            <x-input id="nisn" class="block w-full mt-1" type="text" name="nisn" :value="old('nisn')"  />
         </div>
 
         <!-- Email Address -->
         <div class="mt-4">
             <x-label for="phone" :value="__('Nomor HP/Whatsapp')" />
 
-            <x-input id="phone" class="block w-full mt-1" type="text" name="phone" :value="old('phone')" />
+            <x-input id="phone" class="block w-full mt-1" type="text" name="phone" :value="old('phone')" required />
         </div>
 
         <!-- Asal Sekolah -->
@@ -52,7 +52,7 @@
             <x-label for="school_id" :value="__('Asal Sekolah')" />
 
             <select id="school_id" name="school_id" class="block w-full mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 " required>
-                <option>{{ __('-- Pilih salah satu') }}</option>
+                <option value="">{{ __('-- Pilih salah satu') }}</option>
                 @foreach ($schools as $school )
                     <option value={{ $school->id }}>{{ $school->name }}</option>
                 @endforeach
