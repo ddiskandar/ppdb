@@ -17,9 +17,9 @@ class CreatePpdbTable extends Migration
             $table->id();
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
             $table->foreignId('periode_id')->constrained();
-            $table->foreignId('pilihan_satu')->nullable();
-            $table->foreignId('pilihan_dua')->nullable();
-            $table->foreignId('pilihan_lulus')->nullable();
+            $table->foreignId('pilihan_satu')->nullable()->constrained('jurusans');
+            $table->foreignId('pilihan_dua')->nullable()->constrained('jurusans');
+            $table->foreignId('pilihan_lulus')->nullable()->constrained('jurusans');
             $table->boolean('join_wa')->default(false);
             $table->integer('payment_amount');
             $table->timestamps();
