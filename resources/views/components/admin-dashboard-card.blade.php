@@ -1,13 +1,17 @@
+@props([
+    'count' => 0,
+    'description' => 'Description',
+])
 <div class="">
-    <div class="py-6 px-10 bg-white">
-        <div class="flex justify-between items-center">
-            <span class="font-bold text-3xl"
-                >{{ $value }}
+    <div class="px-10 py-6 bg-white">
+        <div class="flex items-center justify-between">
+            <span class="text-3xl font-bold"
+                >{{ $count }}
             </span>
             {{ $slot }}
         </div>
         <div>
-            Jumlah Total
+            {{ $description }}
         </div>
     </div>
 </div>

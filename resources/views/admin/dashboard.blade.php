@@ -55,25 +55,13 @@
 
     <div class="py-4">
         <div class="grid gap-6 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 sm:grid-cols-2 md:grid-cols-4 ">
-            <x-admin-dashboard-card :value="234">
+            <x-admin-dashboard-card count="{{ $students }}" description="Total Pendaftar">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 27.862 27.955">
                     <path id="Path_2" data-name="Path 2" d="M15.931,4.945a5.747,5.747,0,1,1,0,7.6m4.31,16.313H3V27.426a8.621,8.621,0,0,1,17.242,0Zm0,0h8.621V27.426a8.621,8.621,0,0,0-12.931-7.467M17.368,8.747A5.747,5.747,0,1,1,11.621,3,5.747,5.747,0,0,1,17.368,8.747Z" transform="translate(-2 -1.908)" fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                 </svg>
             </x-admin-dashboard-card>
 
-            <x-admin-dashboard-card :value="125">
-                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.863 26.863">
-                <path id="Path_36" data-name="Path 36" d="M25.1,27.863V5.763A2.763,2.763,0,0,0,22.338,3H8.525A2.763,2.763,0,0,0,5.763,5.763v22.1m19.338,0h2.763m-2.763,0H18.194m-12.431,0H3m2.763,0h6.906M11.288,8.525h1.381M11.288,14.05h1.381m5.525-5.525h1.381M18.194,14.05h1.381M12.669,27.863V20.956a1.381,1.381,0,0,1,1.381-1.381h2.763a1.381,1.381,0,0,1,1.381,1.381v6.906m-5.525,0h5.525" transform="translate(-2 -2)" fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                </svg>
-
-            </x-admin-dashboard-card>
-            <x-admin-dashboard-card :value="234">
-                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 27.862 27.955">
-                    <path id="Path_2" data-name="Path 2" d="M15.931,4.945a5.747,5.747,0,1,1,0,7.6m4.31,16.313H3V27.426a8.621,8.621,0,0,1,17.242,0Zm0,0h8.621V27.426a8.621,8.621,0,0,0-12.931-7.467M17.368,8.747A5.747,5.747,0,1,1,11.621,3,5.747,5.747,0,0,1,17.368,8.747Z" transform="translate(-2 -1.908)" fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                </svg>
-            </x-admin-dashboard-card>
-
-            <x-admin-dashboard-card :value="125">
+            <x-admin-dashboard-card value="{{ $schools->count() }}" description="Asal Sekolah">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.863 26.863">
                 <path id="Path_36" data-name="Path 36" d="M25.1,27.863V5.763A2.763,2.763,0,0,0,22.338,3H8.525A2.763,2.763,0,0,0,5.763,5.763v22.1m19.338,0h2.763m-2.763,0H18.194m-12.431,0H3m2.763,0h6.906M11.288,8.525h1.381M11.288,14.05h1.381m5.525-5.525h1.381M18.194,14.05h1.381M12.669,27.863V20.956a1.381,1.381,0,0,1,1.381-1.381h2.763a1.381,1.381,0,0,1,1.381,1.381v6.906m-5.525,0h5.525" transform="translate(-2 -2)" fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                 </svg>

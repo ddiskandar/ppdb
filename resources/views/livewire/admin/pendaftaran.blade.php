@@ -285,11 +285,11 @@
                                     @if ($student->ppdb->pilihan_satu)
                                         <div>
                                             <div class="px-2 mb-1 text-xs font-semibold leading-5 text-green-800 bg-gray-100 rounded-full">
-                                                {{ $student->ppdb->pilihan_satu }}
+                                                {{ $student->pilihan_slug($student->ppdb->pilihan_satu)}}
                                             </div>
                                             
                                             <div class="px-2 mb-1 text-xs font-semibold leading-5 text-green-800 bg-gray-100 rounded-full">
-                                                {{ $student->ppdb->pilihan_dua }}
+                                                {{ $student->pilihan_slug($student->ppdb->pilihan_dua)}}
                                             </div>
                                         </div>
                                     @endif

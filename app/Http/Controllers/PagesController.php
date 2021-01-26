@@ -6,15 +6,17 @@ use Illuminate\Http\Request;
 use App\Models\School;
 use App\Models\Jurusan;
 use App\Models\Periode;
+use App\Models\Student;
 
 class PagesController extends Controller
 {
     public function dashboard()
     {  
         return view('admin.dashboard', [
-            'schools' => School::with('students')->orderByDesc('last_students')->take(15)->get(),
+            'schools' => School::with('students')->orderByDesc('last_students')->get(),
             'jurusans' => Jurusan::all(),
             'periode' => Periode::where('active', true)->first(),
+            'students' => Student::count(),
         ]);
     }
 

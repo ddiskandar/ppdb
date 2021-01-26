@@ -103,4 +103,15 @@ class Student extends Model
         return false;
     }
 
+    public function pilihan_slug($pilihan) 
+    {
+        if ($pilihan == 1 ) {
+            return "MM";
+        } elseif ($pilihan == 2) {
+            return "BDP";
+        } else {
+            return "APHP";
+        }
+    }
+
 }
