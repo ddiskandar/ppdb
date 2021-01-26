@@ -27,6 +27,7 @@
                 <div class="flex items-center flex-1 space-x-2">
                     <div class="relative flex-1">
                         <input 
+                            wire:model="search"
                             type="search" 
                             id="search" 
                             placeholder="Search"
@@ -102,11 +103,18 @@
 
                                                 <div class="col-span-6 sm:col-span-4">
                                                     <label for="country" class="block text-sm font-medium text-gray-700">Asal sekolah</label>
-                                                    <select id="country" name="country" autocomplete="country" class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
-                                                    <option>Semua</option>
-                                                    <option>MTS. YASTI 2 Kadudampit</option>
-                                                    <option>SMP Negeri 2 Kadudampit</option>
-                                                    <option>MTs. Al-Furqon</option>
+                                                    <select
+                                                        wire:model="school"
+                                                        id="country" 
+                                                        name="country" 
+                                                        autocomplete="country" 
+                                                        class="block w-full px-3 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
+                                                        
+                                                        <option>Semua</option>
+                                                        @foreach ($schools as $item)
+                                                            <option value="{{ $item->name}}">{{ $item->name}}</option>
+                                                        @endforeach
+                                                   
                                                     </select>
                                                 </div>
 
