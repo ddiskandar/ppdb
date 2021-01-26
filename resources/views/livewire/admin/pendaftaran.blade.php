@@ -256,7 +256,7 @@
 
                                     </div>
                                     <div class="text-sm text-gray-500">
-                                    PPDB2020001
+                                        {{ $student->user->username }}
                                     </div>
                                 </div>
                                 </div>
@@ -326,97 +326,6 @@
 
                             @endforeach
                             
-                            <tr>
-                            <td class="py-4 pl-6 whitespace-nowrap">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="23.885" height="18.243" viewBox="0 0 23.885 18.243">
-                                <path id="Path_110" data-name="Path 110" d="M5,13.6,9.4,18l11-11" transform="translate(-0.757 -2.757)" fill="none" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
-                                </svg>
-
-                            </td>
-                            <td class="px-3 py-4 whitespace-nowrap">
-                                <div class="flex items-center">
-                                <div class="flex-shrink-0 w-10 h-10">
-                                    <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" alt="">
-                                </div>
-                                <div class="ml-4">
-                                    <div class="inline-flex text-sm font-medium text-gray-900 item-center">
-                                    <span>
-                                        Jane Cooper
-                                    </span> 
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="ml-2" width="16" height="16" viewBox="0 0 16 16">
-                                        <path id="Path_56" data-name="Path 56" d="M6.267,3.455a3.066,3.066,0,0,0,1.745-.723,3.066,3.066,0,0,1,3.976,0,3.066,3.066,0,0,0,1.745.723,3.066,3.066,0,0,1,2.812,2.812,3.062,3.062,0,0,0,.723,1.745,3.066,3.066,0,0,1,0,3.976,3.066,3.066,0,0,0-.723,1.745,3.066,3.066,0,0,1-2.812,2.812,3.066,3.066,0,0,0-1.745.723,3.066,3.066,0,0,1-3.976,0,3.066,3.066,0,0,0-1.745-.723,3.066,3.066,0,0,1-2.812-2.812,3.066,3.066,0,0,0-.723-1.745,3.066,3.066,0,0,1,0-3.976,3.066,3.066,0,0,0,.723-1.745A3.066,3.066,0,0,1,6.267,3.455Zm7.44,5.252a1,1,0,1,0-1.414-1.414L9,10.586,7.707,9.293a1,1,0,1,0-1.414,1.414l2,2a1,1,0,0,0,1.414,0l4-4Z" transform="translate(-2 -2)" fill="#059669" fill-rule="evenodd"/>
-                                        </svg>
-
-                                    </div>
-                                    <div class="text-sm text-gray-500">
-                                    PPDB2020001
-                                    </div>
-                                </div>
-                                </div>
-                            </td>
-                            <td class="px-3 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">MTs. YASTI 2 Kadudampit</div>
-                                <div class="text-sm text-gray-500">Cimahigirang
-                                </div>
-                            </td>
-                            <td class="flex items-center px-3 py-4">
-                                <div class="inline-flex flex-grow-0 px-2 mr-3 font-semibold leading-5 text-green-800 bg-green-100 rounded-full tex-sm">
-                                1
-                                </div>
-
-                                <div>
-                                    <div class="px-2 mb-1 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                                    MM
-                                    </div>
-                                    <div class="px-2 mb-1 text-xs font-semibold leading-5 text-green-800 bg-gray-100 rounded-full">
-                                    BDP
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-3 py-4 whitespace-nowrap">
-                                <div>
-                                    <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                                    KK
-                                    </span>
-                                    <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                                    Akta
-                                    </span>
-                                    <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-gray-100 rounded-full">
-                                    SKL
-                                    </span>
-                                    <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-gray-100 rounded-full">
-                                    Ijazah
-                                    </span>
-                                </div>
-                                <div>
-                                    <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-gray-100 rounded-full">
-                                    KIP
-                                    </span>
-                                    <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-gray-100 rounded-full">
-                                    PKH
-                                    </span>
-                                    <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-gray-100 rounded-full">
-                                    KKS
-                                    </span>
-                                </div>
-                            </td>
-                            <td class="px-3 py-4 whitespace-nowrap">
-                                <div class="flex items-center text-sm text-gray-900">
-                                    <div>
-                                        Lunas
-                                    </div>
-                                    <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                                    <path id="Path_45" data-name="Path 45" d="M8.333,11l1.778,1.778,3.556-3.556M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Z" transform="translate(-2 -2)" fill="none" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                                    </svg>
-                                </div>
-                                <div class="text-sm text-gray-500">Rp. 150.000
-                                </div>
-                            </td>
-                            <td class="py-4 pr-6 text-sm font-medium text-right whitespace-nowrap">
-                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                            </td>
-                            </tr>
                             <!-- More rows... -->
                         </tbody>
                         </table>
