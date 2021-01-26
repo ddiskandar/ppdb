@@ -16,42 +16,30 @@ class PenghasilanSeeder extends Seeder
     {
         DB::table('penghasilans')->insert([
             'id' => 99,
-            'name' => 'Lainnya',
+            'name' => 'Belum ada data',
         ]);
         DB::table('penghasilans')->insert([
             'id' => 1,
-            'name' => 'Kurang dari Rp 1.000.000',
-        ]);
-        DB::table('penghasilans')->insert([
-            'id' => 2,
-            'name' => 'Rp 1.000.000 - Rp 2.000.000',
-        ]);
-        DB::table('penghasilans')->insert([
-            'id' => 3,
-            'name' => 'Lebih dari Rp 2.000.000',
-        ]);
-        DB::table('penghasilans')->insert([
-            'id' => 4,
             'name' => 'Kurang dari Rp. 500,000',
         ]);
         DB::table('penghasilans')->insert([
-            'id' => 5,
+            'id' => 2,
             'name' => 'Rp. 500,000 - Rp. 999,999',
         ]);
         DB::table('penghasilans')->insert([
-            'id' => 6,
+            'id' => 3,
             'name' => 'Rp. 1,000,000 - Rp. 1,999,999',
         ]);
         DB::table('penghasilans')->insert([
-            'id' => 7,
+            'id' => 4,
             'name' => 'Rp. 2,000,000 - Rp. 4,999,999',
         ]);
         DB::table('penghasilans')->insert([
-            'id' => 8,
+            'id' => 5,
             'name' => 'Rp. 5,000,000 - Rp. 20,000,000',
         ]);
         DB::table('penghasilans')->insert([
-            'id' => 9,
+            'id' => 6,
             'name' => 'Lebih dari Rp. 20,000,000',
         ]);
         DB::table('penghasilans')->insert([

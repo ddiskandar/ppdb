@@ -16,7 +16,7 @@ class CreateJurusansTable extends Migration
         Schema::create('jurusans', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->tinyInteger('last_students');
+            $table->unsignedTinyInteger('last_students');
         });
     }
 

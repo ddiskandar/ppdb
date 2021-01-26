@@ -149,13 +149,6 @@ class SchoolSeeder extends Seeder
         ]);
 
         DB::table('schools')->insert([
-            'npsn' => '20277689',
-            'name' => 'MTSS AL - ANDALUSIA',
-            'address' => 'Sukabumi',
-            'last_students' => 3,
-        ]);
-
-        DB::table('schools')->insert([
             'npsn' => '20277825',
             'name' => 'MTSS AL - FURQON KAUDAMPIT',
             'address' => 'Kebonkawung',

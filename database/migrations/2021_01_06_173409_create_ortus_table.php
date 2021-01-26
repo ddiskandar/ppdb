@@ -16,6 +16,7 @@ class CreateOrtusTable extends Migration
         Schema::create('ortus', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
+            $table->string('phone_ortu', 16)->nullable();
             $table->char('ayah_nik', 16)->nullable();
             $table->string('ayah_nama')->nullable();
             $table->char('ayah_lahir', 4)->nullable();
@@ -34,7 +35,6 @@ class CreateOrtusTable extends Migration
             $table->string('wali_pendidikan', 16)->default(99);
             $table->string('wali_pekerjaan')->default(99);
             $table->string('wali_penghasilan')->default(99);
-            $table->string('phone_ortu', 16)->nullable();
             $table->timestamps();
         });
     }

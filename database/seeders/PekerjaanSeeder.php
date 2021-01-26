@@ -16,7 +16,7 @@ class PekerjaanSeeder extends Seeder
     {
         DB::table('pekerjaans')->insert([
             'id' => 99,
-            'name' => 'Tidak ada data',
+            'name' => 'Belum ada data',
         ]);
         DB::table('pekerjaans')->insert([
             'id' => 1,

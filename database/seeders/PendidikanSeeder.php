@@ -16,7 +16,7 @@ class PendidikanSeeder extends Seeder
     {
         DB::table('pendidikans')->insert([
             'id' => 99,
-            'name' => 'Tidak ada data',
+            'name' => 'Belum ada data',
         ]);
         DB::table('pendidikans')->insert([
             'id' => 1,

@@ -35,6 +35,10 @@ class TinggalSeeder extends Seeder
             'name' => 'Panti Asuhan',
         ]);
         DB::table('tinggals')->insert([
+            'id' => 6,
+            'name' => 'Pesantren',
+        ]);
+        DB::table('tinggals')->insert([
             'id' => 99,
             'name' => 'Lainnya',
         ]);

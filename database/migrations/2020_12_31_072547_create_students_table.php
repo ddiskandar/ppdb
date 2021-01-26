@@ -16,8 +16,6 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('school_id')->default(1);
-            $table->boolean('school_verified')->default(false);
             $table->boolean('name_verified')->default(false);
             $table->string('panggilan', 20)->nullable();
             $table->char('jk', 1)->nullable();
@@ -40,14 +38,23 @@ class CreateStudentsTable extends Migration
             $table->string('bujur', 24)->nullable();
             $table->foreignId('tinggal_id')->default(1);
             $table->foreignId('transportasi_id')->default(99);
-            $table->tinyInteger('anak_ke')->nullable();
-            $table->tinyInteger('saudara')->nullable();
+            $table->unsignedTinyInteger('anak_ke')->nullable();
+            $table->unsignedTinyInteger('saudara')->nullable();
             $table->string('phone', 16)->nullable();
 
-            $table->Integer('tinggi')->nullable();
-            $table->tinyInteger('berat')->nullable();
-            $table->tinyInteger('jarak')->nullable();
-            $table->tinyInteger('waktu')->nullable();
+            $table->foreignId('school_id')->default(1);
+            $table->string('school_temp')->nullable();
+            $table->boolean('school_verified')->default(false);
+            
+            $table->foreignId('hobby_id')->default(1);
+            $table->foreignId('cita_id')->default(1);
+
+            $table->unsignedTinyInteger('tinggi')->nullable();
+            $table->unsignedTinyInteger('berat')->nullable();
+            $table->unsignedTinyInteger('lingkar_kepala')->nullable();
+
+            $table->unsignedInteger('jarak')->nullable();
+            $table->unsignedInteger('waktu')->nullable();
 
             $table->string('pdu', 3)->nullable();
             $table->string('olahraga', 3)->nullable();

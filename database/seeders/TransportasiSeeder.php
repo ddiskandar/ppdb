@@ -24,31 +24,43 @@ class TransportasiSeeder extends Seeder
         ]);
         DB::table('transportasis')->insert([
             'id' => 2,
-            'name' => 'Kendaraan Pribadi',
+            'name' => 'Angkutan umum/bus/pete-pete',
         ]);
         DB::table('transportasis')->insert([
             'id' => 3,
-            'name' => 'Kendaraan Umum/Angkot/Pete-pete',
+            'name' => 'Mobil/bus antar jemput',
         ]);
         DB::table('transportasis')->insert([
             'id' => 4,
-            'name' => 'Jemputan Sekolah',
+            'name' => 'Kereta api',
         ]);
         DB::table('transportasis')->insert([
             'id' => 5,
-            'name' => 'Kereta Api',
-        ]);
-        DB::table('transportasis')->insert([
-            'id' => 6,
             'name' => 'Ojek',
         ]);
         DB::table('transportasis')->insert([
-            'id' => 7,
+            'id' => 6,
             'name' => 'Andong/Bendi/Sado/Dokar/Delman/Beca',
         ]);
         DB::table('transportasis')->insert([
-            'id' => 8,
+            'id' => 7,
             'name' => 'Perahu Penyebrangan/Rakit/Getek',
+        ]);
+        DB::table('transportasis')->insert([
+            'id' => 8,
+            'name' => 'Kuda',
+        ]);
+        DB::table('transportasis')->insert([
+            'id' => 9,
+            'name' => 'Sepeda',
+        ]);
+        DB::table('transportasis')->insert([
+            'id' => 10,
+            'name' => 'Sepeda motor',
+        ]);
+        DB::table('transportasis')->insert([
+            'id' => 11,
+            'name' => 'Mobil pribadi',
         ]);
     }
 }
