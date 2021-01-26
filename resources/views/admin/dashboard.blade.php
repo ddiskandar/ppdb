@@ -120,7 +120,7 @@
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     {{ $school->last_students }}
                                                 </td>
-                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                <td class="px-6 py-4 {!! ($school->grow() == 'increase') ? 'text-green-600' : 'text-red-600' !!} whitespace-nowrap">
                                                     {{ $school->students->count() }}
                                                 </td>
                                             </tr>

@@ -16,4 +16,15 @@ class School extends Model
     {
         return $this->hasMany(Student::class);
     }
+
+    public function grow()
+    {
+        if ($this->students()->count() > $this->last_students ) {
+            return 'increase';
+        } elseif ($this->students()->count() == $this->last_students ) {
+            return 'same';
+        } else {
+            return 'decrease';
+        }
+    }
 }

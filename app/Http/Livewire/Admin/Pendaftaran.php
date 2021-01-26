@@ -23,9 +23,8 @@ class Pendaftaran extends Component
             'students' => Student::whereHas('user', function ( $query) {
                 $query->where('name', 'like', '%'.$this->search.'%');
             })->WhereHas('school', function ($query) {
-                    $query->where('name','like', '%'.$this->school.'%');
-                })
-            ->paginate(5),
+                 $query->where('name','like', '%'.$this->school.'%');
+            })->paginate(5),
             'schools' => School::all(),
         ]);
     }
