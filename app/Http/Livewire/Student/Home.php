@@ -3,11 +3,12 @@
 namespace App\Http\Livewire\Student;
 
 use App\Models\Jurusan;
-use Livewire\Component;
 use App\Models\Periode;
 use App\Models\Ppdb;
 
-class DaftarPpdb extends Component
+use Livewire\Component;
+
+class Home extends Component
 {
     public $student_id;
     public $periode_id;
@@ -39,7 +40,7 @@ class DaftarPpdb extends Component
 
     public function render()
     {
-        return view('livewire.student.daftar-ppdb', [
+        return view('livewire.student.home', [
             'jurusans' => Jurusan::all(),
         ]);
     }

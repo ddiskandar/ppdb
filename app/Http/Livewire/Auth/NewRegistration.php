@@ -12,7 +12,7 @@ class NewRegistration extends Component
         $schools = School::orderBy('name')->get();
 
         return view('livewire.auth.new-registration', [
-            'schools' => $schools->except(1),
+            'schools' => $schools->all(),
         ]);
     }
 }

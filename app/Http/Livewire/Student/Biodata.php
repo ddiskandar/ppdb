@@ -29,6 +29,7 @@ class Biodata extends Component
 
     public $student;
     public $school_id;
+    public $school_temp;
     
     public $photo;
 
@@ -127,6 +128,7 @@ class Biodata extends Component
         $this->phone = $this->student->phone;
 
         $this->school_id = $this->student->school_id;
+        $this->school_temp = $this->student->school_temp;
         $this->kks = $this->student->kks;
         $this->pkh = $this->student->pkh;
         $this->kip = $this->student->kip;
@@ -305,6 +307,7 @@ class Biodata extends Component
         Student::where('id', $this->student->id)
             ->update([
                 'school_id' => $this->school_id,
+                'school_temp' => $this->school_temp,
             ]);
         
         $this->successMessageSchool = 'Data Sekolah berhasil diperbaharui!';
@@ -390,7 +393,7 @@ class Biodata extends Component
             'agamas' => Agama::all(),
             'tinggals' => Tinggal::all(),
             'transportasis' => Transportasi::all(),
-            'schools' => School::orderBy('name')->get()->except(1),
+            'schools' => School::orderBy('name')->get(),
             'pendidikans' => Pendidikan::all(),
             'pekerjaans' => Pekerjaan::all(),
             'penghasilans' => Penghasilan::all(),

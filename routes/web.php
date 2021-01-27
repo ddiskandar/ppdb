@@ -6,6 +6,7 @@ use App\Http\Livewire\Student\Berkas;
 use Illuminate\Http\Request;
 
 use App\Http\Livewire\Student\Biodata;
+use App\Http\Livewire\Student\Home;
 use App\Http\Livewire\Student\Group;
 use App\Http\Livewire\Student\Pembayaran;
 use App\Http\Livewire\Student\PpdbJurusan;
@@ -49,8 +50,7 @@ Route::middleware(['auth'])->group(function(){
 
     });
 
-    Route::get('/home', [PagesController::class, 'home'])->name('home')->middleware(['role:student']);
-    
+    Route::get('/home', Home::class)->name('home')->middleware(['role:student']);
     Route::get('/biodata', Biodata::class);
     Route::get('/berkas', Berkas::class);
     Route::get('/jurusan', PpdbJurusan::class);
