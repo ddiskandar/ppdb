@@ -18,15 +18,14 @@
                     <x-slot name="form">
 
                         <div class="col-span-6 sm:col-span-4">
-                            <x-label for="" value="{{ __('Link Grup WA') }}" />
-                            <div class="">
-                                <a href="https://chat.whatsapp.com/GBq6KDPq1MBDYDSKGtr67O">https://chat.whatsapp.com/GBq6KDPq1MBDYDSKGtr67O</a>
+                            <div class="mt-6">
+                                <a class="px-6 py-3 text-white bg-green-600 rounded-md hover:bg-green-500" href="https://chat.whatsapp.com/GBq6KDPq1MBDYDSKGtr67O">Klik disini untuk bergabung</a>
                             </div>
                             
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">
-                            <x-label for="join_wa" value="{{ __('Sudah gabung group ?') }}" />
+                            <x-label for="join_wa" value="{{ __('Sudah gabung ke group WA ?') }}" />
 
                             <x-select wire:model.defer="join_wa" id="join_wa" name="join_wa" autocomplete="join_wa" class="block w-full px-3 mt-1">
                             
