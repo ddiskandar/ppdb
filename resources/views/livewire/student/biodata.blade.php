@@ -321,7 +321,7 @@
                         @if ($school_id == 1)
                             <div class="col-span-6 sm:col-span-4">
                                 <x-label for="school_temp" value="{{ __('Nama dan Alamat Sekolah') }}" />
-                                <x-input wire:model.defer="school_temp" id="school_temp" type="text" class="block w-full mt-1" placeholder="Contoh SMP Negeri 1 Bandung, Cicendo Kota Bandung"/>
+                                <x-input wire:model.defer="school_temp" id="school_temp" type="text" class="block w-full mt-1" placeholder="Contoh : SMP Negeri 1 Bandung, Cicendo Kota Bandung"/>
                                 <x-input-error for="school_temp" class="mt-2" />
                             </div>
 
