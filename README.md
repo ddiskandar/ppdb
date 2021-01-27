@@ -9,11 +9,11 @@
 - [x] Pendaftar dapat mengisi biodata masing-masing
 - [x] Pendaftar dapat memilih jurusan yang diminatinya sebanyak dua pilihan
 - [x] Pendaftar dapat menggunggah berkas pendaftaran yaitu Akta Kelahiran, Kartu Keluarga, ..
-- [ ] Pendaftar dapat mengkonfirmasi bayar pendaftaran
-- [ ] Pendaftar dapat informasi untuk gabung di grup WA
+- [x] Pendaftar dapat mengkonfirmasi bayar pendaftaran
+- [x] Pendaftar dapat informasi untuk gabung di grup WA
 - [ ] Pendaftar dapat melihat informasi atau pengumuman
 - [ ] Pendaftar dapat mengunduh formulir pendaftaran dengan format PDF yang sudah terisi data setelah semua alur pendaftaran selesai
-- [ ] Admin dan panitia dapat melihat dashboard pendaftaran
+- [x] Admin dan panitia dapat melihat dashboard pendaftaran
 - [ ] Admin dapat mengatur Data Master jurusan, asal sekolah, jalur dan hak akses pengguna
 - [ ] Panitia dapat membuat akun pendaftaran
 - [ ] Panitia dapat mengelola data pendaftaran
