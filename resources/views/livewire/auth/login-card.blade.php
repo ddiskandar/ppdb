@@ -4,7 +4,7 @@
 
         <div class="mb-6">
             <h2 id="slide-over-heading" class="text-xl font-bold text-gray-900">
-                {{ __('Selamat Datang di Portal PPDB') }}
+                {{ __('Selamat Datang') }}
             </h2>
             <p class="mt-2 text-sm">
                 {!! __('Masukkan kombinasi <strong>Nomor Registrasi</strong> dan <strong>Password</strong> yang telah terdaftar untuk masuk ke portal PPDB.') !!}
