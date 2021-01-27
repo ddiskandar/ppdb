@@ -7,7 +7,7 @@
                 <div class="flex items-center flex-shrink-0">
                     <span class="text-lg font-bold"
                     >
-                        SMK Plus Al-Farhan test
+                        SMK Plus Al-Farhan
                     </span>
                 </div>
 
