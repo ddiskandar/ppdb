@@ -12,7 +12,7 @@
                     </span>
                     {{ __('PESERTA') }}
                 </div>
-                <h2 class="font-semibold leading-tight text-gray-800 lg:text-xl">
+                <h2 class="ml-4 font-semibold leading-tight text-gray-800 lg:ml-0 lg:text-xl">
                     {{ __('Dashboard') }}
                 </h2>
             </div>
