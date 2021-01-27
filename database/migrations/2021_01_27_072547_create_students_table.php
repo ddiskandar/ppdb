@@ -24,7 +24,7 @@ class CreateStudentsTable extends Migration
             $table->char('kk', 16)->nullable();
             $table->string('birthplace', 50)->nullable();
             $table->date('birthdate')->nullable();
-            $table->string('akta', 16)->nullable();
+            $table->string('akta', 32)->nullable();
             $table->foreignId('agama_id')->default(1)->constrained();
             $table->string('address')->nullable();
             $table->string('rt', 3)->nullable();
