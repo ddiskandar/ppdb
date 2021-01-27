@@ -140,6 +140,22 @@
                 {{ __('Home') }}
             </x-responsive-nav-link>
 
+            <x-responsive-nav-link :href="route('jurusan')" :active="request()->routeIs('jurusan')">
+                {{ __('Jurusan') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('group')" :active="request()->routeIs('group')">
+                {{ __('Group WA') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('berkas')" :active="request()->routeIs('berkas')">
+                {{ __('Unggah Berrkas') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('pembayaran')" :active="request()->routeIs('pembayaran')">
+                {{ __('Pembayaran') }}
+            </x-responsive-nav-link>
+
             @endrole
             
         </div>

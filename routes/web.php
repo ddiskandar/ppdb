@@ -51,10 +51,10 @@ Route::middleware(['auth'])->group(function(){
     });
 
     Route::get('/home', Home::class)->name('home')->middleware(['role:student']);
-    Route::get('/biodata', Biodata::class);
-    Route::get('/berkas', Berkas::class);
-    Route::get('/jurusan', PpdbJurusan::class);
-    Route::get('/group', Group::class);
+    Route::get('/biodata', Biodata::class)->name('biodata');
+    Route::get('/berkas', Berkas::class)->name('berkas');
+    Route::get('/jurusan', PpdbJurusan::class)->name('jurusan');
+    Route::get('/group', Group::class)->name('group');
     Route::get('/pembayaran', Pembayaran::class)->name('pembayaran');
 
     Route::post('/jalur', function(Request $request){
