@@ -1,4 +1,4 @@
-<div class="p-8 bg-white rounded-md shadow-2xl lg:px-12 lg:py-10">
+<div class="p-6 bg-white shadow-2xl md:rounded-md lg:px-12 lg:py-10">
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
