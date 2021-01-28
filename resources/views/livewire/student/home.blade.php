@@ -108,7 +108,7 @@
                                 <div class="text-gray-400">Nomor Registrasi Pendaftaran</div>
                                 <div class="mt-2 text-4xl font-bold text-white">{{ Auth::user()->username }}</div>
                             </div>
-                            <p class="mt-2 text-xs ">* Catat dan simpan nomor registrasi pendaftaran ini karena akan selalu digunakan untuk login dan keperluan lainnya selama PPDB.</p>
+                            <p class="mt-2 text-xs ">* Catat dan simpan atau screnshot nomor registrasi pendaftaran ini karena akan selalu digunakan untuk login dan keperluan lainnya selama PPDB.</p>
 
                             <div class="py-6">
                                 <x-action-card 
