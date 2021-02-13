@@ -51,8 +51,6 @@ class RegisteredUserController extends Controller
 
         $user['username'] = $user->username;
 
-        Auth::login($user);
-
         $student = Student::create([
             'user_id' => $user->id,
             'school_id' => $request->school_id,
@@ -71,6 +69,8 @@ class RegisteredUserController extends Controller
         ]);
 
         $user->assignRole('student');
+
+        Auth::login($user);
 
         event(new Registered($user));
 

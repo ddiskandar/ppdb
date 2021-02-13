@@ -50,24 +50,16 @@ Route::middleware(['auth'])->group(function(){
 
     });
 
-    Route::get('/home', Home::class)->name('home')->middleware(['role:student']);
-    Route::get('/biodata', Biodata::class)->name('biodata');
-    Route::get('/berkas', Berkas::class)->name('berkas');
-    Route::get('/jurusan', PpdbJurusan::class)->name('jurusan');
-    Route::get('/group', Group::class)->name('group');
-    Route::get('/pembayaran', Pembayaran::class)->name('pembayaran');
+    Route::middleware(['role:student'])->group(function () {
 
-    Route::post('/jalur', function(Request $request){
-        $student = auth()->user()->student;
+        Route::get('/home', Home::class)->name('home');
+        Route::get('/biodata', Biodata::class)->name('biodata');
+        Route::get('/berkas', Berkas::class)->name('berkas');
+        Route::get('/jurusan', PpdbJurusan::class)->name('jurusan');
+        Route::get('/group', Group::class)->name('group');
+        Route::get('/pembayaran', Pembayaran::class)->name('pembayaran');
 
-        Ppdb::create([
-            'student_id' => $student->id,
-            'payment_amount' => 150000,
-        ]);
-
-        return redirect()->route('home');
     });
-
 
     Route::get('/profile', function () {
         return view('profile');

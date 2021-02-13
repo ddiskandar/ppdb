@@ -48,7 +48,6 @@ class Pembayaran extends Component
         $this->date = ''; 
         $this->attachment = ''; 
     }
-
     
     public function render()
     {

@@ -39,8 +39,6 @@ class PpdbJurusan extends Component
         $this->successMessage = 'Data berhasil diperbaharui!';
     }
 
-
-
     public function render()
     {
         return view('livewire.student.ppdb-jurusan', [

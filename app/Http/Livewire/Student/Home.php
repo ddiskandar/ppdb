@@ -30,7 +30,6 @@ class Home extends Component
 
     public function submitForm()
     {
-
         Ppdb::create([
             'periode_id' => $this->periode_id,
             'student_id' => $this->student_id,
