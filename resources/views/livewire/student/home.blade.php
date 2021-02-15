@@ -135,7 +135,7 @@
 
     <div class="pb-24">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            {{-- <div>
+            <div>
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
                     <div class="px-4 sm:px-0">
@@ -153,15 +153,15 @@
                                 </svg>
                             </div>
                             <div>
-                                <h5 class="text-xl font-bold text-red-600">Pendaftaran akun baru!</h5>
-                                <p>Terdapat 2 pendaftaran belum diverifikasi</p>
+                                <h5 class="text-xl font-bold text-red-600">Alur pendaftaran belum lengkap!</h5>
+                                <p>Segera lengkapi semua alur pendaftaran untuk dapat mencetak kartu peserta.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
 
-            {{-- <x-section-border/> --}}
+            <x-section-border/>
 
             <div class="mt-10 sm:mt-0">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -179,62 +179,62 @@
                             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                                 <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                                 
-                                <div class="overflow-hidden bg-white border-b border-gray-200 shadow sm:rounded-lg">
-                                    <table class="min-w-full divide-y divide-gray-200">
-                                    <thead class="bg-gray-50">
-                                        <tr>
-                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                            Jalur
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                            Pendaftaran
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                            Status
-                                        </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-gray-200 ">
-                                        <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="">
-                                            <div class="">
-                                                <div class="text-sm font-bold text-gray-900">
-                                                    Gelombang {{ $periode_name }}
+                                    <div class="overflow-hidden bg-white border-b border-gray-200 shadow sm:rounded-lg">
+                                        <table class="min-w-full divide-y divide-gray-200">
+                                        <thead class="bg-gray-50">
+                                            <tr>
+                                            <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                                Jalur
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                                Pendaftaran
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                                Status
+                                            </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200 ">
+                                            <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="">
+                                                <div class="">
+                                                    <div class="text-sm font-bold text-gray-900">
+                                                        Gelombang {{ $periode_name }}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{ $periode_desc }}</div>
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                            @if ( Auth::user()->student->ppdb )
-                                                <span class="text-green-500">Sudah Terdaftar</span>
-                                            @else
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm text-gray-900">{{ $periode_desc }}</div>
+                                            </td>
+                                            <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                                @if ( Auth::user()->student->ppdb )
+                                                    <span class="text-green-500">Sudah Terdaftar</span>
+                                                @else
                                                     <span class="text-red-500">Belum terdaftar</span>
-                                            @endif
-                                        </td>
-                                        </tr>
-                                    </tbody>
-                                    </table>
+                                                @endif
+                                            </td>
+                                            </tr>
+                                        </tbody>
+                                        </table>
 
-                                    @if ( ! Auth::user()->student->ppdb )
-                                        <div class="py-6 text-center">
-                                            <form wire:submit.prevent="submitForm" action="#" method="post">
-                                            @csrf
+                                        @if ( ! Auth::user()->student->ppdb )
+                                            <div class="py-6 text-center">
+                                                <form wire:submit.prevent="submitForm" action="#" method="post">
+                                                @csrf
 
-                                            <x-button-submit 
-                                                target="submitForm"
-                                                class="py-3 bg-red-500 hover:bg-red-600 focus:ring-red-200">
-                                                {{ __('Gabung') }}
-                                            </x-button-submit>
+                                                <x-button-submit 
+                                                    target="submitForm"
+                                                    class="py-3 bg-red-500 hover:bg-red-600 focus:ring-red-200">
+                                                    {{ __('Gabung') }}
+                                                </x-button-submit>
 
-                                            </form>
-                                            
-                                        </div>
-                                    @endif
-                                </div>
+                                                </form>
+                                                
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -254,6 +254,7 @@
                         </p>
                     </div>
                     </div>
+                    
                     <div class="px-4 mt-5 sm:px-0 md:mt-0 md:col-span-2">
                         <div class="grid gap-6 lg:grid-cols-2">
 

@@ -82,11 +82,28 @@ class Student extends Model
     {
         if ( ! isset(
             $this->panggilan, 
+            $this->jk,
             $this->nisn,
+            $this->nik,
+            $this->kk,
+            $this->birthplace,
+            $this->birthdate,
+            $this->akta,
+            $this->agama_id,
+            $this->address,
+            $this->rt,
+            $this->rw,
+            $this->desa,
+            $this->kecamatan,
+            $this->kab,
+            $this->prov,
+            $this->kode_pos,
+            $this->tinggal_id,
+            $this->transportasi_id,
+            $this->phone,
         )) {
             return false;
         }
-        
         return true;
     }
 
