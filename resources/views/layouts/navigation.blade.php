@@ -76,9 +76,9 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        {{-- <x-dropdown-link :href="route('profile')">
-                            {{ __('Ubah Profil') }}
-                        </x-dropdown-link> --}}
+                        <x-dropdown-link :href="route('profile')">
+                            {{ __('Ubah Kata Sandi') }}
+                        </x-dropdown-link>
                         
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -176,9 +176,9 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                {{-- <x-responsive-nav-link :href="route('master')">
-                    {{ __('Setting') }}
-                </x-responsive-nav-link> --}}
+                <x-responsive-nav-link :href="route('profile')">
+                    {{ __('Ubah Kata Sandi') }}
+                </x-responsive-nav-link>
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">

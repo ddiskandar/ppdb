@@ -11,7 +11,7 @@ use App\Http\Livewire\Student\Group;
 use App\Http\Livewire\Student\Pembayaran;
 use App\Http\Livewire\Student\PpdbJurusan;
 use App\Http\Livewire\Admin\Confirmation;
-
+use App\Http\Livewire\Auth\UpdatePassword;
 use App\Models\Ppdb;
 
 
@@ -61,9 +61,7 @@ Route::middleware(['auth'])->group(function(){
 
     });
 
-    Route::get('/profile', function () {
-        return view('profile');
-    })->name('profile');
+    Route::get('/profile', UpdatePassword::class)->name('profile');
 
 });
 
