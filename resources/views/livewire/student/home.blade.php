@@ -163,7 +163,6 @@
 
             {{-- <x-section-border/> --}}
 
-
             <div class="mt-10 sm:mt-0">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
                     <div class="md:col-span-1">
@@ -177,76 +176,73 @@
                     <div class="mt-5 md:mt-0 md:col-span-2">
                         <!-- This example requires Tailwind CSS v2.0+ -->
                         <div class="flex flex-col">
-                        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                            
+                            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                                
                                 <div class="overflow-hidden bg-white border-b border-gray-200 shadow sm:rounded-lg">
-                                <table class="min-w-full divide-y divide-gray-200">
-                                <thead class="bg-gray-50">
-                                    <tr>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Jalur
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Pendaftaran
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                        Status
-                                    </th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-gray-200 ">
-                                    <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="">
-                                        <div class="">
-                                            <div class="text-sm font-bold text-gray-900">
-                                                Gelombang {{ $periode_name }}
+                                    <table class="min-w-full divide-y divide-gray-200">
+                                    <thead class="bg-gray-50">
+                                        <tr>
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Jalur
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Pendaftaran
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Status
+                                        </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-200 ">
+                                        <tr>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="">
+                                            <div class="">
+                                                <div class="text-sm font-bold text-gray-900">
+                                                    Gelombang {{ $periode_name }}
+                                                </div>
                                             </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">{{ $periode_desc }}</div>
+                                        </td>
+                                        <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                                            @if ( Auth::user()->student->ppdb )
+                                                <span class="text-green-500">Sudah Terdaftar</span>
+                                            @else
+                                                    <span class="text-red-500">Belum terdaftar</span>
+                                            @endif
+                                        </td>
+                                        </tr>
+                                    </tbody>
+                                    </table>
+
+                                    @if ( ! Auth::user()->student->ppdb )
+                                        <div class="py-6 text-center">
+                                            <form wire:submit.prevent="submitForm" action="#" method="post">
+                                            @csrf
+
+                                            <x-button-submit 
+                                                target="submitForm"
+                                                class="py-3 bg-red-500 hover:bg-red-600 focus:ring-red-200">
+                                                {{ __('Gabung') }}
+                                            </x-button-submit>
+
+                                            </form>
+                                            
                                         </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{ $periode_desc }}</div>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                                        @if ( Auth::user()->student->ppdb )
-                                            <span class="text-green-500">Sudah Terdaftar</span>
-                                        @else
-                                                <span class="text-red-500">Belum terdaftar</span>
-                                        @endif
-                                    </td>
-                                    </tr>
-                                </tbody>
-                                </table>
-
-                                @if ( ! Auth::user()->student->ppdb )
-                                    <div class="py-6 text-center">
-                                        <form wire:submit.prevent="submitForm" action="#" method="post">
-                                        @csrf
-
-                                        <x-button-submit 
-                                            target="submitForm"
-                                            class="py-3 bg-red-500 hover:bg-red-600 focus:ring-red-200">
-                                            {{ __('Gabung') }}
-                                        </x-button-submit>
-
-                                        </form>
-                                        
-                                    </div>
-                                @endif
-                            </div>
-
+                                    @endif
+                                </div>
+                                </div>
                             </div>
                         </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
 
             <x-section-border/>
-
 
             <div class="mt-10 sm:mt-0">
                 <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -303,8 +299,6 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-11"><path data-name="Path 54" d="M16.094 7.469H5.313A4.312 4.312 0 001 11.781v19.407A4.312 4.312 0 005.313 35.5H35.5a4.313 4.313 0 004.313-4.312V11.781A4.313 4.313 0 0035.5 7.469H24.719m-8.625 0V5.313a4.313 4.313 0 018.625 0v2.156m-8.625 0a4.313 4.313 0 008.625 0m-10.782 17.25a4.313 4.313 0 10-4.313-4.312 4.312 4.312 0 004.313 4.312zm0 0a6.477 6.477 0 016.1 4.313m-6.1-4.312a6.471 6.471 0 00-6.1 4.313M26.875 18.25h6.469m-6.469 8.625h4.313" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
                             </x-action-card>
 
-                            
-
                             <x-action-card
                                 completed="{!! ( isset(Auth::user()->student->document->kartu_keluarga) ) ? 'true' : 'false' !!}"
                                 action="berkas"
@@ -322,13 +316,10 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="43" height="33.889"><path data-name="Path 51" d="M28.333 1v4.556m0 9.111v4.556m0 9.111v4.556M5.556 1A4.556 4.556 0 001 5.556v6.833A4.556 4.556 0 111 21.5v6.833a4.556 4.556 0 004.556 4.556h31.888A4.556 4.556 0 0042 28.333V21.5a4.556 4.556 0 110-9.111V5.556A4.556 4.556 0 0037.444 1z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
                             </x-action-card>
 
-                            
-
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
