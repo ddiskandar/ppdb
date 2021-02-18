@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Student;
+use App\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -16,5 +17,10 @@ class Payment extends Model
     public function student()
     {
         return $this->belongsTo(Student::class);
+    }
+
+    public function verificator()
+    {
+        return $this->belongsTo(User::class, 'verified_by');
     }
 }

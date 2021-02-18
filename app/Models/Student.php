@@ -109,12 +109,12 @@ class Student extends Model
 
     public function bayar()
     {
-        return $this->payments()->where('verified_by', true)->sum('amount');
+        return $this->payments()->where('status', true)->sum('amount');
     }
 
     public function lunas()
     {
-        if ( $this->bayar() >= 150000 ) {
+        if ($this->bayar() >= 150000) {
             return true;
         }
         return false;

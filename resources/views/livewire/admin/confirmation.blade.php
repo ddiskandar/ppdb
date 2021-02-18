@@ -1,4 +1,4 @@
-<div x-data="{ filters: false }">
+<div x-data="{ filters: false, modal: false }">
 
     <!-- Page Heading -->
     <header class="">
@@ -19,7 +19,7 @@
                     </span>
                 </div>
                 <h2 class="font-semibold leading-tight text-gray-800 lg:text-xl">
-                    {{ __('Pendaftaran') }}
+                    {{ __('Pembayaran') }}
                 </h2>
             </div>
 
@@ -51,11 +51,12 @@
                         </svg>
                         Download
                     </button>
-                    <button class="flex items-center px-4 py-2 pr-3 text-sm bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:ring-2">
+                    <button  
+                        class="flex items-center px-4 py-2 pr-3 text-sm bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:ring-2">
                         <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.5 21.5">
                             <path id="Path_115" data-name="Path 115" d="M19.25,9.5v3.25m0,0V16m0-3.25H22.5m-3.25,0H16M13.833,7.333A4.333,4.333,0,1,1,9.5,3,4.333,4.333,0,0,1,13.833,7.333ZM3,21.417a6.5,6.5,0,1,1,13,0V22.5H3Z" transform="translate(-2 -2)" fill="none" stroke="#9198a1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
                         </svg>
-                        Tambah akun
+                        Tambah Pembayaran
                     </button>
                 </div>
             </div>
@@ -83,6 +84,9 @@
                             </th>
                             <th scope="col" class="w-64 px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                                 Petugas
+                            </th>
+                            <th scope="col" class="w-64 px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
+                                Catatan
                             </th>
                             <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                 Status
@@ -120,23 +124,97 @@
                                 </a>
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap">
-                                {{ $item->verified_by }}
+                                {{ $item->verificator->name ?? '-' }}
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap">
-                                Verifikasi Sekarang
-                                
+                                {{ $item->note ?? '-' }}
                             </td>
+                            
+                            @if ($item->verified_by)
+                                <td class="px-3 py-4 text-green-500 whitespace-nowrap">
+                                    Verified
+                                </td>
+                            @else
+                                <td class="px-3 py-4 font-semibold text-red-600 cursor-pointer whitespace-nowrap"
+                                    @click="modal = true"
+                                    wire:click="confirm({{ $item->id }})"
+                                >
+                                    Verifikasi Sekarang
+                                </td>
+                            @endif
                             </tr>
 
                             @endforeach
                             
-                            <!-- More rows... -->
                         </tbody>
                         </table>
                     </div>
                     </div>
                 </div>
             </div>
+
+            <x-modal>
+                <form wire:submit.prevent="submit({{ $item->id }})" action="#">
+
+                <div class="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                    
+                    <div class="mt-3 sm:mt-0">
+                        <h3 class="text-lg font-medium leading-6 text-gray-900" id="headline">
+                            {{ $name }} 
+                        </h3>
+                        <div class="mt-2">
+                        <p class="text-sm text-gray-500">
+                            Pastikan data konfirmasi pembayaran sudah sesuai dengan data pembayaran di aplikasi Braja Asisten Keuangan Sekolah.
+                        </p>
+
+                        <!-- Besar Pembayaran -->
+                        <div class="mt-4">
+                            <x-label for="payment_amount" :value="__('Tarif Biaya Registrasi PPDB')" />
+
+                            <x-input wire:model="payment_amount" id="payment_amount" class="block w-full mt-1" type="text" name="payment_amount" :value="old('payment_amount')"  />
+                        </div>
+
+                        <!-- Besar Pembayaran -->
+                        <div class="mt-4">
+                            <x-label for="date" :value="__('Tanggal Pembayaran')" />
+
+                            <x-input wire:model="date" id="date" class="block w-full mt-1" type="date" name="date"  />
+                        </div>
+
+                        <!-- Besar Pembayaran -->
+                        <div class="mt-4">
+                            <x-label for="amount" :value="__('Besar Pembayaran')" />
+
+                            <x-input wire:model="amount" id="amount" class="block w-full mt-1" type="text" name="amount" :value="old('amount')"  />
+                        </div>
+
+                        <!-- Besar Pembayaran -->
+                        <div class="mt-4">
+                            <x-label for="note" :value="__('Catatan')" />
+
+                            <x-textarea wire:model="note" id="note" class="block w-full mt-1" type="text" name="note" :value="old('note')"></x-textarea>
+                        </div>
+                        
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="px-4 py-3 bg-gray-50 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button @click="modal = ! modal" 
+                        type="submit" 
+                        class="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white bg-green-600 border border-transparent rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
+                        Confirm
+                    </button>
+                    <button 
+                        @click="modal = false"
+                        type="button" 
+                        class="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                        Cancel
+                    </button>
+                </div>
+                </form>
+            </x-modal>
 
         </div>
     </div>

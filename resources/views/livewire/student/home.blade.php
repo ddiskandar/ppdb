@@ -310,6 +310,7 @@
                             </x-action-card>
 
                             <x-action-card
+                                completed="{{ ( Auth::user()->student->lunas() ) ? 'true' : 'false' }}"
                                 action="pembayaran"
                                 title="Bayar Pendaftaran"
                                 description="Membayar biaya pendaftaran"

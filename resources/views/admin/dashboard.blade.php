@@ -23,35 +23,15 @@
             </div>
 
             <div class="mt-6 lg:mt-0 lg:text-right">
-                <div>
-                    Periode aktif
+                <div class="mb-2 text-xs">
+                    PERIODE AKTIF :
                 </div>
-                <div class="font-bold">
+                <div class="px-4 py-1 font-bold bg-white rounded-md shadow-sm">
                     Gelombang {{ $periode->name . ', ' . $periode->desc }}
                 </div>
             </div>
         </div>
     </header>
-
-    {{-- <div class="py-4">
-        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white">
-                <div class="flex items-center px-10 py-6 bg-red-200">
-                    <div>
-                        <svg 
-                            class="w-10 h-10 mr-4"
-                        xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 43 43">
-                            <path id="Path_112" data-name="Path 112" d="M35.5,16v6.5m0,0V29m0-6.5H42m-6.5,0H29M24.667,11.667A8.667,8.667,0,1,1,16,3,8.667,8.667,0,0,1,24.667,11.667ZM3,39.833a13,13,0,0,1,26,0V42H3Z" transform="translate(-1 -1)" fill="none" stroke="#a5a5a6" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h5 class="text-xl font-bold text-red-600">Pendaftaran akun baru!</h5>
-                        <p>Terdapat 2 pendaftaran belum diverifikasi</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
 
     <div class="py-4">
         <div class="grid gap-6 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 sm:grid-cols-2 md:grid-cols-4 ">
@@ -71,6 +51,13 @@
         </div>
     </div>
 
+    <div class="pt-6">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <h3 class="text-2xl font-bold">Statistik Pendaftar</h3>
+        </div>
+    </div>
+    
+
     <div class="py-6">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
 
@@ -81,6 +68,7 @@
                         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                                 <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+
                                     <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="bg-gray-50">
                                         <tr>
@@ -111,7 +99,7 @@
                                                     {{ $school->last_students }}
                                                 </td>
                                                 <td class="px-6 py-4 {!! ($school->grow() == 'increase') ? 'text-green-600' : 'text-red-600' !!} whitespace-nowrap">
-                                                    {{ $school->students->count() }}
+                                                    {{ $school->students_count }}
                                                 </td>
                                             </tr>
                                         @endforeach
