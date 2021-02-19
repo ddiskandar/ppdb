@@ -86,9 +86,12 @@
                 name="password_confirmation" required />
         </div>
 
-        <div class="flex items-center mt-4">
+        <div x-data="{ buttonDisabled: false }" class="flex items-center mt-4">
 
-            <x-button class="w-full py-3 mt-4">
+            <x-button class="w-full py-3 mt-4"
+                x-on:click="buttonDisabled = true"
+                x-bind:disabled="buttonDisabled"
+                >
                 {{ __('Daftar') }}
             </x-button>
 
