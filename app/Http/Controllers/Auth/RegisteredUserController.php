@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\DB;
 
 class RegisteredUserController extends Controller
 {
@@ -43,37 +44,40 @@ class RegisteredUserController extends Controller
             'password' => 'required|string|confirmed|min:6',
         ]);
 
-        $user = User::factory()->create([
-            'name' => $request->name,
-            // 'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        DB::transaction(function () use ($request) {
+            $user = User::factory()->create([
+                'name' => $request->name,
+                // 'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
 
-        $user['username'] = $user->username;
+            $user['username'] = $user->username;
 
-        $student = Student::create([
-            'user_id' => $user->id,
-            'school_id' => $request->school_id,
-            'jk' => $request->jk,
-            'nisn' => $request->nisn,
-            'phone' => $request->phone,
-        ]);
+            $student = Student::create([
+                'user_id' => $user->id,
+                'school_id' => $request->school_id,
+                'jk' => $request->jk,
+                'nisn' => $request->nisn,
+                'phone' => $request->phone,
+            ]);
 
-        Ortu::create([
-            'student_id' => $student->id,
-            'ibu_nama' => $request->ibu_nama,
-        ]);
+            Ortu::create([
+                'student_id' => $student->id,
+                'ibu_nama' => $request->ibu_nama,
+            ]);
 
-        Document::create([
-            'student_id' => $student->id,
-        ]);
+            Document::create([
+                'student_id' => $student->id,
+            ]);
 
-        $user->assignRole('student');
+            $user->assignRole('student');
 
-        Auth::login($user);
+            Auth::login($user);
 
-        event(new Registered($user));
+            event(new Registered($user));
 
+        });
+        
         return redirect(RouteServiceProvider::HOME);
     }
 }

@@ -1,7 +1,7 @@
 <div>
         <div x-show="slide" x-cloak class="fixed inset-0 overflow-hidden">
             <div class="absolute inset-0 overflow-hidden">
-                <div class="absolute inset-0 transition-opacity bg-gray-500 bg-opacity-75" aria-hidden="true"
+                <div class="absolute inset-0 transition-opacity bg-gray-500 bg-opacity-90" aria-hidden="true"
                     x-show="slide"
                     x-description="Background overlay, show/hide based on slide-over state." 
                     x-transition:enter="ease-in-out duration-500" 
