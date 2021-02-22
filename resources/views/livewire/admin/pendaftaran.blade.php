@@ -105,7 +105,7 @@
                                                 <div class="col-span-6 sm:col-span-4">
                                                     <label for="country" class="block text-sm font-medium text-gray-700">Asal sekolah</label>
                                                     <select
-                                                        wire:model="school"
+                                                        wire:model="filterSchool"
                                                         id="country" 
                                                         name="country" 
                                                         autocomplete="country" 
