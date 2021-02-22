@@ -27,7 +27,7 @@
                         >
                             <div class="relative block overflow-hidden bg-white shadow-xl rounded-xl">
                                 <img alt="photo"
-                                    class="object-cover w-full h-72 " 
+                                    class="object-cover w-full h-72" 
                                     
                                     @if($photo)
                                         src="{{ $photo->temporaryUrl() }}"
@@ -53,8 +53,6 @@
                                 <input wire:model.defer="photo" id="photo" type="file" class=""/>
                                 <x-input-error for="photo" class="mt-2" />
                             </div>
-
-                            
                             
                         </div>
 
