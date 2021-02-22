@@ -419,7 +419,7 @@
                             Asal Sekolah
                         </label>
                         <div>
-                            SMP Negeri 1 Kadudampit
+                            {{ $school }}
                         </div>
                     </div>
                     <div class="mt-6 ">

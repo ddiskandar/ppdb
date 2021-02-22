@@ -14,10 +14,10 @@ class Pendaftaran extends Component
     use WithPagination;
 
     public $search;
-    public $school;
+    public $filterSchool;
     public $showDetail = false;
 
-    public $name, $username, $phone, $ttl, $address, $ayah_nama, $ibu_nama;
+    public $name, $username, $phone, $school, $ttl, $address, $ayah_nama, $ibu_nama;
 
     protected $queryString = ['search'];
 
@@ -31,6 +31,7 @@ class Pendaftaran extends Component
         $student = Student::where('id', $id)->with('user')->first();
         $this->name = $student->user->name;
         $this->username = $student->user->username;
+        $this->school = $student->school->name;
         $this->phone = $student->phone;
         $this->ttl = $student->birthplace . ', ' . $student->birthdate;
         $this->address = $student->address . ' Rt. ' . $student->rt . '/' . $student->rw . ' Ds. ' . $student->desa . ' Kec. ' . $student->kecamatan . ' Kab. ' . $student->kab . ' ' . $student->prov;
@@ -44,7 +45,7 @@ class Pendaftaran extends Component
             'students' => Student::whereHas('user', function ( $query) {
                 $query->where('name', 'like', '%'.$this->search.'%');
             })->WhereHas('school', function ($query) {
-                 $query->where('name','like', '%'.$this->school.'%');
+                 $query->where('name','like', '%'.$this->filterSchool.'%');
             })->orderByDesc('created_at')
             ->with('school', 'user', 'document', 'ppdb', 'payments')
             ->paginate(7),
