@@ -135,7 +135,16 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="birthplace" value="{{ __('Tempat Lahir') }}"  content="required" />
-                            <x-input wire:model.defer="birthplace" id="birthplace" type="text" class="block w-full mt-1"/>
+                            <x-input
+                                x-data
+                                x-init="
+                                    new Cleave($el, {
+                                        date: true,
+                                        delimiter: '/',
+                                        datePattern: ['d', 'm', 'Y']
+                                    })
+                                "
+                                wire:model.defer="birthplace" id="birthplace" type="text" class="block w-full mt-1"/>
                             <x-input-error for="birthplace" class="mt-2" />
                         </div>
 

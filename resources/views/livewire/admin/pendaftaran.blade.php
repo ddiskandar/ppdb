@@ -367,7 +367,22 @@
                                 </div>
                             </td>
                             <td class="py-4 pr-6 text-sm font-medium text-right whitespace-nowrap">
-                                <a href="#" class="text-indigo-600 sr-only hover:text-indigo-900">Edit</a>
+                                <div
+                                    x-data="{ more: false }"
+                                    @click.away="more= false"
+                                    class="relative"
+                                >
+                                    <div @click="more= false">
+                                        ...
+                                    </div>
+                                    <div
+                                        x-show="more"
+                                        class="absolute left-0 w-40 py-2 mt-1 text-black bg-white rounded shadow-md"
+                                    >
+                                        <a class="block px-4 py-1 text-sm hover:bg-gray-200" href="#">Edit</a>
+                                        <a class="block px-4 py-1 text-sm hover:bg-gray-200" href="#">Report</a>
+                                    </div>
+                                </div>
                             </td>
                             </tr>
 
