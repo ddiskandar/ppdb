@@ -87,9 +87,9 @@
 
             </div>
 
-            <div class="py-6 mt-6 text-sm border-t border-gray-200">
-                <p>{{ __('Lupa Nomor Registrasi atau Password? ') }}</p>
-                {!! __('Hubungi panitia, <strong><a href="https://wa.me/6285624028940" target="_blank">Klik disini</a></strong> ') !!}
+            <div class="py-6 mt-6 text-sm text-red-500 border-t border-gray-200">
+                <p class="">{{ __('Bila sebelumnya sudah terdaftar, akan tetapi lupa nomor registrasi atau password. Maka tidak harus kembali mendaftar akun baru. ') }}</p>
+                <p class="mt-4">{!! __('Silahkan dapat menghubungi panitia, dengan cara <strong><a href="https://wa.me/6285624028940" target="_blank">Klik disini</a></strong> ') !!}</p>
             </div>
 
         </form>

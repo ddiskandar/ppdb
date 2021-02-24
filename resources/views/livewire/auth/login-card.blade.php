@@ -26,7 +26,9 @@
         </x-button>
 
         <div class="mt-6 text-sm text-center">
-            {{ __('Lupa Nomor Registrasi atau Password? ') }}
+            <a href="https://wa.me/6285624028940">
+                {{ __('Lupa Nomor Registrasi atau Password? ') }}
+            </a>
         </div>
 
     </form>
