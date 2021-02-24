@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Student;
-use App\Models\User;
 use App\Models\School;
 use Livewire\Component;
 
@@ -25,6 +24,10 @@ class Pendaftaran extends Component
     {
         $this->resetPage();
     }
+    public function updatingFilterSchool()
+    {
+        $this->resetPage();
+    }
 
     public function edit($id)
     {
@@ -33,8 +36,8 @@ class Pendaftaran extends Component
         $this->username = $student->user->username;
         $this->school = $student->school->name;
         $this->phone = $student->phone;
-        $this->ttl = $student->birthplace . ', ' . $student->birthdate;
-        $this->address = $student->address . ' Rt. ' . $student->rt . '/' . $student->rw . ' Ds. ' . $student->desa . ' Kec. ' . $student->kecamatan . ' Kab. ' . $student->kab . ' ' . $student->prov;
+        $this->ttl = $student->birthdate ? $student->birthplace . ', ' . $student->birthdate : '-';
+        $this->address = $student->address ? $student->address . ' Rt. ' . $student->rt . '/' . $student->rw . ' Ds. ' . $student->desa . ' Kec. ' . $student->kecamatan . ' Kab. ' . $student->kab . ' ' . $student->prov : '-';
         $this->ayah_nama = $student->ortu->ayah_nama;
         $this->ibu_nama = $student->ortu->ibu_nama;
     }

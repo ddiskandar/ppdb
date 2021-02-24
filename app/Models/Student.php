@@ -80,7 +80,7 @@ class Student extends Model
 
     public function is_data_completed()
     {
-        if ( ! isset(
+        return isset(
             $this->panggilan, 
             $this->jk,
             $this->nisn,
@@ -101,27 +101,33 @@ class Student extends Model
             $this->tinggal_id,
             $this->transportasi_id,
             $this->phone,
-        )) {
-            return false;
-        }
-        return true;
+        );
     }
 
     public function bayar()
     {
-        return $this->payments()->where('status', true)->sum('amount');
+        return $this->payments->where('status', true)->sum('amount');
     }
 
     public function lunas()
     {
-        if ($this->bayar() >= 150000) {
-            return true;
-        }
-        return false;
+        return $this->bayar() >= 150000;
     }
 
     public function pilihan_slug($pilihan) 
     {
+        switch ($pilihan) {
+            case 1:
+                'MM';
+                break;
+            case 2:
+                'BDP';
+                break;
+            
+            default:
+                'APHP';
+                break;
+        }
         if ($pilihan == 1 ) {
             return "MM";
         } elseif ($pilihan == 2) {

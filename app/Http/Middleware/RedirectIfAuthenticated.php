@@ -23,8 +23,14 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+
+                if (Auth::user()->roles->pluck('name')->first() == 'student') {
+                    return redirect()->route('home');
+                }
+                return redirect()->route('dashboard');
+
             }
+            
         }
 
         return $next($request);
