@@ -32,7 +32,7 @@
     </form>
 
     <div class="flex justify-center pt-6 mt-6 text-sm border-t border-gray-200">
-        <a href="#" @click="open = ! open" class="inline-flex items-center justify-center px-12 py-3 text-sm font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-md active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 hover:bg-gray-700"> Daftar Sekarang</a>
+        <a href="#" @click="open = ! open, contact = ! contact" class="inline-flex items-center justify-center px-12 py-3 text-sm font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-gray-800 border border-transparent rounded-md active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 hover:bg-gray-700"> Daftar Sekarang</a>
     </div>
 
 </div>
