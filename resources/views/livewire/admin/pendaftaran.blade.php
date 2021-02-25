@@ -447,6 +447,13 @@
 
             </x-slide-overs>
 
+<<<<<<< HEAD
+=======
+            <x-modal>
+
+            </x-modal>
+
+>>>>>>> parent of 217d473 (wip)
         </div>
     </div>
 
