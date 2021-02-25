@@ -218,7 +218,7 @@
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                             Jalur
                                         </th>
-                                        <th scope="col" class="w-48 px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
+                                        <th scope="col" class="w-64 px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                                             Berkas
                                         </th>
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
