@@ -447,29 +447,6 @@
 
             </x-slide-overs>
 
-            <!-- <x-slide-overs slide="slide2">
-                <div class="px-4 my-6 sm:px-10">
-                    <img class="w-32 h-32 rounded-full" src="/images/default-photo.png" alt="">
-                    <h2 id="slide-over-heading" class="mt-6 text-xl font-bold text-gray-900">
-                        {{ $name }}
-                    </h2>
-                    <p class="text-sm">{{ $username }}</p>
-                    <div class="mt-6 ">
-                        <label class="block text-sm font-medium text-gray-500">
-                            No. Handphone
-                        </label>
-                        <div>
-                            {{ $phone ?? '-' }}
-                        </div>
-                    </div>
-                </div>
-
-            </x-slide-overs> -->
-
-            <x-modal>
-
-            </x-modal>
-
         </div>
     </div>
 
