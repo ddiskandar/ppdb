@@ -216,19 +216,19 @@
                                             Asal Sekolah
                                         </th>
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Daftar / Kelas
+                                        </th>
+                                        <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                             Jalur
                                         </th>
-                                        <th scope="col" class="w-64 px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
+                                        <th scope="col" class="w-48 px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                                             Berkas
                                         </th>
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                            Gabung WA
+                                            WA
                                         </th>
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                             Pembayaran
-                                        </th>
-                                        <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                            Kelas / Tanggal Daftar
                                         </th>
                                         <th scope="col" class="relative px-3 py-3">
                                             <span class="sr-only">Edit</span>
@@ -266,6 +266,14 @@
                                         <td class="px-3 py-4 whitespace-nowrap">
                                             <div class="text-sm text-gray-900">{{ $item->school->name }}</div>
                                             <div class="text-sm text-gray-500">{{ $item->school->address }}
+                                            </div>
+                                        </td>
+                                        <td class="px-3 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">
+                                                {{ $item->created_at }}
+                                            </div>
+                                            <div class="text-sm text-gray-500">
+                                                {{ isset($item->ppdb) ?  $item->pilihan_kelas() : '-' }}
                                             </div>
                                         </td>
                                         <td class="flex items-center px-3 py-4">
@@ -336,11 +344,11 @@
                                         <td class="px-3 py-4 text-sm font-medium whitespace-nowrap">
                                             @if ( isset($item->ppdb))
                                             @if ( $item->ppdb->join_wa )
-                                            <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                                                 <path id="Path_45" data-name="Path 45" d="M8.333,11l1.778,1.778,3.556-3.556M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Z" transform="translate(-2 -2)" fill="none" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                             </svg>
                                             @else
-                                            <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
                                                 <path data-name="Path 130" d="M7.222 10.778L9 9m0 0l1.778-1.778M9 9L7.222 7.222M9 9l1.778 1.778M17 9a8 8 0 11-8-8 8 8 0 018 8z" fill="none" stroke="#be6060" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                             </svg>
                                             @endif
@@ -352,13 +360,6 @@
                                             </div>
                                             <div class="text-sm text-gray-500">
                                                 Rp. {{ $item->bayar() }} ,-
-                                            </div>
-                                        </td>
-
-                                        <td class="px-3 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">5 hari yang lalu</div>
-                                            <div class="text-sm text-gray-500">
-                                                {{ isset($item->ppdb) ?  $item->pilihan_kelas() : '-' }}
                                             </div>
                                         </td>
 

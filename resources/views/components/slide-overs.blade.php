@@ -14,6 +14,9 @@
                             </svg>
                         </button>
                     </div>
+                    <div class="flex flex-col h-full py-6 overflow-y-scroll bg-white shadow-xl">
+                        {{ $slot }}
+                    </div>
                 </div>
             </section>
         </div>
