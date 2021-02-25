@@ -208,6 +208,7 @@
                             <table class="min-w-full divide-y divide-gray-200">
                                 <thead class="bg-gray-50">
                                     <tr>
+
                                         <th scope="col" class="px-3 py-3 pl-6 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                             Nama
                                         </th>
@@ -225,6 +226,9 @@
                                         </th>
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                             Pembayaran
+                                        </th>
+                                        <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Kelas / Tanggal Daftar
                                         </th>
                                         <th scope="col" class="relative px-3 py-3">
                                             <span class="sr-only">Edit</span>
@@ -350,6 +354,14 @@
                                                 Rp. {{ $item->bayar() }} ,-
                                             </div>
                                         </td>
+
+                                        <td class="px-3 py-4 whitespace-nowrap">
+                                            <div class="text-sm text-gray-900">5 hari yang lalu</div>
+                                            <div class="text-sm text-gray-500">
+                                                {{ isset($item->ppdb) ?  $item->pilihan_kelas() : '-' }}
+                                            </div>
+                                        </td>
+
                                         <td class="py-4 pr-6 text-sm font-medium text-right whitespace-nowrap">
                                             <div x-data="{ more: false }" @click.away="more= false" class="relative">
                                                 <div @click="more= false">

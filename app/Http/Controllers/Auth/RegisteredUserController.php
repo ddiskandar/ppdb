@@ -7,6 +7,8 @@ use App\Models\Document;
 use App\Models\User;
 use App\Models\Student;
 use App\Models\Ortu;
+use App\Models\Periode;
+use App\Models\Ppdb;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -59,6 +61,19 @@ class RegisteredUserController extends Controller
                 'jk' => $request->jk,
                 'nisn' => $request->nisn,
                 'phone' => $request->phone,
+            ]);
+
+            $periode = Periode::where('active', true)->first();
+
+            $this->student_id = $student->id;
+            $this->periode_id = $periode->id;
+            $this->ref_payment_amount = $periode->ref_payment_amount;
+
+            Ppdb::create([
+                'student_id' => $student->id,
+                'periode_id' => $periode->id,
+                'pilihan_kelas' => $request->pilihan_kelas,
+                'payment_amount' => $periode->ref_payment_amount,
             ]);
 
             Ortu::create([

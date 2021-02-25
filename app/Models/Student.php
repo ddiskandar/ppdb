@@ -90,10 +90,9 @@ class Student extends Model
 
     public function pilihan_kelas()
     {
-        if ($this->ppdb->kelas == 1) {
+        if ($this->ppdb->pilihan_kelas === 1) {
             return 'Boarding';
         }
-
         return 'Regular';
     }
 

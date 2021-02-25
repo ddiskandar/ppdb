@@ -12,8 +12,20 @@
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
-            <!-- Name -->
+
+            <!-- Pilihan Kelas -->
             <div>
+                <x-label for="pilihan_kelas" :value="__('Pilihan Kelas')" />
+
+                <x-select wire:model.defer="pilihan_kelas" id="pilihan_kelas" name="pilihan_kelas" autocomplete="pilihan_kelas" class="block w-full px-3 mt-1" required>
+                    <option value="">{{ __('-- Pilih salah-satu') }}</option>
+                    <option value="0">{{ __('Regular') }}</option>
+                    <option value="1">{{ __('Boarding') }}</option>
+                </x-select>
+            </div>
+
+            <!-- Name -->
+            <div class="mt-4">
                 <x-label for="name" :value="__('Name')" />
 
                 <x-input id="name" class="block w-full mt-1" type="text" name="name" :value="old('name')" required autofocus />
