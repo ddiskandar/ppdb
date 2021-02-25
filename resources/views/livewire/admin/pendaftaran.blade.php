@@ -273,7 +273,7 @@
                                                 {{ $item->created_at }}
                                             </div>
                                             <div class="text-sm text-gray-500">
-                                                {{ isset($item->ppdb) ?  $item->pilihan_kelas() : '-' }}
+                                                {{ isset($item->ppdb) ? $item->pilihan_kelas() : '-' }}
                                             </div>
                                         </td>
                                         <td class="flex items-center px-3 py-4">
@@ -299,34 +299,34 @@
                                         <td class="px-3 py-4 whitespace-nowrap">
                                             <div>
                                                 <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full
-                                        {{ ( isset($item->document->kartu_keluarga) ) ? 'bg-green-100' : 'bg-gray-100' }}
-                                    ">
+                                                    {{ ( isset($item->document->kartu_keluarga) ) ? 'bg-green-100' : 'bg-gray-100' }}
+                                                ">
                                                     <a target="_blank" href="/storage/{{ $item->document->kartu_keluarga ?? '#' }}">KK</a>
                                                 </span>
                                                 <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full
-                                    {{ ( isset($item->document->akta) ) ? 'bg-green-100' : 'bg-gray-100' }}
-                                    ">
+                                                {{ ( isset($item->document->akta) ) ? 'bg-green-100' : 'bg-gray-100' }}
+                                                ">
                                                     <a target="_blank" href="/storage/{{ $item->document->akta ?? '#' }}">Akta</a>
                                                 </span>
                                                 <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full 
-                                    {{ ( isset($item->document->skl) ) ? 'bg-green-100' : 'bg-gray-100' }}
-                                    ">
+                                                {{ ( isset($item->document->skl) ) ? 'bg-green-100' : 'bg-gray-100' }}
+                                                ">
                                                     <a target="_blank" href="/storage/{{ $item->document->skl ?? '#' }}">SKL</a>
                                                 </span>
                                                 <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full
-                                    {{ ( isset($item->document->ijazah) ) ? 'bg-green-100' : 'bg-gray-100' ?? '#' }}">
+                                                {{ ( isset($item->document->ijazah) ) ? 'bg-green-100' : 'bg-gray-100' ?? '#' }}">
                                                     Ijazah
                                                 </span>
                                             </div>
                                             <div>
                                                 <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full
-                                        {{ ( isset($item->document->kip) ) ? 'bg-green-100' : 'bg-gray-100' }}
-                                    ">
+                                                    {{ ( isset($item->document->kip) ) ? 'bg-green-100' : 'bg-gray-100' }}
+                                                ">
                                                     <a target="_blank" href="/storage/{{ $item->document->kip ?? '#' }}">KIP</a>
                                                 </span>
                                                 <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full
-                                        {{ ( isset($item->document->pkh) ) ? 'bg-green-100' : 'bg-gray-100' }}
-                                    ">
+                                                    {{ ( isset($item->document->pkh) ) ? 'bg-green-100' : 'bg-gray-100' }}
+                                                ">
                                                     <a target="_blank" href="/storage/{{ $item->document->pkh ?? '#' }}">PKH</a>
                                                 </span>
                                                 <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full
@@ -343,15 +343,15 @@
                                         </td>
                                         <td class="px-3 py-4 text-sm font-medium whitespace-nowrap">
                                             @if ( isset($item->ppdb))
-                                            @if ( $item->ppdb->join_wa )
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
-                                                <path id="Path_45" data-name="Path 45" d="M8.333,11l1.778,1.778,3.556-3.556M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Z" transform="translate(-2 -2)" fill="none" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                            </svg>
-                                            @else
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
-                                                <path data-name="Path 130" d="M7.222 10.778L9 9m0 0l1.778-1.778M9 9L7.222 7.222M9 9l1.778 1.778M17 9a8 8 0 11-8-8 8 8 0 018 8z" fill="none" stroke="#be6060" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                            </svg>
-                                            @endif
+                                                @if ( $item->ppdb->join_wa )
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                                                    <path id="Path_45" data-name="Path 45" d="M8.333,11l1.778,1.778,3.556-3.556M19,11a8,8,0,1,1-8-8A8,8,0,0,1,19,11Z" transform="translate(-2 -2)" fill="none" stroke="#059669" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                                </svg>
+                                                @else
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+                                                    <path data-name="Path 130" d="M7.222 10.778L9 9m0 0l1.778-1.778M9 9L7.222 7.222M9 9l1.778 1.778M17 9a8 8 0 11-8-8 8 8 0 018 8z" fill="none" stroke="#be6060" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                                </svg>
+                                                @endif
                                             @endif
                                         </td>
                                         <td class="px-3 py-4 whitespace-nowrap">
