@@ -78,6 +78,20 @@ class Student extends Model
         return $this->belongsTo(Transportasi::class);
     }
 
+    public function is_alur_completed()
+    {
+        return $this->ppdb->pilihan_satu
+            && $this->ppdb->join_wa
+            && $this->is_data_completed() 
+            && $this->is_payment_completed()
+            && $this->is_document_completed();
+    }
+
+    public function is_document_completed()
+    {
+        return isset($this->document->kartu_keluarga);
+    }
+
     public function is_data_completed()
     {
         return isset(
@@ -109,7 +123,7 @@ class Student extends Model
         return $this->payments->where('status', true)->sum('amount');
     }
 
-    public function lunas()
+    public function is_payment_completed()
     {
         return $this->bayar() >= 150000;
     }
