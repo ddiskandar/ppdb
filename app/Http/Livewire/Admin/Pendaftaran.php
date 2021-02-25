@@ -36,8 +36,8 @@ class Pendaftaran extends Component
         $this->username = $student->user->username;
         $this->school = $student->school->name;
         $this->phone = $student->phone;
-        $this->ttl = $student->birthdate ? $student->birthplace . ', ' . $student->birthdate : '-';
-        $this->address = $student->address ? $student->address . ' Rt. ' . $student->rt . '/' . $student->rw . ' Ds. ' . $student->desa . ' Kec. ' . $student->kecamatan . ' Kab. ' . $student->kab . ' ' . $student->prov : '-';
+        $this->ttl = $student->ttl();
+        $this->address = $student->alamat_lengkap();
         $this->ayah_nama = $student->ortu->ayah_nama;
         $this->ibu_nama = $student->ortu->ibu_nama;
     }

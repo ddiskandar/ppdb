@@ -78,6 +78,25 @@ class Student extends Model
         return $this->belongsTo(Transportasi::class);
     }
 
+    public function ttl()
+    {
+        return $this->birthdate ? $this->birthplace . ', ' . $this->birthdate : '-';
+    }
+
+    public function alamat_lengkap()
+    {
+        return $this->address ? $this->address . ' Rt. ' . $this->rt . '/' . $this->rw . ' Ds. ' . $this->desa . ' Kec. ' . $this->kecamatan . ' Kab. ' . $this->kab . ' ' . $this->prov : '-';
+    }
+
+    public function pilihan_kelas()
+    {
+        if ($this->ppdb->kelas == 1) {
+            return 'Boarding';
+        }
+
+        return 'Regular';
+    }
+
     public function is_alur_completed()
     {
         return $this->ppdb->pilihan_satu
@@ -130,18 +149,6 @@ class Student extends Model
 
     public function pilihan_slug($pilihan) 
     {
-        switch ($pilihan) {
-            case 1:
-                'MM';
-                break;
-            case 2:
-                'BDP';
-                break;
-            
-            default:
-                'APHP';
-                break;
-        }
         if ($pilihan == 1 ) {
             return "MM";
         } elseif ($pilihan == 2) {
