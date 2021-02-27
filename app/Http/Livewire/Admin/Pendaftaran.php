@@ -2,9 +2,18 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Document;
+use App\Models\User;
 use App\Models\Student;
+use App\Models\Ortu;
+use App\Models\Periode;
+use App\Models\Ppdb;
 use App\Models\School;
 use Livewire\Component;
+
+use Illuminate\Support\Facades\Hash;
+
+use Illuminate\Support\Facades\DB;
 
 use Livewire\WithPagination;
 
@@ -14,11 +23,32 @@ class Pendaftaran extends Component
 
     public $search;
     public $filterSchool;
-    public $showDetail = false;
+    public $student;
+    public $pilihan_kelas;
+    public $name;
+    public $jk;
+    public $nisn;
+    public $phone;
+    public $school_id;
+    public $ayah_nama;
+    public $ibu_nama;
+    public $address;
+    public $rt;
+    public $rw;
+    public $desa;
+    public $kecamatan;
+    public $kab;
+    public $prov;
 
-    public $name, $username, $phone, $school, $ttl, $address, $ayah_nama, $ibu_nama;
+    public $successMessage;
 
-    protected $queryString = ['search'];
+    protected $rules = [
+        'student' => '',
+    ];
+    
+    protected $queryString = [
+        'search' => ['except' => ''],
+    ];
 
     public function updatingSearch()
     {
@@ -29,17 +59,65 @@ class Pendaftaran extends Component
         $this->resetPage();
     }
 
-    public function edit($id)
+    public function detailStudent($id)
     {
-        $student = Student::where('id', $id)->with('user')->first();
-        $this->name = $student->user->name;
-        $this->username = $student->user->username;
-        $this->school = $student->school->name;
-        $this->phone = $student->phone;
-        $this->ttl = $student->ttl();
-        $this->address = $student->alamat_lengkap();
-        $this->ayah_nama = $student->ortu->ayah_nama;
-        $this->ibu_nama = $student->ortu->ibu_nama;
+        $this->student = Student::where('id', $id)->with('user')->first();
+    }
+
+    public function addNewStudent()
+    {
+        DB::transaction( function () {
+
+            $user = User::factory()->create([
+                'name' => $this->name,
+                'password' => Hash::make('password'),
+            ]);
+
+            $student = Student::create([
+                'user_id' => $user->id,
+                'school_id' => $this->school_id,
+                'jk' => $this->jk,
+                'nisn' => $this->nisn,
+                'phone' => $this->phone,
+                'address' => $this->address,
+                'rt' => $this->rt,
+                'rw' => $this->rw,
+                'desa' => $this->desa,
+                'kecamatan' => $this->kecamatan,
+                'kab' => $this->kab,
+                'prov' => $this->prov,
+            ]);
+
+            $periode = Periode::where('active', true)->first();
+
+            Ppdb::create([
+                'student_id' => $student->id,
+                'periode_id' => $periode->id,
+                'pilihan_kelas' => $this->pilihan_kelas,
+                'payment_amount' => $periode->ref_payment_amount,
+            ]);
+
+            Ortu::create([
+                'student_id' => $student->id,
+                'ibu_nama' => $this->ibu_nama,
+                'ayah_nama' => $this->ayah_nama,
+            ]);
+
+            Document::create([
+                'student_id' => $student->id,
+            ]);
+
+            $user->assignRole('student');
+
+            $this->newStudent = [];
+            
+            $this->reset([
+                'search', 'filterSchool', 'student', 'pilihan_kelas', 'name', 'jk', 'nisn', 'phone', 'school_id', 'ayah_nama', 'ibu_nama', 'address', 'rt', 'rw', 'desa', 'kecamatan', 'kab', 'prov',
+            ]);
+
+            $this->student = Student::where('id', $student->id)->with('user')->first();
+        });
+        
     }
 
     public function render()

@@ -23,6 +23,11 @@ class Group extends Component
         $this->join_wa = $student->ppdb->join_wa;
     }
 
+    public function gabung()
+    {
+        
+    }
+
     public function submitForm()
     {
         $this->validate();

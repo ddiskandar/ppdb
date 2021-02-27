@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Models\Payment;
+use App\Models\School;
 use Livewire\Component;
 
 class Confirmation extends Component
@@ -36,6 +37,7 @@ class Confirmation extends Component
     {
         return view('livewire.admin.confirmation', [
             'payments' => Payment::with('student')->get(),
+            'schools' => School::orderBy('name')->get(),
         ]);
     }
 }
