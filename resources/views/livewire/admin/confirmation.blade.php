@@ -1,4 +1,4 @@
-<div x-data="{ filters: false, modal: false, slide:false }">
+<div x-data="{ filters: false, slide:false }">
 
     <!-- Page Heading -->
     <header class="">
@@ -77,10 +77,10 @@
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                             Bukti
                                         </th>
-                                        <th scope="col" class="w-64 px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
+                                        <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                                             Petugas
                                         </th>
-                                        <th scope="col" class="w-64 px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
+                                        <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                                             Catatan
                                         </th>
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
@@ -109,7 +109,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-3 py-4 whitespace-nowrap">
+                                        <td @click="slide = true" wire:click="verify({{ $item->id }})" class="px-3 py-4 cursor-pointer whitespace-nowrap">
                                             <div class="text-sm text-gray-900">Rp. {{ $item->amount }},- </div>
                                             <div class="text-sm text-gray-500">{{ $item->created_at }}</div>
                                         </td>
@@ -132,7 +132,7 @@
                                             Verified
                                         </td>
                                         @else
-                                        <td class="px-3 py-4 font-semibold text-red-600 cursor-pointer whitespace-nowrap" @click="modal = true" wire:click="confirm({{ $item->id }})">
+                                        <td class="px-3 py-4 font-semibold text-red-600 cursor-pointer whitespace-nowrap">
                                             Verifikasi Sekarang
                                         </td>
                                         @endif
@@ -147,157 +147,52 @@
                 </div>
             </div>
 
-            <x-modal>
-                <form wire:submit.prevent="submit({{ $item->id }})" action="#">
-
-                    <div class="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
-                        <div class="sm:flex sm:items-start">
-
-                            <div class="mt-3 sm:mt-0">
-                                <h3 class="text-lg font-medium leading-6 text-gray-900" id="headline">
-                                    {{ $name }}
-                                </h3>
-                                <div class="mt-2">
-                                    <p class="text-sm text-gray-500">
-                                        Pastikan data konfirmasi pembayaran sudah sesuai dengan data pembayaran di aplikasi Braja Asisten Keuangan Sekolah.
-                                    </p>
-
-                                    <!-- Besar Pembayaran -->
-                                    <div class="mt-4">
-                                        <x-label for="payment_amount" :value="__('Tarif Biaya Registrasi PPDB')" />
-
-                                        <x-input wire:model="payment_amount" id="payment_amount" class="block w-full mt-1" type="text" name="payment_amount" :value="old('payment_amount')" />
-                                    </div>
-
-                                    <!-- Besar Pembayaran -->
-                                    <div class="mt-4">
-                                        <x-label for="date" :value="__('Tanggal Pembayaran')" />
-
-                                        <x-input wire:model="date" id="date" class="block w-full mt-1" type="date" name="date" />
-                                    </div>
-
-                                    <!-- Besar Pembayaran -->
-                                    <div class="mt-4">
-                                        <x-label for="amount" :value="__('Besar Pembayaran')" />
-
-                                        <x-input wire:model="amount" id="amount" class="block w-full mt-1" type="text" name="amount" :value="old('amount')" />
-                                    </div>
-
-                                    <!-- Besar Pembayaran -->
-                                    <div class="mt-4">
-                                        <x-label for="note" :value="__('Catatan')" />
-
-                                        <x-textarea wire:model="note" id="note" class="block w-full mt-1" type="text" name="note" :value="old('note')"></x-textarea>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-4 py-3 bg-gray-50 sm:px-6 sm:flex sm:flex-row-reverse">
-                        <button @click="modal = ! modal" type="submit" class="inline-flex justify-center w-full px-4 py-2 text-base font-medium text-white bg-green-600 border border-transparent rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
-                            Confirm
-                        </button>
-                        <button @click="modal = false" type="button" class="inline-flex justify-center w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
-                            Cancel
-                        </button>
-                    </div>
-                </form>
-            </x-modal>
-
             <x-slide-overs>
                 <div class="px-4 my-6 sm:px-10">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                    <form wire:submit.prevent="submit({{ $item->id }})" action="#">
 
-                        <!-- Pilihan Kelas -->
-                        <div>
-                            <x-label for="pilihan_kelas" :value="__('Pilihan Kelas')" />
+                        <h3 class="text-lg font-medium leading-6 text-gray-900" id="headline">
+                            {{ $name }}
+                        </h3>
+                        <div class="mt-2">
+                            <p class="text-sm text-gray-500">
+                                {{ $username }}
+                            </p>
 
-                            <x-select wire:model.defer="pilihan_kelas" id="pilihan_kelas" name="pilihan_kelas" autocomplete="pilihan_kelas" class="block w-full px-3 mt-1" required>
-                                <option value="">{{ __('-- Pilih salah-satu') }}</option>
-                                <option value="0">{{ __('Regular') }}</option>
-                                <option value="1">{{ __('Boarding') }}</option>
-                            </x-select>
-                        </div>
+                            <!-- Besar Pembayaran -->
+                            <div class="mt-4">
+                                <x-label for="payment_amount" :value="__('Tarif Biaya Registrasi PPDB')" />
 
-                        <!-- Name -->
-                        <div class="mt-4">
-                            <x-label for="name" :value="__('Name')" />
+                                <x-input wire:model="payment_amount" id="payment_amount" class="block w-full mt-1" type="text" name="payment_amount" :value="old('payment_amount')" />
+                            </div>
 
-                            <x-input id="name" class="block w-full mt-1" type="text" name="name" :value="old('name')" required autofocus />
-                        </div>
+                            <!-- Besar Pembayaran -->
+                            <div class="mt-4">
+                                <x-label for="date" :value="__('Tanggal Pembayaran')" />
 
-                        <!-- Jenis Kelamin -->
-                        <div class="mt-4">
-                            <x-label for="jk" :value="__('Jenis Kelamin')" />
+                                <x-input wire:model="date" id="date" class="block w-full mt-1" type="date" name="date" />
+                            </div>
 
-                            <x-select wire:model.defer="jk" id="jk" name="jk" autocomplete="jk" class="block w-full px-3 mt-1" required>
-                                <option value="">{{ __('-- Pilih salah-satu') }}</option>
-                                <option value="L">{{ __('Laki-laki') }}</option>
-                                <option value="P">{{ __('Perempuan') }}</option>
-                            </x-select>
-                        </div>
+                            <!-- Besar Pembayaran -->
+                            <div class="mt-4">
+                                <x-label for="amount" :value="__('Besar Pembayaran')" />
 
-                        <!-- Email Address -->
-                        <div class="mt-4">
-                            <x-label for="nisn" :value="__('NISN')" />
+                                <x-input wire:model="amount" id="amount" class="block w-full mt-1" type="text" name="amount" :value="old('amount')" />
+                            </div>
 
-                            <x-input id="nisn" class="block w-full mt-1" type="text" name="nisn" :value="old('nisn')" />
-                        </div>
+                            <!-- Besar Pembayaran -->
+                            <div class="mt-4">
+                                <x-label for="note" :value="__('Catatan')" />
 
-                        <!-- Email Address -->
-                        <div class="mt-4">
-                            <x-label for="phone" :value="__('Nomor HP/Whatsapp')" />
+                                <x-textarea wire:model="note" id="note" class="block w-full mt-1" type="text" name="note" :value="old('note')"></x-textarea>
+                            </div>
 
-                            <x-input id="phone" class="block w-full mt-1" type="text" name="phone" :value="old('phone')" required />
-                        </div>
+                            <div class="mt-4">
+                                <button @click="modal = ! modal" type="submit" class="inline-flex justify-center w-full py-2 text-base font-medium text-white bg-green-600 border border-transparent rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                    Simpan
+                                </button>
+                            </div>
 
-                        <!-- Asal Sekolah -->
-                        <div class="mt-4">
-                            <x-label for="school_id" :value="__('Asal Sekolah')" />
-
-                            <select id="school_id" name="school_id" class="block w-full mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 " required>
-                                <option value="">{{ __('-- Pilih salah satu') }}</option>
-                                @foreach ($schools as $school )
-                                <option value={{ $school->id }}>{{ $school->name }}</option>
-                                @endforeach
-                            </select>
-
-                        </div>
-
-                        <!-- Email Address -->
-                        <div class="mt-4">
-                            <x-label for="ibu_nama" :value="__('Nama Ibu Kandung')" />
-
-                            <x-input id="ibu_nama" class="block w-full mt-1" type="text" name="ibu_nama" :value="old('ibu_nama')" required />
-                        </div>
-
-                        <!-- Password -->
-                        <div class="mt-4">
-                            <x-label for="password" :value="__('Password ( digunakan untuk login aplikasi )')" />
-
-                            <x-input id="password" class="block w-full mt-1" type="password" name="password" required autocomplete="new-password" />
-                        </div>
-
-                        <!-- Confirm Password -->
-                        <div class="mt-4">
-                            <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                            <x-input id="password_confirmation" class="block w-full mt-1" type="password" name="password_confirmation" required />
-                        </div>
-
-                        <div x-data="{ buttonDisabled: false }" class="flex items-center mt-4">
-
-                            <x-button class="w-full py-3 mt-4" x-on:click="buttonDisabled = true" x-bind:disabled="buttonDisabled">
-                                {{ __('Daftar') }}
-                            </x-button>
-
-                        </div>
-
-                        <div class="py-6 mt-6 text-sm text-red-500 border-t border-gray-200">
-                            <p class="">{{ __('Bila sebelumnya sudah terdaftar, akan tetapi lupa nomor registrasi atau password. Maka tidak harus kembali mendaftar akun baru. ') }}</p>
-                            <p class="mt-4">{!! __('Silahkan dapat menghubungi panitia, dengan cara <strong><a href="https://wa.me/6285624028940" target="_blank">Klik disini</a></strong> ') !!}</p>
                         </div>
 
                     </form>
