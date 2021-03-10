@@ -12,7 +12,6 @@ class Confirmation extends Component
 {
     public $verifyMode = false;
     public $search;
-    public $student;
     public $student_id;
     public $payment_amount = 150000;
     public $name, $username, $amount, $status, $date, $note, $payment;
@@ -68,8 +67,7 @@ class Confirmation extends Component
             ]);
         } else {
             Ppdb::create([
-                'student_id' =>
-                isset($this->student_id) ? $this->student_id : $this->payment->student_id,
+                'student_id' => isset($this->student_id) ? $this->student_id : $this->payment->student_id,
                 'periode_id' => Periode::where('active', true)->first()->id,
                 'payment_amount' => $this->payment_amount,
             ]);
@@ -82,7 +80,11 @@ class Confirmation extends Component
     {
         return view('livewire.admin.confirmation', [
             'payments' => Payment::with('student', 'student.user')->latest()->get(),
-            'students' => Student::with('school', 'user', 'ppdb', 'payments')->latest()->get(),
+            'students' => Student::with('school', 'user', 'ppdb', 'payments')
+                            ->get()
+                            ->sortBy(function($query){
+                                return $query->user->name;
+                            }),
         ]);
     }
 }
