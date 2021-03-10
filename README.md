@@ -15,9 +15,9 @@
 - [ ] Pendaftar dapat mengunduh formulir pendaftaran dengan format PDF yang sudah terisi data setelah semua alur pendaftaran selesai
 - [x] Admin dan panitia dapat melihat dashboard pendaftaran
 - [ ] Admin dapat mengatur Data Master jurusan, asal sekolah, jalur dan hak akses pengguna
-- [ ] Panitia dapat membuat akun pendaftaran
-- [ ] Panitia dapat mengelola data pendaftaran
-- [ ] Panitia dapat menambah akun baru pendaftaran
+- [x] Panitia dapat membuat akun pendaftaran
+- [x] Panitia dapat mengelola data pendaftaran
+- [x] Panitia dapat menambah akun baru pendaftaran
 - [ ] Panitia dapat download excel data pendaftaran
-- [ ] Panitia dapat melakukan verifikasi konfirmasi pembayaran dari pendaftar
+- [x] Panitia dapat melakukan verifikasi konfirmasi pembayaran dari pendaftar
 - [ ] Pewawancara dalam melakukan wawancara
