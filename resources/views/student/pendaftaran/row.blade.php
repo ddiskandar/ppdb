@@ -24,9 +24,13 @@
         </div>
     </td>
     <td class="px-3 py-4 whitespace-nowrap">
+        @if($item->school_id != 1)
         <div class="text-sm text-gray-900">{{ $item->school->name }}</div>
-        <div class="text-sm text-gray-500">{{ $item->school->address }}
-        </div>
+        <div class="text-sm text-gray-500">{{ $item->school->address }}</div>
+        @else
+        <div class="text-sm text-gray-900 truncate">{{ $item->school_temp }}</div>
+        <div class="text-sm text-gray-500">SEKOLAH BARU</div>
+        @endif
     </td>
     <td class="px-3 py-4 whitespace-nowrap">
         <div class="text-sm text-gray-900">

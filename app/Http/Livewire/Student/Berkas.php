@@ -39,6 +39,9 @@ class Berkas extends Component
 
     public function submitBerkas()
     {
+        $this->validate([
+            
+        ]);
         
         $this->student = auth()->user()->student;
         $user = auth()->user();
