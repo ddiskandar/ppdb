@@ -1,4 +1,4 @@
-<div class="flex flex-col h-full py-6 overflow-y-scroll bg-white shadow-xl">
+<div x-data="{ buttonDisabled: false }" class="flex flex-col h-full py-6 overflow-y-scroll bg-white shadow-xl">
     <div class="px-4 mt-6 sm:px-10">
         <h2 id="slide-over-heading" class="text-lg font-bold text-gray-900">
             Buat Akun
@@ -80,7 +80,7 @@
             <div class="mt-4">
                 <x-label for="password" :value="__('Password ( digunakan untuk login aplikasi )')" />
 
-                <x-input id="password" class="block w-full mt-1" type="password" name="password" required autocomplete="new-password" />
+                <x-input x-on:keyup="buttonDisabled = false" id="password" class="block w-full mt-1" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <!-- Confirm Password -->
@@ -90,7 +90,7 @@
                 <x-input id="password_confirmation" class="block w-full mt-1" type="password" name="password_confirmation" required />
             </div>
 
-            <div x-data="{ buttonDisabled: false }" class="flex items-center mt-4">
+            <div class="flex items-center mt-4">
 
                 <x-button class="w-full py-3 mt-4" x-on:click="buttonDisabled = true" x-bind:disabled="buttonDisabled">
                     {{ __('Daftar') }}
