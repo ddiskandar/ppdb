@@ -1,4 +1,4 @@
-<div x-data="{ buttonDisabled: false }" class="flex flex-col h-full py-6 overflow-y-scroll bg-white shadow-xl">
+<div x-data="{ buttonDisabled: false }" x-cloak class="flex flex-col h-full py-6 overflow-y-scroll bg-white shadow-xl">
     <div class="px-4 mt-6 sm:px-10">
         <h2 id="slide-over-heading" class="text-lg font-bold text-gray-900">
             Buat Akun
