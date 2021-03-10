@@ -114,11 +114,16 @@
                                             <div class="text-sm text-gray-500">{{ $item->created_at }}</div>
                                         </td>
                                         <td class="py-4 pl-6 whitespace-nowrap">
+                                            @if (isset($item->attachment))
                                             <a href="/storage/{{ $item->attachment }}" target="_blank">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="18.915" height="20">
                                                     <path data-name="Path 138" d="M12.172 5l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 10-5.656-5.656L2.757 8.757a6 6 0 008.486 8.486L17.5 11" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                                                 </svg>
                                             </a>
+                                            @else
+                                                -
+                                            @endif
+
                                         </td>
                                         <td class="px-3 py-4 whitespace-nowrap">
                                             {{ $item->verificator->name ?? '-' }}
