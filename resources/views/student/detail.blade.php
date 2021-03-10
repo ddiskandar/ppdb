@@ -42,7 +42,7 @@
                 Nama Ayah
             </label>
             <div>
-                {{ $student->ayah_nama ?? '-' }}
+                {{ $student->ortu->ayah_nama ?? '-' }}
             </div>
         </div>
         <div class="mt-6 ">
@@ -50,7 +50,7 @@
                 Nama Ibu
             </label>
             <div>
-                {{ $student->ibu_nama ?? '-' }}
+                {{ $student->ortu->ibu_nama ?? '-' }}
             </div>
         </div>
 

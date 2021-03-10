@@ -1,4 +1,4 @@
-<div x-data="{ filters: false, slide:false }">
+<div x-data="{ filters: false, slide: false }">
 
     <!-- Page Heading -->
     <header class="">
@@ -47,7 +47,7 @@
                         </svg>
                         Download
                     </button>
-                    <button class="flex items-center px-4 py-2 pr-3 text-sm bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:ring-2" @click="slide = ! slide">
+                    <button class="flex items-center px-4 py-2 pr-3 text-sm bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:ring-2" @click="slide = ! slide" wire:click="newPayment">
                         <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.5 21.5">
                             <path id="Path_115" data-name="Path 115" d="M19.25,9.5v3.25m0,0V16m0-3.25H22.5m-3.25,0H16M13.833,7.333A4.333,4.333,0,1,1,9.5,3,4.333,4.333,0,0,1,13.833,7.333ZM3,21.417a6.5,6.5,0,1,1,13,0V22.5H3Z" transform="translate(-2 -2)" fill="none" stroke="#9198a1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                         </svg>
@@ -89,7 +89,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                    @foreach ($payments as $item)
+                                    @forelse ($payments as $item)
                                     <tr>
                                         <td class="px-3 py-4 pl-6 whitespace-nowrap">
                                             <div class="flex items-center">
@@ -132,13 +132,16 @@
                                             Verified
                                         </td>
                                         @else
-                                        <td class="px-3 py-4 font-semibold text-red-600 cursor-pointer whitespace-nowrap">
+                                        <td @click="slide = true" wire:click="verify({{ $item->id }})" class="px-3 py-4 font-semibold text-red-600 cursor-pointer whitespace-nowrap">
                                             Verifikasi Sekarang
                                         </td>
                                         @endif
                                     </tr>
 
-                                    @endforeach
+                                    @empty
+                                    <tr>Kosong</tr>
+
+                                    @endforelse
 
                                 </tbody>
                             </table>
@@ -149,15 +152,33 @@
 
             <x-slide-overs>
                 <div class="px-4 my-6 sm:px-10">
-                    <form wire:submit.prevent="submit({{ $item->id }})" action="#">
+                    <form @if($verifyMode) wire:submit.prevent="updatePayment({{ $item->id }})" @else wire:submit.prevent="addPayment()" @endif action="#">
 
                         <h3 class="text-lg font-medium leading-6 text-gray-900" id="headline">
-                            {{ $name }}
+                            {{ $verifyMode ? $name : 'Tambah Pembayaran'}}
                         </h3>
                         <div class="mt-2">
+                            @if($verifyMode)
                             <p class="text-sm text-gray-500">
                                 {{ $username }}
                             </p>
+                            @endif
+
+                            @if(! $verifyMode)
+                            <!-- Asal Sekolah -->
+                            <div class="mt-4">
+                                <x-label for="student_id" :value="__('Nama Siswa Pendaftar')" />
+
+                                <select wire:model="student_id" id="student_id" name="student_id" class="block w-full mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 " required>
+                                    <option value="">{{ __('-- Pilih salah satu') }}</option>
+                                    @foreach ($students as $student)
+                                    @if ( $student->bayar() < 150000 ) <option value={{ $student->id }}>{{ $student->user->name . ' (' . $student->user->username . ')' }}</option>
+                                        @endif
+                                        @endforeach
+
+                                </select>
+
+                            </div>
 
                             <!-- Besar Pembayaran -->
                             <div class="mt-4">
@@ -165,6 +186,9 @@
 
                                 <x-input wire:model="payment_amount" id="payment_amount" class="block w-full mt-1" type="text" name="payment_amount" :value="old('payment_amount')" />
                             </div>
+                            @endif
+
+
 
                             <!-- Besar Pembayaran -->
                             <div class="mt-4">
@@ -188,7 +212,7 @@
                             </div>
 
                             <div class="mt-4">
-                                <button @click="modal = ! modal" type="submit" class="inline-flex justify-center w-full py-2 text-base font-medium text-white bg-green-600 border border-transparent rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                <button @click="slide = ! slide" type="submit" class="inline-flex justify-center w-full py-2 text-base font-medium text-white bg-green-600 border border-transparent rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                                     Simpan
                                 </button>
                             </div>
