@@ -95,8 +95,6 @@ class Biodata extends Component
     public $olahraga;
     public $jas;
 
-    public $nomor_ujian;
-    public $nomor_ijazah;
 
     public function mount()
     {
@@ -168,101 +166,66 @@ class Biodata extends Component
         $this->nomor_ijazah = $this->student->nomor_ijazah;
     }
 
-    protected $rules = [
-        'panggilan' => '',
-        'jk' => '',
-        'nisn' => '',
-        'nik' => '',
-        'kk' => '',
-        'birthplace' => '',
-        'birthdate' => '',
-        'akta' => '',
-        'agama_id' => '',
-        'address' => '',
-        'rt' => '',
-        'rw' => '',
-        'desa' => '',
-        'kecamatan' => '',
-        'kab' => '',
-        'prov' => '',
-        'kode_pos' => '',
-        'lintang' => '',
-        'bujur' => '',
-        'tinggal_id' => '',
-        'transportasi_id' => '',
-        'phone' => 'numeric',
-
-        'school_id' => '',
-
-        'kks' => '',
-        'pkh' => '',
-        'kip' => '',
-        'anak_ke' => '',
-        'saudara' => '',
-
-        'ayah_nik' => '',
-        'ayah_nama' => '',
-        'ayah_lahir' => '',
-        'ayah_pendidikan' => '',
-        'ayah_pekerjaan' => '',
-        'ayah_penghasilan' => '',
-
-        'ibu_nik' => '',
-        'ibu_nama' => '',
-        'ibu_lahir' => '',
-        'ibu_pendidikan' => '',
-        'ibu_pekerjaan' => '',
-        'ibu_penghasilan' => '',
-
-        'wali_nik' => '',
-        'wali_nama' => '',
-        'wali_lahir' => '',
-        'wali_pendidikan' => '',
-        'wali_pekerjaan' => '',
-        'wali_penghasilan' => '',
-
-        'phone_ortu' => '',
-
-        'tinggi' => '',
-        'berat' => '',
-        'jarak' => '',
-        'waktu' => '',
-        'prestasi' => '',
-        'pdu' => '',
-        'olahraga' => '',
-        'jas' => '',
-
-        'nomor_ujian' => '',
-        'nomor_ijazah' => '',
-    ];
-
     public function updatedPhoto()
     {
         $this->validate([
-            'photo' => 'image|max:1024', // 1MB Max
+            'photo' => 'image|max:5024', // 1MB Max
         ]);
     }
 
     public function submitPhoto()
     {
-        $user = auth()->user();
-        $imageToShow = $this->student->photo ?? null;
-        $imageName = $user->username . '-' . $user->name . '.' . $this->photo->extension();
+        $this->validate([
+            
+        ]);
 
-        User::where('id', $user->id)
+        if( empty($this->photo) ) {
+            $this->successMessagePhoto = 'Tidak ada yang diperbaharui!';
+        } else {
+            $user = auth()->user();
+            $imageToShow = $this->student->photo ?? null;
+            $imageName = $user->username . '-' . $user->name . '.' . $this->photo->extension();
+
+            User::where('id', $user->id)
             ->update([
                 'name' => $this->name,
                 'photo' => $this->photo ? $this->photo->storeAs('photo', $imageName, 'public') : $imageToShow,
             ]);
 
-        $this->successMessagePhoto = 'Foto berhasil diperbaharui!';
-    }
+            $this->successMessagePhoto = 'Foto berhasil diperbaharui!';
+        }
 
+    }
 
     public function submitPribadi()
     {
-
-        $validatedData = $this->validate();
+        $this->validate([
+            'name' => 'required|max:32',
+            'panggilan' => 'required|max:24',
+            'jk' => 'required|max:1',
+            'nisn' => 'required|max:10|numeric',
+            'nik' => 'required|max:16|numeric',
+            'kk' => 'required|max:16|numeric',
+            'birthplace' => 'required|max:32',
+            'birthdate' => 'required|date',
+            'akta' => 'required|max:21',
+            'agama_id' => 'required',
+            'address' => 'required',
+            'rt' => 'required|max:3|numeric',
+            'rw' => 'required|max:3|numeric',
+            'desa' => 'required',
+            'kecamatan' => 'required',
+            'kab' => 'required',
+            'prov' => 'required',
+            'kode_pos' => 'required',
+            'lintang' => '',
+            'bujur' => '',
+            'tinggal_id' => 'required|',
+            'transportasi_id' => 'required|',
+            'phone' => 'required|numeric',
+            'anak_ke' => 'required|numeric',
+            'saudara' => 'required|numeric',
+        ]);
 
         User::where('id', auth()->user()->id)->update(['name' => $this->name,]);
 
@@ -316,8 +279,28 @@ class Biodata extends Component
     public function submitKeluarga()
     {
         $this->validate([
-            'phone_ortu' => '',
+            'ayah_nik' => 'numeric|max:16',
+            'ayah_nama' => 'max:32',
+            'ayah_lahir' => 'numeric|max:4',
+            'ayah_pendidikan' => '',
+            'ayah_pekerjaan' => '',
+            'ayah_penghasilan' => '',
 
+            'ibu_nik' => 'numeric|max:16',
+            'ibu_nama' => 'max:32',
+            'ibu_lahir' => 'numeric|max:4',
+            'ibu_pendidikan' => '',
+            'ibu_pekerjaan' => '',
+            'ibu_penghasilan' => '',
+
+            'wali_nik' => 'numeric|max:16',
+            'wali_nama' => 'max:32',
+            'wali_lahir' => 'numeric|max:4',
+            'wali_pendidikan' => '',
+            'wali_pekerjaan' => '',
+            'wali_penghasilan' => '',
+
+            'phone_ortu' => 'numeric|max:12',
         ]);
 
         Ortu::where('student_id', $this->student->id)
@@ -355,7 +338,7 @@ class Biodata extends Component
         $this->validate([
             'tinggi' => 'required',
             'berat' => 'required',
-            'jarak' => 'required',
+            'jarak' => 'required|numeric|max:3',
             'waktu' => 'required',
         ]);
 
@@ -373,7 +356,10 @@ class Biodata extends Component
     public function submitRincian()
     {
         $this->validate([
-            'prestasi' => '',
+            'prestasi' => 'max:512',
+            'pdu' => 'max:4',
+            'olahraga' => 'max:4',
+            'jas' => 'max:4',
         ]);
 
         Student::where('id', $this->student->id)

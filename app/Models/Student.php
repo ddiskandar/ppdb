@@ -143,7 +143,7 @@ class Student extends Model
 
     public function is_payment_completed()
     {
-        return $this->bayar() >= ( ! empty($this->ppdb) ? $this->ppdb->payment_amount : 150000 );
+        return $this->bayar() >= ( ! empty($this->ppdb) ? $this->ppdb->payment_amount : Periode::where('active', true)->first()->ref_payment_amount );
     }
 
     public function pilihan_slug($pilihan) 

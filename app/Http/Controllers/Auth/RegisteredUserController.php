@@ -40,16 +40,18 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'school_id' => 'required',
+            'pilihan_kelas' => 'required',
             'name' => 'required|string|max:255',
-            // 'email' => 'required|string|email|max:255|unique:users',
+            'jk' => 'required',
+            'phone' => 'required',
+            'school_id' => 'required',
+            'ibu_nama' => 'required',
             'password' => 'required|string|confirmed|min:6',
         ]);
 
         DB::transaction(function () use ($request) {
             $user = User::factory()->create([
                 'name' => $request->name,
-                // 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
 

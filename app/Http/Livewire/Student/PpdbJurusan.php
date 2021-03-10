@@ -10,10 +10,12 @@ class PpdbJurusan extends Component
 {
     public $successMessage;
     
+    public $pilihan_kelas;
     public $pilihan_satu;
     public $pilihan_dua;
 
     protected $rules = [
+        'pilihan_kelas' => 'required',
         'pilihan_satu' => 'required',
         'pilihan_dua' => 'required',
     ];
@@ -22,6 +24,7 @@ class PpdbJurusan extends Component
     {
         $student = auth()->user()->student;
 
+        $this->pilihan_kelas = $student->ppdb->pilihan_kelas;
         $this->pilihan_satu = $student->ppdb->pilihan_satu;
         $this->pilihan_dua = $student->ppdb->pilihan_dua;
     }
@@ -32,6 +35,7 @@ class PpdbJurusan extends Component
 
         Ppdb::where('student_id', auth()->user()->student->id)
             ->update([
+                'pilihan_kelas' => $this->pilihan_kelas,
                 'pilihan_satu' => $this->pilihan_satu,
                 'pilihan_dua' => $this->pilihan_dua,
             ]);
