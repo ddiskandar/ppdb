@@ -64,6 +64,7 @@ Route::middleware(['auth'])->group(function(){
     });
 
     Route::get('/profile', UpdatePassword::class)->name('profile');
+    Route::get('/student/{student}/pdf', [App\Http\Controllers\StudentController::class, 'pdf'])->name('student.pdf');
 
 });
 

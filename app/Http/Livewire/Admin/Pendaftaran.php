@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 use Livewire\WithPagination;
 
@@ -130,6 +131,11 @@ class Pendaftaran extends Component
         
         $this->successMessage = 'Password menjadi 12345678';
 
+    }
+
+    public function pdf()
+    {
+        return PDF::loadView('pdf.biodata')->download('biodata.pdf');
     }
 
     public function render()
