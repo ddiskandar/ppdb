@@ -133,11 +133,6 @@ class Pendaftaran extends Component
 
     }
 
-    public function pdf()
-    {
-        return PDF::loadView('pdf.biodata')->download('biodata.pdf');
-    }
-
     public function render()
     {
         return view('livewire.admin.pendaftaran', [

@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function(){
     Route::middleware(['role:committee|admin'])->group(function () {
 
         Route::view('/pendaftaran', 'admin.pendaftaran')->name('pendaftaran');
+        Route::get('/student/export', [App\Http\Controllers\StudentController::class, 'export'])->name('student.export');
        
     });
 
@@ -49,6 +50,7 @@ Route::middleware(['auth'])->group(function(){
         Route::view('/seleksi',  'admin.seleksi')->name('seleksi');
         Route::get('/confirmation', Confirmation::class)->name('confirmation');
         Route::get('/student/{student}', ShowStudent::class)->name('student.show');
+
 
     });
 
