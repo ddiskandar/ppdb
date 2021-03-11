@@ -63,6 +63,15 @@ class Biodata extends Component
     public $anak_ke;
     public $saudara;
 
+    public $tinggi;
+    public $berat;
+    public $jarak;
+    public $waktu;
+    public $prestasi;
+    public $pdu;
+    public $olahraga;
+    public $jas;
+
     public $ayah_nik;
     public $ayah_nama;
     public $ayah_lahir;
@@ -85,16 +94,6 @@ class Biodata extends Component
     public $wali_penghasilan;
 
     public $phone_ortu;
-
-    public $tinggi;
-    public $berat;
-    public $jarak;
-    public $waktu;
-    public $prestasi;
-    public $pdu;
-    public $olahraga;
-    public $jas;
-
 
     public function mount()
     {
@@ -156,14 +155,6 @@ class Biodata extends Component
 
         $this->phone_ortu = $this->student->ortu->phone_ortu;
 
-        $this->tinggi = $this->student->tinggi;
-        $this->berat = $this->student->berat;
-        $this->jarak = $this->student->jarak;
-        $this->waktu = $this->student->waktu;
-        $this->prestasi = $this->student->prestasi;
-
-        $this->nomor_ujian = $this->student->nomor_ujian;
-        $this->nomor_ijazah = $this->student->nomor_ijazah;
     }
 
     protected $rules = [
