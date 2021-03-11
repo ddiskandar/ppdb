@@ -17,9 +17,9 @@
                     <x-slot name="form">
 
                         <div class="col-span-6 sm:col-span-4">
-                            <x-label for="current_password" value="{{ __('Password sekarang') }}" />
-                            <x-input wire:model.defer="current_password" id="current_password" type="password" class="block w-full mt-1"/>
-                            <x-input-error for="current_password" class="mt-2" />
+                            <x-label for="currentPassword" value="{{ __('Password sekarang') }}" />
+                            <x-input wire:model.defer="currentPassword" id="currentPassword" type="password" class="block w-full mt-1"/>
+                            <x-input-error for="currentPassword" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">
@@ -29,9 +29,9 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">
-                            <x-label for="password_confirmation" value="{{ __('Ketik ulang password baru') }}" />
-                            <x-input wire:model.defer="password_confirmation" id="password_confirmation" type="password" class="block w-full mt-1"/>
-                            <x-input-error for="password_confirmation" class="mt-2" />
+                            <x-label for="passwordConfirmation" value="{{ __('Ketik ulang password baru') }}" />
+                            <x-input wire:model.defer="passwordConfirmation" id="passwordConfirmation" type="password" class="block w-full mt-1"/>
+                            <x-input-error for="passwordConfirmation" class="mt-2" />
                         </div>
 
                     </x-slot>

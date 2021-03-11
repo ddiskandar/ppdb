@@ -10,7 +10,7 @@ use App\Models\Periode;
 use App\Models\Ppdb;
 use App\Models\School;
 use Livewire\Component;
-
+use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\DB;
@@ -62,6 +62,7 @@ class Pendaftaran extends Component
     public function detailStudent($id)
     {
         $this->student = Student::where('id', $id)->with('user')->first();
+        $this->successMessage = '';
     }
 
     public function addNewStudent()
@@ -118,6 +119,17 @@ class Pendaftaran extends Component
             $this->student = Student::where('id', $student->id)->with('user')->first();
         });
         
+    }
+
+    public function resetPassword(  )
+    {
+        User::where('id', $this->student->user->id)
+            ->update([
+                'password' => Hash::make('12345678'),
+            ]);
+        
+        $this->successMessage = 'Password menjadi 12345678';
+
     }
 
     public function render()
