@@ -8,8 +8,12 @@ use App\Models\Periode;
 use App\Models\Student;
 use Livewire\Component;
 
+use Livewire\WithPagination;
+
 class Confirmation extends Component
 {
+    use WithPagination;
+    
     public $verifyMode = false;
     public $search;
     public $student_id;
@@ -80,7 +84,7 @@ class Confirmation extends Component
     {
         return view('livewire.admin.confirmation', [
             'payments' => Payment::with('student', 'student.user')->latest()->get(),
-            'students' => Student::with('school', 'user', 'ppdb', 'payments')
+            'students' => Student::with('user', 'payments')
                             ->get()
                             ->sortBy(function($query){
                                 return $query->user->name;

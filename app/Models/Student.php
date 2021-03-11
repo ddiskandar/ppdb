@@ -80,7 +80,7 @@ class Student extends Model
 
     public function ttl()
     {
-        return $this->birthdate ? $this->birthplace . ', ' . $this->birthdate : '-';
+        return $this->birthdate ? $this->birthplace . ', ' . date('d-m-Y', strtotime($this->birthdate)) : '-';
     }
 
     public function alamat_lengkap()

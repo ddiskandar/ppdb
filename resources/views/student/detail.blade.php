@@ -18,7 +18,7 @@
                 Asal Sekolah
             </label>
             <div>
-                {{ $student->school->name }}
+                {{ ($student->school->id != 1) ? $student->school->name : $student->school_temp }}
             </div>
         </div>
         <div class="mt-6 ">
