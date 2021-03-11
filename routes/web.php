@@ -12,6 +12,7 @@ use App\Http\Livewire\Student\Pembayaran;
 use App\Http\Livewire\Student\PpdbJurusan;
 use App\Http\Livewire\Admin\Confirmation;
 use App\Http\Livewire\Auth\UpdatePassword;
+use App\Http\Livewire\Admin\ShowStudent;
 use App\Models\Ppdb;
 
 
@@ -47,6 +48,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/dashboard', [PagesController::class, 'dashboard'])->name('dashboard');
         Route::view('/seleksi',  'admin.seleksi')->name('seleksi');
         Route::get('/confirmation', Confirmation::class)->name('confirmation');
+        Route::get('/student/{student}', ShowStudent::class)->name('student.show');
 
     });
 

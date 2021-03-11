@@ -1,16 +1,19 @@
 <div class="px-4 my-6 mt-3 sm:px-10 sm:mt-0">
     <div class="mt-2">
 
-        @if($successMessage)
-            <div class="text-sm text-green-600">{{ $successMessage }}</div>
-        @endif
-        
         <div class="flex items-start justify-between mt-4">
             <img class="w-32 h-32 rounded-full" src="/images/default-photo.png" alt="">
             <div class="flex items-center space-x-2">
                 <div>
-                    <svg class="w-6 h-6 text-gray-300 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    <a href= {{ route('student.show', $student->id)  }}>
+                        <svg class="w-6 h-6 text-gray-300 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div>
+                    <svg class="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
                     </svg>
                 </div>
                 @role('admin')
@@ -27,6 +30,10 @@
                 @endrole
             </div>
         </div>
+
+        @if($successMessage)
+        <div class="mt-6 text-sm text-green-600">{{ $successMessage }}</div>
+        @endif
 
         <h2 id="slide-over-heading" class="mt-6 text-xl font-bold text-gray-900">
             {{ $student->user->name }}

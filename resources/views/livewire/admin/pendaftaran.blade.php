@@ -93,14 +93,11 @@
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                             Pembayaran
                                         </th>
-                                        <th scope="col" class="relative px-3 py-3">
-                                            <span class="sr-only">Edit</span>
-                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
                                     @foreach ($students as $item)
-                                    @include('student.pendaftaran.row')
+                                    @include('admin.pendaftaran.row')
                                     <!-- 
                                         <tr>
                                             <td colspan=8 class="py-4 text-center">

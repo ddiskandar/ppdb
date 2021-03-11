@@ -155,6 +155,16 @@ class Biodata extends Component
 
         $this->phone_ortu = $this->student->ortu->phone_ortu;
 
+        $this->tinggi = $this->student->tinggi;
+        $this->berat = $this->student->berat;
+        $this->jarak = $this->student->jarak;
+        $this->waktu = $this->student->waktu;
+
+        $this->prestasi = $this->student->prestasi;
+        $this->pdu = $this->student->pdu;
+        $this->olahraga = $this->student->olahraga;
+        $this->jas = $this->student->jas;
+
     }
 
     protected $rules = [
@@ -194,16 +204,16 @@ class Biodata extends Component
             'name' => 'required|max:32',
             'panggilan' => 'required|max:24',
             'jk' => 'required|max:1',
-            'nisn' => 'required|max:10|numeric',
-            'nik' => 'required|max:16|numeric',
-            'kk' => 'required|max:16|numeric',
+            'nisn' => 'required',
+            'nik' => 'required',
+            'kk' => 'required',
             'birthplace' => 'required|max:32',
             'birthdate' => 'required|date',
             'akta' => 'required|max:21',
             'agama_id' => 'required',
             'address' => 'required',
-            'rt' => 'required|max:3|numeric',
-            'rw' => 'required|max:3|numeric',
+            'rt' => 'required',
+            'rw' => 'required',
             'desa' => 'required',
             'kecamatan' => 'required',
             'kab' => 'required',
@@ -213,41 +223,44 @@ class Biodata extends Component
             'bujur' => '',
             'tinggal_id' => 'required|',
             'transportasi_id' => 'required|',
-            'phone' => 'required|numeric',
-            'anak_ke' => 'required|numeric',
-            'saudara' => 'required|numeric',
+            'phone' => 'required',
+            'anak_ke' => 'required',
+            'saudara' => 'required',
         ]);
 
-        User::where('id', auth()->user()->id)->update(['name' => $this->name,]);
+        User::where('id', auth()->user()->id)
+        ->update([
+            'name' => $this->name,
+        ]);
 
         Student::where('id', $this->student->id)
-            ->update([
-                'panggilan' => $this->panggilan,
-                'jk' => $this->jk,
-                'nisn' => $this->nisn,
-                'nik' => $this->nik,
-                'kk' => $this->kk,
-                'birthplace' => $this->birthplace,
-                'birthdate' => $this->birthdate,
-                'akta' => $this->akta,
-                'agama_id' => $this->agama_id,
-                'address' => $this->address,
-                'rt' => $this->rt,
-                'rw' => $this->rw,
-                'desa' => $this->desa,
-                'kecamatan' => $this->kecamatan,
-                'kab' => $this->kab,
-                'kab' => $this->kab,
-                'prov' => $this->prov,
-                'kode_pos' => $this->kode_pos,
-                'lintang' => $this->lintang,
-                'bujur' => $this->bujur,
-                'tinggal_id' => $this->tinggal_id,
-                'transportasi_id' => $this->transportasi_id,
-                'anak_ke' => $this->anak_ke,
-                'saudara' => $this->saudara,
-                'phone' => $this->phone,
-            ]);
+        ->update([
+            'panggilan' => $this->panggilan,
+            'jk' => $this->jk,
+            'nisn' => $this->nisn,
+            'nik' => $this->nik,
+            'kk' => $this->kk,
+            'birthplace' => $this->birthplace,
+            'birthdate' => $this->birthdate,
+            'akta' => $this->akta,
+            'agama_id' => $this->agama_id,
+            'address' => $this->address,
+            'rt' => $this->rt,
+            'rw' => $this->rw,
+            'desa' => $this->desa,
+            'kecamatan' => $this->kecamatan,
+            'kab' => $this->kab,
+            'kab' => $this->kab,
+            'prov' => $this->prov,
+            'kode_pos' => $this->kode_pos,
+            'lintang' => $this->lintang,
+            'bujur' => $this->bujur,
+            'tinggal_id' => $this->tinggal_id,
+            'transportasi_id' => $this->transportasi_id,
+            'anak_ke' => $this->anak_ke,
+            'saudara' => $this->saudara,
+            'phone' => $this->phone,
+        ]);
         
         $this->successMessagePribadi = 'Data Pribadi berhasil diperbaharui!';
     }
@@ -270,28 +283,28 @@ class Biodata extends Component
     public function submitKeluarga()
     {
         $this->validate([
-            'ayah_nik' => 'numeric|max:16',
-            'ayah_nama' => 'max:32',
-            'ayah_lahir' => 'numeric|max:4',
+            'ayah_nik' => '',
+            'ayah_nama' => 'required',
+            'ayah_lahir' => '',
             'ayah_pendidikan' => '',
             'ayah_pekerjaan' => '',
             'ayah_penghasilan' => '',
 
-            'ibu_nik' => 'numeric|max:16',
-            'ibu_nama' => 'max:32',
-            'ibu_lahir' => 'numeric|max:4',
+            'ibu_nik' => '',
+            'ibu_nama' => 'required',
+            'ibu_lahir' => '',
             'ibu_pendidikan' => '',
             'ibu_pekerjaan' => '',
             'ibu_penghasilan' => '',
 
-            'wali_nik' => 'numeric|max:16',
-            'wali_nama' => 'max:32',
-            'wali_lahir' => 'numeric|max:4',
+            'wali_nik' => '',
+            'wali_nama' => '',
+            'wali_lahir' => '',
             'wali_pendidikan' => '',
             'wali_pekerjaan' => '',
             'wali_penghasilan' => '',
 
-            'phone_ortu' => 'numeric|max:12',
+            'phone_ortu' => '',
         ]);
 
         Ortu::where('student_id', $this->student->id)
@@ -327,10 +340,10 @@ class Biodata extends Component
     public function submitPeriodik()
     {
         $this->validate([
-            'tinggi' => 'required',
-            'berat' => 'required',
-            'jarak' => 'required|numeric|max:3',
-            'waktu' => 'required',
+            'tinggi' => '',
+            'berat' => '',
+            'jarak' => '',
+            'waktu' => '',
         ]);
 
         Student::where('id', $this->student->id)
@@ -347,10 +360,10 @@ class Biodata extends Component
     public function submitRincian()
     {
         $this->validate([
-            'prestasi' => 'max:512',
-            'pdu' => 'max:4',
-            'olahraga' => 'max:4',
-            'jas' => 'max:4',
+            'prestasi' => '',
+            'pdu' => '',
+            'olahraga' => '',
+            'jas' => '',
         ]);
 
         Student::where('id', $this->student->id)

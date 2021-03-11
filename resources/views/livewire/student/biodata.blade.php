@@ -519,7 +519,7 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="jarak" value="{{ __('Jarak tempat tinggal ke sekolah (Km)') }}" />
-                            <x-input wire:model.defer="jarak" id="jarak" type="text" class="block w-full mt-1" maxlength=3/>
+                            <x-input wire:model.defer="jarak" id="jarak" type="text" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="jarak" class="mt-2" />
                         </div>
 
@@ -551,7 +551,7 @@
             </x-slot>
 
             <x-slot name="description">
-                {{ __('Prestasi, PIP dan ukuran seragam')}}
+                {{ __('Prestasi dan ukuran seragam')}}
             </x-slot>
 
             <x-slot name="content">
