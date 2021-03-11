@@ -166,18 +166,18 @@ class Biodata extends Component
         $this->nomor_ijazah = $this->student->nomor_ijazah;
     }
 
+    protected $rules = [
+        'photo' => 'image|max:5024', // 1MB Max
+    ];
+
     public function updatedPhoto()
     {
-        $this->validate([
-            'photo' => 'image|max:5024', // 1MB Max
-        ]);
+        $this->validate();
     }
 
     public function submitPhoto()
     {
-        $this->validate([
-            
-        ]);
+        $this->validate();
 
         if( empty($this->photo) ) {
             $this->successMessagePhoto = 'Tidak ada yang diperbaharui!';
