@@ -180,7 +180,7 @@
                             <div class="mt-4">
                                 <x-label for="student_id" :value="__('Nama Siswa Pendaftar')" />
 
-                                <select wire:model="student_id" id="student_id" name="student_id" class="block w-full mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 " required>
+                                <select wire:model.defer="student_id" id="student_id" name="student_id" class="block w-full mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 " required>
                                     <option value="">{{ __('-- Pilih salah satu') }}</option>
                                     @foreach ($students as $student)
                                     @if ( $student->bayar() < 150000 ) <option value={{ $student->id }}>{{ $student->user->name . ' (' . $student->user->username . ')' }}</option>
@@ -195,31 +195,29 @@
                             <div class="mt-4">
                                 <x-label for="payment_amount" :value="__('Tarif Biaya Registrasi PPDB')" />
 
-                                <x-input wire:model="payment_amount" id="payment_amount" class="block w-full mt-1" type="text" name="payment_amount" :value="old('payment_amount')" />
+                                <x-input wire:model.defer="payment_amount" id="payment_amount" class="block w-full mt-1" type="text" name="payment_amount" :value="old('payment_amount')" />
                             </div>
                             @endif
 
-
-
-                            <!-- Besar Pembayaran -->
+                            <!-- Tanggal Pembayaran -->
                             <div class="mt-4">
                                 <x-label for="date" :value="__('Tanggal Pembayaran')" />
 
-                                <x-input wire:model="date" id="date" class="block w-full mt-1" type="date" name="date" />
+                                <x-input wire:model.defer="date" id="date" class="block w-full mt-1" type="date" name="date" />
                             </div>
 
                             <!-- Besar Pembayaran -->
                             <div class="mt-4">
                                 <x-label for="amount" :value="__('Besar Pembayaran')" />
 
-                                <x-input wire:model="amount" id="amount" class="block w-full mt-1" type="text" name="amount" :value="old('amount')" />
+                                <x-input wire:model.defer="amount" id="amount" class="block w-full mt-1" type="text" name="amount" :value="old('amount')" />
                             </div>
 
-                            <!-- Besar Pembayaran -->
+                            <!-- Catatan -->
                             <div class="mt-4">
                                 <x-label for="note" :value="__('Catatan')" />
 
-                                <x-textarea wire:model="note" id="note" class="block w-full mt-1" type="text" name="note" :value="old('note')"></x-textarea>
+                                <x-textarea wire:model.defer="note" id="note" class="block w-full mt-1" type="text" name="note" :value="old('note')"></x-textarea>
                             </div>
 
                             <div class="mt-4">
