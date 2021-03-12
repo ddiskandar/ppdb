@@ -13,7 +13,7 @@ class PagesController extends Controller
     public function dashboard()
     {  
         return view('admin.dashboard', [
-            'schools' => School::withCount('students')->take(6)->orderByDesc('last_students')->get(),
+            'schools' => School::withCount('students')->orderByDesc('last_students')->get(),
             'jurusans' => Jurusan::all(),
             'periode' => Periode::where('active', true)->first(),
             'students' => Student::count(),
