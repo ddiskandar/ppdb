@@ -47,8 +47,7 @@
                         </svg>
                         Download
                     </a>
-                    <button wire:click="$set('student', '')" @click="slide = true" 
-                        class="flex items-center px-4 py-2 pr-3 text-sm bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:ring-2">
+                    <button wire:click="$set('student', '')" @click="slide = true" class="flex items-center px-4 py-2 pr-3 text-sm bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:ring-2">
                         <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.5 21.5">
                             <path id="Path_115" data-name="Path 115" d="M19.25,9.5v3.25m0,0V16m0-3.25H22.5m-3.25,0H16M13.833,7.333A4.333,4.333,0,1,1,9.5,3,4.333,4.333,0,0,1,13.833,7.333ZM3,21.417a6.5,6.5,0,1,1,13,0V22.5H3Z" transform="translate(-2 -2)" fill="none" stroke="#9198a1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
                         </svg>
@@ -72,26 +71,23 @@
                                 <thead class="bg-gray-50">
                                     <tr>
 
-                                        <th scope="col" class="px-3 py-3 pl-6 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                            Nama
+                                        <th scope="col" class="px-3 py-3 pl-6 text-xs font-medium tracking-wider text-left text-gray-500 uppercase w-96 ">
+                                            Nama Lengkap / No. Registrasi
                                         </th>
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase max-w-48">
-                                            Asal Sekolah
+                                            Alamat Rumah / Asal Sekolah
                                         </th>
-                                        <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                            Daftar / Kelas
+                                        <th scope="col" class="w-32 px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
+                                            Pilihan Kelas
                                         </th>
-                                        <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                            Jalur
-                                        </th>
-                                        <th scope="col" class="w-48 px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
-                                            Berkas
+                                        <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase w-36">
+                                            Pilihan Jurusan
                                         </th>
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                             WA
                                         </th>
-                                        <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                            Pembayaran
+                                        <th scope="col" class="relative px-6 py-3">
+                                            <span class="sr-only">Edit</span>
                                         </th>
                                     </tr>
                                 </thead>

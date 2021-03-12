@@ -24,87 +24,30 @@
         </div>
     </td>
     <td class="px-3 py-4 whitespace-nowrap">
-        @if($item->school_id != 1)
-        <div class="text-sm text-gray-900">{{ $item->school->name }}</div>
-        <div class="text-sm text-gray-500">{{ $item->school->address }}</div>
-        @else
-        <div class="text-sm text-gray-900 truncate">{{ $item->school_temp }}</div>
-        <div class="text-sm text-gray-500">SEKOLAH BARU</div>
-        @endif
-    </td>
-    <td class="px-3 py-4 whitespace-nowrap">
         <div class="text-sm text-gray-900">
-            {{ $item->created_at }}
+            {{ $item->address ?? '-' }}
         </div>
         <div class="text-sm text-gray-500">
-            {{ isset($item->ppdb) ? $item->pilihan_kelas() : '-' }}
+            {{ ($item->school_id != 1) ? $item->school->name : $item->school_temp }}
         </div>
-    </td>
-    <td class="flex items-center px-3 py-4">
-        @if ($item->ppdb)
-        <div class="inline-flex flex-grow-0 px-2 mr-3 font-semibold leading-5 text-green-800 bg-gray-100 rounded-full tex-sm">
-            {{ $item->ppdb->periode_id }}
-        </div>
-
-        @if ($item->ppdb->pilihan_satu)
-        <div>
-            <div class="px-2 mb-1 text-xs font-semibold leading-5 text-green-800 bg-gray-100 rounded-full">
-                {{ $item->pilihan_slug($item->ppdb->pilihan_satu)}}
-            </div>
-
-            <div class="px-2 mb-1 text-xs font-semibold leading-5 text-green-800 bg-gray-100 rounded-full">
-                {{ $item->pilihan_slug($item->ppdb->pilihan_dua)}}
-            </div>
-        </div>
-        @endif
-
-        @endif
     </td>
     <td class="px-3 py-4 whitespace-nowrap">
-        <div>
-            <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full
-                                                    {{ ( isset($item->document->kartu_keluarga) ) ? 'bg-green-100' : 'bg-gray-100' }}
-                                                ">
-                <a target="_blank" href="/storage/{{ $item->document->kartu_keluarga ?? '#' }}">KK</a>
-            </span>
-            <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full
-                                                {{ ( isset($item->document->akta) ) ? 'bg-green-100' : 'bg-gray-100' }}
-                                                ">
-                <a target="_blank" href="/storage/{{ $item->document->akta ?? '#' }}">Akta</a>
-            </span>
-            <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full 
-                                                {{ ( isset($item->document->skl) ) ? 'bg-green-100' : 'bg-gray-100' }}
-                                                ">
-                <a target="_blank" href="/storage/{{ $item->document->skl ?? '#' }}">SKL</a>
-            </span>
-            <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full
-                                                {{ ( isset($item->document->ijazah) ) ? 'bg-green-100' : 'bg-gray-100' ?? '#' }}">
-                Ijazah
-            </span>
-        </div>
-        <div>
-            <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full
-                                                    {{ ( isset($item->document->kip) ) ? 'bg-green-100' : 'bg-gray-100' }}
-                                                ">
-                <a target="_blank" href="/storage/{{ $item->document->kip ?? '#' }}">KIP</a>
-            </span>
-            <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full
-                                                    {{ ( isset($item->document->pkh) ) ? 'bg-green-100' : 'bg-gray-100' }}
-                                                ">
-                <a target="_blank" href="/storage/{{ $item->document->pkh ?? '#' }}">PKH</a>
-            </span>
-            <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full
-                                        {{ ( isset($item->document->kks) ) ? 'bg-green-100' : 'bg-gray-100' }}
-                                    ">
-                <a target="_blank" href="/storage/{{ $item->document->kks ?? '#' }}">KKS</a>
-            </span>
-            <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 rounded-full
-                                        {{ ( isset($item->document->kis) ) ? 'bg-green-100' : 'bg-gray-100' }}
-                                    ">
-                <a target="_blank" href="/storage/{{ $item->document->kis ?? '#' }}">KIS</a>
-            </span>
-        </div>
+        <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+            {{ isset($item->ppdb) ? $item->pilihan_kelas() : '-' }}
+        </span>
     </td>
+
+    <td class="px-3 py-4 whitespace-nowrap">
+        @isset ($item->ppdb->pilihan_satu)
+        <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+            1 : {{ $item->pilihan_slug($item->ppdb->pilihan_satu)}}
+        </span>
+        <span class="inline-flex px-2 ml-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+            2 : {{ $item->pilihan_slug($item->ppdb->pilihan_dua)}}
+        </span>
+        @endif
+    </td>
+
     <td class="px-3 py-4 text-sm font-medium whitespace-nowrap">
         @if ( isset($item->ppdb))
         @if ( $item->ppdb->join_wa )
@@ -118,12 +61,23 @@
         @endif
         @endif
     </td>
+
     <td class="px-3 py-4 whitespace-nowrap">
-        <div class="flex items-center text-sm text-gray-900">
-            {!! ($item->is_payment_completed()) ? 'Lunas' : 'Belum Lunas' !!}
-        </div>
-        <div class="text-sm text-gray-500">
-            Rp. {{ $item->bayar() }} ,-
+        <div class="flex items-center">
+            <span>
+                <a href="{{ route('student.show', $item->id) }}">
+                    <svg class="w-6 h-6 text-gray-300 cursor-pointer hover:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                    </svg>
+                </a>
+            </span>
+            <span class="ml-2 ">
+                <a href="{{ route('student.pdf', $item->id) }}">
+                    <svg class="w-6 h-6 text-gray-300 cursor-pointer hover:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                    </svg>
+                </a>
+            </span>
         </div>
     </td>
 

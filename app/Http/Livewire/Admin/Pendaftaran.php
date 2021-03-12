@@ -141,7 +141,7 @@ class Pendaftaran extends Component
             })->WhereHas('school', function ($query) {
                  $query->where('name','like', '%'.$this->filterSchool.'%');
             })->orderByDesc('created_at')
-            ->with('school', 'user', 'document', 'ppdb', 'payments')
+            ->with('school', 'user', 'ppdb')
             ->paginate(7),
             'schools' => School::all(),
         ]);

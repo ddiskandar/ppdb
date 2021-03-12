@@ -77,15 +77,16 @@
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                             Bukti
                                         </th>
+                                        <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Status
+                                        </th>
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                                             Petugas
                                         </th>
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                                             Catatan
                                         </th>
-                                        <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
-                                            Status
-                                        </th>
+
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
@@ -121,26 +122,31 @@
                                                 </svg>
                                             </a>
                                             @else
-                                                -
+                                            -
                                             @endif
 
                                         </td>
-                                        <td class="px-3 py-4 whitespace-nowrap">
-                                            {{ $item->verificator->name ?? '-' }}
-                                        </td>
-                                        <td class="px-3 py-4 whitespace-nowrap">
-                                            {{ $item->note ?? '-' }}
-                                        </td>
-
                                         @if ($item->verified_by)
                                         <td class="px-3 py-4 text-green-500 whitespace-nowrap">
-                                            Verified
+                                            <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                                                Verified
+                                            </span>
                                         </td>
                                         @else
                                         <td @click="slide = true" wire:click="verify({{ $item->id }})" class="px-3 py-4 font-semibold text-red-600 cursor-pointer whitespace-nowrap">
                                             Verifikasi Sekarang
                                         </td>
                                         @endif
+                                        <td class="px-3 py-4 whitespace-nowrap">
+                                            <span class="text-sm text-gray-900">{{ $item->verificator->name ?? '-' }} </span>
+
+                                        </td>
+                                        <td class="px-3 py-4 whitespace-nowrap">
+                                            <span class="text-sm text-gray-900">{{ $item->note ?? '-' }}</span>
+
+                                        </td>
+
+
                                     </tr>
 
                                     @empty
@@ -177,10 +183,9 @@
                                 <select wire:model="student_id" id="student_id" name="student_id" class="block w-full mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 " required>
                                     <option value="">{{ __('-- Pilih salah satu') }}</option>
                                     @foreach ($students as $student)
-                                    @if ( $student->bayar() < 150000 ) 
-                                        <option value={{ $student->id }}>{{ $student->user->name . ' (' . $student->user->username . ')' }}</option>
-                                    @endif
-                                    @endforeach
+                                    @if ( $student->bayar() < 150000 ) <option value={{ $student->id }}>{{ $student->user->name . ' (' . $student->user->username . ')' }}</option>
+                                        @endif
+                                        @endforeach
 
                                 </select>
 
