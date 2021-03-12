@@ -111,7 +111,7 @@
                                         </td>
                                         <td @click="slide = true" wire:click="verify({{ $item->id }})" class="px-3 py-4 cursor-pointer whitespace-nowrap">
                                             <div class="text-sm text-gray-900">Rp. {{ $item->amount }},- </div>
-                                            <div class="text-sm text-gray-500">{{ $item->created_at }}</div>
+                                            <div class="text-sm text-gray-500">{{ $item->date() }}</div>
                                         </td>
                                         <td class="py-4 pl-6 whitespace-nowrap">
                                             @if (isset($item->attachment))

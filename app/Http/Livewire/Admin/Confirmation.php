@@ -85,10 +85,10 @@ class Confirmation extends Component
         return view('livewire.admin.confirmation', [
             'payments' => Payment::with('student', 'student.user')->latest()->get(),
             'students' => Student::with('user', 'payments')
-                            ->get()
-                            ->sortBy(function($query){
-                                return $query->user->name;
-                            }),
+                ->get()
+                ->sortBy(function($query){
+                    return $query->user->name;
+                }),
         ]);
     }
 }

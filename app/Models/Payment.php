@@ -23,4 +23,9 @@ class Payment extends Model
     {
         return $this->belongsTo(User::class, 'verified_by');
     }
+
+    public function date()
+    {
+        return date('d-m-Y', strtotime($this->date));
+    }
 }
