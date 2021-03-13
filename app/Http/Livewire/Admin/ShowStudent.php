@@ -206,7 +206,7 @@ class ShowStudent extends Component
             'kk' => 'required',
             'birthplace' => 'required|max:32',
             'birthdate' => 'required|date',
-            'akta' => 'required|max:21',
+            'akta' => '',
             'agama_id' => 'required',
             'address' => 'required',
             'rt' => 'required',
