@@ -181,7 +181,7 @@ class ShowStudent extends Component
         if (empty($this->photo)) {
             $this->successMessagePhoto = 'Tidak ada yang diperbaharui!';
         } else {
-            $user = auth()->user();
+            $user = $this->student->user;
             $imageToShow = $this->student->photo ?? null;
             $imageName = $user->username . '-' . $user->name . '.' . $this->photo->extension();
 
@@ -225,7 +225,7 @@ class ShowStudent extends Component
             'saudara' => 'required',
         ]);
 
-        User::where('id', auth()->user()->id)
+        User::where('id', $this->student->user->id)
             ->update([
                 'name' => $this->name,
             ]);
