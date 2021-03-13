@@ -123,9 +123,14 @@
                     <td>{{ $student->ttl() }}</td>
                 </tr>
                 <tr>
-                    <td>Anak ke / Jumlah Saudara Kandung</td>
+                    <td>Nomor HP/WA</td>
                     <td>:</td>
-                    <td>{{ $student->anak_ke }} / {{ $student->saudara }}</td>
+                    <td>{{ $student->phone }}</td>
+                </tr>
+                <tr>
+                    <td>Alamat lengkap</td>
+                    <td>:</td>
+                    <td>{{ $student->alamat_lengkap() }}</td>
                 </tr>
                 <tr>
                     <td>Tempat tinggal / Moda Transportasi</td>
@@ -133,9 +138,24 @@
                     <td>{{ $student->tinggal->name }} / {{ $student->transportasi->name }}</td>
                 </tr>
                 <tr>
-                    <td>Alamat lengkap</td>
+                    <td>Hobby / Cita-cita</td>
                     <td>:</td>
-                    <td>{{ $student->alamat_lengkap() }}</td>
+                    <td>Mendaki / Content Creator</td>
+                </tr>
+                <tr>
+                    <td>Anak ke / Jumlah Saudara Kandung</td>
+                    <td>:</td>
+                    <td>{{ $student->anak_ke }} / {{ $student->saudara }}</td>
+                </tr>
+                <tr>
+                    <td>Tinggi / Berat / Lingkar Kepala</td>
+                    <td>:</td>
+                    <td>{{ $student->tinggi .' cm / '. $student->berat . ' kg / '. $student->lingkar_kepala }}</td>
+                </tr>
+                <tr>
+                    <td>Jarak ke sekolah / Waktu tempuh</td>
+                    <td>:</td>
+                    <td>{{ $student->jarak .' km / '. $student->waktu . ' menit'}}</td>
                 </tr>
             </table>
         </div>
@@ -206,35 +226,35 @@
                     <th width=10px> </th>
                     <th width=60px>Digital</th>
                     <th width=60px>Fisik</th>
-                    <th width=250px>Nomor Dokumen</th>
+                    <th width=270px>Nomor Dokumen</th>
                 </tr>
                 <tr>
                     <td>Pas Photo</td>
                     <td>:</td>
-                    <td class="cell">v</td>
+                    <td class="cell"> </td>
                     <td class="cell"> </td>
                     <td> </td>
                 </tr>
                 <tr>
                     <td>Akta Kelahiran</td>
                     <td>:</td>
-                    <td class="cell">v</td>
                     <td class="cell"> </td>
                     <td class="cell"> </td>
+                    <td class="cell">{{ $student->akta }}</td>
                 </tr>
                 <tr>
                     <td>Kartu Keluarga</td>
                     <td>:</td>
-                    <td class="cell">v</td>
                     <td class="cell"> </td>
                     <td class="cell"> </td>
+                    <td class="cell">{{ $student->kk }}</td>
                 </tr>
                 <tr>
                     <td>Ijazah</td>
                     <td>:</td>
-                    <td class="cell">v</td>
                     <td class="cell"> </td>
                     <td class="cell"> </td>
+                    <td class="cell">{{ $student->document->nomor_ijazah }}</td>
                 </tr>
                 <tr>
                     <td>SHUN</td>
@@ -267,28 +287,28 @@
                 <tr>
                     <td>Kartu KKS</td>
                     <td>:</td>
-                    <td class="cell">v</td>
                     <td class="cell"> </td>
                     <td class="cell"> </td>
+                    <td class="cell">{{ $student->document->no_kks }}</td>
                 </tr>
                 <tr>
                     <td>Kartu KPS/PKH</td>
                     <td>:</td>
-                    <td class="cell">v</td>
                     <td class="cell"> </td>
                     <td class="cell"> </td>
+                    <td class="cell">{{ $student->document->no_pkh }}</td>
                 </tr>
                 <tr>
                     <td>Kartu KIP</td>
                     <td>:</td>
-                    <td class="cell">v</td>
                     <td class="cell"> </td>
                     <td class="cell"> </td>
+                    <td class="cell">{{ $student->document->no_kip }}</td>
                 </tr>
                 <tr>
                     <td>SKTM</td>
                     <td>:</td>
-                    <td class="cell">v</td>
+                    <td class="cell"> </td>
                     <td class="cell"> </td>
                     <td> </td>
                 </tr>
