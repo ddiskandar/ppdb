@@ -38,13 +38,18 @@
             position: relative;
         }
 
+        table td,
+        table td * {
+            vertical-align: top;
+        }
+
         .photo {
             position: absolute;
             right: 0;
             top: 0;
             border: 1px solid black;
             width: 120px;
-            height: 180px;
+            height: 160px;
         }
 
         .logo {
@@ -74,7 +79,7 @@
         <div class="mt-4">
             <table>
                 <tr>
-                    <td width=200px>No. Registrasi</td>
+                    <td width=240px>No. Registrasi Pendaftaran</td>
                     <td width=5px>:</td>
                     <td>{{ $student->user->username }}</td>
                 </tr>
@@ -84,34 +89,33 @@
                     <td>{{ $student->pilihan_kelas($student->ppdb->pilihan_kelas) }}</td>
                 </tr>
                 <tr>
+                    <td>Pilihan Kompetensi Keahlian</td>
+                    <td>:</td>
+                    @if (isset($student->ppdb->pilihan_satu))
+                    <td>1. {{ $student->pilihan_slug( $student->ppdb->pilihan_satu ) }} / 2. {{ $student->pilihan_slug( $student->ppdb->pilihan_dua ) }} </td>
+                    @else
+                    <td>-</td>
+                    @endif
+                </tr>
+                <tr>
                     <td>Asal Sekolah</td>
                     <td>:</td>
-                    <td>{{ $student->school->name .' ( '. $student->school->npsn . ' )' }}</td>
+                    <td>{{ $student->school->name }}</td>
                 </tr>
                 <tr>
-                    <td>Nomor Induk Kependudukan</td>
+                    <td>NIK / NISN</td>
                     <td>:</td>
-                    <td>{{ $student->nik }}</td>
+                    <td>{{ $student->nik }} / {{ $student->nisn }}</td>
                 </tr>
                 <tr>
-                    <td>Nomor Induk Siswa Nasional</td>
+                    <td>Nama Lengkap / Panggilan</td>
                     <td>:</td>
-                    <td>{{ $student->nisn }}</td>
-                </tr>
-                <tr>
-                    <td>Nama Lengkap</td>
-                    <td>:</td>
-                    <td>{{ $student->user->name }}</td>
-                </tr>
-                <tr>
-                    <td>Panggilan</td>
-                    <td>:</td>
-                    <td>{{ $student->panggilan }}</td>
+                    <td>{{ $student->user->name }} / {{ $student->panggilan }}</td>
                 </tr>
                 <tr>
                     <td>Jenis Kelamin</td>
                     <td>:</td>
-                    <td>{{ $student->jk }}</td>
+                    <td>{{ ($student->jk == "L") ? "Laki-laki" : "Perempuan" }}</td>
                 </tr>
                 <tr>
                     <td>Tempat, Tanggal Lahir</td>
@@ -119,16 +123,15 @@
                     <td>{{ $student->ttl() }}</td>
                 </tr>
                 <tr>
-                    <td>Anak ke</td>
+                    <td>Anak ke / Jumlah Saudara Kandung</td>
                     <td>:</td>
-                    <td>{{ $student->anak_ke }}</td>
+                    <td>{{ $student->anak_ke }} / {{ $student->saudara }}</td>
                 </tr>
                 <tr>
-                    <td>Jumlah Saudara Kandung</td>
+                    <td>Tempat tinggal / Moda Transportasi</td>
                     <td>:</td>
-                    <td>{{ $student->saudara }}</td>
+                    <td>{{ $student->tinggal->name }} / {{ $student->transportasi->name }}</td>
                 </tr>
-
                 <tr>
                     <td>Alamat lengkap</td>
                     <td>:</td>
