@@ -1,4 +1,4 @@
-<div x-data="{ filters: false, slide: false }">
+<div x-data="{ slide: false }">
 
     <!-- Page Heading -->
     <header class="">
@@ -33,14 +33,6 @@
                             </svg>
                         </div>
                     </div>
-                    <button @click="filters = ! filters" class="flex items-center px-4 py-2 pr-3 text-sm bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:ring-2">
-                        <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16.974 16.974">
-                            <path id="Path_73" data-name="Path 73" d="M3,3.832A.832.832,0,0,1,3.832,3h13.31a.832.832,0,0,1,.832.832V5.983a.832.832,0,0,1-.244.588l-5.336,5.336a.832.832,0,0,0-.244.588v2.151L8.823,17.974V12.495a.832.832,0,0,0-.244-.588L3.244,6.571A.832.832,0,0,1,3,5.983Z" transform="translate(-2 -2)" fill="none" stroke="#9198a1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                        </svg>
-                        Filters
-                    </button>
-                </div>
-                <div class="flex items-center justify-end mt-4 space-x-2 md:mt-0">
                     <button class="flex items-center px-4 py-2 pr-3 text-sm bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:ring-2" @click="slide = ! slide" wire:click="newPayment">
                         <svg class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.5 21.5">
                             <path id="Path_115" data-name="Path 115" d="M19.25,9.5v3.25m0,0V16m0-3.25H22.5m-3.25,0H16M13.833,7.333A4.333,4.333,0,1,1,9.5,3,4.333,4.333,0,0,1,13.833,7.333ZM3,21.417a6.5,6.5,0,1,1,13,0V22.5H3Z" transform="translate(-2 -2)" fill="none" stroke="#9198a1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
@@ -64,6 +56,9 @@
                                     <tr>
                                         <th scope="col" class="px-3 py-3 pl-6 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                             Nama
+                                        </th>
+                                        <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
+                                            Besar Bayar / Sisa
                                         </th>
                                         <th scope="col" class="px-3 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                                             Pembayaran
@@ -104,9 +99,50 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        <td class="px-3 py-4 whitespace-nowrap">
+                                            <div class="inline-flex text-sm font-medium text-gray-900 item-center">
+                                                Rp. {{ $item->student->ppdb->payment_amount }},-
+                                            </div>
+                                            <div class="text-sm text-gray-500">
+                                                @if ($item->student->ppdb->payment_amount == 0)
+                                                <div class="flex items-center">
+                                                    <span class="text-red-600">
+                                                        Gratis
+                                                    </span>
+                                                    <svg class="w-4 h-4 ml-1 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </div>
+                                                @elseif ( $item->student->ppdb->payment_amount - $item->student->bayar() == 0)
+                                                <div class="flex items-center">
+                                                    <span class="text-green-800">
+                                                        Lunas
+                                                    </span>
+                                                    <svg class="w-4 h-4 ml-1 text-green-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                                    </svg>
+                                                </div>
+                                                @else
+                                                Rp. {{ $item->student->ppdb->payment_amount - $item->student->bayar() }} ,-
+                                                @endif
+                                            </div>
+                                        </td>
                                         <td @click="slide = true" wire:click="verify({{ $item->id }})" class="px-3 py-4 cursor-pointer whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">Rp. {{ $item->amount }},- </div>
-                                            <div class="text-sm text-gray-500">{{ $item->date() }}</div>
+                                            <div class="flex items-center">
+                                                <div class="">
+                                                    <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                                    </svg>
+                                                </div>
+                                                <div class="ml-4">
+                                                    <div class="inline-flex text-sm font-medium text-gray-900 item-center">
+                                                        Rp. {{ $item->amount }},-
+                                                    </div>
+                                                    <div class="text-sm text-gray-500">
+                                                        {{ $item->date() }}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
                                         <td class="py-4 pl-6 whitespace-nowrap">
                                             @if (isset($item->attachment))
@@ -153,6 +189,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="px-4 sm:px-0">
+                {{ $payments->links() }}
             </div>
 
             <x-slide-overs>

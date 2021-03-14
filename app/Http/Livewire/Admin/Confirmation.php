@@ -83,7 +83,10 @@ class Confirmation extends Component
     public function render()
     {
         return view('livewire.admin.confirmation', [
-            'payments' => Payment::with('student', 'student.user')->latest()->get(),
+            'payments' => Payment::WhereHas('student.user', function ($query) {
+                 $query->where('name','like', '%'.$this->search.'%');
+            })
+            ->with('student', 'student.user', 'verificator', 'student.ppdb')->orderBy('date', 'desc')->paginate(7),
             'students' => Student::with('user', 'payments')
                 ->get()
                 ->sortBy(function($query){
