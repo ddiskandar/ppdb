@@ -67,6 +67,7 @@ class Biodata extends Component
 
     public $tinggi;
     public $berat;
+    public $lingkar_kepala;
     public $jarak;
     public $waktu;
     public $hobby_id;
@@ -161,6 +162,7 @@ class Biodata extends Component
 
         $this->tinggi = $this->student->tinggi;
         $this->berat = $this->student->berat;
+        $this->lingkar_kepala = $this->student->lingkar_kepala;
         $this->jarak = $this->student->jarak;
         $this->waktu = $this->student->waktu;
 
@@ -356,6 +358,7 @@ class Biodata extends Component
             ->update([
                 'tinggi' => $this->tinggi,
                 'berat' => $this->berat,
+                'lingkar_kepala' => $this->lingkar_kepala,
                 'jarak' => $this->jarak,
                 'waktu' => $this->waktu,
             ]);
@@ -366,6 +369,8 @@ class Biodata extends Component
     public function submitRincian()
     {
         $this->validate([
+            'hobby_id' => '',
+            'ideals_id' => '',
             'prestasi' => '',
             'pdu' => '',
             'olahraga' => '',
@@ -374,6 +379,8 @@ class Biodata extends Component
 
         Student::where('id', $this->student->id)
             ->update([
+                'hobby_id' => $this->hobby_id,
+                'ideals_id' => $this->ideals_id,
                 'prestasi' => $this->prestasi,
                 'pdu' => $this->pdu,
                 'olahraga' => $this->olahraga,

@@ -604,7 +604,7 @@
                             <x-input-error for="olahraga" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
-                            <x-label for="jas" value="{{ __('Ukuran eragam Jas Almamater') }}" />
+                            <x-label for="jas" value="{{ __('Ukuran seragam Jas Almamater') }}" />
                             <x-input wire:model.defer="jas" id="jas" type="text" class="block w-full mt-1" />
                             <x-input-error for="jas" class="mt-2" />
                         </div>
