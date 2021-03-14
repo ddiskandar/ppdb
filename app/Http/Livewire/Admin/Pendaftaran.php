@@ -72,7 +72,7 @@ class Pendaftaran extends Component
 
             $user = User::factory()->create([
                 'name' => $this->name,
-                'password' => Hash::make('password'),
+                'password' => Hash::make('12345678'),
             ]);
 
             $student = Student::create([

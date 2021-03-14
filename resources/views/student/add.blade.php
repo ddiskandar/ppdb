@@ -6,7 +6,7 @@
         <div>
             <x-label for="pilihan_kelas" :value="__('Pilihan Kelas')" />
 
-            <x-select wire:model.defer="pilihan_kelas"  id="pilihan_kelas" name="pilihan_kelas" autocomplete="pilihan_kelas" class="block w-full px-3 mt-1" required>
+            <x-select wire:model.defer="pilihan_kelas" id="pilihan_kelas" name="pilihan_kelas" autocomplete="pilihan_kelas" class="block w-full px-3 mt-1" required>
                 <option value="">{{ __('-- Pilih salah-satu') }}</option>
                 <option value="0">{{ __('Regular') }}</option>
                 <option value="1">{{ __('Boarding') }}</option>
@@ -124,7 +124,13 @@
         <div x-data="{ buttonDisabled: false }" class="flex items-center mt-4">
 
             <x-button class="w-full py-3 mt-4" @click="buttonDisabled = true" x-on:disabled="buttonDisabled">
-                {{ __('Tambah') }}
+                <svg wire:loading wire:target="addNewStudent" class="w-5 h-5 -ml-1 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span wire:loading.remove wire:target="addNewStudent">
+                    {{ __('Tambah') }}
+                </span>
             </x-button>
 
         </div>
