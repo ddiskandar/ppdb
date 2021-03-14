@@ -505,16 +505,22 @@
                 <x-form successMessage="{{ $successMessagePeriodik }}" submit="submitPeriodik">
                     <x-slot name="form">
 
-                        <div class="col-span-6 sm:col-span-3">
+                        <div class="col-span-6 sm:col-span-2">
                             <x-label for="tinggi" value="{{ __('Tinggi Badan (cm)') }}" />
                             <x-input wire:model.defer="tinggi" id="tinggi" type="text" class="block w-full mt-1" />
                             <x-input-error for="tinggi" class="mt-2" />
                         </div>
 
-                        <div class="col-span-6 sm:col-span-3">
+                        <div class="col-span-6 sm:col-span-2">
                             <x-label for="berat" value="{{ __('Berat Badan (Kg)') }}" />
                             <x-input wire:model.defer="berat" id="berat" type="text" class="block w-full mt-1" />
                             <x-input-error for="berat" class="mt-2" />
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-2">
+                            <x-label for="lingkar_kepala" value="{{ __('Lingkar Kepala') }}" />
+                            <x-input wire:model.defer="lingkar_kepala" id="lingkar_kepala" type="text" class="block w-full mt-1" />
+                            <x-input-error for="lingkar_kepala" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
@@ -558,6 +564,28 @@
 
                 <x-form successMessage="{{ $successMessageRincian }}" submit="submitRincian">
                     <x-slot name="form">
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-label for="hobby_id" value="{{ __('Hobby') }}" />
+                            <x-select wire:model.defer="hobby_id" id="hobby_id" name="hobby_id" autocomplete="hobby_id" class="block w-full px-3 mt-1">
+                                @foreach ($hobbies as $hobby)
+                                <option value="{{ $hobby->id }}" {{ ($hobby->id == $hobby_id) ? 'selected':'' }}>{{ $hobby->name }}
+                                </option>
+                                @endforeach
+                            </x-select>
+                            <x-input-error for="hobby_id" class="mt-2" />
+                        </div>
+                        
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-label for="ideals_id" value="{{ __('Cita-cita') }}" />
+                            <x-select wire:model.defer="ideals_id" id="ideals_id" name="ideals_id" autocomplete="ideals_id" class="block w-full px-3 mt-1">
+                                @foreach ($ideals as $ideal)
+                                <option value="{{ $ideal->id }}" {{ ($ideal->id == $ideals_id) ? 'selected':'' }}>{{ $ideal->name }}
+                                </option>
+                                @endforeach
+                            </x-select>
+                            <x-input-error for="ideals_id" class="mt-2" />
+                        </div>
 
                         <div class="col-span-6">
                             <x-label for="prestasi" value="{{ __('Prestasi yang pernah diraih') }}" />

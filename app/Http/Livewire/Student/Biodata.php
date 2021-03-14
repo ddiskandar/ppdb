@@ -8,6 +8,8 @@ use Livewire\WithFileUploads;
 use App\Models\Student;
 use App\Models\User;
 use App\Models\Agama;
+use App\Models\Hobby;
+use App\Models\Ideals;
 use App\Models\School;
 use App\Models\Tinggal;
 use App\Models\Transportasi;
@@ -67,6 +69,8 @@ class Biodata extends Component
     public $berat;
     public $jarak;
     public $waktu;
+    public $hobby_id;
+    public $ideals_id;
     public $prestasi;
     public $pdu;
     public $olahraga;
@@ -160,6 +164,8 @@ class Biodata extends Component
         $this->jarak = $this->student->jarak;
         $this->waktu = $this->student->waktu;
 
+        $this->hobby_id = $this->student->hobby_id;
+        $this->ideals_id = $this->student->ideals_id;
         $this->prestasi = $this->student->prestasi;
         $this->pdu = $this->student->pdu;
         $this->olahraga = $this->student->olahraga;
@@ -387,6 +393,8 @@ class Biodata extends Component
             'pendidikans' => Pendidikan::all(),
             'pekerjaans' => Pekerjaan::all(),
             'penghasilans' => Penghasilan::all(),
+            'hobbies' => Hobby::all(),
+            'ideals' => Ideals::all(),
         ]);
 
     }
