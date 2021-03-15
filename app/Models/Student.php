@@ -136,6 +136,11 @@ class Student extends Model
         );
     }
 
+    public function un_bayar()
+    {
+        return $this->payments->where('status', false)->sum('amount');
+    }
+
     public function bayar()
     {
         return $this->payments->where('status', true)->sum('amount');

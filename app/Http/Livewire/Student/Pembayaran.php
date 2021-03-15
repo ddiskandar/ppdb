@@ -12,7 +12,7 @@ class Pembayaran extends Component
 
     public $successMessage;
 
-    public $amount;
+    public $amount = 150000;
     public $date;
     public $attachment;
 
@@ -51,10 +51,6 @@ class Pembayaran extends Component
     
     public function render()
     {
-        return view('livewire.student.pembayaran', [
-            'payments' => Payment::where('student_id', auth()->user()->student->id)
-                ->orderBy('date', 'ASC')
-                ->get(),
-        ]);
+        return view('livewire.student.pembayaran');
     }
 }

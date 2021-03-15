@@ -123,7 +123,9 @@
                                                     </svg>
                                                 </div>
                                                 @else
-                                                Rp. {{ $item->student->ppdb->payment_amount - $item->student->bayar() }} ,-
+                                                <span class="text-red-600">
+                                                    Rp. {{ $item->student->ppdb->payment_amount - $item->student->bayar() }} ,-
+                                                </span>
                                                 @endif
                                             </div>
                                         </td>
@@ -158,13 +160,14 @@
                                         </td>
                                         @if ($item->verified_by)
                                         <td class="px-3 py-4 text-green-500 whitespace-nowrap">
-                                            <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
-                                                Verified
-                                            </span>
+                                            <div class="inline-flex items-center px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full">
+                                                <span class="w-2 h-2 mr-2 bg-green-600 rounded-full"></span>
+                                                <span>Verified</span>
+                                            </div>
                                         </td>
                                         @else
                                         <td @click="slide = true" wire:click="verify({{ $item->id }})" class="px-3 py-4 font-semibold text-red-600 cursor-pointer whitespace-nowrap">
-                                            Verifikasi Sekarang
+                                            <span class="text-sm">Verifikasi Sekarang</span>
                                         </td>
                                         @endif
                                         <td class="px-3 py-4 whitespace-nowrap">

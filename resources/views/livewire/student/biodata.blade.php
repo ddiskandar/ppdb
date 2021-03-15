@@ -110,19 +110,19 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="birthplace" value="{{ __('Tempat Lahir') }}" content="required" />
+                            <x-input wire:model.defer="birthplace" id="birthplace" type="text" class="block w-full mt-1" />
+                            <x-input-error for="birthplace" class="mt-2" />
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-3">
+                            <x-label for="birthdate" value="{{ __('Tanggal Lahir') }}" content="required" />
                             <x-input x-data x-init="
                                     new Cleave($el, {
                                         date: true,
                                         delimiter: '/',
                                         datePattern: ['d', 'm', 'Y']
                                     })
-                                " wire:model.defer="birthplace" id="birthplace" type="text" class="block w-full mt-1" />
-                            <x-input-error for="birthplace" class="mt-2" />
-                        </div>
-
-                        <div class="col-span-6 sm:col-span-3">
-                            <x-label for="birthdate" value="{{ __('Tanggal Lahir') }}" content="required" />
-                            <x-input wire:model.defer="birthdate" id="birthdate" type="date" class="block w-full mt-1" />
+                                " wire:model.defer="birthdate" id="birthdate" type="date" class="block w-full mt-1" />
                             <x-input-error for="birthdate" class="mt-2" />
                         </div>
 
@@ -154,13 +154,13 @@
 
                         <div class="col-span-6 sm:col-span-1">
                             <x-label for="rt" value="{{ __('RT') }}" content="required" />
-                            <x-input wire:model.defer="rt" id="rt" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="rt" id="rt" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="rt" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-1">
                             <x-label for="rw" value="{{ __('RW') }}" content="required" />
-                            <x-input wire:model.defer="rw" id="rw" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="rw" id="rw" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="rw" class="mt-2" />
                         </div>
 
@@ -190,7 +190,7 @@
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="kode_pos" value="{{ __('Kode Pos') }}" />
-                            <x-input wire:model.defer="kode_pos" id="kode_pos" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="kode_pos" id="kode_pos" type="number" class="block w-full mt-1" maxlength=5 />
                             <x-input-error for="kode_pos" class="mt-2" />
                         </div>
 
@@ -230,19 +230,19 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="anak_ke" value="{{ __('Anak ke-berapa (berdasarkan KK)') }}" content="required" />
-                            <x-input wire:model.defer="anak_ke" id="anak_ke" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="anak_ke" id="anak_ke" type="number" class="block w-full mt-1" maxlength=2 />
                             <x-input-error for="anak_ke" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="saudara" value="{{ __('Jumlah Saudara') }}" content="required" />
-                            <x-input wire:model.defer="saudara" id="saudara" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="saudara" id="saudara" type="number" class="block w-full mt-1" maxlength=2 />
                             <x-input-error for="saudara" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="phone" value="{{ __('Nomor HP / Whatsapp') }}" content="required" />
-                            <x-input wire:model.defer="phone" id="phone" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="phone" id="phone" type="text" class="block w-full mt-1" maxlength=15 />
                             <x-input-error for="phone" class="mt-2" />
                         </div>
 
@@ -329,7 +329,7 @@
 
                         <div class="col-span-6 sm:col-span-4">
                             <x-label for="phone_ortu" value="{{ __('Nomor HP Orang tua/Wali') }}" />
-                            <x-input wire:model.defer="phone_ortu" id="phone_ortu" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="phone_ortu" id="phone_ortu" type="text" class="block w-full mt-1" maxlength=15 />
                             <x-input-error for="phone_ortu" class="mt-2" />
                         </div>
 
@@ -340,13 +340,13 @@
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="ayah_nik" value="{{ __('Nomor NIK Ayah') }}" />
-                            <x-input wire:model.defer="ayah_nik" id="ayah_nik" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="ayah_nik" id="ayah_nik" type="number" class="block w-full mt-1" maxlength=16 />
                             <x-input-error for="ayah_nik" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="ayah_lahir" value="{{ __('Tahun lahir Ayah') }}" />
-                            <x-input wire:model.defer="ayah_lahir" id="ayah_lahir" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="ayah_lahir" id="ayah_lahir" type="number" class="block w-full mt-1" maxlength=4 />
                             <x-input-error for="ayah_lahir" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
@@ -387,13 +387,13 @@
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="ibu_nik" value="{{ __('Nomor NIK ibu') }}" />
-                            <x-input wire:model.defer="ibu_nik" id="ibu_nik" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="ibu_nik" id="ibu_nik" type="number" class="block w-full mt-1" maxlength=16 />
                             <x-input-error for="ibu_nik" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="ibu_lahir" value="{{ __('Tahun lahir ibu') }}" />
-                            <x-input wire:model.defer="ibu_lahir" id="ibu_lahir" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="ibu_lahir" id="ibu_lahir" type="number" class="block w-full mt-1" maxlength=4 />
                             <x-input-error for="ibu_lahir" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
@@ -434,13 +434,13 @@
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="wali_nik" value="{{ __('Nomor NIK wali') }}" />
-                            <x-input wire:model.defer="wali_nik" id="wali_nik" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="wali_nik" id="wali_nik" type="number" class="block w-full mt-1" maxlength=16 />
                             <x-input-error for="wali_nik" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="wali_lahir" value="{{ __('Tahun lahir wali') }}" />
-                            <x-input wire:model.defer="wali_lahir" id="wali_lahir" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="wali_lahir" id="wali_lahir" type="number" class="block w-full mt-1" maxlength=4 />
                             <x-input-error for="wali_lahir" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
@@ -507,31 +507,31 @@
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="tinggi" value="{{ __('Tinggi Badan (cm)') }}" />
-                            <x-input wire:model.defer="tinggi" id="tinggi" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="tinggi" id="tinggi" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="tinggi" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="berat" value="{{ __('Berat Badan (Kg)') }}" />
-                            <x-input wire:model.defer="berat" id="berat" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="berat" id="berat" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="berat" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="lingkar_kepala" value="{{ __('Lingkar Kepala') }}" />
-                            <x-input wire:model.defer="lingkar_kepala" id="lingkar_kepala" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="lingkar_kepala" id="lingkar_kepala" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="lingkar_kepala" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="jarak" value="{{ __('Jarak tempat tinggal ke sekolah (Km)') }}" />
-                            <x-input wire:model.defer="jarak" id="jarak" type="text" class="block w-full mt-1" maxlength=3 />
+                            <x-input wire:model.defer="jarak" id="jarak" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="jarak" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="waktu" value="{{ __('Waktu tempuh ke sekolah (menit)') }}" />
-                            <x-input wire:model.defer="waktu" id="waktu" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="waktu" id="waktu" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="waktu" class="mt-2" />
                         </div>
 
@@ -575,7 +575,7 @@
                             </x-select>
                             <x-input-error for="hobby_id" class="mt-2" />
                         </div>
-                        
+
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="ideals_id" value="{{ __('Cita-cita') }}" />
                             <x-select wire:model.defer="ideals_id" id="ideals_id" name="ideals_id" autocomplete="ideals_id" class="block w-full px-3 mt-1">
@@ -589,27 +589,25 @@
 
                         <div class="col-span-6">
                             <x-label for="prestasi" value="{{ __('Prestasi yang pernah diraih') }}" />
-                            <x-textarea wire:model.defer="prestasi" id="prestasi" rows="5" class="block w-full mt-1"></x-textarea>
+                            <x-textarea wire:model.defer="prestasi" id="prestasi" rows="5" class="block w-full mt-1" maxlength=512></x-textarea>
                             <x-input-error for="prestasi" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="pdu" value="{{ __('Ukuran seragam PDU') }}" />
-                            <x-input wire:model.defer="pdu" id="pdu" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="pdu" id="pdu" type="text" class="block w-full mt-1" maxlength=4 />
                             <x-input-error for="pdu" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="olahraga" value="{{ __('Ukuran seragam Olahraga') }}" />
-                            <x-input wire:model.defer="olahraga" id="olahraga" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="olahraga" id="olahraga" type="text" class="block w-full mt-1" maxlength=4 />
                             <x-input-error for="olahraga" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="jas" value="{{ __('Ukuran seragam Jas Almamater') }}" />
-                            <x-input wire:model.defer="jas" id="jas" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="jas" id="jas" type="text" class="block w-full mt-1" maxlength=4 />
                             <x-input-error for="jas" class="mt-2" />
                         </div>
-
-
 
                     </x-slot>
                     <x-slot name="actions">
