@@ -46,7 +46,7 @@ class PpdbJurusan extends Component
     public function render()
     {
         return view('livewire.student.ppdb-jurusan', [
-            'jurusans' => Jurusan::all()
+            'jurusans' => Jurusan::get(['id','name'])
         ]);
     }
 }

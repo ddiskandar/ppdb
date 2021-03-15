@@ -136,14 +136,19 @@ class Pendaftaran extends Component
     public function render()
     {
         return view('livewire.admin.pendaftaran', [
-            'students' => Student::whereHas('user', function ( $query) {
+            'students' => Student::select(['id', 'user_id', 'school_id', 'school_temp'])
+            ->whereHas('user', function ( $query) {
                 $query->where('name', 'like', '%'.$this->search.'%');
             })->WhereHas('school', function ($query) {
                  $query->where('name','like', '%'.$this->filterSchool.'%');
             })->orderByDesc('created_at')
-            ->with('school', 'user', 'ppdb')
+            ->with(
+                'school:id,name',
+                'user:id,name,username', 
+                'ppdb:student_id,periode_id,pilihan_kelas,pilihan_satu,pilihan_dua,join_wa'
+            )
             ->paginate(7),
-            'schools' => School::all(),
+            'schools' => School::all(['id', 'name']),
         ]);
     }
 }

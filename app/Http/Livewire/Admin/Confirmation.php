@@ -86,12 +86,10 @@ class Confirmation extends Component
             'payments' => Payment::WhereHas('student.user', function ($query) {
                  $query->where('name','like', '%'.$this->search.'%');
             })
-            ->with('student', 'student.user', 'verificator', 'student.ppdb')->orderBy('date', 'desc')->paginate(7),
-            'students' => Student::with('user', 'payments')
+            ->with('student:id,user_id', 'student.user:id,name,username', 'verificator:name', 'student.ppdb:student_id,payment_amount')->orderBy('date', 'desc')->paginate(7),
+            'students' => Student::select(['id', 'user_id'])
+                ->with('user:id,username,name')
                 ->get()
-                ->sortBy(function($query){
-                    return $query->user->name;
-                }),
         ]);
     }
 }

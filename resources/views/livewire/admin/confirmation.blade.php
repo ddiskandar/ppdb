@@ -220,9 +220,8 @@
                                 <select wire:model.defer="student_id" id="student_id" name="student_id" class="block w-full mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 " required>
                                     <option value="">{{ __('-- Pilih salah satu') }}</option>
                                     @foreach ($students as $student)
-                                    @if ( $student->bayar() < 150000 ) <option value={{ $student->id }}>{{ $student->user->name . ' (' . $student->user->username . ')' }}</option>
-                                        @endif
-                                        @endforeach
+                                    <option value={{ $student->id }}>{{ $student->user->name . ' (' . $student->user->username . ')' }}</option>
+                                    @endforeach
 
                                 </select>
 
