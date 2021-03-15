@@ -103,7 +103,6 @@ class Biodata extends Component
     public function mount()
     {
         $this->student = auth()->user()->student;
-
         $this->name = auth()->user()->name;
 
         $this->panggilan = $this->student->panggilan;
