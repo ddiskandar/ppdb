@@ -17,21 +17,24 @@ class Home extends Component
     {
         $this->periode = Periode::where('active', true)
             ->select([
-                'id', 'ref_payment_amount','name','desc'
+                'id', 'ref_payment_amount', 'name', 'desc'
             ])
             ->first();
 
-        $id = auth()->user()->student->id;
+        $student = Student::where('user_id', auth()->id())->first(['id']);
 
-        $this->student = Student::select([
-            'id', 'user_id', 'school_id', 'phone', 'address', 'nisn', 'name_verified'
+        $this->student = Student::where('id', $student->id)
+        ->select([
+            'id', 'user_id', 'panggilan', 'jk', 'nisn', 'nik', 'kk', 'birthplace', 'birthdate', 'akta', 'address', 'rt', 'rw', 'desa', 'kecamatan', 'kab', 'prov', 'kode_pos', 'tinggal_id', 'transportasi_id', 'school_id', 'phone', 'address', 'nisn', 'name_verified'
         ])
-        ->where('id', $id)
         ->with(
             'ortu:student_id,ibu_nama',
             'user:id,name,username,photo',
             'school:id,name',
-            'ppdb:id,student_id,periode_id,pilihan_satu'
+            'ppdb:id,student_id,periode_id,pilihan_satu,join_wa,payment_amount',
+            'payments:id,student_id,status,amount,verified_by',
+            'document:id,student_id,kartu_keluarga'
+            
         )
         ->first();
     }

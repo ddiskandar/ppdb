@@ -16,21 +16,22 @@ class Confirmation extends Component
     
     public $verifyMode = false;
     public $search;
-    public $student_id;
-    public $payment_amount = 150000;
-    public $name, $username, $amount, $status, $date, $note, $payment;
+    public $payment;
 
-    public function verify($id)
+    public $payment_amount = 150000;
+    public $amount = 150000;
+    public $name, $username, $status, $date, $note;
+    
+    public $student_id;
+
+    protected $rules = [
+        'payment.payment_amount' => 'required',
+        'payment.amount' => 'required',
+    ];
+
+    public function mount()
     {
-        $this->verifyMode = true;
-        $payment = Payment::where('id', $id)->with('student', 'student.school', 'student.ppdb')->first();
-        $this->payment = $payment;
-        $this->name = $payment->student->user->name;
-        $this->username = $payment->student->user->username;
-        $this->amount = $payment->amount;
-        $this->payment_amount = $payment->student->ppdb->payment_amount;
-        $this->date = $payment->date;
-        $this->note = $payment->note;
+        
     }
 
     public function newPayment()
@@ -39,11 +40,28 @@ class Confirmation extends Component
         $this->verifyMode = false;
     }
 
+    public function getVerified($id)
+    {
+        $this->verifyMode = true;
+
+        $this->payment = Payment::where('id', $id)
+            ->with('student', 'student.school', 'student.ppdb')
+            ->first();
+
+        $this->name = $this->payment->student->user->name;
+        $this->username = $this->payment->student->user->username;
+        $this->amount = $this->payment->amount;
+        $this->payment_amount = $this->payment->student->ppdb->payment_amount;
+        $this->date = $this->payment->date;
+        $this->note = $this->payment->note;
+
+    }
+
     public function updatePayment()
     {
         Payment::where('id', $this->payment->id)
         ->update([
-            'verified_by' => auth()->user()->id,
+            'verified_by' => auth()->id(),
             'amount' => $this->amount,
             'note' => $this->note,
             'date' => $this->date,
@@ -56,7 +74,7 @@ class Confirmation extends Component
         Payment::Create([
             'id' => isset($this->payment) ?? $this->payment->id,
             'student_id' => isset($this->student_id) ? $this->student_id : $this->payment->student_id,
-            'verified_by' => auth()->user()->id,
+            'verified_by' => auth()->id(),
             'amount' => $this->amount,
             'note' => $this->note,
             'date' => $this->date,
@@ -83,13 +101,27 @@ class Confirmation extends Component
     public function render()
     {
         return view('livewire.admin.confirmation', [
-            'payments' => Payment::WhereHas('student.user', function ($query) {
-                 $query->where('name','like', '%'.$this->search.'%');
-            })
-            ->with('student:id,user_id', 'student.user:id,name,username', 'verificator:name', 'student.ppdb:student_id,payment_amount')->orderBy('date', 'desc')->paginate(7),
+            'payments' => Payment::select([
+                'id', 'student_id', 'attachment', 'amount', 'verified_by', 'date', 'note' 
+            ])->WhereHas('student.user', function ($query) {
+                $query->where('name','like', '%'.$this->search.'%');
+            })->with(
+                'student:id,user_id', 
+                'student.user:id,name,username', 
+                'verificator:name', 
+                'student.ppdb:id,student_id,payment_amount'
+            )->orderBy('date', 'desc')->paginate(7),
+
             'students' => Student::select(['id', 'user_id'])
-                ->with('user:id,username,name')
-                ->get()
+                ->with(
+                    'user:id,username,name',
+                    'payments:id,student_id,status,amount',
+                )->get()
+                ->sortBy(function ($query) {
+                    return $query->user->name;
+                }),
+     
         ]);
+
     }
 }

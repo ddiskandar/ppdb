@@ -75,16 +75,16 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="panggilan" value="{{ __('Panggilan') }}" content="required" />
-                            <x-input wire:model.defer="panggilan" id="panggilan" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="student.panggilan" id="panggilan" type="text" class="block w-full mt-1" />
                             <x-input-error for="panggilan" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="jk" value="{{ __('Jenis Kelamin') }}" content="required" />
-                            <x-select wire:model.defer="jk" id="jk" name="jk" autocomplete="jk" class="block w-full px-3 mt-1">
-                                <option value="L" {{ ($jk === "L") ? 'selected':'' }}>{{ __('Laki-laki') }}
+                            <x-select wire:model.defer="student.jk" id="jk" name="jk" autocomplete="jk" class="block w-full px-3 mt-1">
+                                <option value="L" {{ ($student->jk === "L") ? 'selected':'' }}>{{ __('Laki-laki') }}
                                 </option>
-                                <option value="P" {{ ($jk === "P") ? 'selected':'' }}>{{ __('Perempuan') }}
+                                <option value="P" {{ ($student->jk === "P") ? 'selected':'' }}>{{ __('Perempuan') }}
                                 </option>
                             </x-select>
                             <x-input-error for="jk" class="mt-2" />
@@ -92,25 +92,25 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="nisn" value="{{ __('NISN') }}" content="required" />
-                            <x-input wire:model.defer="nisn" id="nisn" type="text" class="block w-full mt-1" maxlength=10 />
+                            <x-input wire:model.defer="student.nisn" id="nisn" type="text" class="block w-full mt-1" maxlength=10 />
                             <x-input-error for="nisn" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="nik" value="{{ __('NIK') }}" content="required" />
-                            <x-input wire:model.defer="nik" id="nik" type="text" class="block w-full mt-1" maxlength=16 />
+                            <x-input wire:model.defer="student.nik" id="nik" type="text" class="block w-full mt-1" maxlength=16 />
                             <x-input-error for="nik" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="kk" value="{{ __('No KK') }}" content="required" />
-                            <x-input wire:model.defer="kk" id="kk" type="text" class="block w-full mt-1" maxlength=16 />
+                            <x-input wire:model.defer="student.kk" id="kk" type="text" class="block w-full mt-1" maxlength=16 />
                             <x-input-error for="kk" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="birthplace" value="{{ __('Tempat Lahir') }}" content="required" />
-                            <x-input wire:model.defer="birthplace" id="birthplace" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="student.birthplace" id="birthplace" type="text" class="block w-full mt-1" />
                             <x-input-error for="birthplace" class="mt-2" />
                         </div>
 
@@ -122,22 +122,22 @@
                                         delimiter: '/',
                                         datePattern: ['d', 'm', 'Y']
                                     })
-                                " wire:model.defer="birthdate" id="birthdate" type="date" class="block w-full mt-1" />
+                                " wire:model.defer="student.birthdate" id="birthdate" type="date" class="block w-full mt-1" />
                             <x-input-error for="birthdate" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="akta" value="{{ __('Nomor Reg Akta Kelahiran') }}" content="required" />
-                            <x-input wire:model.defer="akta" id="akta" type="text" class="block w-full mt-1" maxlength=21 />
+                            <x-input wire:model.defer="student.akta" id="akta" type="text" class="block w-full mt-1" maxlength=21 />
                             <x-input-error for="akta" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="agama_id" value="{{ __('Agama') }}" content="required" />
 
-                            <x-select wire:model.defer="agama_id" id="agama_id" name="agama_id" autocomplete="agama_id" class="block w-full px-3 mt-1">
+                            <x-select wire:model.defer="student.agama_id" id="agama_id" name="agama_id" autocomplete="agama_id" class="block w-full px-3 mt-1">
                                 @foreach ($agamas as $agama)
-                                <option value="{{ $agama->id }}" {{ ($agama->id == $agama_id) ? 'selected':'' }}>{{ $agama->name }}
+                                <option value="{{ $agama->id }}" {{ ($agama->id == $student->agama_id) ? 'selected':'' }}>{{ $agama->name }}
                                 </option>
                                 @endforeach
                             </x-select>
@@ -148,69 +148,69 @@
 
                         <div class="col-span-6 sm:col-span-4">
                             <x-label for="address" value="{{ __('Alamat Kampung / Jalan') }}" content="required" />
-                            <x-input wire:model.defer="address" id="address" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="student.address" id="address" type="text" class="block w-full mt-1" />
                             <x-input-error for="address" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-1">
                             <x-label for="rt" value="{{ __('RT') }}" content="required" />
-                            <x-input wire:model.defer="rt" id="rt" type="number" class="block w-full mt-1" maxlength=3 />
+                            <x-input wire:model.defer="student.rt" id="rt" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="rt" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-1">
                             <x-label for="rw" value="{{ __('RW') }}" content="required" />
-                            <x-input wire:model.defer="rw" id="rw" type="number" class="block w-full mt-1" maxlength=3 />
+                            <x-input wire:model.defer="student.rw" id="rw" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="rw" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="desa" value="{{ __('Desa/Kelurahan') }}" content="required" />
-                            <x-input wire:model.defer="desa" id="desa" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="student.desa" id="desa" type="text" class="block w-full mt-1" />
                             <x-input-error for="desa" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="kecamatan" value="{{ __('Kecamatan') }}" content="required" />
-                            <x-input wire:model.defer="kecamatan" id="kecamatan" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="student.kecamatan" id="kecamatan" type="text" class="block w-full mt-1" />
                             <x-input-error for="kecamatan" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="kab" value="{{ __('Kabupaten') }}" content="required" />
-                            <x-input wire:model.defer="kab" id="kab" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="student.kab" id="kab" type="text" class="block w-full mt-1" />
                             <x-input-error for="kab" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="prov" value="{{ __('Provinsi') }}" content="required" />
-                            <x-input wire:model.defer="prov" id="prov" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="student.prov" id="prov" type="text" class="block w-full mt-1" />
                             <x-input-error for="prov" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="kode_pos" value="{{ __('Kode Pos') }}" />
-                            <x-input wire:model.defer="kode_pos" id="kode_pos" type="number" class="block w-full mt-1" maxlength=5 />
+                            <x-input wire:model.defer="student.kode_pos" id="kode_pos" type="number" class="block w-full mt-1" maxlength=5 />
                             <x-input-error for="kode_pos" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="lintang" value="{{ __('Lintang') }}" />
-                            <x-input wire:model.defer="lintang" id="lintang" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="student.lintang" id="lintang" type="text" class="block w-full mt-1" />
                             <x-input-error for="lintang" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="bujur" value="{{ __('Bujur') }}" />
-                            <x-input wire:model.defer="bujur" id="bujur" type="text" class="block w-full mt-1" />
+                            <x-input wire:model.defer="student.bujur" id="bujur" type="text" class="block w-full mt-1" />
                             <x-input-error for="bujur" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="tinggal_id" value="{{ __('Tempat tinggal') }}" content="required" />
-                            <x-select wire:model.defer="tinggal_id" id="tinggal_id" name="tinggal_id" autocomplete="tinggal_id" class="block w-full px-3 mt-1">
+                            <x-select wire:model.defer="student.tinggal_id" id="tinggal_id" name="tinggal_id" autocomplete="tinggal_id" class="block w-full px-3 mt-1">
                                 @foreach ($tinggals as $tinggal)
-                                <option value="{{ $tinggal->id }}" {{ ($tinggal->id == $tinggal_id) ? 'selected':'' }}>{{ $tinggal->name }}
+                                <option value="{{ $tinggal->id }}" {{ ($tinggal->id == $student->tinggal_id) ? 'selected':'' }}>{{ $tinggal->name }}
                                 </option>
                                 @endforeach
                             </x-select>
@@ -219,9 +219,9 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="transportasi_id" value="{{ __('Moda Transportasi') }}" content="required" />
-                            <x-select wire:model.defer="transportasi_id" id="transportasi_id" name="transportasi_id" autocomplete="transportasi_id" class="block w-full px-3 mt-1">
+                            <x-select wire:model.defer="student.transportasi_id" id="transportasi_id" name="transportasi_id" autocomplete="transportasi_id" class="block w-full px-3 mt-1">
                                 @foreach ($transportasis as $transportasi)
-                                <option value="{{ $transportasi->id }}" {{ ($transportasi->id == $transportasi_id) ? 'selected':'' }}>{{ $transportasi->name }}
+                                <option value="{{ $transportasi->id }}" {{ ($transportasi->id == $student->transportasi_id) ? 'selected':'' }}>{{ $transportasi->name }}
                                 </option>
                                 @endforeach
                             </x-select>
@@ -230,19 +230,19 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="anak_ke" value="{{ __('Anak ke-berapa (berdasarkan KK)') }}" content="required" />
-                            <x-input wire:model.defer="anak_ke" id="anak_ke" type="number" class="block w-full mt-1" maxlength=2 />
+                            <x-input wire:model.defer="student.anak_ke" id="anak_ke" type="number" class="block w-full mt-1" maxlength=2 />
                             <x-input-error for="anak_ke" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="saudara" value="{{ __('Jumlah Saudara') }}" content="required" />
-                            <x-input wire:model.defer="saudara" id="saudara" type="number" class="block w-full mt-1" maxlength=2 />
+                            <x-input wire:model.defer="student.saudara" id="saudara" type="number" class="block w-full mt-1" maxlength=2 />
                             <x-input-error for="saudara" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="phone" value="{{ __('Nomor HP / Whatsapp') }}" content="required" />
-                            <x-input wire:model.defer="phone" id="phone" type="text" class="block w-full mt-1" maxlength=15 />
+                            <x-input wire:model.defer="student.phone" id="phone" type="text" class="block w-full mt-1" maxlength=15 />
                             <x-input-error for="phone" class="mt-2" />
                         </div>
 
@@ -277,9 +277,9 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="school_id" value="{{ __('Sekolah Asal') }}" />
-                            <x-select wire:model.defer="school_id" id="school_id" name="school_id" autocomplete="school_id" class="block w-full px-3 mt-1">
+                            <x-select wire:model.defer="student.school_id" id="school_id" name="school_id" class="block w-full px-3 mt-1">
                                 @foreach ($schools as $school)
-                                <option value="{{ $school->id }}" {{ ($school->id == $school_id) ? 'selected':'' }}>{{ $school->name }}
+                                <option value="{{ $school->id }}" {{ ($school->id == $student->school_id) ? 'selected':'' }}>{{ $school->name }}
                                 </option>
                                 @endforeach
                             </x-select>
@@ -287,7 +287,7 @@
                             <x-input-error for="school_id" class="mt-2" />
                         </div>
 
-                        @if ($school_id == 1)
+                        @if ($student->school_id == 1)
                         <div class="col-span-6 sm:col-span-4">
                             <x-label for="school_temp" value="{{ __('Nama dan Alamat Sekolah') }}" />
                             <x-input wire:model.defer="school_temp" id="school_temp" type="text" class="block w-full mt-1" placeholder="Contoh : SMP Negeri 1 Bandung, Cicendo Kota Bandung" />
@@ -351,7 +351,7 @@
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="ayah_pendidikan" value="{{ __('Pendidikan Terakhir Ayah') }}" />
-                            <x-select wire:model.defer="ayah_pendidikan" id="ayah_pendidikan" name="ayah_pendidikan" autocomplete="ayah_pendidikan" class="block w-full px-3 mt-1">
+                            <x-select wire:model.defer="ayah_pendidikan" id="ayah_pendidikan" name="ayah_pendidikan" class="block w-full px-3 mt-1">
                                 @foreach ($pendidikans as $pendidikan)
                                 <option value="{{ $pendidikan->id }}" {{ ($pendidikan->id == $ayah_pendidikan) ? 'selected':'' }}>{{ $pendidikan->name }}
                                 </option>
@@ -507,31 +507,31 @@
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="tinggi" value="{{ __('Tinggi Badan (cm)') }}" />
-                            <x-input wire:model.defer="tinggi" id="tinggi" type="number" class="block w-full mt-1" maxlength=3 />
+                            <x-input wire:model.defer="student.tinggi" id="tinggi" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="tinggi" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="berat" value="{{ __('Berat Badan (Kg)') }}" />
-                            <x-input wire:model.defer="berat" id="berat" type="number" class="block w-full mt-1" maxlength=3 />
+                            <x-input wire:model.defer="student.berat" id="berat" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="berat" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-2">
                             <x-label for="lingkar_kepala" value="{{ __('Lingkar Kepala') }}" />
-                            <x-input wire:model.defer="lingkar_kepala" id="lingkar_kepala" type="number" class="block w-full mt-1" maxlength=3 />
+                            <x-input wire:model.defer="student.lingkar_kepala" id="lingkar_kepala" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="lingkar_kepala" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="jarak" value="{{ __('Jarak tempat tinggal ke sekolah (Km)') }}" />
-                            <x-input wire:model.defer="jarak" id="jarak" type="number" class="block w-full mt-1" maxlength=3 />
+                            <x-input wire:model.defer="student.jarak" id="jarak" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="jarak" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="waktu" value="{{ __('Waktu tempuh ke sekolah (menit)') }}" />
-                            <x-input wire:model.defer="waktu" id="waktu" type="number" class="block w-full mt-1" maxlength=3 />
+                            <x-input wire:model.defer="student.waktu" id="waktu" type="number" class="block w-full mt-1" maxlength=3 />
                             <x-input-error for="waktu" class="mt-2" />
                         </div>
 
@@ -567,9 +567,9 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="hobby_id" value="{{ __('Hobby') }}" />
-                            <x-select wire:model.defer="hobby_id" id="hobby_id" name="hobby_id" autocomplete="hobby_id" class="block w-full px-3 mt-1">
+                            <x-select wire:model.defer="student.hobby_id" id="hobby_id" name="hobby_id" autocomplete="hobby_id" class="block w-full px-3 mt-1">
                                 @foreach ($hobbies as $hobby)
-                                <option value="{{ $hobby->id }}" {{ ($hobby->id == $hobby_id) ? 'selected':'' }}>{{ $hobby->name }}
+                                <option value="{{ $hobby->id }}" {{ ($hobby->id == $student->hobby_id) ? 'selected':'' }}>{{ $hobby->name }}
                                 </option>
                                 @endforeach
                             </x-select>
@@ -578,9 +578,9 @@
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="ideals_id" value="{{ __('Cita-cita') }}" />
-                            <x-select wire:model.defer="ideals_id" id="ideals_id" name="ideals_id" autocomplete="ideals_id" class="block w-full px-3 mt-1">
+                            <x-select wire:model.defer="student.ideals_id" id="ideals_id" name="ideals_id" autocomplete="ideals_id" class="block w-full px-3 mt-1">
                                 @foreach ($ideals as $ideal)
-                                <option value="{{ $ideal->id }}" {{ ($ideal->id == $ideals_id) ? 'selected':'' }}>{{ $ideal->name }}
+                                <option value="{{ $ideal->id }}" {{ ($ideal->id == $student->ideals_id) ? 'selected':'' }}>{{ $ideal->name }}
                                 </option>
                                 @endforeach
                             </x-select>
@@ -589,23 +589,23 @@
 
                         <div class="col-span-6">
                             <x-label for="prestasi" value="{{ __('Prestasi yang pernah diraih') }}" />
-                            <x-textarea wire:model.defer="prestasi" id="prestasi" rows="5" class="block w-full mt-1" maxlength=512></x-textarea>
+                            <x-textarea wire:model.defer="student.prestasi" id="prestasi" rows="5" class="block w-full mt-1" maxlength=512></x-textarea>
                             <x-input-error for="prestasi" class="mt-2" />
                         </div>
 
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="pdu" value="{{ __('Ukuran seragam PDU') }}" />
-                            <x-input wire:model.defer="pdu" id="pdu" type="text" class="block w-full mt-1" maxlength=4 />
+                            <x-input wire:model.defer="student.pdu" id="pdu" type="text" class="block w-full mt-1" maxlength=4 />
                             <x-input-error for="pdu" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="olahraga" value="{{ __('Ukuran seragam Olahraga') }}" />
-                            <x-input wire:model.defer="olahraga" id="olahraga" type="text" class="block w-full mt-1" maxlength=4 />
+                            <x-input wire:model.defer="student.olahraga" id="olahraga" type="text" class="block w-full mt-1" maxlength=4 />
                             <x-input-error for="olahraga" class="mt-2" />
                         </div>
                         <div class="col-span-6 sm:col-span-3">
                             <x-label for="jas" value="{{ __('Ukuran seragam Jas Almamater') }}" />
-                            <x-input wire:model.defer="jas" id="jas" type="text" class="block w-full mt-1" maxlength=4 />
+                            <x-input wire:model.defer="student.jas" id="jas" type="text" class="block w-full mt-1" maxlength=4 />
                             <x-input-error for="jas" class="mt-2" />
                         </div>
 

@@ -129,7 +129,7 @@
                                                 @endif
                                             </div>
                                         </td>
-                                        <td @click="slide = true" wire:click="verify({{ $item->id }})" class="px-3 py-4 cursor-pointer whitespace-nowrap">
+                                        <td @click="slide = true" wire:click="getVerified({{ $item->id }})" class="px-3 py-4 cursor-pointer whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="">
                                                     <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -220,7 +220,9 @@
                                 <select wire:model.defer="student_id" id="student_id" name="student_id" class="block w-full mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 " required>
                                     <option value="">{{ __('-- Pilih salah satu') }}</option>
                                     @foreach ($students as $student)
+                                    @if(! $student->is_payment_completed())
                                     <option value={{ $student->id }}>{{ $student->user->name . ' (' . $student->user->username . ')' }}</option>
+                                    @endif
                                     @endforeach
 
                                 </select>

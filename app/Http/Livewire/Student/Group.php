@@ -3,39 +3,43 @@
 namespace App\Http\Livewire\Student;
 
 use Livewire\Component;
-use App\Models\Ppdb;
 
+use App\Models\Ppdb;
+use App\Models\Student;
 
 class Group extends Component
 {
     public $successMessage;
-
-    public $join_wa;
+    public $ppdb;
 
     protected $rules = [
-        'join_wa' => 'required',
+        'ppdb.join_wa' => 'required',
     ];
 
     public function mount()
     {
-        $student = auth()->user()->student;
+        $student = Student::where('user_id', auth()->id())->first(['id']);
 
-        $this->join_wa = $student->ppdb->join_wa;
+        $this->ppdb = Ppdb::where('student_id', $student->id)
+        ->select([
+            'id', 'join_wa',
+        ])
+        ->with('student:id')
+        ->first();
     }
 
     public function gabung()
     {
-        
+        $this->ppdb->update([
+            'join_wa' => true,
+        ]);
     }
 
     public function submitForm()
     {
-        $this->validate();
-
-        Ppdb::where('student_id', auth()->user()->student->id)
-            ->update([
-                'join_wa' => $this->join_wa,
-            ]);
+        $this->ppdb->update([
+            'join_wa' => $this->ppdb->join_wa,
+        ]);
 
         $this->successMessage = 'Data berhasil diperbaharui!';
     }

@@ -121,7 +121,6 @@ class Student extends Model
             $this->birthplace,
             $this->birthdate,
             $this->akta,
-            $this->agama_id,
             $this->address,
             $this->rt,
             $this->rw,

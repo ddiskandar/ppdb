@@ -133,6 +133,13 @@ class Pendaftaran extends Component
 
     }
 
+    public function destroy( )
+    {
+        User::where('id', $this->student->user->id)->delete();
+
+        $this->reset();
+    }
+
     public function render()
     {
         return view('livewire.admin.pendaftaran', [
